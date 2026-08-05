@@ -1,4 +1,4 @@
-<!-- generated: sweep.py | 2026-08-05T18:09:23 | corpus: 2420d5fa | oldest: 2026-08-05 | oldest-listed: 2026-08-05 | self: 47af6e38 - do not hand-edit -->
+<!-- generated: sweep.py | 2026-08-05T18:59:16 | corpus: 926273d3 | oldest: 2026-08-05 | oldest-listed: 2026-08-05 | self: d35b71b1 - do not hand-edit -->
 # gap-queue.md -- queued gap: items, minus drained; counted (review-closable) then listed-not-counted (human-gated / product-zone) [D96]
 
 counted (review-closable; these count toward the review-warranted verdict):
@@ -10,6 +10,6 @@ listed, not counted (human-gated / product-zone; ride the handoff for visibility
 - 348fc25403cd | route: human-gated | target: n/a | `_chronicle/LOG_PROMPT.md` (Part 2, lines 40 to 48 and 88) instructs a journal author to | source: 0003_validate-icm-seeding_2026-08-05.md
 - 49b8a47fb286 | route: product-zone | target: n/a | _config/CONTEXT.md's working rules still state the machine-readable constants extract | source: 0008_build-game-engine-cinema_2026-08-05.md
 - 5335d8762de1 | route: product-zone | target: n/a | `03_train/output/runs/2026-08-05_eval-expectimax-d2-v2/manifest.json` records | source: 0021_remediate-and-game-v1.2_2026-08-05.md
-- 7e5f6f22b457 | route: product-zone | target: n/a | `02_build/CONTEXT.md`'s "Do not" reads "No agent logic here; agents belong to `03_train/`, | source: 0021_remediate-and-game-v1.2_2026-08-05.md
+- 7616e8b6bcf2 | route: product-zone | target: n/a | F002 and F006 in `03_train/output/_FINDINGS.md` cite behaviour-probe evidence for | source: 0023_publish-pack-assembly_2026-08-05.md
 - c87be31d365e | route: product-zone | target: n/a | `01_rules/CONTEXT.md`'s Process section still reads "New spec version = new file, prior | source: 0006_lock-rules-reconcile-canon_2026-08-05.md
 - db7c19040554 | route: product-zone | target: n/a | `03_train/CONTEXT.md` lines 32 and 48 still describe the scoring equation as blocked on | source: 0006_lock-rules-reconcile-canon_2026-08-05.md
