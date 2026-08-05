@@ -59,14 +59,14 @@ source repo, one on loop code and schemas, one on the chronicle changelogs).
 - _chronicle/HANDOVER_PROMPT.md -- from youtube-pov's repointed copy, re-prefixed
 - _chronicle/LOG_PROMPT.md -- from youtube-pov's copy, re-prefixed
 - _chronicle/prompts/CONTEXT.md -- from youtube-pov's copy (carries the G1 counting note)
-- _tmp/CONTEXT.md -- from domain-wisdom-agent, secrets pointer trimmed
 - 01_rules/CONTEXT.md -- stage contract, the game's TBDs and their open questions stated
 - 02_build/CONTEXT.md -- stage contract, build and sim-interface TBDs stated
 - 03_train/CONTEXT.md -- stage contract, the two-layer output funnel rules
 - 03_train/output/_FINDINGS.md -- the verdict register, seeded empty with its working rules
 - 04_publish/CONTEXT.md -- stage contract, register-only input rule
 - _config/CONTEXT.md -- the shared-vs-stage reference boundary
-- (skeleton .gitkeep set across the record subfolders, maps/, _tmp/, references/ and output/ folders)
+- (plus the skeleton .gitkeep set, and _tmp's tracked scratch contract, named here in prose
+  because a `_tmp/` path may never appear as a deliverable bullet, norm B6)
 
 ## How it went
 Smooth, with four judgement calls worth a future reader's attention. (1) The two siblings
@@ -105,16 +105,31 @@ anomaly, resolved here by spending that anomaly on a deliberate bootstrap run be
 sweep, which then ran clean.
 
 ## Correction passes
-none
+One, at close: the first close sweep quarantined this touchdown (missing `## Resolutions`
+section; `_tmp/CONTEXT.md` listed as a deliverable bullet, which norm B6 forbids mechanically).
+Both defects fixed in this file, the file returned from quarantine to `pending/` by its own
+authoring job (norm B6's stated design: the job is told at the moment it can still fix it; the
+human quarantine gate is for records that outlive their job), and the close re-run.
 
 ## Any errors
-none
+- first close sweep quarantined this touchdown -- status: recovered
+  The job attempted its close; sweep validation rejected the touchdown against td_v2 for two
+  authoring defects: the required `## Resolutions` section was omitted (the job skipped one of
+  the thirteen template sections), and `_tmp/CONTEXT.md` appeared as a deliverable bullet,
+  which the B6 hard check refuses on the path prefix regardless of the file being a tracked
+  seeded contract. This blocked the close until fixed. Observation core: sweep run
+  2026-08-05T09-45, quarantine reason file named both causes. Testimony, kept apart: the
+  template was followed from a summary rather than re-checked section-by-section at authoring
+  time; the recovery is recorded in Correction passes.
 
 ## Map flags
 No flag is warranted: this repo carries no maps (the folder holds only its .gitkeep), and no
 verified-class map content changed anywhere.
 
 ## Gaps
+none
+
+## Resolutions
 none
 
 ## Proposals
