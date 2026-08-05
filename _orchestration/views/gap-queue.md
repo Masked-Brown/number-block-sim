@@ -1,4 +1,4 @@
-<!-- generated: sweep.py | 2026-08-05T10:17:19 | corpus: 9aaaaa84 | oldest: 2026-08-05 | oldest-listed: 2026-08-05 | self: b941540f - do not hand-edit -->
+<!-- generated: sweep.py | 2026-08-05T10:22:52 | corpus: 6e23e5bd | oldest: 2026-08-05 | oldest-listed: 2026-08-05 | self: b941540f - do not hand-edit -->
 # gap-queue.md -- queued gap: items, minus drained; counted (review-closable) then listed-not-counted (human-gated / product-zone) [D96]
 
 counted (review-closable; these count toward the review-warranted verdict):

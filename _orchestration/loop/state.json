@@ -16,34 +16,37 @@
     "hash": "b602fb95",
     "lines": 56
   },
-  "deadman_last_age_seconds": 1597.8783495426178,
+  "deadman_last_age_seconds": 172.85801649093628,
   "handoff": {
     "ask": null,
     "items": [
-      "anomaly:c11433f91f61"
+      "613fdc78e8a2"
     ],
-    "recorded": "2026-08-05T09:41:23",
+    "listed": [
+      "348fc25403cd (human-gated)"
+    ],
+    "recorded": "2026-08-05T10:22:52",
     "trigger": [
-      "new-this-run anomalies (1)"
+      "gap-queue counted non-empty (1 review-closable; 1 listed, not counted)"
     ]
   },
   "human_breaches": [],
-  "last_review": null,
+  "last_review": "2026-08-05T10:22:52",
   "last_verdict": "review-warranted",
   "map_hashes": {},
   "quarantine_count": 0,
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "b3ad656ebdab40b626e905d51486e8881a72d74b",
+  "trailer_audit_baseline": "9d277eddb31ced1a90af3fbefd98d44e100b94d7",
   "trigger_history": [
-    [
-      "74a1adb95347"
-    ],
     [
       "613fdc78e8a2",
       "anomaly:a59d7b41d3f1"
+    ],
+    [
+      "613fdc78e8a2"
     ]
   ],
-  "written": "2026-08-05T10:17:20"
+  "written": "2026-08-05T10:22:52"
 }
