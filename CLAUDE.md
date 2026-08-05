@@ -12,9 +12,9 @@ British English, no em-dashes, no exclamation marks.
 ## What this is
 
 A falling number-block matching game, built from scratch, plus an AI agent trained to play it
-optimally. Blocks fall into a grid; equal numbers merge and double; three or more adjacent equal
-blocks merge to a higher multiple; low-value blocks stranded at the bottom are the failure mode.
-The experiment is to find optimal play and write up the findings. This workspace holds the
+optimally. The game mechanics (board and flow, spawning, merging, the game score, game over) are
+decided and locked at v1.0 in `01_rules/output/RULES.md`; this router does not restate them. The
+experiment is to find optimal play and write up the findings. This workspace holds the
 coordination infrastructure (the portable ICM operating system, two-actor form) and the four-stage
 product zone. The why behind the infrastructure is `_infrastructure/DESIGN.md`.
 
@@ -102,9 +102,11 @@ friction patch.
 - No RL training stack before a baseline agent exists and its ceiling is measured.
 - No game UI polish, no deployment, no publishing infrastructure; the game exists for the
   experiment, and `04_publish/` is a write-up, not a product launch.
-- No third actor: no Scout, no Queen. Two actors and the loop.
-- Board dimensions, spawn distribution, exact merge rules and the scoring equation are TBD:
-  AB decides them in a later session and they land in `01_rules/`. Jobs do not invent them.
+- No third actor. Two actors (the worker bee and the Claude Code job) and the loop, as routed
+  above.
+- Board dimensions, spawn distribution, merge rules and the scoring equation are no longer TBD:
+  they are decided and locked in `01_rules/output/RULES.md` v1.0. Any further rule change is
+  AB's decision, versioned there, never invented inline by a job.
 
 ## Changelog
 

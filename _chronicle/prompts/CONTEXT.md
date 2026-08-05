@@ -17,3 +17,8 @@ template `_orchestration/CC_TOUCHDOWN.md` and validated against the schema versi
 - `quarantine/` holds touchdowns that failed validation, each beside a `<name>.reason.txt`
   naming why. Nothing is ever silently dropped. Leaving quarantine is a human act: fix the file
   and return it to `pending/`, or retire it deliberately. No tool empties it.
+
+Ruling (AB, 2026-08-05): a job may recover its own touchdown from quarantine during its own
+close, before the job ends, with the round-trip recorded in the touchdown. Anything still in
+quarantine when a job ends is human-gated, no exceptions. This resolves the B6/B12 tension
+surfaced by touchdown 0003 in favour of the recovery the seeding job made.

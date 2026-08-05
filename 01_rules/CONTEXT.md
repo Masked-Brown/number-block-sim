@@ -3,7 +3,7 @@
 ## What this folder is
 The game's rule spec home: the single source of truth for what the game IS. Layer 2 contract for
 the stage; the spec it produces is what `02_build/` implements and `03_train/` scores against.
-The stage is a stub at seeding: the structure is real, the rule content is not yet decided.
+The rule content is decided and locked at v1.0 in `output/RULES.md` (AB, 2026-08-05).
 
 ## Inputs
 | Input | Layer | What it carries |
@@ -21,20 +21,17 @@ open questions as TBD lines; a job never resolves a TBD by inventing the value (
 CONTEXT.md's rule). New spec version = new file, prior versions kept.
 
 ## Outputs
-`output/rules-spec-v<N>.md`: the versioned rule spec. Empty at seeding. The spec is complete
-when every TBD below has a decided value:
+`output/RULES.md`: the rule specification. Locked at v1.0 by AB, 2026-08-05: board and flow,
+spawning, merging, the game score and the game-over condition are DECIDED, and this file is the
+single source of truth `02_build/` implements and `03_train/` scores against. A change to its
+sections 1 to 6 is a rule change: it needs AB's sign-off, a version bump there, and a CHANGELOG
+entry. Section 8 constants are tuning, not rules, and change freely in `_config/`.
 
-- TBD: board dimensions (open question: grid width and height, and whether the top row is a
-  spawn buffer or playable).
-- TBD: spawn distribution (open question: which values spawn and with what weights, and whether
-  the distribution shifts as play progresses).
-- TBD: exact merge rules (open question: pairwise equal-merge doubles, but what exactly does a
-  three-or-more adjacent merge produce, which adjacency counts, and how do chained merges
-  cascade and in what order).
-- TBD: the scoring equation (open question: what is being maximised; per-merge points, survival
-  time, both, and with what weights).
-- TBD: the failure condition's precise form (open question: stranded low blocks are the failure
-  mode, but what exact board state ends the game).
+What stays open in this stage: nothing from the original open-question list remains undecided.
+The human composite performance score (accuracy vs AI, speed, and so on) is explicitly out of
+this file's scope (its section 5) and is a Phase 4 decision when that stage is reached. Anything
+RULES.md lists as "deliberately not in v1.0" (its section 9) is a deferred decision, not an open
+question here.
 
 ## Do not
 - No code here; the spec is prose plus tables, and code homes live in `02_build/`.

@@ -54,3 +54,29 @@ British English, no em-dashes, no exclamation marks.
 - where: the whole tree; per-act file lists are in the named commits.
 - act: job touchdown (seed-icm-infrastructure, bee nbs-wor-1.0-z); the seeding order is AB's,
   carried by the worker bee's work order.
+
+## 0002 - 2026-08-05 - rules locked at v1.0: 01_rules/output/RULES.md
+- what: AB dropped and locked the game's rule specification at v1.0 (5x7 board and flow,
+  deterministic seeded spawn with floor rise, orthogonal group merging, per-merge game score,
+  the game-over condition), designed with the worker bee (nbs-wor-1.0-z) and committed by this
+  job. Every canon and product-zone file that stated merge mechanics, spawn behaviour or scoring
+  as TBD, or restated them inline instead of pointing at the spec, is reconciled to the locked
+  file: `CLAUDE.md` ("What this is" and the guardrail bullet), `README.md`,
+  `_infrastructure/DESIGN.md` A5, and `01_rules/CONTEXT.md`'s Outputs section, whose two TBD
+  lines asserting settled-sounding premises are replaced. This entry is the co-edit CHANGELOG
+  record (norm B11) for this job's canon edit to `CLAUDE.md`.
+- where: 01_rules/output/RULES.md (new), 01_rules/CONTEXT.md, CLAUDE.md, README.md,
+  _infrastructure/DESIGN.md
+- act: job touchdown (lock-rules-reconcile-canon, bee nbs-wor-1.0-z); the rules were AB's
+  decision, carried by the worker bee's work order and dropped as the file.
+
+## 0003 - 2026-08-05 - ruling: a job may recover its own touchdown from quarantine during its own close
+- what: AB's ruling on the B6/B12 tension surfaced by validation touchdown 0003 (the seeding
+  job's self-recovery of its own quarantined touchdown): a job may recover its own touchdown
+  from quarantine during its own close, before the job ends, with the round-trip recorded in the
+  touchdown. Anything still in quarantine when a job ends is human-gated, no exceptions. This
+  resolves the tension in favour of the recovery the seeding job made, and lands as a ruling in
+  `_chronicle/prompts/CONTEXT.md`, not as a NORMS.md entry.
+- where: _chronicle/prompts/CONTEXT.md
+- act: human decision (AB), carried by job touchdown (lock-rules-reconcile-canon, bee
+  nbs-wor-1.0-z).

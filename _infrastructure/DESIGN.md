@@ -415,11 +415,9 @@ carried here; domain-wisdom-agent is the two-actor precedent this repo follows.
 ## A5. What this system is
 
 A falling number-block matching game, built from scratch, plus an AI agent trained to play it
-optimally. Blocks fall into a grid; equal numbers merge and double; three or more adjacent equal
-blocks merge to a higher multiple; low-value blocks stranded at the bottom are the failure mode.
-The experiment is to find optimal play and write up the findings. Board dimensions, spawn
-distribution, exact merge rules and the scoring equation are all TBD, decided in a later session
-and recorded in `01_rules/` when they land.
+optimally. The game mechanics (board and flow, spawning, merging, the game score, game over) are
+decided and locked at v1.0 in `01_rules/output/RULES.md` (AB, 2026-08-05). The experiment is to
+find optimal play and write up the findings.
 
 The product zone is ICM-shaped: numbered stages `01_rules/` (the game's rule spec), `02_build/`
 (the game and simulation harness), `03_train/` (agent training and simulation runs), `04_publish/`
