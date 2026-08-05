@@ -100,8 +100,10 @@ friction patch.
 - No maps. The tree is small enough to navigate bare; the first map enters only when AB names it.
 - No database. Run results are files under `03_train/output/runs/`; JSON until it hurts.
 - No RL training stack before a baseline agent exists and its ceiling is measured.
-- No game UI polish, no deployment, no publishing infrastructure; the game exists for the
-  experiment, and `04_publish/` is a write-up, not a product launch.
+- The playable game and its deployment exist (AB decided 2026-08-05): GitHub Pages serves
+  `docs/`, the game's home, and push equals deploy. That is the only deployment surface, and
+  no further one is added without AB naming it. Publishing infrastructure for the WRITE-UP is
+  still not built; `04_publish/` is a write-up, not a product launch.
 - No third actor. Two actors (the worker bee and the Claude Code job) and the loop, as routed
   above.
 - Board dimensions, spawn distribution, merge rules and the scoring equation are no longer TBD:

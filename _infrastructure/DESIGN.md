@@ -426,14 +426,22 @@ The product zone is ICM-shaped: numbered stages `01_rules/` (the game's rule spe
 zone; each stage's CONTEXT.md is Layer 2, an Inputs / Process / Outputs contract; `references/`
 and `_config/` are Layer 3, stable across runs; `output/` is Layer 4, per-run artefacts.
 
-Two deliberate adaptations to plain ICM. First, `03_train/` is not a single pass with one review
-gate: it is many simulation runs plus iteration, so its `output/` carries `runs/<run-id>/` for
-raw results (the investigation layer, allowed to accumulate) and `_FINDINGS.md` as the verdict
-layer that `04_publish/` reads, lifted from youtube-pov's analysis funnel (`data/analysis/` and
-its `_FINDINGS.md` register there). Second, touchdowns and stage outputs are two separate record
-systems and are never merged: a touchdown is the per-job logbook entry, immutable, in
-`_chronicle/prompts/`; a stage output is the artefact of the work, in that stage's `output/`.
-The root CONTEXT.md states this so no future job conflates them.
+Three deliberate adaptations to plain ICM. First, `03_train/` is not a single pass with one
+review gate: it is many simulation runs plus iteration, so its `output/` carries `runs/<run-id>/`
+for raw results (the investigation layer, allowed to accumulate) and `_FINDINGS.md` as the
+verdict layer that `04_publish/` reads, lifted from youtube-pov's analysis funnel
+(`data/analysis/` and its `_FINDINGS.md` register there). Second, touchdowns and stage outputs
+are two separate record systems and are never merged: a touchdown is the per-job logbook entry,
+immutable, in `_chronicle/prompts/`; a stage output is the artefact of the work, in that stage's
+`output/`. The root CONTEXT.md states this so no future job conflates them. Third (AB,
+2026-08-05, the build-game-engine-cinema job): the built game's code home is `docs/`, not
+`02_build/src/`, because GitHub Pages serves `main` `/docs` and the game is deployed (push
+equals deploy, no build step); the one pure engine file there serves the browser game, cinema
+mode and the Node-driven sim harness alike. `02_build/` keeps the stage contract and the build
+records (`output/BUILD.md`); the root CONTEXT.md carries the routing line. The CLAUDE.md
+guardrail changed in the same act: the game's Pages deployment now exists as the only
+deployment surface, while publishing infrastructure for the 04_publish write-up remains
+unbuilt (CHANGELOG 0004).
 
 ## A6. The seeding record
 

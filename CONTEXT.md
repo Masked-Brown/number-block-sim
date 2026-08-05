@@ -18,7 +18,12 @@ across runs. `output/` (per stage) is Layer 4, per-run artefacts.
 - **Deciding or recording what the game IS** (board, spawn distribution, merge rules, scoring):
   `01_rules/`. The rules spec is the single source the other stages implement against.
 - **Building or changing the game or the simulation harness**: `02_build/`. Implements
-  `01_rules/output/` exactly; never invents a rule.
+  `01_rules/output/` exactly; never invents a rule. The built game itself (engine, browser
+  UI, cinema mode, tests, the section 8 tunables file) lives in `docs/`, the GitHub
+  Pages-served folder: a declared divergence from the plain stage shape (AB, 2026-08-05,
+  CHANGELOG 0004), because push equals deploy and the one engine file must serve browser and
+  Node alike. `02_build/CONTEXT.md` remains the working contract for that code, and
+  `02_build/output/` holds the build records (`BUILD.md`).
 - **Running simulations, training or evaluating agents, analysing runs**: `03_train/`. Raw
   results land in `output/runs/<run-id>/`; distilled beliefs land in `output/_FINDINGS.md`, the
   verdict register, by AB-gated promotion.

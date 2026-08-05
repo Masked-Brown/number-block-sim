@@ -80,3 +80,26 @@ British English, no em-dashes, no exclamation marks.
 - where: _chronicle/prompts/CONTEXT.md
 - act: human decision (AB), carried by job touchdown (lock-rules-reconcile-canon, bee
   nbs-wor-1.0-z).
+
+## 0004 - 2026-08-05 - the playable game built and deployed; docs/ divergence; guardrail canon edit
+
+- what: the game exists and is live. A pure deterministic engine (PCG32 via BigInt,
+  bit-identical in Node and the browser, determinism a tested property: 23 passing engine
+  tests plus a cross-environment hash check), a browser game, a cinema-mode replay viewer
+  (versioned replay schema v1 with the optional reasoning[] array), and a GitHub Pages
+  deployment from `main` `/docs` at https://masked-brown.github.io/number-block-sim/, enabled
+  via the API. The code's home is `docs/`, a declared divergence from the plain stage shape
+  (AB's decision, carried by the work order; the root CONTEXT.md routing and DESIGN.md A5
+  record it), with `02_build/output/BUILD.md` as the architecture and verification record and
+  `02_build/CONTEXT.md` reconciled (language TBD settled: vanilla JS ES modules, no
+  dependencies; the sim interface contract's concrete base recorded). Canon edit under norm
+  B11, this entry its CHANGELOG half and DESIGN.md A5 the co-edit: CLAUDE.md's guardrail
+  bullet "no game UI polish, no deployment, no publishing infrastructure" replaced with the
+  decided state, the Pages deployment existing as the only deployment surface while
+  publishing infrastructure for the write-up stays unbuilt. README rewritten with the Play
+  Now link.
+- where: docs/ (new: index.html, cinema.html, test.html, package.json, css/, js/, test/),
+  02_build/output/BUILD.md (new), 02_build/CONTEXT.md, CONTEXT.md, CLAUDE.md, README.md,
+  _infrastructure/DESIGN.md
+- act: job touchdown (build-game-engine-cinema, bee nbs-wor-1.0-z); the deployment and the
+  guardrail change are AB's decision (2026-08-05), carried by the worker bee's work order.
