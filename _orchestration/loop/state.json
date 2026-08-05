@@ -29,13 +29,13 @@
   },
   "human_breaches": [],
   "last_review": null,
-  "last_verdict": "review-warranted",
+  "last_verdict": "clean",
   "map_hashes": {},
   "quarantine_count": 0,
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "621975fd8d37278df3d17df617db8ecf11073433",
+  "trailer_audit_baseline": "5b137235bd4aa871af97ca62d3f9aff3b5967d3f",
   "trigger_history": [
     [
       "anomaly:6b0980afdc16"
@@ -44,5 +44,5 @@
       "74a1adb95347"
     ]
   ],
-  "written": "2026-08-05T09:48:05"
+  "written": "2026-08-05T09:49:58"
 }
