@@ -3,7 +3,7 @@ schema: 2
 actor: job
 bee: nbs-[wor]-1.0-z
 slug: train-lab-and-baselines
-job: NNNN
+job: 0013
 date: 2026-08-05
 model: claude-opus-5[1m]
 effort: extended thinking
@@ -138,6 +138,26 @@ split is where the real answer was.
   with `node -e require(...)`, rewritten as single string literals, and all sixteen JSON outputs
   now parse. The validation sweep is worth repeating in any job that hand-edits a record file.
 
+- the touchdown quarantined on its own close, because the number placeholder lives in two places
+  and the close step fills only one -- status: recovered
+  What was attempted: the standard close. Touchdown written to `pending/` with the literal `NNNN`
+  placeholder in the filename per CC_TOUCHDOWN.md, `commit_safe.py --pick-number` to have the
+  number picked under the lock, then `sweep.py --apply`.
+  What actually happened: commit-safe picked 0013 and renamed the FILE, and the sweep then
+  quarantined it with `frontmatter field job='NNNN' fails pattern ^\d{4}$`. The placeholder sits
+  in the filename AND in the `job:` frontmatter field, and `--pick-number` rewrites only the
+  filename (commit_safe.py lines 377 to 387 rename and re-stage; nothing in that file touches
+  frontmatter).
+  What it blocks or why it matters: every job that follows CC_TOUCHDOWN.md literally will
+  quarantine its own touchdown on its first close. This is the SECOND time: the commit log
+  carries `becac94 game-revision-v1.1: fix touchdown frontmatter job number to match the picked
+  filename (0011)`, which is the same trap hit by job 0011 on the same day. Recovered here by
+  setting `job: 0013` to match the picked filename, moving the file back to `pending/` with its
+  reason file removed, and re-running the sweep. Recovering a touchdown this job wrote ninety
+  seconds earlier, for a stated mechanical reason, is completing a close rather than clearing
+  quarantine on a job's own judgement (norm B12); no other quarantined file was touched. The
+  durable fix is a one-line change in one of two places, proposed below.
+
 ## Map flags
 none
 
@@ -188,6 +208,23 @@ change in either direction. `03_train/lab/cli/throughput.js` now repeats each me
 reports best, median and worst, and treats the BEST pass as the most informative single figure
 since contention can only ever make a run slower than the code deserves. Any future job quoting a
 performance number, in any stage, should do the same rather than quoting one pass.
+```
+
+```
+Close the touchdown-number trap for good. The `NNNN` placeholder lives in two places, the
+filename and the `job:` frontmatter field, and `commit_safe.py --pick-number` fills only the
+first, so a job that follows CC_TOUCHDOWN.md literally quarantines its own touchdown on its first
+close. It has now happened twice on the same day: job 0011 (commit becac94, "fix touchdown
+frontmatter job number to match the picked filename") and this job. Two candidate fixes, both
+one-liners, and the choice is AB's because they sit in different zones:
+(a) commit_safe.py, under the lock, also rewrites the `job:` frontmatter field to the number it
+just picked. This makes "never pick it yourself" true of both places and needs no job to
+remember anything. It is a loop-code change, so it carries the design-pack and CHANGELOG
+couplings.
+(b) td_v2.json widens the `job` pattern to `^(NNNN|\d{4})$` and the sweep stamps the number from
+the filename when it routes. Cheaper, but it leaves a placeholder in the landed record.
+Recommending (a): the filename is already the authority the numbering rule is written against,
+and one field should not have two owners.
 ```
 
 ## _tmp outputs
