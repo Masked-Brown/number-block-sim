@@ -16,40 +16,17 @@
     "hash": "f9e73f1d",
     "lines": 177
   },
-  "deadman_last_age_seconds": 127.2884566783905,
-  "handoff": {
-    "ask": null,
-    "items": [
-      "1988a4662809",
-      "3272f979a85e",
-      "3db578ec64e5",
-      "bc4486a5bbdc",
-      "bdd032f8032b",
-      "cbe86c22594f",
-      "df760cec0257",
-      "fc6495704351"
-    ],
-    "listed": [
-      "348fc25403cd (human-gated)",
-      "49b8a47fb286 (product-zone)",
-      "c87be31d365e (product-zone)",
-      "db7c19040554 (product-zone)"
-    ],
-    "recorded": "2026-08-05T13:09:40",
-    "trigger": [
-      "gap-queue counted non-empty (1 review-closable; 4 listed, not counted)",
-      "unconsidered proposals over threshold (7, oldest 0d)"
-    ]
-  },
+  "deadman_last_age_seconds": 289.95376324653625,
+  "handoff": null,
   "human_breaches": [],
-  "last_review": "2026-08-05T13:09:40",
-  "last_verdict": "review-warranted",
+  "last_review": "2026-08-05T13:42:26",
+  "last_verdict": "clean",
   "map_hashes": {},
   "quarantine_count": 0,
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "7a269c544295a180b985da4f470b0b86faad61b0",
+  "trailer_audit_baseline": "4d40551d502cb3b810629131d0ff464d9eb50fbd",
   "trigger_history": [
     [
       "1988a4662809",
@@ -72,5 +49,5 @@
       "fc6495704351"
     ]
   ],
-  "written": "2026-08-05T13:09:40"
+  "written": "2026-08-05T13:42:26"
 }
