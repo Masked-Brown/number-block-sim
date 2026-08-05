@@ -1,16 +1,17 @@
 {
   "what": "The campaign knowledge file: champion weights, feature list, search configuration, breeding provenance and learning curves, and the eval-v1 ladder. Machine-assembled by lab/cli/knowledge.js from the run records; regenerate on a new champion.",
-  "generated": "2026-08-05T13:53:17.555Z",
-  "job": "orchestrated-training-campaign",
+  "generated": "2026-08-05T16:33:31.612Z",
+  "job": "remediate-and-game-v1.2 (champion updated after audit 0019; first assembled by orchestrated-training-campaign)",
   "champion": {
-    "id": "expectimax-d3-v1",
-    "describe": "depth-3 expectimax, third block expected over the live distribution at coverage 0.9, heuristic-v2 weights",
+    "id": "expectimax-d3-v2",
+    "describe": "depth-3 expectimax, third block expected over the live distribution at coverage 0.9, leak-free leaf (next-merge-ready expected over the live distribution), heuristic-v2 weights",
     "search": {
       "kind": "expectimax",
       "depth": 3,
       "preview": 1,
       "expectation": "third block, live distribution",
-      "coverage": 0.9
+      "coverage": 0.9,
+      "leafNext": "expectation"
     },
     "weightsSharedWith": "heuristic-v2",
     "features": [
@@ -263,14 +264,30 @@
         "q1": 285524,
         "q3": 683593,
         "max": 2576032,
-        "run": "2026-08-05_eval-expectimax-d2-v1"
+        "run": "2026-08-05_eval-expectimax-d2-v1",
+        "superseded": "leaf-preview leak, audit 0019; see the -v2 row of the same depth"
       },
       "expectimax-d3-v1": {
         "median": 643996,
         "q1": 421189,
         "q3": 961014,
         "max": 2710108,
-        "run": "2026-08-05_eval-expectimax-d3-v1"
+        "run": "2026-08-05_eval-expectimax-d3-v1",
+        "superseded": "leaf-preview leak, audit 0019; see the -v2 row of the same depth"
+      },
+      "expectimax-d2-v2": {
+        "median": 428990,
+        "q1": 276072,
+        "q3": 677901,
+        "max": 2854048,
+        "run": "2026-08-05_eval-expectimax-d2-v2"
+      },
+      "expectimax-d3-v2": {
+        "median": 634826,
+        "q1": 436177,
+        "q3": 972640,
+        "max": 4062920,
+        "run": "2026-08-05_eval-expectimax-d3-v2"
       }
     }
   }

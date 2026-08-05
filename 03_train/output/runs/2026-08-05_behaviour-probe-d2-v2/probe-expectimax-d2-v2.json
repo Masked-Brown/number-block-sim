@@ -1,0 +1,3061 @@
+{
+  "what": "Per-move behaviour probe: what was on offer at every move versus what was chosen. Diagnostic instrument, train seeds only, never a headline number.",
+  "agent": "expectimax-d2-v2",
+  "seedSet": {
+    "id": "train-v1",
+    "checksum": "1f85ef3a6481a1aa385efd58afae383d60fd30e8a7526894bd18b36c255835ea",
+    "offset": 500,
+    "games": 50
+  },
+  "moves": 27232,
+  "pairDiscipline": {
+    "mergeAvailableShare": 0.6438,
+    "takenWhenAvailable": 0.8909,
+    "declinedWhenAvailable": 0.1091,
+    "declinedAndBankedInstead": 0.5675
+  },
+  "strandDiscipline": {
+    "burialAcceptedShare": 0.208,
+    "meanBurialMarginWhenAccepted": 0.01999,
+    "meanChosenStrand": 0.09757,
+    "meanBestAvailableStrand": 0.09341
+  },
+  "driftChasing": {
+    "raiseAvailableShare": 0.0227,
+    "chosenRaisedWhenAvailable": 0.8934,
+    "raisedOverHigherGain": 0,
+    "raiseDeclinedForGain": 0
+  },
+  "mergeCountsTotal": {
+    "2": 22218,
+    "3": 1667,
+    "4": 42,
+    "5": 1
+  },
+  "maxTileAtBlock": {
+    "25": {
+      "games": 50,
+      "median": 128,
+      "max": 512
+    },
+    "50": {
+      "games": 50,
+      "median": 512,
+      "max": 1024
+    },
+    "75": {
+      "games": 50,
+      "median": 1024,
+      "max": 2048
+    },
+    "100": {
+      "games": 50,
+      "median": 1024,
+      "max": 4096
+    },
+    "125": {
+      "games": 50,
+      "median": 1536,
+      "max": 4096
+    },
+    "150": {
+      "games": 50,
+      "median": 2048,
+      "max": 4096
+    },
+    "175": {
+      "games": 50,
+      "median": 2048,
+      "max": 8192
+    },
+    "200": {
+      "games": 50,
+      "median": 4096,
+      "max": 8192
+    },
+    "225": {
+      "games": 50,
+      "median": 4096,
+      "max": 8192
+    },
+    "250": {
+      "games": 50,
+      "median": 4096,
+      "max": 8192
+    },
+    "275": {
+      "games": 50,
+      "median": 4096,
+      "max": 16384
+    },
+    "300": {
+      "games": 50,
+      "median": 6144,
+      "max": 16384
+    },
+    "325": {
+      "games": 49,
+      "median": 8192,
+      "max": 16384
+    },
+    "350": {
+      "games": 49,
+      "median": 8192,
+      "max": 16384
+    },
+    "375": {
+      "games": 48,
+      "median": 8192,
+      "max": 16384
+    },
+    "400": {
+      "games": 46,
+      "median": 8192,
+      "max": 16384
+    },
+    "425": {
+      "games": 41,
+      "median": 8192,
+      "max": 32768
+    },
+    "450": {
+      "games": 37,
+      "median": 8192,
+      "max": 32768
+    },
+    "475": {
+      "games": 32,
+      "median": 16384,
+      "max": 32768
+    },
+    "500": {
+      "games": 27,
+      "median": 16384,
+      "max": 32768
+    },
+    "525": {
+      "games": 27,
+      "median": 16384,
+      "max": 32768
+    },
+    "550": {
+      "games": 24,
+      "median": 16384,
+      "max": 32768
+    },
+    "575": {
+      "games": 16,
+      "median": 16384,
+      "max": 32768
+    },
+    "600": {
+      "games": 11,
+      "median": 16384,
+      "max": 32768
+    },
+    "625": {
+      "games": 11,
+      "median": 16384,
+      "max": 32768
+    },
+    "650": {
+      "games": 10,
+      "median": 16384,
+      "max": 32768
+    },
+    "675": {
+      "games": 9,
+      "median": 16384,
+      "max": 32768
+    },
+    "700": {
+      "games": 8,
+      "median": 16384,
+      "max": 32768
+    },
+    "725": {
+      "games": 6,
+      "median": 16384,
+      "max": 32768
+    },
+    "750": {
+      "games": 5,
+      "median": 16384,
+      "max": 32768
+    },
+    "775": {
+      "games": 5,
+      "median": 16384,
+      "max": 32768
+    },
+    "800": {
+      "games": 1,
+      "median": 16384,
+      "max": 16384
+    },
+    "825": {
+      "games": 1,
+      "median": 16384,
+      "max": 16384
+    },
+    "850": {
+      "games": 1,
+      "median": 16384,
+      "max": 16384
+    },
+    "875": {
+      "games": 1,
+      "median": 16384,
+      "max": 16384
+    }
+  },
+  "score": {
+    "n": 50,
+    "median": 399846,
+    "q1": 270661,
+    "q3": 682841,
+    "max": 1422240
+  },
+  "perGame": [
+    {
+      "seed": "4983584597679403429",
+      "score": 331736,
+      "maxTile": 8192,
+      "blocksPlaced": 557,
+      "mergeCounts": {
+        "2": 450,
+        "3": 38
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 21
+        },
+        {
+          "tile": 256,
+          "atBlock": 30
+        },
+        {
+          "tile": 512,
+          "atBlock": 54
+        },
+        {
+          "tile": 1024,
+          "atBlock": 82
+        },
+        {
+          "tile": 2048,
+          "atBlock": 182
+        },
+        {
+          "tile": 4096,
+          "atBlock": 237
+        },
+        {
+          "tile": 8192,
+          "atBlock": 336
+        }
+      ]
+    },
+    {
+      "seed": "10495099421670503135",
+      "score": 1211556,
+      "maxTile": 32768,
+      "blocksPlaced": 662,
+      "mergeCounts": {
+        "2": 553,
+        "3": 39
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 5
+        },
+        {
+          "tile": 32,
+          "atBlock": 7
+        },
+        {
+          "tile": 64,
+          "atBlock": 10
+        },
+        {
+          "tile": 128,
+          "atBlock": 15
+        },
+        {
+          "tile": 256,
+          "atBlock": 26
+        },
+        {
+          "tile": 512,
+          "atBlock": 47
+        },
+        {
+          "tile": 1024,
+          "atBlock": 59
+        },
+        {
+          "tile": 2048,
+          "atBlock": 82
+        },
+        {
+          "tile": 4096,
+          "atBlock": 146
+        },
+        {
+          "tile": 8192,
+          "atBlock": 249
+        },
+        {
+          "tile": 16384,
+          "atBlock": 339
+        },
+        {
+          "tile": 32768,
+          "atBlock": 444
+        }
+      ]
+    },
+    {
+      "seed": "4560363155436434085",
+      "score": 269756,
+      "maxTile": 8192,
+      "blocksPlaced": 451,
+      "mergeCounts": {
+        "2": 361,
+        "3": 28,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 32,
+          "atBlock": 6
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 17
+        },
+        {
+          "tile": 256,
+          "atBlock": 31
+        },
+        {
+          "tile": 512,
+          "atBlock": 43
+        },
+        {
+          "tile": 1024,
+          "atBlock": 84
+        },
+        {
+          "tile": 2048,
+          "atBlock": 129
+        },
+        {
+          "tile": 4096,
+          "atBlock": 244
+        },
+        {
+          "tile": 8192,
+          "atBlock": 347
+        }
+      ]
+    },
+    {
+      "seed": "5032392626664434757",
+      "score": 265912,
+      "maxTile": 8192,
+      "blocksPlaced": 467,
+      "mergeCounts": {
+        "2": 376,
+        "3": 30
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 16,
+          "atBlock": 1
+        },
+        {
+          "tile": 32,
+          "atBlock": 6
+        },
+        {
+          "tile": 64,
+          "atBlock": 10
+        },
+        {
+          "tile": 128,
+          "atBlock": 13
+        },
+        {
+          "tile": 256,
+          "atBlock": 16
+        },
+        {
+          "tile": 512,
+          "atBlock": 35
+        },
+        {
+          "tile": 1024,
+          "atBlock": 59
+        },
+        {
+          "tile": 2048,
+          "atBlock": 95
+        },
+        {
+          "tile": 4096,
+          "atBlock": 165
+        },
+        {
+          "tile": 8192,
+          "atBlock": 244
+        }
+      ]
+    },
+    {
+      "seed": "4013959703676495586",
+      "score": 272188,
+      "maxTile": 8192,
+      "blocksPlaced": 491,
+      "mergeCounts": {
+        "2": 387,
+        "3": 35,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 6
+        },
+        {
+          "tile": 128,
+          "atBlock": 20
+        },
+        {
+          "tile": 256,
+          "atBlock": 41
+        },
+        {
+          "tile": 512,
+          "atBlock": 65
+        },
+        {
+          "tile": 1024,
+          "atBlock": 111
+        },
+        {
+          "tile": 2048,
+          "atBlock": 157
+        },
+        {
+          "tile": 8192,
+          "atBlock": 265
+        }
+      ]
+    },
+    {
+      "seed": "3041923965103013557",
+      "score": 720820,
+      "maxTile": 16384,
+      "blocksPlaced": 783,
+      "mergeCounts": {
+        "2": 622,
+        "3": 62,
+        "4": 2
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 2,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 3
+        },
+        {
+          "tile": 32,
+          "atBlock": 4
+        },
+        {
+          "tile": 128,
+          "atBlock": 8
+        },
+        {
+          "tile": 256,
+          "atBlock": 16
+        },
+        {
+          "tile": 512,
+          "atBlock": 30
+        },
+        {
+          "tile": 1024,
+          "atBlock": 51
+        },
+        {
+          "tile": 2048,
+          "atBlock": 81
+        },
+        {
+          "tile": 4096,
+          "atBlock": 310
+        },
+        {
+          "tile": 8192,
+          "atBlock": 412
+        },
+        {
+          "tile": 16384,
+          "atBlock": 610
+        }
+      ]
+    },
+    {
+      "seed": "7611258675880823593",
+      "score": 1422240,
+      "maxTile": 32768,
+      "blocksPlaced": 775,
+      "mergeCounts": {
+        "2": 671,
+        "3": 35,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 32,
+          "atBlock": 1
+        },
+        {
+          "tile": 64,
+          "atBlock": 7
+        },
+        {
+          "tile": 128,
+          "atBlock": 12
+        },
+        {
+          "tile": 256,
+          "atBlock": 20
+        },
+        {
+          "tile": 512,
+          "atBlock": 30
+        },
+        {
+          "tile": 1024,
+          "atBlock": 64
+        },
+        {
+          "tile": 2048,
+          "atBlock": 116
+        },
+        {
+          "tile": 4096,
+          "atBlock": 141
+        },
+        {
+          "tile": 8192,
+          "atBlock": 197
+        },
+        {
+          "tile": 16384,
+          "atBlock": 347
+        },
+        {
+          "tile": 32768,
+          "atBlock": 655
+        }
+      ]
+    },
+    {
+      "seed": "13629885220861510884",
+      "score": 404476,
+      "maxTile": 16384,
+      "blocksPlaced": 486,
+      "mergeCounts": {
+        "2": 384,
+        "3": 34,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 32,
+          "atBlock": 7
+        },
+        {
+          "tile": 64,
+          "atBlock": 10
+        },
+        {
+          "tile": 128,
+          "atBlock": 13
+        },
+        {
+          "tile": 512,
+          "atBlock": 32
+        },
+        {
+          "tile": 1024,
+          "atBlock": 55
+        },
+        {
+          "tile": 4096,
+          "atBlock": 152
+        },
+        {
+          "tile": 16384,
+          "atBlock": 326
+        }
+      ]
+    },
+    {
+      "seed": "2461661533915090419",
+      "score": 449520,
+      "maxTile": 16384,
+      "blocksPlaced": 566,
+      "mergeCounts": {
+        "2": 450,
+        "3": 41,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 2,
+          "atBlock": 1
+        },
+        {
+          "tile": 4,
+          "atBlock": 2
+        },
+        {
+          "tile": 8,
+          "atBlock": 3
+        },
+        {
+          "tile": 16,
+          "atBlock": 5
+        },
+        {
+          "tile": 32,
+          "atBlock": 10
+        },
+        {
+          "tile": 64,
+          "atBlock": 15
+        },
+        {
+          "tile": 128,
+          "atBlock": 25
+        },
+        {
+          "tile": 256,
+          "atBlock": 32
+        },
+        {
+          "tile": 512,
+          "atBlock": 44
+        },
+        {
+          "tile": 1024,
+          "atBlock": 65
+        },
+        {
+          "tile": 2048,
+          "atBlock": 157
+        },
+        {
+          "tile": 4096,
+          "atBlock": 216
+        },
+        {
+          "tile": 8192,
+          "atBlock": 300
+        },
+        {
+          "tile": 16384,
+          "atBlock": 402
+        }
+      ]
+    },
+    {
+      "seed": "12709546610234169387",
+      "score": 253492,
+      "maxTile": 4096,
+      "blocksPlaced": 482,
+      "mergeCounts": {
+        "2": 389,
+        "3": 31
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 32,
+          "atBlock": 4
+        },
+        {
+          "tile": 64,
+          "atBlock": 8
+        },
+        {
+          "tile": 128,
+          "atBlock": 16
+        },
+        {
+          "tile": 512,
+          "atBlock": 26
+        },
+        {
+          "tile": 1024,
+          "atBlock": 49
+        },
+        {
+          "tile": 2048,
+          "atBlock": 140
+        },
+        {
+          "tile": 4096,
+          "atBlock": 168
+        }
+      ]
+    },
+    {
+      "seed": "1902270066694066601",
+      "score": 322884,
+      "maxTile": 8192,
+      "blocksPlaced": 454,
+      "mergeCounts": {
+        "2": 369,
+        "3": 22,
+        "4": 2,
+        "5": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 3
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 17
+        },
+        {
+          "tile": 256,
+          "atBlock": 26
+        },
+        {
+          "tile": 512,
+          "atBlock": 36
+        },
+        {
+          "tile": 1024,
+          "atBlock": 66
+        },
+        {
+          "tile": 4096,
+          "atBlock": 95
+        },
+        {
+          "tile": 8192,
+          "atBlock": 359
+        }
+      ]
+    },
+    {
+      "seed": "10844703095748314105",
+      "score": 507228,
+      "maxTile": 16384,
+      "blocksPlaced": 558,
+      "mergeCounts": {
+        "2": 451,
+        "3": 38
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 4
+        },
+        {
+          "tile": 64,
+          "atBlock": 7
+        },
+        {
+          "tile": 128,
+          "atBlock": 15
+        },
+        {
+          "tile": 256,
+          "atBlock": 18
+        },
+        {
+          "tile": 512,
+          "atBlock": 34
+        },
+        {
+          "tile": 1024,
+          "atBlock": 55
+        },
+        {
+          "tile": 2048,
+          "atBlock": 111
+        },
+        {
+          "tile": 4096,
+          "atBlock": 203
+        },
+        {
+          "tile": 16384,
+          "atBlock": 275
+        }
+      ]
+    },
+    {
+      "seed": "15177803525898936766",
+      "score": 382188,
+      "maxTile": 8192,
+      "blocksPlaced": 483,
+      "mergeCounts": {
+        "2": 410,
+        "3": 21
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 2,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 10
+        },
+        {
+          "tile": 128,
+          "atBlock": 14
+        },
+        {
+          "tile": 256,
+          "atBlock": 20
+        },
+        {
+          "tile": 512,
+          "atBlock": 51
+        },
+        {
+          "tile": 1024,
+          "atBlock": 93
+        },
+        {
+          "tile": 2048,
+          "atBlock": 119
+        },
+        {
+          "tile": 4096,
+          "atBlock": 230
+        },
+        {
+          "tile": 8192,
+          "atBlock": 369
+        }
+      ]
+    },
+    {
+      "seed": "4260520326810049384",
+      "score": 783544,
+      "maxTile": 16384,
+      "blocksPlaced": 590,
+      "mergeCounts": {
+        "2": 478,
+        "3": 36,
+        "4": 3
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 32,
+          "atBlock": 1
+        },
+        {
+          "tile": 64,
+          "atBlock": 4
+        },
+        {
+          "tile": 128,
+          "atBlock": 10
+        },
+        {
+          "tile": 256,
+          "atBlock": 17
+        },
+        {
+          "tile": 512,
+          "atBlock": 32
+        },
+        {
+          "tile": 1024,
+          "atBlock": 48
+        },
+        {
+          "tile": 2048,
+          "atBlock": 84
+        },
+        {
+          "tile": 4096,
+          "atBlock": 143
+        },
+        {
+          "tile": 8192,
+          "atBlock": 255
+        },
+        {
+          "tile": 16384,
+          "atBlock": 340
+        }
+      ]
+    },
+    {
+      "seed": "7254755414464463870",
+      "score": 233852,
+      "maxTile": 8192,
+      "blocksPlaced": 417,
+      "mergeCounts": {
+        "2": 341,
+        "3": 21,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 32,
+          "atBlock": 1
+        },
+        {
+          "tile": 64,
+          "atBlock": 5
+        },
+        {
+          "tile": 128,
+          "atBlock": 10
+        },
+        {
+          "tile": 256,
+          "atBlock": 40
+        },
+        {
+          "tile": 512,
+          "atBlock": 54
+        },
+        {
+          "tile": 1024,
+          "atBlock": 64
+        },
+        {
+          "tile": 2048,
+          "atBlock": 129
+        },
+        {
+          "tile": 4096,
+          "atBlock": 206
+        },
+        {
+          "tile": 8192,
+          "atBlock": 357
+        }
+      ]
+    },
+    {
+      "seed": "2887937963990866361",
+      "score": 273900,
+      "maxTile": 8192,
+      "blocksPlaced": 429,
+      "mergeCounts": {
+        "2": 342,
+        "3": 28
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 2,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 14
+        },
+        {
+          "tile": 256,
+          "atBlock": 24
+        },
+        {
+          "tile": 512,
+          "atBlock": 37
+        },
+        {
+          "tile": 1024,
+          "atBlock": 63
+        },
+        {
+          "tile": 2048,
+          "atBlock": 146
+        },
+        {
+          "tile": 4096,
+          "atBlock": 240
+        },
+        {
+          "tile": 8192,
+          "atBlock": 331
+        }
+      ]
+    },
+    {
+      "seed": "17970155328850609866",
+      "score": 292388,
+      "maxTile": 8192,
+      "blocksPlaced": 414,
+      "mergeCounts": {
+        "2": 341,
+        "3": 21
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 3
+        },
+        {
+          "tile": 32,
+          "atBlock": 7
+        },
+        {
+          "tile": 64,
+          "atBlock": 10
+        },
+        {
+          "tile": 128,
+          "atBlock": 19
+        },
+        {
+          "tile": 256,
+          "atBlock": 21
+        },
+        {
+          "tile": 512,
+          "atBlock": 34
+        },
+        {
+          "tile": 1024,
+          "atBlock": 57
+        },
+        {
+          "tile": 2048,
+          "atBlock": 127
+        },
+        {
+          "tile": 4096,
+          "atBlock": 148
+        },
+        {
+          "tile": 8192,
+          "atBlock": 209
+        }
+      ]
+    },
+    {
+      "seed": "17907574855677377180",
+      "score": 533580,
+      "maxTile": 16384,
+      "blocksPlaced": 561,
+      "mergeCounts": {
+        "2": 464,
+        "3": 33
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 32,
+          "atBlock": 1
+        },
+        {
+          "tile": 64,
+          "atBlock": 4
+        },
+        {
+          "tile": 128,
+          "atBlock": 5
+        },
+        {
+          "tile": 256,
+          "atBlock": 20
+        },
+        {
+          "tile": 1024,
+          "atBlock": 44
+        },
+        {
+          "tile": 2048,
+          "atBlock": 114
+        },
+        {
+          "tile": 4096,
+          "atBlock": 184
+        },
+        {
+          "tile": 8192,
+          "atBlock": 263
+        },
+        {
+          "tile": 16384,
+          "atBlock": 468
+        }
+      ]
+    },
+    {
+      "seed": "13746942485033105706",
+      "score": 649964,
+      "maxTile": 16384,
+      "blocksPlaced": 686,
+      "mergeCounts": {
+        "2": 579,
+        "3": 35,
+        "4": 2
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 2,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 12
+        },
+        {
+          "tile": 128,
+          "atBlock": 19
+        },
+        {
+          "tile": 256,
+          "atBlock": 30
+        },
+        {
+          "tile": 512,
+          "atBlock": 47
+        },
+        {
+          "tile": 1024,
+          "atBlock": 74
+        },
+        {
+          "tile": 2048,
+          "atBlock": 118
+        },
+        {
+          "tile": 4096,
+          "atBlock": 241
+        },
+        {
+          "tile": 8192,
+          "atBlock": 358
+        },
+        {
+          "tile": 16384,
+          "atBlock": 617
+        }
+      ]
+    },
+    {
+      "seed": "5719177992629589773",
+      "score": 148156,
+      "maxTile": 8192,
+      "blocksPlaced": 356,
+      "mergeCounts": {
+        "2": 291,
+        "3": 17
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 3
+        },
+        {
+          "tile": 16,
+          "atBlock": 5
+        },
+        {
+          "tile": 32,
+          "atBlock": 9
+        },
+        {
+          "tile": 64,
+          "atBlock": 11
+        },
+        {
+          "tile": 128,
+          "atBlock": 20
+        },
+        {
+          "tile": 256,
+          "atBlock": 28
+        },
+        {
+          "tile": 512,
+          "atBlock": 56
+        },
+        {
+          "tile": 1024,
+          "atBlock": 85
+        },
+        {
+          "tile": 2048,
+          "atBlock": 127
+        },
+        {
+          "tile": 4096,
+          "atBlock": 237
+        },
+        {
+          "tile": 8192,
+          "atBlock": 255
+        }
+      ]
+    },
+    {
+      "seed": "5350761745209025110",
+      "score": 103528,
+      "maxTile": 2048,
+      "blocksPlaced": 313,
+      "mergeCounts": {
+        "2": 254,
+        "3": 14
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 3
+        },
+        {
+          "tile": 32,
+          "atBlock": 4
+        },
+        {
+          "tile": 64,
+          "atBlock": 7
+        },
+        {
+          "tile": 128,
+          "atBlock": 8
+        },
+        {
+          "tile": 256,
+          "atBlock": 27
+        },
+        {
+          "tile": 1024,
+          "atBlock": 46
+        },
+        {
+          "tile": 2048,
+          "atBlock": 120
+        }
+      ]
+    },
+    {
+      "seed": "16988319973559464952",
+      "score": 487036,
+      "maxTile": 16384,
+      "blocksPlaced": 569,
+      "mergeCounts": {
+        "2": 460,
+        "3": 39
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 2,
+          "atBlock": 1
+        },
+        {
+          "tile": 4,
+          "atBlock": 2
+        },
+        {
+          "tile": 8,
+          "atBlock": 4
+        },
+        {
+          "tile": 16,
+          "atBlock": 5
+        },
+        {
+          "tile": 32,
+          "atBlock": 7
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 20
+        },
+        {
+          "tile": 256,
+          "atBlock": 23
+        },
+        {
+          "tile": 512,
+          "atBlock": 41
+        },
+        {
+          "tile": 1024,
+          "atBlock": 58
+        },
+        {
+          "tile": 2048,
+          "atBlock": 116
+        },
+        {
+          "tile": 4096,
+          "atBlock": 160
+        },
+        {
+          "tile": 16384,
+          "atBlock": 383
+        }
+      ]
+    },
+    {
+      "seed": "7499006906963189296",
+      "score": 246616,
+      "maxTile": 8192,
+      "blocksPlaced": 390,
+      "mergeCounts": {
+        "2": 302,
+        "3": 27,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 13
+        },
+        {
+          "tile": 512,
+          "atBlock": 20
+        },
+        {
+          "tile": 1024,
+          "atBlock": 49
+        },
+        {
+          "tile": 2048,
+          "atBlock": 89
+        },
+        {
+          "tile": 4096,
+          "atBlock": 199
+        },
+        {
+          "tile": 8192,
+          "atBlock": 233
+        }
+      ]
+    },
+    {
+      "seed": "13677951070119944958",
+      "score": 1278940,
+      "maxTile": 32768,
+      "blocksPlaced": 700,
+      "mergeCounts": {
+        "2": 583,
+        "3": 43
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 32,
+          "atBlock": 1
+        },
+        {
+          "tile": 64,
+          "atBlock": 4
+        },
+        {
+          "tile": 128,
+          "atBlock": 9
+        },
+        {
+          "tile": 256,
+          "atBlock": 16
+        },
+        {
+          "tile": 512,
+          "atBlock": 32
+        },
+        {
+          "tile": 1024,
+          "atBlock": 48
+        },
+        {
+          "tile": 2048,
+          "atBlock": 62
+        },
+        {
+          "tile": 4096,
+          "atBlock": 109
+        },
+        {
+          "tile": 8192,
+          "atBlock": 201
+        },
+        {
+          "tile": 16384,
+          "atBlock": 269
+        },
+        {
+          "tile": 32768,
+          "atBlock": 423
+        }
+      ]
+    },
+    {
+      "seed": "8866603687006079313",
+      "score": 603168,
+      "maxTile": 16384,
+      "blocksPlaced": 589,
+      "mergeCounts": {
+        "2": 498,
+        "3": 27,
+        "4": 2
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 3
+        },
+        {
+          "tile": 32,
+          "atBlock": 9
+        },
+        {
+          "tile": 64,
+          "atBlock": 14
+        },
+        {
+          "tile": 128,
+          "atBlock": 24
+        },
+        {
+          "tile": 256,
+          "atBlock": 41
+        },
+        {
+          "tile": 512,
+          "atBlock": 42
+        },
+        {
+          "tile": 1024,
+          "atBlock": 90
+        },
+        {
+          "tile": 2048,
+          "atBlock": 126
+        },
+        {
+          "tile": 4096,
+          "atBlock": 238
+        },
+        {
+          "tile": 8192,
+          "atBlock": 254
+        },
+        {
+          "tile": 16384,
+          "atBlock": 373
+        }
+      ]
+    },
+    {
+      "seed": "361696453583504626",
+      "score": 711928,
+      "maxTile": 16384,
+      "blocksPlaced": 547,
+      "mergeCounts": {
+        "2": 458,
+        "3": 29
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 3
+        },
+        {
+          "tile": 32,
+          "atBlock": 6
+        },
+        {
+          "tile": 64,
+          "atBlock": 10
+        },
+        {
+          "tile": 128,
+          "atBlock": 12
+        },
+        {
+          "tile": 256,
+          "atBlock": 17
+        },
+        {
+          "tile": 512,
+          "atBlock": 22
+        },
+        {
+          "tile": 1024,
+          "atBlock": 44
+        },
+        {
+          "tile": 4096,
+          "atBlock": 93
+        },
+        {
+          "tile": 8192,
+          "atBlock": 165
+        },
+        {
+          "tile": 16384,
+          "atBlock": 334
+        }
+      ]
+    },
+    {
+      "seed": "12569273521553614255",
+      "score": 1100652,
+      "maxTile": 16384,
+      "blocksPlaced": 895,
+      "mergeCounts": {
+        "2": 735,
+        "3": 63,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 3
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 10
+        },
+        {
+          "tile": 128,
+          "atBlock": 11
+        },
+        {
+          "tile": 256,
+          "atBlock": 21
+        },
+        {
+          "tile": 512,
+          "atBlock": 29
+        },
+        {
+          "tile": 1024,
+          "atBlock": 50
+        },
+        {
+          "tile": 2048,
+          "atBlock": 138
+        },
+        {
+          "tile": 4096,
+          "atBlock": 187
+        },
+        {
+          "tile": 8192,
+          "atBlock": 322
+        },
+        {
+          "tile": 16384,
+          "atBlock": 635
+        }
+      ]
+    },
+    {
+      "seed": "11399087477547219333",
+      "score": 339272,
+      "maxTile": 8192,
+      "blocksPlaced": 419,
+      "mergeCounts": {
+        "2": 341,
+        "3": 22,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 3
+        },
+        {
+          "tile": 32,
+          "atBlock": 4
+        },
+        {
+          "tile": 64,
+          "atBlock": 7
+        },
+        {
+          "tile": 128,
+          "atBlock": 11
+        },
+        {
+          "tile": 256,
+          "atBlock": 17
+        },
+        {
+          "tile": 512,
+          "atBlock": 27
+        },
+        {
+          "tile": 1024,
+          "atBlock": 44
+        },
+        {
+          "tile": 2048,
+          "atBlock": 78
+        },
+        {
+          "tile": 4096,
+          "atBlock": 147
+        },
+        {
+          "tile": 8192,
+          "atBlock": 297
+        }
+      ]
+    },
+    {
+      "seed": "13769984867618261754",
+      "score": 147348,
+      "maxTile": 4096,
+      "blocksPlaced": 385,
+      "mergeCounts": {
+        "2": 307,
+        "3": 22,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 16,
+          "atBlock": 1
+        },
+        {
+          "tile": 32,
+          "atBlock": 3
+        },
+        {
+          "tile": 64,
+          "atBlock": 8
+        },
+        {
+          "tile": 128,
+          "atBlock": 21
+        },
+        {
+          "tile": 256,
+          "atBlock": 31
+        },
+        {
+          "tile": 512,
+          "atBlock": 47
+        },
+        {
+          "tile": 1024,
+          "atBlock": 72
+        },
+        {
+          "tile": 2048,
+          "atBlock": 182
+        },
+        {
+          "tile": 4096,
+          "atBlock": 235
+        }
+      ]
+    },
+    {
+      "seed": "13643312071298926956",
+      "score": 317576,
+      "maxTile": 8192,
+      "blocksPlaced": 418,
+      "mergeCounts": {
+        "2": 325,
+        "3": 28,
+        "4": 2
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 2,
+          "atBlock": 1
+        },
+        {
+          "tile": 4,
+          "atBlock": 2
+        },
+        {
+          "tile": 8,
+          "atBlock": 3
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 32,
+          "atBlock": 7
+        },
+        {
+          "tile": 64,
+          "atBlock": 12
+        },
+        {
+          "tile": 128,
+          "atBlock": 17
+        },
+        {
+          "tile": 256,
+          "atBlock": 30
+        },
+        {
+          "tile": 512,
+          "atBlock": 61
+        },
+        {
+          "tile": 1024,
+          "atBlock": 102
+        },
+        {
+          "tile": 2048,
+          "atBlock": 134
+        },
+        {
+          "tile": 4096,
+          "atBlock": 156
+        },
+        {
+          "tile": 8192,
+          "atBlock": 237
+        }
+      ]
+    },
+    {
+      "seed": "4191430443036190554",
+      "score": 798000,
+      "maxTile": 16384,
+      "blocksPlaced": 636,
+      "mergeCounts": {
+        "2": 500,
+        "3": 51,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 4
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 13
+        },
+        {
+          "tile": 256,
+          "atBlock": 27
+        },
+        {
+          "tile": 512,
+          "atBlock": 60
+        },
+        {
+          "tile": 1024,
+          "atBlock": 66
+        },
+        {
+          "tile": 2048,
+          "atBlock": 113
+        },
+        {
+          "tile": 8192,
+          "atBlock": 239
+        },
+        {
+          "tile": 16384,
+          "atBlock": 418
+        }
+      ]
+    },
+    {
+      "seed": "12276596795529392870",
+      "score": 442352,
+      "maxTile": 16384,
+      "blocksPlaced": 573,
+      "mergeCounts": {
+        "2": 493,
+        "3": 23,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 12
+        },
+        {
+          "tile": 128,
+          "atBlock": 24
+        },
+        {
+          "tile": 256,
+          "atBlock": 30
+        },
+        {
+          "tile": 512,
+          "atBlock": 56
+        },
+        {
+          "tile": 1024,
+          "atBlock": 88
+        },
+        {
+          "tile": 2048,
+          "atBlock": 137
+        },
+        {
+          "tile": 4096,
+          "atBlock": 236
+        },
+        {
+          "tile": 8192,
+          "atBlock": 412
+        },
+        {
+          "tile": 16384,
+          "atBlock": 477
+        }
+      ]
+    },
+    {
+      "seed": "2660502575873492868",
+      "score": 270152,
+      "maxTile": 4096,
+      "blocksPlaced": 458,
+      "mergeCounts": {
+        "2": 379,
+        "3": 24
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 32,
+          "atBlock": 1
+        },
+        {
+          "tile": 64,
+          "atBlock": 6
+        },
+        {
+          "tile": 128,
+          "atBlock": 11
+        },
+        {
+          "tile": 256,
+          "atBlock": 28
+        },
+        {
+          "tile": 512,
+          "atBlock": 42
+        },
+        {
+          "tile": 1024,
+          "atBlock": 65
+        },
+        {
+          "tile": 2048,
+          "atBlock": 119
+        },
+        {
+          "tile": 4096,
+          "atBlock": 187
+        }
+      ]
+    },
+    {
+      "seed": "4387121879038859760",
+      "score": 232240,
+      "maxTile": 8192,
+      "blocksPlaced": 449,
+      "mergeCounts": {
+        "2": 357,
+        "3": 26,
+        "4": 3
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 2,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 6
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 20
+        },
+        {
+          "tile": 256,
+          "atBlock": 25
+        },
+        {
+          "tile": 512,
+          "atBlock": 38
+        },
+        {
+          "tile": 1024,
+          "atBlock": 59
+        },
+        {
+          "tile": 2048,
+          "atBlock": 181
+        },
+        {
+          "tile": 4096,
+          "atBlock": 256
+        },
+        {
+          "tile": 8192,
+          "atBlock": 354
+        }
+      ]
+    },
+    {
+      "seed": "16457939258974954468",
+      "score": 400144,
+      "maxTile": 8192,
+      "blocksPlaced": 534,
+      "mergeCounts": {
+        "2": 423,
+        "3": 40
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 12
+        },
+        {
+          "tile": 128,
+          "atBlock": 19
+        },
+        {
+          "tile": 256,
+          "atBlock": 27
+        },
+        {
+          "tile": 512,
+          "atBlock": 50
+        },
+        {
+          "tile": 1024,
+          "atBlock": 66
+        },
+        {
+          "tile": 2048,
+          "atBlock": 129
+        },
+        {
+          "tile": 4096,
+          "atBlock": 180
+        },
+        {
+          "tile": 8192,
+          "atBlock": 188
+        }
+      ]
+    },
+    {
+      "seed": "9878345638566001221",
+      "score": 226132,
+      "maxTile": 4096,
+      "blocksPlaced": 431,
+      "mergeCounts": {
+        "2": 340,
+        "3": 30
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 3
+        },
+        {
+          "tile": 32,
+          "atBlock": 4
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 23
+        },
+        {
+          "tile": 256,
+          "atBlock": 36
+        },
+        {
+          "tile": 512,
+          "atBlock": 50
+        },
+        {
+          "tile": 1024,
+          "atBlock": 68
+        },
+        {
+          "tile": 2048,
+          "atBlock": 157
+        },
+        {
+          "tile": 4096,
+          "atBlock": 177
+        }
+      ]
+    },
+    {
+      "seed": "4620649199890269990",
+      "score": 363584,
+      "maxTile": 8192,
+      "blocksPlaced": 573,
+      "mergeCounts": {
+        "2": 454,
+        "3": 44
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 16,
+          "atBlock": 1
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 8
+        },
+        {
+          "tile": 128,
+          "atBlock": 22
+        },
+        {
+          "tile": 256,
+          "atBlock": 38
+        },
+        {
+          "tile": 512,
+          "atBlock": 64
+        },
+        {
+          "tile": 1024,
+          "atBlock": 105
+        },
+        {
+          "tile": 2048,
+          "atBlock": 156
+        },
+        {
+          "tile": 4096,
+          "atBlock": 189
+        },
+        {
+          "tile": 8192,
+          "atBlock": 474
+        }
+      ]
+    },
+    {
+      "seed": "15602441583268392330",
+      "score": 424828,
+      "maxTile": 8192,
+      "blocksPlaced": 594,
+      "mergeCounts": {
+        "2": 489,
+        "3": 37
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 8
+        },
+        {
+          "tile": 128,
+          "atBlock": 15
+        },
+        {
+          "tile": 256,
+          "atBlock": 45
+        },
+        {
+          "tile": 512,
+          "atBlock": 64
+        },
+        {
+          "tile": 1024,
+          "atBlock": 92
+        },
+        {
+          "tile": 2048,
+          "atBlock": 148
+        },
+        {
+          "tile": 4096,
+          "atBlock": 258
+        },
+        {
+          "tile": 8192,
+          "atBlock": 378
+        }
+      ]
+    },
+    {
+      "seed": "10931179947093052681",
+      "score": 699228,
+      "maxTile": 16384,
+      "blocksPlaced": 714,
+      "mergeCounts": {
+        "2": 589,
+        "3": 47
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 2,
+          "atBlock": 1
+        },
+        {
+          "tile": 4,
+          "atBlock": 2
+        },
+        {
+          "tile": 8,
+          "atBlock": 3
+        },
+        {
+          "tile": 16,
+          "atBlock": 5
+        },
+        {
+          "tile": 32,
+          "atBlock": 7
+        },
+        {
+          "tile": 64,
+          "atBlock": 12
+        },
+        {
+          "tile": 256,
+          "atBlock": 20
+        },
+        {
+          "tile": 512,
+          "atBlock": 57
+        },
+        {
+          "tile": 1024,
+          "atBlock": 95
+        },
+        {
+          "tile": 2048,
+          "atBlock": 146
+        },
+        {
+          "tile": 4096,
+          "atBlock": 173
+        },
+        {
+          "tile": 8192,
+          "atBlock": 231
+        },
+        {
+          "tile": 16384,
+          "atBlock": 405
+        }
+      ]
+    },
+    {
+      "seed": "3858275614665140177",
+      "score": 191984,
+      "maxTile": 4096,
+      "blocksPlaced": 402,
+      "mergeCounts": {
+        "2": 325,
+        "3": 20,
+        "4": 2
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 32,
+          "atBlock": 2
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 10
+        },
+        {
+          "tile": 256,
+          "atBlock": 24
+        },
+        {
+          "tile": 512,
+          "atBlock": 41
+        },
+        {
+          "tile": 1024,
+          "atBlock": 89
+        },
+        {
+          "tile": 2048,
+          "atBlock": 159
+        },
+        {
+          "tile": 4096,
+          "atBlock": 315
+        }
+      ]
+    },
+    {
+      "seed": "15833620937576080794",
+      "score": 998128,
+      "maxTile": 16384,
+      "blocksPlaced": 791,
+      "mergeCounts": {
+        "2": 644,
+        "3": 55,
+        "4": 2
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 32,
+          "atBlock": 7
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 18
+        },
+        {
+          "tile": 256,
+          "atBlock": 27
+        },
+        {
+          "tile": 512,
+          "atBlock": 51
+        },
+        {
+          "tile": 1024,
+          "atBlock": 62
+        },
+        {
+          "tile": 2048,
+          "atBlock": 137
+        },
+        {
+          "tile": 4096,
+          "atBlock": 295
+        },
+        {
+          "tile": 8192,
+          "atBlock": 362
+        },
+        {
+          "tile": 16384,
+          "atBlock": 516
+        }
+      ]
+    },
+    {
+      "seed": "5596384396053611721",
+      "score": 217344,
+      "maxTile": 4096,
+      "blocksPlaced": 452,
+      "mergeCounts": {
+        "2": 364,
+        "3": 27,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 6
+        },
+        {
+          "tile": 128,
+          "atBlock": 17
+        },
+        {
+          "tile": 256,
+          "atBlock": 40
+        },
+        {
+          "tile": 512,
+          "atBlock": 52
+        },
+        {
+          "tile": 1024,
+          "atBlock": 97
+        },
+        {
+          "tile": 2048,
+          "atBlock": 175
+        },
+        {
+          "tile": 4096,
+          "atBlock": 245
+        }
+      ]
+    },
+    {
+      "seed": "2946716344558126077",
+      "score": 538892,
+      "maxTile": 16384,
+      "blocksPlaced": 499,
+      "mergeCounts": {
+        "2": 406,
+        "3": 31
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 64,
+          "atBlock": 7
+        },
+        {
+          "tile": 128,
+          "atBlock": 13
+        },
+        {
+          "tile": 256,
+          "atBlock": 25
+        },
+        {
+          "tile": 512,
+          "atBlock": 34
+        },
+        {
+          "tile": 1024,
+          "atBlock": 64
+        },
+        {
+          "tile": 2048,
+          "atBlock": 83
+        },
+        {
+          "tile": 4096,
+          "atBlock": 147
+        },
+        {
+          "tile": 8192,
+          "atBlock": 189
+        },
+        {
+          "tile": 16384,
+          "atBlock": 347
+        }
+      ]
+    },
+    {
+      "seed": "5713095375802027232",
+      "score": 747548,
+      "maxTile": 16384,
+      "blocksPlaced": 749,
+      "mergeCounts": {
+        "2": 638,
+        "3": 37,
+        "4": 2
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 16,
+          "atBlock": 1
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 9
+        },
+        {
+          "tile": 128,
+          "atBlock": 10
+        },
+        {
+          "tile": 256,
+          "atBlock": 20
+        },
+        {
+          "tile": 512,
+          "atBlock": 48
+        },
+        {
+          "tile": 1024,
+          "atBlock": 74
+        },
+        {
+          "tile": 2048,
+          "atBlock": 99
+        },
+        {
+          "tile": 4096,
+          "atBlock": 326
+        },
+        {
+          "tile": 8192,
+          "atBlock": 341
+        },
+        {
+          "tile": 16384,
+          "atBlock": 406
+        }
+      ]
+    },
+    {
+      "seed": "7252940364119765619",
+      "score": 341572,
+      "maxTile": 8192,
+      "blocksPlaced": 449,
+      "mergeCounts": {
+        "2": 358,
+        "3": 30
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 32,
+          "atBlock": 6
+        },
+        {
+          "tile": 64,
+          "atBlock": 10
+        },
+        {
+          "tile": 128,
+          "atBlock": 16
+        },
+        {
+          "tile": 256,
+          "atBlock": 24
+        },
+        {
+          "tile": 512,
+          "atBlock": 47
+        },
+        {
+          "tile": 1024,
+          "atBlock": 87
+        },
+        {
+          "tile": 2048,
+          "atBlock": 111
+        },
+        {
+          "tile": 4096,
+          "atBlock": 163
+        },
+        {
+          "tile": 8192,
+          "atBlock": 306
+        }
+      ]
+    },
+    {
+      "seed": "11021496486852449978",
+      "score": 693800,
+      "maxTile": 32768,
+      "blocksPlaced": 575,
+      "mergeCounts": {
+        "2": 470,
+        "3": 34,
+        "4": 2
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 4,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 32,
+          "atBlock": 6
+        },
+        {
+          "tile": 64,
+          "atBlock": 11
+        },
+        {
+          "tile": 128,
+          "atBlock": 18
+        },
+        {
+          "tile": 256,
+          "atBlock": 27
+        },
+        {
+          "tile": 512,
+          "atBlock": 50
+        },
+        {
+          "tile": 1024,
+          "atBlock": 92
+        },
+        {
+          "tile": 4096,
+          "atBlock": 147
+        },
+        {
+          "tile": 8192,
+          "atBlock": 248
+        },
+        {
+          "tile": 16384,
+          "atBlock": 368
+        },
+        {
+          "tile": 32768,
+          "atBlock": 425
+        }
+      ]
+    },
+    {
+      "seed": "12823610885750634025",
+      "score": 792988,
+      "maxTile": 16384,
+      "blocksPlaced": 782,
+      "mergeCounts": {
+        "2": 643,
+        "3": 51,
+        "4": 2
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 2
+        },
+        {
+          "tile": 32,
+          "atBlock": 3
+        },
+        {
+          "tile": 64,
+          "atBlock": 8
+        },
+        {
+          "tile": 128,
+          "atBlock": 14
+        },
+        {
+          "tile": 256,
+          "atBlock": 31
+        },
+        {
+          "tile": 512,
+          "atBlock": 39
+        },
+        {
+          "tile": 1024,
+          "atBlock": 63
+        },
+        {
+          "tile": 2048,
+          "atBlock": 100
+        },
+        {
+          "tile": 4096,
+          "atBlock": 176
+        },
+        {
+          "tile": 8192,
+          "atBlock": 210
+        },
+        {
+          "tile": 16384,
+          "atBlock": 590
+        }
+      ]
+    },
+    {
+      "seed": "1611807424917506419",
+      "score": 399548,
+      "maxTile": 8192,
+      "blocksPlaced": 540,
+      "mergeCounts": {
+        "2": 448,
+        "3": 29,
+        "4": 1
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 8,
+          "atBlock": 1
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 32,
+          "atBlock": 8
+        },
+        {
+          "tile": 64,
+          "atBlock": 15
+        },
+        {
+          "tile": 128,
+          "atBlock": 16
+        },
+        {
+          "tile": 256,
+          "atBlock": 29
+        },
+        {
+          "tile": 512,
+          "atBlock": 43
+        },
+        {
+          "tile": 1024,
+          "atBlock": 67
+        },
+        {
+          "tile": 2048,
+          "atBlock": 113
+        },
+        {
+          "tile": 4096,
+          "atBlock": 165
+        },
+        {
+          "tile": 8192,
+          "atBlock": 233
+        }
+      ]
+    },
+    {
+      "seed": "3994297062465849296",
+      "score": 566664,
+      "maxTile": 16384,
+      "blocksPlaced": 576,
+      "mergeCounts": {
+        "2": 475,
+        "3": 35
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 16,
+          "atBlock": 1
+        },
+        {
+          "tile": 32,
+          "atBlock": 5
+        },
+        {
+          "tile": 64,
+          "atBlock": 7
+        },
+        {
+          "tile": 128,
+          "atBlock": 13
+        },
+        {
+          "tile": 256,
+          "atBlock": 32
+        },
+        {
+          "tile": 512,
+          "atBlock": 52
+        },
+        {
+          "tile": 1024,
+          "atBlock": 78
+        },
+        {
+          "tile": 4096,
+          "atBlock": 118
+        },
+        {
+          "tile": 8192,
+          "atBlock": 221
+        },
+        {
+          "tile": 16384,
+          "atBlock": 439
+        }
+      ]
+    },
+    {
+      "seed": "3046317731992954148",
+      "score": 396084,
+      "maxTile": 8192,
+      "blocksPlaced": 562,
+      "mergeCounts": {
+        "2": 451,
+        "3": 37,
+        "4": 2
+      },
+      "maxTileClimbs": [
+        {
+          "tile": 2,
+          "atBlock": 1
+        },
+        {
+          "tile": 8,
+          "atBlock": 2
+        },
+        {
+          "tile": 16,
+          "atBlock": 4
+        },
+        {
+          "tile": 32,
+          "atBlock": 7
+        },
+        {
+          "tile": 64,
+          "atBlock": 10
+        },
+        {
+          "tile": 128,
+          "atBlock": 23
+        },
+        {
+          "tile": 256,
+          "atBlock": 26
+        },
+        {
+          "tile": 512,
+          "atBlock": 42
+        },
+        {
+          "tile": 1024,
+          "atBlock": 79
+        },
+        {
+          "tile": 2048,
+          "atBlock": 110
+        },
+        {
+          "tile": 4096,
+          "atBlock": 173
+        },
+        {
+          "tile": 8192,
+          "atBlock": 266
+        }
+      ]
+    }
+  ]
+}

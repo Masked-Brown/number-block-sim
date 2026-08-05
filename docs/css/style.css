@@ -159,7 +159,19 @@ header.top .links { margin-left: auto; font-size: 13px; }
     0 0 16px var(--glow, rgba(179, 45, 60, 0.45));
 }
 .tile.flash { animation: flash 200ms ease-in-out; z-index: 3; }
-.tile.falling { z-index: 4; box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -3px 0 rgba(0,0,0,0.30), 0 8px 22px rgba(0, 0, 0, 0.55); }
+/* The actively falling tile owns its own vertical position: ui.js rewrites
+   style.top every animation frame, and a `top` transition therefore restarts
+   on every write, so the rendered tile lags its true position by up to a cell
+   and appears to hover above the stack (audit 0019, 2026-08-05, reproduced
+   live). The sideways nudge still animates, which is the part a player wants
+   to see; the fall does not, because the fall is already animated by the
+   renderer. Settled tiles keep the shared transition, which is what makes
+   gravity and merges read. */
+.tile.falling {
+  z-index: 4;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -3px 0 rgba(0,0,0,0.30), 0 8px 22px rgba(0, 0, 0, 0.55);
+  transition: left 80ms ease-out;
+}
 .tile.ghost { opacity: 0.14; transition: none; box-shadow: none; }
 .tile.last-locked { outline: 2px solid rgba(223, 230, 243, 0.85); outline-offset: 1px; }
 
@@ -324,15 +336,18 @@ button:disabled { opacity: 0.4; cursor: default; }
 
 /* --- overlays ------------------------------------------------------------- */
 
+/* The game-over screen covers the page rather than the board: v1.2's breakdown
+   carries the performance grade as well as the game's own numbers, and that does
+   not fit inside a 416px board. */
 .overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(4, 6, 11, 0.82);
+  background: rgba(4, 6, 11, 0.88);
   z-index: 10;
-  border-radius: 8px;
+  padding: 16px;
 }
 .overlay.show { display: flex; }
 .overlay .dialog {
@@ -342,6 +357,12 @@ button:disabled { opacity: 0.4; cursor: default; }
   border-radius: 8px;
   padding: 22px;
   text-align: center;
+}
+.overlay .dialog.breakdown {
+  width: min(94vw, 540px);
+  max-height: min(94vh, 880px);
+  overflow-y: auto;
+  padding: 24px 26px;
 }
 .overlay .dialog h2 {
   font-size: 18px;
@@ -359,6 +380,73 @@ button:disabled { opacity: 0.4; cursor: default; }
 .metrics span:first-child { color: var(--text-dim); }
 .metrics span:last-child { font-variant-numeric: tabular-nums; overflow-wrap: anywhere; text-align: right; }
 .overlay .actions { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.overlay .actions.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+.overlay .actions.grid .primary { grid-column: 1 / -1; }
+
+/* --- the v1.2 performance block ------------------------------------------- */
+
+.section-label {
+  margin: 18px 0 4px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--text-dim);
+}
+
+.perf {
+  margin-top: 16px;
+  border: 1px solid var(--line-hard);
+  border-radius: 6px;
+  background: linear-gradient(180deg, #101627 0%, var(--bg-panel) 100%);
+  padding: 13px 15px 14px;
+  text-align: left;
+}
+.perf-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.perf-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--text-dim);
+}
+.perf-sub { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; margin-top: 3px; }
+.perf-total {
+  font-size: 40px;
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.perf-total .of { font-size: 15px; font-weight: 700; color: var(--text-dim); margin-left: 3px; }
+.perf-total.pending { color: var(--text-dim); font-size: 26px; }
+
+.perf-parts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+.perf-parts .part {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+.perf-parts .part .name {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+.perf-parts .part .val { font-size: 21px; font-weight: 800; font-variant-numeric: tabular-nums; margin-top: 2px; }
+.perf-parts .part .wt { font-size: 11px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+.perf-parts .part .meter { height: 4px; background: var(--bg-raised); border-radius: 2px; overflow: hidden; margin-top: 6px; }
+.perf-parts .part .meter i { display: block; height: 100%; background: var(--accent); }
+.perf-parts .part.absent .val { color: var(--text-dim); }
 
 /* --- cinema --------------------------------------------------------------- */
 

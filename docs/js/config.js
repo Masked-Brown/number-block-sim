@@ -48,6 +48,54 @@ export const CONFIG = Object.freeze({
     dangerHeight: 5, // columns at or above this height trigger the danger state
   }),
 
+  // Post-game performance grading (game v1.2). Every constant of the three
+  // indices and the composite lives here: none of them is a rule, and all of
+  // them are arguable, so they are named, commented and tunable rather than
+  // buried in the maths. `docs/js/performance.js` reads them and nothing else.
+  performance: Object.freeze({
+    // Composite weights, from the v1.2 work order. They must sum to 1;
+    // performance.js checks that rather than trusting it.
+    weightAccuracy: 0.5,
+    weightScore: 0.3,
+    weightPace: 0.2,
+
+    // scoreIndex is log-scaled between a floor and a cap, because game score
+    // compounds with survival and a linear index would leave every human game
+    // indistinguishable near zero.
+    //
+    // The floor is roughly the scale of play with no judgement at all (the
+    // random and stacker baselines median about 1,700 on eval-v1), so a game
+    // that merges nothing scores near 0 rather than negative infinity.
+    scoreIndexFloor: 1000,
+    // The cap is the CHAMPION'S eval-v1 median: reaching what the best honest
+    // agent typically manages is full marks, and beyond it is still full marks.
+    // 634,826 is expectimax-d3-v2's median over all 500 eval-v1 seeds, run
+    // 2026-08-05_eval-expectimax-d3-v2. The superseded d3-v1 figure was 643,996
+    // and is deliberately not used: audit 0019 showed that agent's search leaves
+    // read a block no player can see, so its median measures the leak as well as
+    // the play. Retuning the spawn curve would invalidate this number along with
+    // every other absolute score.
+    scoreIndexCap: 634826,
+
+    // paceIndex: full marks at or under paceFastSeconds median seconds per
+    // move, nothing at or over paceSlowSeconds, linear between.
+    paceFastSeconds: 2,
+    paceSlowSeconds: 12,
+
+    // Grading budget per animation frame, ms. Grading is chunked so the page
+    // keeps painting; the value changes how it FEELS and can never change a
+    // grade, which depends only on the recorded moves.
+    gradeChunkMs: 12,
+  }),
+
+  // Daily seed: the date-derived alternative to a random seed, so two people
+  // can compare a score on the same board without a server. `dailyLabel` is
+  // the string the seed is hashed from, with the UTC date appended; changing
+  // it reshuffles every future daily and is the reason it is a tunable.
+  daily: Object.freeze({
+    label: 'nbs-daily-v1',
+  }),
+
   // Board render size: tile geometry in px (the layout scales from these).
   board: Object.freeze({
     tilePx: 76,

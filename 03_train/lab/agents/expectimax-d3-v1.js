@@ -10,6 +10,12 @@
 // campaign decision log holds the measurement behind the choice (about 1.8x
 // faster than the full expectation, no observed cost to decision quality at
 // probe sample sizes).
+//
+// SUPERSEDED BY expectimax-d3-v2 (leak fix, audit 0019, 2026-08-05). Its leaf
+// evaluation scores `next-merge-ready` against the engine's real FOURTH block,
+// unknowable to a player. Kept registered and unchanged as the leak
+// measurement; the leaf mode is now explicit and 2026-08-05_eval-expectimax-
+// d3-v1 reproduces bit-for-bit under it.
 
 import { makeExpectimax } from './expectimax.js';
 import heuristicV2 from './heuristic-v2.js';
@@ -23,4 +29,5 @@ export default makeExpectimax({
   pins: heuristicV2.pins,
   depth: 3,
   coverage: 0.9,
+  leafNext: 'engine-draw',
 });

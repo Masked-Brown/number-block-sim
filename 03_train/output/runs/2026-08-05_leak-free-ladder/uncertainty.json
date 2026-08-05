@@ -1,0 +1,1592 @@
+{
+  "seedSet": "eval-v1",
+  "games": 500,
+  "bootstrap": {
+    "resamples": 10000,
+    "level": 0.95,
+    "seed": 20260805,
+    "method": "percentile bootstrap over seeds"
+  },
+  "horizons": [
+    128,
+    256,
+    384,
+    512
+  ],
+  "rows": [
+    {
+      "agent": "expectimax-d3-v1",
+      "runId": "2026-08-05_eval-expectimax-d3-v1",
+      "stats": {
+        "median": 643996,
+        "q1": 421189,
+        "q3": 961014,
+        "mean": 739312.2,
+        "min": 125336,
+        "max": 2710108
+      },
+      "medianCI": {
+        "point": 643996,
+        "lo": 609480,
+        "hi": 683250,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260805,
+        "method": "percentile bootstrap over seeds"
+      },
+      "meanCI": {
+        "point": 739312.2,
+        "lo": 701787.0618,
+        "hi": 777690.284,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260806,
+        "method": "percentile bootstrap over seeds"
+      },
+      "horizons": [
+        {
+          "blocks": 128,
+          "median": 32722,
+          "q1": 26631,
+          "q3": 39030,
+          "ci": {
+            "lo": 31806,
+            "hi": 33664
+          },
+          "survivedShare": 1
+        },
+        {
+          "blocks": 256,
+          "median": 127886,
+          "q1": 107328,
+          "q3": 160160,
+          "ci": {
+            "lo": 124182,
+            "hi": 132812
+          },
+          "survivedShare": 1
+        },
+        {
+          "blocks": 384,
+          "median": 275356,
+          "q1": 232997,
+          "q3": 333357,
+          "ci": {
+            "lo": 266428,
+            "hi": 285302
+          },
+          "survivedShare": 0.964
+        },
+        {
+          "blocks": 512,
+          "median": 467352,
+          "q1": 363858,
+          "q3": 560318,
+          "ci": {
+            "lo": 448868,
+            "hi": 487620
+          },
+          "survivedShare": 0.798
+        }
+      ]
+    },
+    {
+      "agent": "expectimax-d3-v2",
+      "runId": "2026-08-05_eval-expectimax-d3-v2",
+      "stats": {
+        "median": 634826,
+        "q1": 436177,
+        "q3": 972640,
+        "mean": 771530.856,
+        "min": 93632,
+        "max": 4062920
+      },
+      "medianCI": {
+        "point": 634826,
+        "lo": 605090,
+        "hi": 679924,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260805,
+        "method": "percentile bootstrap over seeds"
+      },
+      "meanCI": {
+        "point": 771530.856,
+        "lo": 728566.8644000001,
+        "hi": 817174.6978,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260806,
+        "method": "percentile bootstrap over seeds"
+      },
+      "horizons": [
+        {
+          "blocks": 128,
+          "median": 34030,
+          "q1": 27300,
+          "q3": 40647,
+          "ci": {
+            "lo": 33218,
+            "hi": 34814
+          },
+          "survivedShare": 1
+        },
+        {
+          "blocks": 256,
+          "median": 133302,
+          "q1": 108218,
+          "q3": 168807,
+          "ci": {
+            "lo": 128538,
+            "hi": 136912
+          },
+          "survivedShare": 1
+        },
+        {
+          "blocks": 384,
+          "median": 277228,
+          "q1": 233431,
+          "q3": 342809,
+          "ci": {
+            "lo": 269796,
+            "hi": 285656
+          },
+          "survivedShare": 0.976
+        },
+        {
+          "blocks": 512,
+          "median": 469246,
+          "q1": 374275,
+          "q3": 557769,
+          "ci": {
+            "lo": 453538,
+            "hi": 484216
+          },
+          "survivedShare": 0.808
+        }
+      ]
+    },
+    {
+      "agent": "expectimax-d2-v2",
+      "runId": "2026-08-05_eval-expectimax-d2-v2",
+      "stats": {
+        "median": 428990,
+        "q1": 276072,
+        "q3": 677901,
+        "mean": 545027.616,
+        "min": 19728,
+        "max": 2854048
+      },
+      "medianCI": {
+        "point": 428990,
+        "lo": 394044,
+        "hi": 459144,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260805,
+        "method": "percentile bootstrap over seeds"
+      },
+      "meanCI": {
+        "point": 545027.616,
+        "lo": 510275.3574,
+        "hi": 581363.1636,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260806,
+        "method": "percentile bootstrap over seeds"
+      },
+      "horizons": [
+        {
+          "blocks": 128,
+          "median": 31612,
+          "q1": 25457,
+          "q3": 37828,
+          "ci": {
+            "lo": 30508,
+            "hi": 32668
+          },
+          "survivedShare": 1
+        },
+        {
+          "blocks": 256,
+          "median": 119800,
+          "q1": 99708,
+          "q3": 150916,
+          "ci": {
+            "lo": 117734,
+            "hi": 123752
+          },
+          "survivedShare": 0.998
+        },
+        {
+          "blocks": 384,
+          "median": 251972,
+          "q1": 208797,
+          "q3": 309289,
+          "ci": {
+            "lo": 244500,
+            "hi": 260160
+          },
+          "survivedShare": 0.906
+        },
+        {
+          "blocks": 512,
+          "median": 376978,
+          "q1": 275880,
+          "q3": 505628,
+          "ci": {
+            "lo": 360100,
+            "hi": 399987.44999999995
+          },
+          "survivedShare": 0.556
+        }
+      ]
+    },
+    {
+      "agent": "expectimax-d2-v1",
+      "runId": "2026-08-05_eval-expectimax-d2-v1",
+      "stats": {
+        "median": 427986,
+        "q1": 285524,
+        "q3": 683593,
+        "mean": 539258.128,
+        "min": 55336,
+        "max": 2576032
+      },
+      "medianCI": {
+        "point": 427986,
+        "lo": 406960,
+        "hi": 459852,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260805,
+        "method": "percentile bootstrap over seeds"
+      },
+      "meanCI": {
+        "point": 539258.128,
+        "lo": 506326.4278,
+        "hi": 574100.1564,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260806,
+        "method": "percentile bootstrap over seeds"
+      },
+      "horizons": [
+        {
+          "blocks": 128,
+          "median": 30724,
+          "q1": 24049,
+          "q3": 37398,
+          "ci": {
+            "lo": 29292,
+            "hi": 31784
+          },
+          "survivedShare": 1
+        },
+        {
+          "blocks": 256,
+          "median": 118440,
+          "q1": 99804,
+          "q3": 148172,
+          "ci": {
+            "lo": 115116,
+            "hi": 121616
+          },
+          "survivedShare": 0.998
+        },
+        {
+          "blocks": 384,
+          "median": 258002,
+          "q1": 206056,
+          "q3": 308634,
+          "ci": {
+            "lo": 251454,
+            "hi": 264958
+          },
+          "survivedShare": 0.912
+        },
+        {
+          "blocks": 512,
+          "median": 387406,
+          "q1": 281358,
+          "q3": 505100,
+          "ci": {
+            "lo": 369246,
+            "hi": 407760
+          },
+          "survivedShare": 0.598
+        }
+      ]
+    },
+    {
+      "agent": "heuristic-v2",
+      "runId": "2026-08-05_eval-heuristic-v2",
+      "stats": {
+        "median": 204618,
+        "q1": 123872,
+        "q3": 314772,
+        "mean": 246404.152,
+        "min": 18188,
+        "max": 1298584
+      },
+      "medianCI": {
+        "point": 204618,
+        "lo": 192596,
+        "hi": 223344,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260805,
+        "method": "percentile bootstrap over seeds"
+      },
+      "meanCI": {
+        "point": 246404.152,
+        "lo": 231667.2866,
+        "hi": 261275.055,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260806,
+        "method": "percentile bootstrap over seeds"
+      },
+      "horizons": [
+        {
+          "blocks": 128,
+          "median": 25072,
+          "q1": 20650,
+          "q3": 31940,
+          "ci": {
+            "lo": 24220,
+            "hi": 26114
+          },
+          "survivedShare": 1
+        },
+        {
+          "blocks": 256,
+          "median": 97648,
+          "q1": 76529,
+          "q3": 120689,
+          "ci": {
+            "lo": 93812,
+            "hi": 102316
+          },
+          "survivedShare": 0.964
+        },
+        {
+          "blocks": 384,
+          "median": 185660,
+          "q1": 122867,
+          "q3": 242551,
+          "ci": {
+            "lo": 174051.35,
+            "hi": 192976
+          },
+          "survivedShare": 0.548
+        },
+        {
+          "blocks": 512,
+          "median": 204618,
+          "q1": 123872,
+          "q3": 312563,
+          "ci": {
+            "lo": 193080,
+            "hi": 223418
+          },
+          "survivedShare": 0.158
+        }
+      ]
+    },
+    {
+      "agent": "heuristic-v1",
+      "runId": "2026-08-05_eval-heuristic-v1",
+      "stats": {
+        "median": 141424,
+        "q1": 87337,
+        "q3": 225563,
+        "mean": 172032.68,
+        "min": 9208,
+        "max": 730536
+      },
+      "medianCI": {
+        "point": 141424,
+        "lo": 129890.50000000001,
+        "hi": 152192,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260805,
+        "method": "percentile bootstrap over seeds"
+      },
+      "meanCI": {
+        "point": 172032.68,
+        "lo": 161851.3498,
+        "hi": 183057.42659999998,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260806,
+        "method": "percentile bootstrap over seeds"
+      },
+      "horizons": [
+        {
+          "blocks": 128,
+          "median": 23488,
+          "q1": 19812,
+          "q3": 29935,
+          "ci": {
+            "lo": 22820,
+            "hi": 24492
+          },
+          "survivedShare": 1
+        },
+        {
+          "blocks": 256,
+          "median": 87222,
+          "q1": 68749,
+          "q3": 107814,
+          "ci": {
+            "lo": 83240,
+            "hi": 90308
+          },
+          "survivedShare": 0.852
+        },
+        {
+          "blocks": 384,
+          "median": 141098,
+          "q1": 87337,
+          "q3": 197856,
+          "ci": {
+            "lo": 130004.50000000001,
+            "hi": 150502
+          },
+          "survivedShare": 0.344
+        },
+        {
+          "blocks": 512,
+          "median": 141424,
+          "q1": 87337,
+          "q3": 225563,
+          "ci": {
+            "lo": 130004.50000000001,
+            "hi": 152192
+          },
+          "survivedShare": 0.066
+        }
+      ]
+    },
+    {
+      "agent": "heuristic-v0",
+      "runId": "heuristic-v0",
+      "stats": {
+        "median": 114210,
+        "q1": 66050,
+        "q3": 175361,
+        "mean": 138827.144,
+        "min": 11856,
+        "max": 1034848
+      },
+      "medianCI": {
+        "point": 114210,
+        "lo": 103556,
+        "hi": 123000,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260805,
+        "method": "percentile bootstrap over seeds"
+      },
+      "meanCI": {
+        "point": 138827.144,
+        "lo": 129708.6482,
+        "hi": 148592.4222,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260806,
+        "method": "percentile bootstrap over seeds"
+      },
+      "horizons": [
+        {
+          "blocks": 128,
+          "median": 23238,
+          "q1": 18851,
+          "q3": 28820,
+          "ci": {
+            "lo": 22588,
+            "hi": 23788
+          },
+          "survivedShare": 1
+        },
+        {
+          "blocks": 256,
+          "median": 80418,
+          "q1": 60265,
+          "q3": 102236,
+          "ci": {
+            "lo": 77192,
+            "hi": 83230
+          },
+          "survivedShare": 0.764
+        },
+        {
+          "blocks": 384,
+          "median": 114210,
+          "q1": 66050,
+          "q3": 169298,
+          "ci": {
+            "lo": 103722,
+            "hi": 123000
+          },
+          "survivedShare": 0.234
+        },
+        {
+          "blocks": 512,
+          "median": 114210,
+          "q1": 66050,
+          "q3": 175361,
+          "ci": {
+            "lo": 103722,
+            "hi": 123000
+          },
+          "survivedShare": 0.028
+        }
+      ]
+    },
+    {
+      "agent": "greedy-v1",
+      "runId": "greedy-v1",
+      "stats": {
+        "median": 35386,
+        "q1": 21319,
+        "q3": 52026,
+        "mean": 43386.784,
+        "min": 4324,
+        "max": 266452
+      },
+      "medianCI": {
+        "point": 35386,
+        "lo": 32620,
+        "hi": 37732,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260805,
+        "method": "percentile bootstrap over seeds"
+      },
+      "meanCI": {
+        "point": 43386.784,
+        "lo": 40596.8676,
+        "hi": 46332.6844,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260806,
+        "method": "percentile bootstrap over seeds"
+      },
+      "horizons": [
+        {
+          "blocks": 128,
+          "median": 17910,
+          "q1": 14350,
+          "q3": 22253,
+          "ci": {
+            "lo": 17100,
+            "hi": 18624.299999999996
+          },
+          "survivedShare": 0.958
+        },
+        {
+          "blocks": 256,
+          "median": 35386,
+          "q1": 21319,
+          "q3": 51863,
+          "ci": {
+            "lo": 32640,
+            "hi": 37738
+          },
+          "survivedShare": 0.146
+        },
+        {
+          "blocks": 384,
+          "median": 35386,
+          "q1": 21319,
+          "q3": 52026,
+          "ci": {
+            "lo": 32640,
+            "hi": 37738
+          },
+          "survivedShare": 0.002
+        },
+        {
+          "blocks": 512,
+          "median": 35386,
+          "q1": 21319,
+          "q3": 52026,
+          "ci": {
+            "lo": 32640,
+            "hi": 37738
+          },
+          "survivedShare": 0
+        }
+      ]
+    },
+    {
+      "agent": "random-v1",
+      "runId": "random-v1",
+      "stats": {
+        "median": 1700,
+        "q1": 939,
+        "q3": 2789,
+        "mean": 2170.072,
+        "min": 104,
+        "max": 12264
+      },
+      "medianCI": {
+        "point": 1700,
+        "lo": 1532,
+        "hi": 1874,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260805,
+        "method": "percentile bootstrap over seeds"
+      },
+      "meanCI": {
+        "point": 2170.072,
+        "lo": 2015.0058000000001,
+        "hi": 2330.505,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260806,
+        "method": "percentile bootstrap over seeds"
+      },
+      "horizons": [
+        {
+          "blocks": 128,
+          "median": 1700,
+          "q1": 939,
+          "q3": 2789,
+          "ci": {
+            "lo": 1532,
+            "hi": 1874
+          },
+          "survivedShare": 0
+        },
+        {
+          "blocks": 256,
+          "median": 1700,
+          "q1": 939,
+          "q3": 2789,
+          "ci": {
+            "lo": 1532,
+            "hi": 1874
+          },
+          "survivedShare": 0
+        },
+        {
+          "blocks": 384,
+          "median": 1700,
+          "q1": 939,
+          "q3": 2789,
+          "ci": {
+            "lo": 1532,
+            "hi": 1874
+          },
+          "survivedShare": 0
+        },
+        {
+          "blocks": 512,
+          "median": 1700,
+          "q1": 939,
+          "q3": 2789,
+          "ci": {
+            "lo": 1532,
+            "hi": 1874
+          },
+          "survivedShare": 0
+        }
+      ]
+    },
+    {
+      "agent": "stacker-v1",
+      "runId": "stacker-v1",
+      "stats": {
+        "median": 1626,
+        "q1": 987,
+        "q3": 2762,
+        "mean": 2160.872,
+        "min": 100,
+        "max": 17328
+      },
+      "medianCI": {
+        "point": 1626,
+        "lo": 1532,
+        "hi": 1796,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260805,
+        "method": "percentile bootstrap over seeds"
+      },
+      "meanCI": {
+        "point": 2160.872,
+        "lo": 1997.9588,
+        "hi": 2330.018,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260806,
+        "method": "percentile bootstrap over seeds"
+      },
+      "horizons": [
+        {
+          "blocks": 128,
+          "median": 1626,
+          "q1": 987,
+          "q3": 2762,
+          "ci": {
+            "lo": 1530,
+            "hi": 1796
+          },
+          "survivedShare": 0
+        },
+        {
+          "blocks": 256,
+          "median": 1626,
+          "q1": 987,
+          "q3": 2762,
+          "ci": {
+            "lo": 1530,
+            "hi": 1796
+          },
+          "survivedShare": 0
+        },
+        {
+          "blocks": 384,
+          "median": 1626,
+          "q1": 987,
+          "q3": 2762,
+          "ci": {
+            "lo": 1530,
+            "hi": 1796
+          },
+          "survivedShare": 0
+        },
+        {
+          "blocks": 512,
+          "median": 1626,
+          "q1": 987,
+          "q3": 2762,
+          "ci": {
+            "lo": 1530,
+            "hi": 1796
+          },
+          "survivedShare": 0
+        }
+      ]
+    }
+  ],
+  "rungs": [
+    {
+      "high": "expectimax-d3-v1",
+      "low": "expectimax-d3-v2",
+      "medianRatio": {
+        "point": 1.014444903012794,
+        "lo": 0.9353340143991005,
+        "hi": 1.0902045313744084,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": -18680,
+        "lo": -76592,
+        "hi": 41322,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.49,
+        "lo": 0.446,
+        "hi": 0.534,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 245,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 32722,
+          "lowMedian": 34030,
+          "ratio": 0.9615633264766382
+        },
+        {
+          "blocks": 256,
+          "highMedian": 127886,
+          "lowMedian": 133302,
+          "ratio": 0.9593704520562332
+        },
+        {
+          "blocks": 384,
+          "highMedian": 275356,
+          "lowMedian": 277228,
+          "ratio": 0.9932474353239933
+        },
+        {
+          "blocks": 512,
+          "highMedian": 467352,
+          "lowMedian": 469246,
+          "ratio": 0.9959637375704854
+        }
+      ]
+    },
+    {
+      "high": "expectimax-d3-v2",
+      "low": "expectimax-d2-v2",
+      "medianRatio": {
+        "point": 1.4798153803118954,
+        "lo": 1.366854611865869,
+        "hi": 1.6521277187417065,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 194906,
+        "lo": 153980,
+        "hi": 247328,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.688,
+        "lo": 0.646,
+        "hi": 0.728,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 344,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 34030,
+          "lowMedian": 31612,
+          "ratio": 1.076489940528913
+        },
+        {
+          "blocks": 256,
+          "highMedian": 133302,
+          "lowMedian": 119800,
+          "ratio": 1.1127045075125208
+        },
+        {
+          "blocks": 384,
+          "highMedian": 277228,
+          "lowMedian": 251972,
+          "ratio": 1.1002333592621403
+        },
+        {
+          "blocks": 512,
+          "highMedian": 469246,
+          "lowMedian": 376978,
+          "ratio": 1.2447569884714758
+        }
+      ]
+    },
+    {
+      "high": "expectimax-d2-v2",
+      "low": "expectimax-d2-v1",
+      "medianRatio": {
+        "point": 1.0023458711266255,
+        "lo": 0.8906866150772278,
+        "hi": 1.0892779010220024,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": -10718,
+        "lo": -55428,
+        "hi": 24086,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.484,
+        "lo": 0.44,
+        "hi": 0.528,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 242,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 31612,
+          "lowMedian": 30724,
+          "ratio": 1.0289024866553833
+        },
+        {
+          "blocks": 256,
+          "highMedian": 119800,
+          "lowMedian": 118440,
+          "ratio": 1.011482607227288
+        },
+        {
+          "blocks": 384,
+          "highMedian": 251972,
+          "lowMedian": 258002,
+          "ratio": 0.9766280881543554
+        },
+        {
+          "blocks": 512,
+          "highMedian": 376978,
+          "lowMedian": 387406,
+          "ratio": 0.9730825025941777
+        }
+      ]
+    },
+    {
+      "high": "expectimax-d2-v1",
+      "low": "heuristic-v2",
+      "medianRatio": {
+        "point": 2.091634167082075,
+        "lo": 1.9057584276762667,
+        "hi": 2.290867475512975,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 224466,
+        "lo": 183472,
+        "hi": 253544,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.802,
+        "lo": 0.766,
+        "hi": 0.836,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 401,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 30724,
+          "lowMedian": 25072,
+          "ratio": 1.2254307594128908
+        },
+        {
+          "blocks": 256,
+          "highMedian": 118440,
+          "lowMedian": 97648,
+          "ratio": 1.2129280681631984
+        },
+        {
+          "blocks": 384,
+          "highMedian": 258002,
+          "lowMedian": 185660,
+          "ratio": 1.38964774318647
+        },
+        {
+          "blocks": 512,
+          "highMedian": 387406,
+          "lowMedian": 204618,
+          "ratio": 1.8933133937385762
+        }
+      ]
+    },
+    {
+      "high": "heuristic-v2",
+      "low": "heuristic-v1",
+      "medianRatio": {
+        "point": 1.4468407059622128,
+        "lo": 1.3266761682095602,
+        "hi": 1.6205515794640741,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 49618,
+        "lo": 34090,
+        "hi": 69658,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.648,
+        "lo": 0.606,
+        "hi": 0.69,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 324,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 25072,
+          "lowMedian": 23488,
+          "ratio": 1.0674386920980927
+        },
+        {
+          "blocks": 256,
+          "highMedian": 97648,
+          "lowMedian": 87222,
+          "ratio": 1.1195340625071657
+        },
+        {
+          "blocks": 384,
+          "highMedian": 185660,
+          "lowMedian": 141098,
+          "ratio": 1.3158230449758324
+        },
+        {
+          "blocks": 512,
+          "highMedian": 204618,
+          "lowMedian": 141424,
+          "ratio": 1.4468407059622128
+        }
+      ]
+    },
+    {
+      "high": "heuristic-v1",
+      "low": "heuristic-v0",
+      "medianRatio": {
+        "point": 1.2382803607389896,
+        "lo": 1.1149845617367253,
+        "hi": 1.3980834691811395,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 30636,
+        "lo": 16432,
+        "hi": 39668.399999999994,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.596,
+        "lo": 0.554,
+        "hi": 0.638,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 298,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 23488,
+          "lowMedian": 23238,
+          "ratio": 1.0107582408124622
+        },
+        {
+          "blocks": 256,
+          "highMedian": 87222,
+          "lowMedian": 80418,
+          "ratio": 1.0846079235991941
+        },
+        {
+          "blocks": 384,
+          "highMedian": 141098,
+          "lowMedian": 114210,
+          "ratio": 1.2354259697049295
+        },
+        {
+          "blocks": 512,
+          "highMedian": 141424,
+          "lowMedian": 114210,
+          "ratio": 1.2382803607389896
+        }
+      ]
+    },
+    {
+      "high": "heuristic-v0",
+      "low": "greedy-v1",
+      "medianRatio": {
+        "point": 3.2275476177019162,
+        "lo": 2.8888525518088297,
+        "hi": 3.5737080433630286,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 71276,
+        "lo": 62030,
+        "hi": 78362,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.872,
+        "lo": 0.842,
+        "hi": 0.9,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 436,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 23238,
+          "lowMedian": 17910,
+          "ratio": 1.2974874371859297
+        },
+        {
+          "blocks": 256,
+          "highMedian": 80418,
+          "lowMedian": 35386,
+          "ratio": 2.2725936811168257
+        },
+        {
+          "blocks": 384,
+          "highMedian": 114210,
+          "lowMedian": 35386,
+          "ratio": 3.2275476177019162
+        },
+        {
+          "blocks": 512,
+          "highMedian": 114210,
+          "lowMedian": 35386,
+          "ratio": 3.2275476177019162
+        }
+      ]
+    },
+    {
+      "high": "greedy-v1",
+      "low": "random-v1",
+      "medianRatio": {
+        "point": 20.81529411764706,
+        "lo": 18.18804347826087,
+        "hi": 23.57284874159874,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 32844,
+        "lo": 30352,
+        "hi": 35372,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 1,
+        "lo": 1,
+        "hi": 1,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 500,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 17910,
+          "lowMedian": 1700,
+          "ratio": 10.535294117647059
+        },
+        {
+          "blocks": 256,
+          "highMedian": 35386,
+          "lowMedian": 1700,
+          "ratio": 20.81529411764706
+        },
+        {
+          "blocks": 384,
+          "highMedian": 35386,
+          "lowMedian": 1700,
+          "ratio": 20.81529411764706
+        },
+        {
+          "blocks": 512,
+          "highMedian": 35386,
+          "lowMedian": 1700,
+          "ratio": 20.81529411764706
+        }
+      ]
+    },
+    {
+      "high": "random-v1",
+      "low": "stacker-v1",
+      "medianRatio": {
+        "point": 1.045510455104551,
+        "lo": 0.9036364598376576,
+        "hi": 1.174422229310445,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 20,
+        "lo": -164,
+        "hi": 256,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.506,
+        "lo": 0.462,
+        "hi": 0.55,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 253,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 1700,
+          "lowMedian": 1626,
+          "ratio": 1.045510455104551
+        },
+        {
+          "blocks": 256,
+          "highMedian": 1700,
+          "lowMedian": 1626,
+          "ratio": 1.045510455104551
+        },
+        {
+          "blocks": 384,
+          "highMedian": 1700,
+          "lowMedian": 1626,
+          "ratio": 1.045510455104551
+        },
+        {
+          "blocks": 512,
+          "highMedian": 1700,
+          "lowMedian": 1626,
+          "ratio": 1.045510455104551
+        }
+      ]
+    },
+    {
+      "high": "expectimax-d2-v2",
+      "low": "expectimax-d2-v1",
+      "medianRatio": {
+        "point": 1.0023458711266255,
+        "lo": 0.8906866150772278,
+        "hi": 1.0892779010220024,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": -10718,
+        "lo": -55428,
+        "hi": 24086,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.484,
+        "lo": 0.44,
+        "hi": 0.528,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 242,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 31612,
+          "lowMedian": 30724,
+          "ratio": 1.0289024866553833
+        },
+        {
+          "blocks": 256,
+          "highMedian": 119800,
+          "lowMedian": 118440,
+          "ratio": 1.011482607227288
+        },
+        {
+          "blocks": 384,
+          "highMedian": 251972,
+          "lowMedian": 258002,
+          "ratio": 0.9766280881543554
+        },
+        {
+          "blocks": 512,
+          "highMedian": 376978,
+          "lowMedian": 387406,
+          "ratio": 0.9730825025941777
+        }
+      ]
+    },
+    {
+      "high": "expectimax-d3-v2",
+      "low": "expectimax-d3-v1",
+      "medianRatio": {
+        "point": 0.9857607811228641,
+        "lo": 0.9172590749948002,
+        "hi": 1.0691367838712076,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 18680,
+        "lo": -41322,
+        "hi": 76592,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.51,
+        "lo": 0.466,
+        "hi": 0.554,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 255,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 34030,
+          "lowMedian": 32722,
+          "ratio": 1.0399731067783142
+        },
+        {
+          "blocks": 256,
+          "highMedian": 133302,
+          "lowMedian": 127886,
+          "ratio": 1.0423502181630515
+        },
+        {
+          "blocks": 384,
+          "highMedian": 277228,
+          "lowMedian": 275356,
+          "ratio": 1.0067984717965106
+        },
+        {
+          "blocks": 512,
+          "highMedian": 469246,
+          "lowMedian": 467352,
+          "ratio": 1.0040526198668243
+        }
+      ]
+    },
+    {
+      "high": "expectimax-d2-v2",
+      "low": "heuristic-v2",
+      "medianRatio": {
+        "point": 2.0965408712820963,
+        "lo": 1.8668089972250306,
+        "hi": 2.2724429993523683,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 203272,
+        "lo": 169294,
+        "hi": 236468,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.796,
+        "lo": 0.76,
+        "hi": 0.832,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 398,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 31612,
+          "lowMedian": 25072,
+          "ratio": 1.2608487555839183
+        },
+        {
+          "blocks": 256,
+          "highMedian": 119800,
+          "lowMedian": 97648,
+          "ratio": 1.2268556447648697
+        },
+        {
+          "blocks": 384,
+          "highMedian": 251972,
+          "lowMedian": 185660,
+          "ratio": 1.3571690186362166
+        },
+        {
+          "blocks": 512,
+          "highMedian": 376978,
+          "lowMedian": 204618,
+          "ratio": 1.8423501353742096
+        }
+      ]
+    },
+    {
+      "high": "expectimax-d3-v2",
+      "low": "expectimax-d2-v2",
+      "medianRatio": {
+        "point": 1.4798153803118954,
+        "lo": 1.366854611865869,
+        "hi": 1.6521277187417065,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 194906,
+        "lo": 153980,
+        "hi": 247328,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.688,
+        "lo": 0.646,
+        "hi": 0.728,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 344,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 34030,
+          "lowMedian": 31612,
+          "ratio": 1.076489940528913
+        },
+        {
+          "blocks": 256,
+          "highMedian": 133302,
+          "lowMedian": 119800,
+          "ratio": 1.1127045075125208
+        },
+        {
+          "blocks": 384,
+          "highMedian": 277228,
+          "lowMedian": 251972,
+          "ratio": 1.1002333592621403
+        },
+        {
+          "blocks": 512,
+          "highMedian": 469246,
+          "lowMedian": 376978,
+          "ratio": 1.2447569884714758
+        }
+      ]
+    },
+    {
+      "high": "expectimax-d3-v2",
+      "low": "heuristic-v0",
+      "medianRatio": {
+        "point": 5.558409946589616,
+        "lo": 5.11400801807729,
+        "hi": 6.277947625822551,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260807,
+        "method": "percentile bootstrap over seeds"
+      },
+      "medianPairedDifference": {
+        "point": 510198,
+        "lo": 477512,
+        "hi": 552914.95,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260808,
+        "method": "percentile bootstrap over seeds"
+      },
+      "winRate": {
+        "point": 0.972,
+        "lo": 0.956,
+        "hi": 0.984,
+        "level": 0.95,
+        "resamples": 10000,
+        "seed": 20260809,
+        "method": "percentile bootstrap over seeds"
+      },
+      "wins": 486,
+      "atHorizons": [
+        {
+          "blocks": 128,
+          "highMedian": 34030,
+          "lowMedian": 23238,
+          "ratio": 1.4644117393923746
+        },
+        {
+          "blocks": 256,
+          "highMedian": 133302,
+          "lowMedian": 80418,
+          "ratio": 1.6576139670223085
+        },
+        {
+          "blocks": 384,
+          "highMedian": 277228,
+          "lowMedian": 114210,
+          "ratio": 2.427353121442956
+        },
+        {
+          "blocks": 512,
+          "highMedian": 469246,
+          "lowMedian": 114210,
+          "ratio": 4.108624463707206
+        }
+      ]
+    }
+  ]
+}

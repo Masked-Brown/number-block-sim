@@ -36,6 +36,8 @@ import heuristicV1 from './heuristic-v1.js';
 import heuristicV2 from './heuristic-v2.js';
 import expectimaxD2V1 from './expectimax-d2-v1.js';
 import expectimaxD3V1 from './expectimax-d3-v1.js';
+import expectimaxD2V2 from './expectimax-d2-v2.js';
+import expectimaxD3V2 from './expectimax-d3-v2.js';
 
 export const AGENTS = new Map();
 
@@ -55,6 +57,8 @@ register(heuristicV1);
 register(heuristicV2);
 register(expectimaxD2V1);
 register(expectimaxD3V1);
+register(expectimaxD2V2);
+register(expectimaxD3V2);
 
 export function getAgent(ref) {
   if (AGENTS.has(ref)) return AGENTS.get(ref);

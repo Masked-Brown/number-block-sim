@@ -1,0 +1,24 @@
+{
+  "runId": "2026-08-05_behaviour-probe-d2-v2",
+  "kind": "measurement",
+  "createdAt": "2026-08-05T16:39:51.525Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "what": "The banking probe re-run on the LEAK-FREE depth-2 agent (audit 0019 proposal 1, second half). Identical instrument and identical seeds to 2026-08-05_behaviour-probes so the two are paired: probe-behaviour.js, train-v1 at offset 500, 50 games. Diagnostic only, never a headline. Restates F003 rates without the leaf preview leak; compare against that run's probe-expectimax-d2-v1.json.",
+  "probes": {
+    "probe-expectimax-d2-v2.json": "50 games, expectimax-d2-v2"
+  },
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "7f500d3c9fab12eddb8c39c24e7329ce03ec12a8c2679c42157585e0de7a1242",
+    "repoCommit": "142e9735dce37f66bbd33f54b7d43741d22bbc8a",
+    "workingTreeDirty": true
+  }
+}

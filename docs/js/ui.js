@@ -15,6 +15,7 @@ import {
 } from './board-render.js';
 import { downloadShareCard } from './share.js';
 import { shake, burst, ring, chainPop, squash, pop } from './fx.js';
+import { assess } from './performance.js';
 
 const LS_BEST = 'nbs.best';
 const LS_LAST_REPLAY = 'nbs.lastReplay';
@@ -33,6 +34,12 @@ let runStart = 0;
 let lastFrame = null;
 let lastReplay = null;
 let lastLockedCol = 2; // v1.1: the next block enters where the last one landed
+let runId = 0; // bumped on every new game, so a slow grade cannot land on a fresh screen
+
+// Daily mode (v1.2): the same board for everyone, derived from the UTC date, with
+// no server and no leaderboard. `?daily=1` chooses it; New game and R restart the
+// SAME board, because that is the whole point of a daily.
+const dailyMode = new URLSearchParams(location.search).has('daily');
 
 // ---------------------------------------------------------------------------
 // game lifecycle
@@ -43,8 +50,29 @@ function randomSeed() {
   return ((BigInt(words[0]) << 32n) | BigInt(words[1])).toString();
 }
 
+// FNV-1a 32-bit, twice, to fill a 64-bit seed. Hashing a date is not a rule and
+// not a tunable in itself; the label it hashes with is (CONFIG.daily.label).
+function fnv1a(text) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < text.length; i++) {
+    h ^= text.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h;
+}
+
+function todayUTC() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function dailySeed(day = todayUTC()) {
+  const key = `${CONFIG.daily.label}:${day}`;
+  return ((BigInt(fnv1a(key)) << 32n) | BigInt(fnv1a(`${key}#tail`))).toString();
+}
+
 function startGame() {
-  game = newGame(randomSeed());
+  runId += 1;
+  game = newGame(dailyMode ? dailySeed() : randomSeed());
   phase = 'falling';
   moves = [];
   stamps = [];
@@ -182,29 +210,52 @@ function finishGame() {
 
   $('final-score').textContent = game.score.toLocaleString('en-GB');
   $('best-note').textContent = isBest ? 'New personal best' : '';
-  const m = $('over-metrics');
-  m.textContent = '';
-  const mergeSummary = Object.entries(result.mergeCounts)
-    .map(([size, count]) => `${count}×${sizeName(size)}`)
-    .join(', ') || 'none';
-  for (const [k, v] of [
-    ['Max tile', result.maxTile.toLocaleString('en-GB')],
-    ['Blocks placed', String(result.blocksPlaced)],
-    ['Merges', mergeSummary],
-    ['Longest chain', `${result.longestChain}×`],
-    ['Duration', formatDuration(durationMs)],
-    ['Seed', game.seed],
-  ]) {
-    const row = document.createElement('div');
-    const kEl = document.createElement('span');
-    kEl.textContent = k;
-    const vEl = document.createElement('span');
-    vEl.textContent = v;
-    row.append(kEl, vEl);
-    m.appendChild(row);
-  }
+  renderBreakdown(result, durationMs);
   $('over-overlay').classList.add('show');
   refreshHud();
+  gradeThisGame(lastReplay, runId);
+}
+
+// ---------------------------------------------------------------------------
+// the v1.2 breakdown screen
+//
+// Everything here comes from what the game already recorded: the engine's own
+// result metrics (RULES.md 7) plus the per-move timestamps the replay carries.
+// Nothing is recomputed and nothing is estimated.
+
+function renderBreakdown(result, durationMs) {
+  const m = $('over-metrics');
+  m.textContent = '';
+  const perMove = medianGapSeconds(stamps);
+  for (const [k, v] of [
+    ['Score', result.score.toLocaleString('en-GB')],
+    ['Max tile', result.maxTile.toLocaleString('en-GB')],
+    ['Blocks placed', String(result.blocksPlaced)],
+    ['Merges', mergeSummary(result.mergeCounts)],
+    ['Longest chain', `${result.longestChain} pass${result.longestChain === 1 ? '' : 'es'}`],
+    ['Total time', formatDuration(durationMs)],
+    ['Median per move', perMove === null ? '–' : `${perMove.toFixed(1)} s`],
+    ['Seed', dailyMode ? `${game.seed} (daily ${todayUTC()})` : game.seed],
+  ]) {
+    m.appendChild(metricRow(k, v));
+  }
+}
+
+function metricRow(label, value) {
+  const row = document.createElement('div');
+  const kEl = document.createElement('span');
+  kEl.textContent = label;
+  const vEl = document.createElement('span');
+  vEl.textContent = value;
+  row.append(kEl, vEl);
+  return row;
+}
+
+function mergeSummary(mergeCounts) {
+  const parts = Object.entries(mergeCounts)
+    .sort((a, b) => Number(a[0]) - Number(b[0]))
+    .map(([size, count]) => `${count.toLocaleString('en-GB')} ${sizeName(size)}${count === 1 ? '' : 's'}`);
+  return parts.length ? parts.join(', ') : 'none';
 }
 
 function sizeName(size) {
@@ -214,6 +265,109 @@ function sizeName(size) {
 function formatDuration(ms) {
   const s = Math.round(ms / 1000);
   return `${Math.floor(s / 60)}m ${String(s % 60).padStart(2, '0')}s`;
+}
+
+// The same median the grader uses, computed here for the breakdown row so the
+// two numbers can never drift apart in the reader's eye: gaps between successive
+// cumulative stamps, first gap measured from the start of the run.
+function medianGapSeconds(timestamps) {
+  if (!timestamps || timestamps.length === 0) return null;
+  const gaps = [];
+  let prev = 0;
+  for (const t of timestamps) {
+    gaps.push(Math.max(0, t - prev) / 1000);
+    prev = t;
+  }
+  gaps.sort((a, b) => a - b);
+  const n = gaps.length;
+  return n % 2 === 1 ? gaps[(n - 1) / 2] : (gaps[n / 2 - 1] + gaps[n / 2]) / 2;
+}
+
+// ---------------------------------------------------------------------------
+// the accuracy grade and the composite
+//
+// Grading runs in this tab, on this CPU, with no network: performance.js walks
+// the recorded moves past the leak-free champion and reports how often the human
+// agreed. It is chunked across frames, so the buttons on this very screen stay
+// clickable while it works, and `generation` makes a slow grade from the previous
+// game harmless.
+
+function gradeThisGame(replay, generation) {
+  const total = $('perf-total');
+  const parts = $('perf-parts');
+  const note = $('perf-note');
+  total.className = 'perf-total pending';
+  total.textContent = 'grading';
+  parts.textContent = '';
+  note.textContent = `judging ${replay.moves.length} moves against the champion…`;
+
+  assess(replay, {
+    onProgress: (done, all) => {
+      if (generation !== runId) return;
+      note.textContent = `judging ${all} moves against the champion… ${Math.round((done / all) * 100)}%`;
+    },
+  }).then((verdict) => {
+    if (generation !== runId) return;
+    renderPerformance(verdict);
+  }).catch((err) => {
+    if (generation !== runId) return;
+    total.className = 'perf-total pending';
+    total.textContent = '–';
+    note.textContent = `grading failed: ${err.message}`;
+  });
+}
+
+function renderPerformance(verdict) {
+  const total = $('perf-total');
+  total.className = 'perf-total';
+  total.textContent = '';
+  const big = document.createElement('span');
+  big.textContent = verdict.composite.toFixed(0);
+  const of = document.createElement('span');
+  of.className = 'of';
+  of.textContent = '/100';
+  total.append(big, of);
+
+  const parts = $('perf-parts');
+  parts.textContent = '';
+  for (const [key, name, weight] of [
+    ['accuracy', 'Accuracy', verdict.weights.accuracy],
+    ['score', 'Score', verdict.weights.score],
+    ['pace', 'Pace', verdict.weights.pace],
+  ]) {
+    const value = verdict.indices[key];
+    const box = document.createElement('div');
+    box.className = value === null ? 'part absent' : 'part';
+    const nameEl = document.createElement('div');
+    nameEl.className = 'name';
+    nameEl.textContent = name;
+    const valEl = document.createElement('div');
+    valEl.className = 'val';
+    valEl.textContent = value === null ? '–' : value.toFixed(0);
+    const wtEl = document.createElement('div');
+    wtEl.className = 'wt';
+    wtEl.textContent = value === null ? 'not counted' : `weight ${weight}`;
+    const meter = document.createElement('div');
+    meter.className = 'meter';
+    const fill = document.createElement('i');
+    fill.style.width = `${value === null ? 0 : Math.max(1, Math.round(value))}%`;
+    meter.appendChild(fill);
+    box.append(nameEl, valEl, wtEl, meter);
+    parts.appendChild(box);
+  }
+
+  const pct = verdict.graded > 0 ? (verdict.agreed / verdict.graded) * 100 : 0;
+  const bits = [
+    `played the champion's column on ${verdict.agreed} of ${verdict.graded} moves `
+    + `(${pct.toFixed(1)}%), judged by ${verdict.championId} in this tab`,
+  ];
+  if (verdict.clutchMoves > 0) {
+    bits.push(`${verdict.clutchMoves} into a full column, which the champion never considers`);
+  }
+  if (!verdict.paceCounted) {
+    bits.push('no move timings recorded, so pace is left out and the other two are reweighted');
+  }
+  $('perf-note').textContent = `${bits.join('; ')}.`;
 }
 
 // ---------------------------------------------------------------------------
@@ -257,6 +411,11 @@ function refreshHud() {
 
   $('placed').textContent = String(game.blocksPlaced);
   $('seed-label').textContent = `seed ${game.seed}`;
+  const daily = $('daily-note');
+  if (dailyMode) {
+    daily.hidden = false;
+    daily.textContent = `daily board for ${todayUTC()} · everyone gets this one`;
+  }
 }
 
 // ---------------------------------------------------------------------------

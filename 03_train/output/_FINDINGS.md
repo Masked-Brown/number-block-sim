@@ -29,7 +29,7 @@ or the next run design), **Disposition and dates**
 | F001 | Lookahead over the honest preview beats any weight tuning; depth is the experiment's dominant axis | strong | feeds-publish |
 | F002 | Flat heuristic play dies of tier fragmentation, and pricing it relaxes every panic weight | supported | feeds-publish |
 | F003 | Banking triples and quads is a search behaviour; no flat weight setting produces it | supported | feeds-publish |
-| F004 | A practised human sits level with flat heuristic play; only search pulls clearly ahead | suggestive | feeds-publish |
+| F004 | A practised human plays in the same regime as measured agent play, not orders below it; the remaining gap is survival, not scoring rate | suggestive | feeds-publish |
 | F005 | Never burying a low tile is the binding constraint of strong play under these rules | supported | feeds-publish |
 | F006 | The spawn drift is survived, not chased; the v1.0 floor-rise question is retired | supported | feeds-publish |
 
@@ -37,6 +37,15 @@ Entry route: these six entered on 2026-08-05 under work order orchestrated-train
 whose deliverable 7 names this register with the entry discipline stated; the reading of that
 order as AB's pre-authorisation is recorded in `DECISION_LOG.md` and the job touchdown. The
 smoke-ladder's four candidate findings remain unpromoted drafts in that run's SUMMARY.md.
+
+Correction pass, 2026-08-05, work order remediate-and-game-v1.2, which names these amendments
+explicitly (its item 3: append dated corrections, never rewrite). F001, F003 and F004 each carry
+a **Correction** block after their Action, added after audit 0019 found the expectimax leaf
+preview leak. The original wording of every field stands above its correction, unedited, so a
+reader can see what was believed and what replaced it. The summary line for F004 above is the
+one thing restated in place, because an index that contradicts its own entry is worse than
+either version. No new findings were promoted; two candidates are drafted in
+`runs/2026-08-05_leak-free-ladder/SUMMARY.md` for a later AB-gated pass.
 
 ## Findings
 
@@ -69,7 +78,43 @@ position is five to nine hundred engine calls, fine interactively). Any future s
 prices depth 4 or beam variants before another breed; the write-up leads with depth, not
 weights.
 
+**Correction, 2026-08-05 (job remediate-and-game-v1.2, after audit 0019).** Appended, not
+rewritten: everything above stands as first logged and the corrections are here.
+
+1. *The mechanism sentence was false as stated, and the magnitude survives.* Audit 0019 found
+   that `expectimax-d2-v1` and `expectimax-d3-v1` read the engine's real but unknowable next
+   block at their search leaves, through `next-merge-ready` scoring `ctx.next` on a simulated
+   state. So "any gain at depth 2 or 3 is attributable to search alone" was not true of those
+   two versions: part of the information they used was a peek. Leak-free versions
+   `expectimax-d2-v2` and `expectimax-d3-v2` were cut (the leaf feature is integrated over the
+   exact live distribution instead) and both sat all 500 eval-v1 seeds.
+2. *The leak was worth nothing measurable.* Paired on shared seeds: depth 2, honest median
+   428,990 against leaked 427,986, ratio 1.00x with a 95 per cent interval of 0.89 to 1.09 and
+   a win rate interval of 44.0 to 52.8 per cent; depth 3, honest 634,826 against leaked
+   643,996, ratio 0.99x, interval 0.92 to 1.07, win rate interval 46.6 to 55.4 per cent. Both
+   difference intervals contain zero and the direction is not even consistent between depths.
+   It flipped 7.8 per cent of depth-2 decisions (audit 0019) and changed no result.
+3. *The honest rungs, with intervals.* Depth 2 over flat: 2.10x, interval 1.87 to 2.29, win
+   rate 76.0 to 83.2 per cent. Depth 3 over depth 2: 1.48x, interval 1.37 to 1.65, win rate
+   64.6 to 72.8 per cent. Champion over the inherited flat agent: 5.56x, interval 5.11 to 6.28.
+   Against 1.79x for two whole breeding campaigns. The claim is unchanged and now bounded.
+4. *A real qualification to the mechanism, from the new fixed-horizon panel.* Most of the
+   ladder's spread is survival, not scoring rate. Read at 256 blocks placed rather than at
+   game over, depth 2 over flat is 1.23x (not 2.10x) and the champion over heuristic-v0 is
+   1.66x (not 5.56x). The ORDERING holds at every horizon from 128 to 512 blocks, so the ladder
+   is not an artefact of survival compounding, but the SIZE of every gap mostly says that search
+   dies later rather than that it scores faster while alive. The write-up should say this
+   plainly; it is the more interesting reading and it is what the numbers support.
+5. *The Action above is superseded.* The move-grading champion is now the leak-free
+   `expectimax-d2-v2`, which is what game v1.2 grades human moves against in the browser, with
+   `expectimax-d3-v2` the strongest honest agent and the source of the game's score-index cap.
+   Grading against a judge that peeks would mark a player down for not knowing the unknowable.
+   Evidence for all of the above: runs `2026-08-05_eval-expectimax-d2-v2`,
+   `2026-08-05_eval-expectimax-d3-v2` and `2026-08-05_leak-free-ladder` (its `SUMMARY.md`
+   carries the reading, `UNCERTAINTY.md` the intervals and the panel).
+
 **Disposition and dates.** feeds-publish | first logged: 2026-08-05 | last updated: 2026-08-05
+(leak-fix correction appended the same day)
 
 ### F002 -- fragmentation is what kills flat play
 
@@ -131,7 +176,27 @@ play; quintuples remain a neglect signal in every strong agent measured.
 **Action.** Human-playable lesson: bank only what the preview can close. The write-up should
 pair this with F001, since it is the cleanest concrete example of what depth buys.
 
+**Correction, 2026-08-05 (job remediate-and-game-v1.2, after audit 0019).** Appended, not
+rewritten. The rates quoted in Evidence above were measured on `expectimax-d2-v1`, whose search
+leaves read a block no player could see, so the audit rightly asked whether the banking those
+rates describe was partly leak-informed. The probe was re-run on the leak-free
+`expectimax-d2-v2` with the identical instrument and the identical seeds (train-v1 at offset
+500, 50 games, run `2026-08-05_behaviour-probe-d2-v2`), so the two are paired.
+
+**Banking is not a leak artefact, and the honest rates are slightly stronger.** Leak-free
+depth-2 declines 10.9 per cent of available merges (leaked: 10.4) and banks a triple or better
+on 56.8 per cent of those declines (leaked: 53.7). Every flat version still takes an available
+merge on 100 per cent of offering moves. Merge profile over the 50 probe games: 22,218 pairs,
+1,667 triples, 42 quads and one quintuple, against 23,267 / 1,684 / 35 / 0 leaked, so the
+honest agent closes slightly more of the biggest groups. At eval scale the same holds: 430 quads
+and one quintuple in 500 games against the leaked row's 355 and none.
+
+The claim and its mechanism stand exactly as written; the numbers to quote are the leak-free
+ones. The parked quintuple-neglect signal is now marginally weaker, since a leak-free depth-2
+agent did close one, and one is still a neglect signal rather than a strategy.
+
 **Disposition and dates.** feeds-publish | first logged: 2026-08-05 | last updated: 2026-08-05
+(leak-free probe correction appended the same day)
 
 ### F004 -- the human gap was an artefact of an unpractised reference
 
@@ -161,7 +226,49 @@ that leaned on BUILD.md's 228.
 **Action.** Home the replay properly (it is AB's file; raised in the job touchdown), commission
 the practised-human set before Phase 4 fixes its composite score, and stop quoting 228.
 
+**Correction, 2026-08-05 (job remediate-and-game-v1.2, after audit 0019).** Appended, not
+rewritten. Three things change: where the evidence lives, what one game can support, and a
+better comparison that this job's analysis made available.
+
+1. *The replay is homed.* `03_train/output/reference/nbs-replay-121496.json`, committed, not the
+   repo root. Engine-verified (score 121,496, hash a613b2d4) and verified in live cinema mode
+   with the green badge by audit 0019.
+2. *The Claim is softened to exactly what n=1 supports.* One practised game by one player
+   supports one claim: **a practised human plays in the same REGIME as measured agent play
+   rather than three orders of magnitude below it, and the 228-based gap reading is dead.** It
+   cannot support "sits level with flat heuristic play": it cannot order the human against
+   `heuristic-v1` or `heuristic-v2`, whose own q1-to-q3 spans cover two to three times, and it
+   carries selection ambiguity, because a downloaded replay is plausibly the best of a session
+   and the file's score-stamped name comes from the download path. No additional human replays
+   existed in `03_train/output/reference/` when this job ran, so nothing could be added; audit
+   0019 proposal 2 (five to ten retained games, no cherry-picking) remains the fix and is item 9
+   of `04_publish/output/NEXT_STEPS.md`.
+3. *A better comparison, and it moves the reading.* The end-of-game medians this finding was
+   written against compare a 256-block human game with agent games that ran two to five times
+   longer, which flatters neither side honestly. The new fixed-horizon panel
+   (`2026-08-05_leak-free-ladder/UNCERTAINTY.md`) gives the matched comparison: median score at
+   256 blocks placed is 80,418 for `heuristic-v0`, 87,222 for `heuristic-v1`, 97,648 for
+   `heuristic-v2`, 119,800 for the leak-free `expectimax-d2-v2` and 133,302 for
+   `expectimax-d3-v2`. **The human's 121,496 in 256 blocks sits between the two searching
+   agents, inside depth 2's own interquartile range for that horizon (99,708 to 150,916).** So
+   over the blocks they actually played, a practised human scored at the SEARCHING agents' rate,
+   not the flat agents'. What they did not do is survive: 99.8 per cent of depth-2 games were
+   still alive at 256 blocks and that game was over.
+4. *So the finding's shape changes.* The remaining gap is not a scoring-rate gap at all, it is a
+   survival gap, which is the same conclusion F001's own correction reached from the other
+   direction. The Mechanism's second sentence ("what a human cannot do at play speed is
+   expectimax's arithmetic") is still the best available explanation of the survival difference,
+   but it is now explanation rather than measurement, because the arithmetic evidently is not
+   what produces the score difference over a fixed number of blocks.
+5. *Confidence stays suggestive*, and the falsifier is unchanged: a small set of retained
+   practised games. Game v1.2 makes that set considerably more valuable than it was, since every
+   human game now arrives with a per-move accuracy grade against the leak-free champion. For the
+   record, the homed replay grades at 46.5 per cent agreement, median 1.85 seconds a move, and
+   two locks into a full column, which is one measurement of one game and is offered as an
+   example of what the human set would produce, not as a finding.
+
 **Disposition and dates.** feeds-publish | first logged: 2026-08-05 | last updated: 2026-08-05
+(n=1 softening and the fixed-horizon comparison appended the same day)
 
 ### F005 -- never bury a low tile
 

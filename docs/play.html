@@ -24,19 +24,34 @@
   <div class="board-wrap">
     <div id="board"></div>
     <div id="banner" class="banner"></div>
-    <div id="over-overlay" class="overlay">
-      <div class="dialog">
-        <h2>Game over</h2>
-        <div id="final-score" class="final-score">0</div>
-        <div id="best-note" class="best-note"></div>
-        <div id="over-metrics" class="metrics"></div>
-        <div class="actions">
-          <button id="again" class="primary">Play again&nbsp; (Enter)</button>
-          <button id="share-card">Save score card</button>
-          <button id="download-replay">Download replay</button>
-          <a class="btn" href="cinema.html?last=1">Watch replay in cinema mode</a>
-          <a class="btn" href="index.html">Home</a>
+  </div>
+
+  <div id="over-overlay" class="overlay">
+    <div class="dialog breakdown">
+      <h2>Game over</h2>
+      <div id="final-score" class="final-score">0</div>
+      <div id="best-note" class="best-note"></div>
+
+      <div class="perf">
+        <div class="perf-top">
+          <div class="perf-heading">
+            <div class="perf-label">Performance</div>
+            <div id="perf-note" class="perf-sub">grading every move&nbsp;…</div>
+          </div>
+          <div id="perf-total" class="perf-total">–</div>
         </div>
+        <div id="perf-parts" class="perf-parts"></div>
+      </div>
+
+      <div class="section-label">Breakdown</div>
+      <div id="over-metrics" class="metrics"></div>
+
+      <div class="actions grid">
+        <button id="again" class="primary">Play again&nbsp; (Enter)</button>
+        <a class="btn" href="cinema.html?last=1">Watch in cinema mode</a>
+        <button id="share-card">Save score card</button>
+        <button id="download-replay">Download replay</button>
+        <a class="btn" href="index.html">Home</a>
       </div>
     </div>
   </div>
@@ -72,6 +87,7 @@
     <div class="card">
       <h2>Game</h2>
       <div class="small">blocks placed <span id="placed">0</span><br><span id="seed-label" class="mono"></span></div>
+      <div id="daily-note" class="small" hidden></div>
       <div style="margin-top:10px"><button id="new-game">New game</button></div>
     </div>
   </aside>

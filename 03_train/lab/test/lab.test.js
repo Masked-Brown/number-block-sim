@@ -14,13 +14,15 @@ import assert from 'node:assert/strict';
 import { RULES, hashState, verifyReplay, newGame, play, spawnDistribution } from '../engine-link.js';
 import { listAgents, getAgent, makeStrictStacker, makeStacker } from '../agents/index.js';
 import { makeWeightedAgent } from '../agents/weighted.js';
-import { makeExpectimax } from '../agents/expectimax.js';
+import { makeExpectimax, NEXT_DEPENDENT_FEATURES } from '../agents/expectimax.js';
 import { playSeedsParallel, gameIdentity } from '../parallel.js';
 import { listFeatures, getFeature, bindWeights, buildContext } from '../features/index.js';
 import { loadSeedSet, seedsChecksum } from '../seeds.js';
 import { playGame, MAX_MOVES } from '../runner.js';
 import { buildReplay } from '../replay.js';
-import { quantile, summarise } from '../metrics.js';
+import {
+  quantile, summarise, bootstrapCI, medianOfIndexed, meanOfIndexed,
+} from '../metrics.js';
 
 const EVAL = loadSeedSet('eval-v1');
 const SEEDS = EVAL.seeds.slice(0, 12);
@@ -259,30 +261,211 @@ test('an ephemeral weighted spec through the pool matches its serial games', asy
 test('expectimax depth 1 is move-for-move the flat weighted agent', () => {
   const v0 = getAgent('heuristic-v0');
   const flat = makeWeightedAgent({ name: 'flat', version: 'x', weights: v0.weights, pins: v0.pins });
-  const em = makeExpectimax({ name: 'em', version: 'x', weights: v0.weights, pins: v0.pins, depth: 1 });
-  for (const seed of SEEDS.slice(0, 2)) {
-    const a = playGame(flat.create({}), seed);
-    const b = playGame(em.create({}), seed);
-    assert.equal(a.moves.join(','), b.moves.join(','), `depth 1 diverges from flat on seed ${seed}`);
-    assert.equal(a.metrics.finalHash, b.metrics.finalHash);
+  // Depth 1's only leaf is the root, where the preview is genuinely known, so
+  // both leaf modes must agree with the flat agent.
+  for (const leafNext of ['engine-draw', 'expectation']) {
+    const em = makeExpectimax({
+      name: 'em', version: 'x', weights: v0.weights, pins: v0.pins, depth: 1, leafNext,
+    });
+    for (const seed of SEEDS.slice(0, 2)) {
+      const a = playGame(flat.create({}), seed);
+      const b = playGame(em.create({}), seed);
+      assert.equal(a.moves.join(','), b.moves.join(','),
+        `depth 1 (${leafNext}) diverges from flat on seed ${seed}`);
+      assert.equal(a.metrics.finalHash, b.metrics.finalHash);
+    }
   }
 });
 
 test('expectimax depths 2 and 3 are deterministic and legal', () => {
   const v0 = getAgent('heuristic-v0');
   for (const depth of [2, 3]) {
-    const em = makeExpectimax({
-      name: 'em', version: 'x', weights: v0.weights, pins: v0.pins, depth, coverage: depth === 3 ? 0.9 : 1,
+    for (const leafNext of ['engine-draw', 'expectation']) {
+      const em = makeExpectimax({
+        name: 'em',
+        version: 'x',
+        weights: v0.weights,
+        pins: v0.pins,
+        depth,
+        coverage: depth === 3 ? 0.9 : 1,
+        leafNext,
+      });
+      const a = playGame(em.create({}), SEEDS[6], { maxMoves: 60 });
+      const b = playGame(em.create({}), SEEDS[6], { maxMoves: 60 });
+      assert.equal(a.moves.join(','), b.moves.join(','), `depth ${depth} ${leafNext} not deterministic`);
+      assert.ok(a.moves.every((c) => Number.isInteger(c) && c >= 0 && c < RULES.COLS));
+    }
+  }
+});
+
+test('expectimax refuses to be built without an explicit leaf-preview mode', () => {
+  const v0 = getAgent('heuristic-v0');
+  const build = (leafNext) => makeExpectimax({
+    name: 'em', version: 'x', weights: v0.weights, pins: v0.pins, depth: 2, leafNext,
+  });
+  assert.throws(() => build(undefined), /leafNext must be one of/);
+  assert.throws(() => build('peek'), /leafNext must be one of/);
+});
+
+// The leak audit 0019 found, turned into a standing property.
+//
+// An honest agent's choice may depend only on what a player can see: the board,
+// the falling block, the honest preview and the live distribution. The engine
+// has ALSO already drawn every later block, and those draws live in the rng
+// state. So: perturb the rng and nothing else. A leak-free agent must choose
+// the same column every time; a leaking one is free to change its mind, and the
+// v1 versions do, which is what makes their rows a measurement of the leak
+// rather than of depth.
+function perturbedChoices(agentId, seed, { moves = 40, streams = 4 } = {}) {
+  const inst = getAgent(agentId).create({});
+  let state = newGame(seed);
+  const flips = [];
+  for (let i = 0; i < moves && state.status === 'playing'; i++) {
+    const view = { state, current: state.current, next: state.nextValue, spawn: spawnDistribution(state) };
+    const base = inst.choose(view);
+    for (let k = 1; k < streams; k++) {
+      const alt = { ...state, rng: { state: state.rng.state ^ BigInt(k * 0x9e3779b9), inc: state.rng.inc } };
+      // Everything a player can see is untouched.
+      assert.equal(alt.current, state.current);
+      assert.equal(alt.nextValue, state.nextValue);
+      const col = inst.choose({ state: alt, current: alt.current, next: alt.nextValue, spawn: view.spawn });
+      if (col !== base) flips.push({ move: i, stream: k, base, col });
+    }
+    state = play(state, base).state;
+  }
+  return flips;
+}
+
+test('leak-free expectimax ignores the engine draws a player cannot see', () => {
+  for (const id of ['expectimax-d2-v2', 'expectimax-d3-v2']) {
+    const flips = perturbedChoices(id, SEEDS[3], { moves: 30 });
+    assert.equal(flips.length, 0,
+      `${id} changed its choice when only the unknowable draws moved: ${JSON.stringify(flips.slice(0, 3))}`);
+  }
+});
+
+test('the superseded v1 expectimax versions demonstrably read those draws', () => {
+  for (const id of ['expectimax-d2-v1', 'expectimax-d3-v1']) {
+    const flips = perturbedChoices(id, SEEDS[3], { moves: 30 });
+    assert.ok(flips.length > 0,
+      `${id} is recorded as leaking through the leaf preview but showed no flips; `
+      + 'if the leak is genuinely gone, the record needs correcting, not this test');
+  }
+});
+
+// The browser grader (docs/js/grader.js) is a second implementation of
+// expectimax-d2-v2, because the lab is not served to browsers and the game grades
+// human moves with no network. Two implementations of one judgement are only
+// acceptable if something binds them, and this is that something: it fails on a
+// single disagreed column, so a re-versioned feature or a retuned weight cannot
+// leave the browser copy quietly stale.
+test('the browser grader matches the pinned champion move for move', async () => {
+  const grader = await import('../../../docs/js/grader.js');
+  const champion = getAgent(grader.CHAMPION_ID);
+  const inst = champion.create({});
+  let positions = 0;
+  for (const seed of SEEDS.slice(0, 3)) {
+    let state = newGame(seed);
+    for (let i = 0; i < 90 && state.status === 'playing'; i++) {
+      const mine = inst.choose({
+        state, current: state.current, next: state.nextValue, spawn: spawnDistribution(state),
+      });
+      const theirs = grader.choose(state);
+      assert.equal(theirs, mine,
+        `docs/js/grader.js chose ${theirs}, ${grader.CHAMPION_ID} chose ${mine} `
+        + `on seed ${seed} move ${i}`);
+      positions += 1;
+      state = play(state, mine).state;
+    }
+  }
+  assert.ok(positions > 200, `only ${positions} positions compared`);
+});
+
+test('the browser grader is leak-free too', async () => {
+  const grader = await import('../../../docs/js/grader.js');
+  let state = newGame(SEEDS[4]);
+  for (let i = 0; i < 25 && state.status === 'playing'; i++) {
+    const base = grader.choose(state);
+    for (let k = 1; k < 4; k++) {
+      const alt = { ...state, rng: { state: state.rng.state ^ BigInt(k * 0x85ebca6b), inc: state.rng.inc } };
+      assert.equal(grader.choose(alt), base,
+        `the grader changed its mind at move ${i} when only the unknowable draws moved`);
+    }
+    state = play(state, base).state;
+  }
+});
+
+test('every next-reading feature is declared to the searching agents', () => {
+  // NEXT_DEPENDENT_FEATURES is the agent's hand-maintained list of features that
+  // cannot be evaluated honestly at a deep leaf. This holds it to the registry:
+  // score a real context at two different `next` values and see who moves.
+  let state = newGame(SEEDS[1]);
+  for (let i = 0; i < 40 && state.status === 'playing'; i++) state = play(state, i % RULES.COLS).state;
+  const ctx = buildContext(state, 0);
+  const values = [2, 4, 8, 16, 32, 64, 128, 256];
+  for (const feature of listFeatures()) {
+    const scores = values.map((v) => {
+      const probe = buildContext(state, 0);
+      probe.next = v;
+      return feature.score(probe);
     });
-    const a = playGame(em.create({}), SEEDS[6], { maxMoves: 60 });
-    const b = playGame(em.create({}), SEEDS[6], { maxMoves: 60 });
-    assert.equal(a.moves.join(','), b.moves.join(','), `depth ${depth} not deterministic`);
-    assert.ok(a.moves.every((c) => Number.isInteger(c) && c >= 0 && c < RULES.COLS));
+    const varies = scores.some((s) => s !== scores[0]);
+    assert.equal(varies, NEXT_DEPENDENT_FEATURES.has(feature.name),
+      `feature ${feature.key} ${varies ? 'reads' : 'does not read'} ctx.next but is `
+      + `${NEXT_DEPENDENT_FEATURES.has(feature.name) ? '' : 'not '}declared in `
+      + 'NEXT_DEPENDENT_FEATURES; a next-reading feature must be declared there or every '
+      + 'leak-free expectimax version silently starts peeking again');
+    assert.ok(Number.isFinite(feature.score(ctx)));
   }
 });
 
 // ---------------------------------------------------------------------------
 // Statistics
+
+test('the bootstrap is reproducible, brackets its point estimate and narrows with n', () => {
+  // A skewed sample, because game scores are skewed and that is the whole reason
+  // for bootstrapping rather than assuming a normal interval.
+  const values = Float64Array.from({ length: 400 }, (_, i) => (i + 1) ** 1.7);
+  const stat = (idx) => medianOfIndexed(values, idx);
+  const a = bootstrapCI({ n: values.length, statistic: stat, resamples: 400, seed: 7 });
+  const b = bootstrapCI({ n: values.length, statistic: stat, resamples: 400, seed: 7 });
+  assert.deepEqual(b, a, 'the same seed must give the same interval');
+  const c = bootstrapCI({ n: values.length, statistic: stat, resamples: 400, seed: 8 });
+  assert.notEqual(c.lo, a.lo, 'a different seed should move the interval a little');
+
+  assert.equal(a.point, quantile([...values].sort((x, y) => x - y), 0.5));
+  assert.ok(a.lo <= a.point && a.point <= a.hi, 'the interval must bracket the point estimate');
+
+  // Ten times the data, roughly a third the width: the bootstrap has to behave
+  // like an interval, not merely return two numbers.
+  const big = Float64Array.from({ length: 4000 }, (_, i) => ((i / 10) + 1) ** 1.7);
+  const wide = bootstrapCI({ n: 400, statistic: (idx) => medianOfIndexed(values, idx), resamples: 400, seed: 3 });
+  const tight = bootstrapCI({ n: 4000, statistic: (idx) => medianOfIndexed(big, idx), resamples: 400, seed: 3 });
+  assert.ok((tight.hi - tight.lo) < (wide.hi - wide.lo), 'more games should give a tighter interval');
+});
+
+test('a paired bootstrap keeps the pairing and finds a real difference', () => {
+  // Two agents on the same 300 seeds, the second always 10 per cent better. The
+  // paired difference is unmistakable even though each row's own spread is huge.
+  const n = 300;
+  const a = new Float64Array(n);
+  const b = new Float64Array(n);
+  for (let i = 0; i < n; i++) {
+    const seedDifficulty = (i * 7919) % 100000; // wide, shared spread
+    b[i] = 1000 + seedDifficulty;
+    a[i] = b[i] * 1.1;
+  }
+  const diff = Float64Array.from({ length: n }, (_, i) => a[i] - b[i]);
+  const ci = bootstrapCI({ n, statistic: (idx) => medianOfIndexed(diff, idx), resamples: 500, seed: 11 });
+  assert.ok(ci.lo > 0, 'a uniform 10 per cent gain must give an interval above zero');
+  const wins = bootstrapCI({
+    n,
+    statistic: (idx) => meanOfIndexed(Float64Array.from({ length: n }, (_, i) => (a[i] > b[i] ? 1 : 0)), idx),
+    resamples: 500,
+    seed: 12,
+  });
+  assert.equal(wins.point, 1);
+});
 
 test('quantiles use linear interpolation between order statistics', () => {
   const xs = [1, 2, 3, 4];

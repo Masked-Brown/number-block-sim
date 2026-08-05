@@ -13,7 +13,15 @@
 //             chain index, each carrying its merges (RULES.md 4, 5).
 //   gameOver  true if this placement ended the game (RULES.md 6)
 //   current   the value of the block being placed
-//   next      the previewed value that follows it (RULES.md 3, honest preview)
+//   next      the previewed value that follows it (RULES.md 3, honest preview).
+//             HONEST ONLY AT THE ROOT. On a state reached by simulating one or
+//             more moves, `nextValue` is a draw the engine has made because the
+//             engine is deterministic, and no player could know it. Audit 0019
+//             (2026-08-05) found expectimax reading exactly that through this
+//             field. A searching agent evaluating a deep leaf must therefore
+//             treat this field as unknown and integrate over the live
+//             distribution instead; `agents/expectimax.js` documents how, and
+//             its `leafNext` setting is part of every version's identity.
 //   spawnNow  the live spawn distribution BEFORE the move
 //   spawnNext the live spawn distribution from the resulting board, that is,
 //             the exact probabilities the next draw will use (RULES.md 7: the

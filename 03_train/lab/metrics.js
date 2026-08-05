@@ -66,3 +66,80 @@ export function round(value, dp = 2) {
   const f = 10 ** dp;
   return Math.round(value * f) / f;
 }
+
+// ---------------------------------------------------------------------------
+// Uncertainty (added 2026-08-05, audit 0019 proposal 3)
+//
+// A ladder of point medians invites a reader to believe every gap it shows. Some
+// of those gaps are 3x and some would vanish under a different 500 seeds, and
+// nothing in the table said which. These two functions are how a row and a rung
+// get an interval.
+//
+// The method is the plain percentile bootstrap: resample the 500 games WITH
+// replacement, recompute the statistic, and read the 2.5th and 97.5th centiles
+// of the resampled values. It assumes only that the 500 games are exchangeable
+// draws, which they are by construction (independent seeds from a frozen set),
+// and in particular it assumes nothing about the shape of the score
+// distribution, which is heavily right-skewed and would break a normal
+// approximation.
+//
+// PAIRED comparisons resample SEED INDICES, not the two rows separately: both
+// agents sat the same paper, so seed i's difference is one observation and must
+// travel as one. That is why the statistic below is a function of an index array
+// rather than of values.
+
+// mulberry32: a small, fast, well-distributed 32-bit PRNG. The bootstrap must be
+// reproducible from its recorded seed, so nothing here touches Math.random.
+export function makeRng(seed) {
+  let a = seed >>> 0;
+  return function next() {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Percentile-bootstrap interval for any statistic of n paired observations.
+// `statistic(indices)` receives an Int32Array of n resampled indices into the
+// original observations and returns one number.
+export function bootstrapCI({ n, statistic, resamples = 10000, level = 0.95, seed = 20260805 }) {
+  if (!Number.isInteger(n) || n < 2) throw new Error(`bootstrap needs at least 2 observations, got ${n}`);
+  const rng = makeRng(seed);
+  const draws = new Array(resamples);
+  const idx = new Int32Array(n);
+  for (let b = 0; b < resamples; b++) {
+    for (let i = 0; i < n; i++) idx[i] = Math.floor(rng() * n);
+    draws[b] = statistic(idx);
+  }
+  draws.sort((a, b) => a - b);
+  const alpha = (1 - level) / 2;
+  const identity = Int32Array.from({ length: n }, (_, i) => i);
+  return {
+    point: statistic(identity),
+    lo: quantile(draws, alpha),
+    hi: quantile(draws, 1 - alpha),
+    level,
+    resamples,
+    seed,
+    method: 'percentile bootstrap over seeds',
+  };
+}
+
+// The median of a set of values addressed through an index array, without
+// allocating a fresh array per resample beyond the scratch buffer given.
+export function medianOfIndexed(values, indices, scratch) {
+  const n = indices.length;
+  const buf = scratch ?? new Float64Array(n);
+  for (let i = 0; i < n; i++) buf[i] = values[indices[i]];
+  const view = buf.length === n ? buf : buf.subarray(0, n);
+  view.sort();
+  return quantile(view, 0.5);
+}
+
+export function meanOfIndexed(values, indices) {
+  let sum = 0;
+  for (let i = 0; i < indices.length; i++) sum += values[indices[i]];
+  return sum / indices.length;
+}

@@ -1,0 +1,113 @@
+{
+  "runId": "2026-08-05_eval-expectimax-d2-v2",
+  "createdAt": "2026-08-05T16:24:29.020Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "agent": {
+    "id": "expectimax-d2-v2",
+    "name": "expectimax-d2",
+    "version": "v2",
+    "describe": "depth-2 max-max over current block and honest preview, leak-free leaf (next-merge-ready expected over the live distribution), heuristic-v2 weights",
+    "features": [
+      {
+        "name": "immediate-merge-value",
+        "version": 1,
+        "weight": 1.6205247526845243
+      },
+      {
+        "name": "chain-potential",
+        "version": 1,
+        "weight": 1.5925632347250156
+      },
+      {
+        "name": "setup-adjacency",
+        "version": 1,
+        "weight": 0.20130692737178923
+      },
+      {
+        "name": "column-flexibility",
+        "version": 1,
+        "weight": 0.7835496418108241
+      },
+      {
+        "name": "height-cost",
+        "version": 1,
+        "weight": -2.309065683937778
+      },
+      {
+        "name": "unevenness-cost",
+        "version": 1,
+        "weight": -1.21208090038321
+      },
+      {
+        "name": "strand-risk",
+        "version": 1,
+        "weight": -4.926508042429592
+      },
+      {
+        "name": "spawn-pressure",
+        "version": 1,
+        "weight": -4.370925782077923
+      },
+      {
+        "name": "tier-gap-cost",
+        "version": 1,
+        "weight": -1.698705892238784
+      },
+      {
+        "name": "next-merge-ready",
+        "version": 1,
+        "weight": 1.123835523100817
+      },
+      {
+        "name": "game-over-risk",
+        "version": 1,
+        "weight": -1000
+      }
+    ],
+    "weights": {
+      "immediate-merge-value": 1.6205247526845243,
+      "chain-potential": 1.5925632347250156,
+      "setup-adjacency": 0.20130692737178923,
+      "column-flexibility": 0.7835496418108241,
+      "height-cost": -2.309065683937778,
+      "unevenness-cost": -1.21208090038321,
+      "strand-risk": -4.926508042429592,
+      "spawn-pressure": -4.370925782077923,
+      "tier-gap-cost": -1.698705892238784,
+      "next-merge-ready": 1.123835523100817,
+      "game-over-risk": -1000
+    }
+  },
+  "seedSet": {
+    "id": "eval-v1",
+    "file": "03_train/seeds/eval-v1.json",
+    "checksum": "2924cf94a4f82b4c59e2211b6e75fcfd5eb9bb9726cb6d5095cdefa02a43961d",
+    "available": 500,
+    "gamesPlayed": 500
+  },
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "33853fc1eb4906fa26d364b2c9a8812a846d250a531c29057f2c0c085ee12a5b",
+    "repoCommit": "142e9735dce37f66bbd33f54b7d43741d22bbc8a",
+    "workingTreeDirty": true
+  },
+  "spawn": {
+    "centreBase": 2000,
+    "centreGain": 400,
+    "centreStart": 4,
+    "ceilingMin": 5,
+    "ceilingSpread": 3,
+    "peakWeight": 1000,
+    "slope": 300,
+    "floorWeight": 40
+  },
+  "note": "leak-free depth-2 row (audit 0019 proposal 1): leaf next-merge-ready expected over the live distribution instead of the engine's real third block. Working tree was dirty at launch: the docs/js/config.js edit is the v1.2 performance and daily tunable blocks only, and its eight spawn parameters are byte-identical to HEAD (checked), so nothing this run used differs from the committed engine and tuning."
+}

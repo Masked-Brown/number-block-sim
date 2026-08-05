@@ -1,0 +1,85 @@
+{
+  "runId": "2026-08-05_leak-free-ladder",
+  "kind": "measurement",
+  "createdAt": "2026-08-05T16:33:31.271Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "what": "Bootstrap uncertainty for every ladder row, paired intervals per rung, and a fixed-horizon score panel, all derived from recorded games (audit 0019 proposal 3). No games played, no agent consulted. This folder also holds ladder.md and ladder.json, regenerated over all ten named rows by lab/cli/ladder-tables.js, and SUMMARY.md, the reading.",
+  "sources": [
+    {
+      "agent": "expectimax-d3-v1",
+      "runId": "2026-08-05_eval-expectimax-d3-v1",
+      "dir": "03_train/output/runs/2026-08-05_eval-expectimax-d3-v1"
+    },
+    {
+      "agent": "expectimax-d3-v2",
+      "runId": "2026-08-05_eval-expectimax-d3-v2",
+      "dir": "03_train/output/runs/2026-08-05_eval-expectimax-d3-v2"
+    },
+    {
+      "agent": "expectimax-d2-v2",
+      "runId": "2026-08-05_eval-expectimax-d2-v2",
+      "dir": "03_train/output/runs/2026-08-05_eval-expectimax-d2-v2"
+    },
+    {
+      "agent": "expectimax-d2-v1",
+      "runId": "2026-08-05_eval-expectimax-d2-v1",
+      "dir": "03_train/output/runs/2026-08-05_eval-expectimax-d2-v1"
+    },
+    {
+      "agent": "heuristic-v2",
+      "runId": "2026-08-05_eval-heuristic-v2",
+      "dir": "03_train/output/runs/2026-08-05_eval-heuristic-v2"
+    },
+    {
+      "agent": "heuristic-v1",
+      "runId": "2026-08-05_eval-heuristic-v1",
+      "dir": "03_train/output/runs/2026-08-05_eval-heuristic-v1"
+    },
+    {
+      "agent": "heuristic-v0",
+      "runId": "heuristic-v0",
+      "dir": "03_train/output/runs/2026-08-05_smoke-ladder/heuristic-v0"
+    },
+    {
+      "agent": "greedy-v1",
+      "runId": "greedy-v1",
+      "dir": "03_train/output/runs/2026-08-05_smoke-ladder/greedy-v1"
+    },
+    {
+      "agent": "random-v1",
+      "runId": "random-v1",
+      "dir": "03_train/output/runs/2026-08-05_smoke-ladder/random-v1"
+    },
+    {
+      "agent": "stacker-v1",
+      "runId": "stacker-v1",
+      "dir": "03_train/output/runs/2026-08-05_smoke-ladder/stacker-v1"
+    }
+  ],
+  "bootstrap": {
+    "resamples": 10000,
+    "level": 0.95,
+    "seed": 20260805,
+    "method": "percentile bootstrap over seeds"
+  },
+  "horizons": [
+    128,
+    256,
+    384,
+    512
+  ],
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "7f500d3c9fab12eddb8c39c24e7329ce03ec12a8c2679c42157585e0de7a1242",
+    "repoCommit": "142e9735dce37f66bbd33f54b7d43741d22bbc8a",
+    "workingTreeDirty": true
+  }
+}

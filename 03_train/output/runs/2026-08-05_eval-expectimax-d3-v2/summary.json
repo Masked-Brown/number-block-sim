@@ -1,0 +1,116 @@
+{
+  "runId": "2026-08-05_eval-expectimax-d3-v2",
+  "agent": "expectimax-d3-v2",
+  "seedSet": "eval-v1",
+  "games": 500,
+  "score": {
+    "n": 500,
+    "min": 93632,
+    "q1": 436177,
+    "median": 634826,
+    "q3": 972640,
+    "p90": 1363484.8,
+    "p99": 2571655.64,
+    "max": 4062920,
+    "mean": 771530.86,
+    "stdev": 509827.63,
+    "total": 385765428
+  },
+  "blocksPlaced": {
+    "n": 500,
+    "min": 326,
+    "q1": 542.25,
+    "median": 630.5,
+    "q3": 726.25,
+    "p90": 849.1,
+    "p99": 1070.13,
+    "max": 1277,
+    "mean": 644.06,
+    "stdev": 153.74,
+    "total": 322032
+  },
+  "longestChain": {
+    "n": 500,
+    "min": 4,
+    "q1": 6,
+    "median": 6,
+    "q3": 7,
+    "p90": 7,
+    "p99": 9,
+    "max": 11,
+    "mean": 6.26,
+    "stdev": 0.92,
+    "total": 3129
+  },
+  "maxTile": {
+    "n": 500,
+    "min": 2048,
+    "q1": 8192,
+    "median": 16384,
+    "q3": 32768,
+    "p90": 32768,
+    "p99": 65536,
+    "max": 131072,
+    "mean": 20099.07,
+    "stdev": 15221.95,
+    "total": 10049536,
+    "histogram": [
+      {
+        "value": 2048,
+        "count": 3,
+        "share": 0.006
+      },
+      {
+        "value": 4096,
+        "count": 24,
+        "share": 0.048
+      },
+      {
+        "value": 8192,
+        "count": 122,
+        "share": 0.244
+      },
+      {
+        "value": 16384,
+        "count": 212,
+        "share": 0.424
+      },
+      {
+        "value": 32768,
+        "count": 115,
+        "share": 0.23
+      },
+      {
+        "value": 65536,
+        "count": 22,
+        "share": 0.044
+      },
+      {
+        "value": 131072,
+        "count": 2,
+        "share": 0.004
+      }
+    ]
+  },
+  "mergeCounts": {
+    "2": 278145,
+    "3": 13744,
+    "4": 297,
+    "5": 2
+  },
+  "bestGame": {
+    "seed": "11610268379355989646",
+    "score": 4062920,
+    "maxTile": 131072,
+    "moveCount": 1040
+  },
+  "truncatedGames": 0,
+  "throughput": {
+    "wallMs": 3375025,
+    "gamesPerMinute": 9,
+    "movesPerSecond": 95,
+    "totalMoves": 322032,
+    "note": "worker pool, 6 workers over independent seeds",
+    "workers": 6
+  }
+}

@@ -265,3 +265,75 @@ discipline stated (mechanism, evidence, confidence, thin flagged as thin). Readi
 order, issued by AB, pre-authorises this campaign's entries; the tension is recorded here and
 in the touchdown rather than silently resolved. The smoke-ladder's four candidate findings
 remain unpromoted; this campaign writes only its own findings.
+
+## 2026-08-05 -- correction: the expectimax leaf preview leak, and what it was worth
+
+Appended, never edited (this log is a log). The expectimax design entry above records that with
+the deeper recursion deleted "the peek is now structurally impossible". **That sentence is false
+as stated and the write-up must not quote it.** Deleting the recursion closed one peek path; the
+FEATURE LAYER is another and it was live. `next-merge-ready` scores `ctx.next`, positional
+features are evaluated at leaves, and a leaf two or more plies deep sits on a simulated state
+whose `nextValue` is a real engine draw no player could see: the third block at a depth-2 leaf,
+the fourth at a depth-3 leaf. Found by audit 0019 (job adversarial-audit-training) reading
+`expectimax.js` cold against the feature modules rather than reading this log's assurance first.
+
+Remediation, this job (remediate-and-game-v1.2), audit proposal 1 in full:
+
+- `makeExpectimax` now takes an explicit `leafNext`, `engine-draw` or `expectation`, with NO
+  default, because a silent default is exactly how the leak survived a code review. The
+  information set is part of what an agent version MEANS and is now recorded in every manifest's
+  `search` block alongside depth and coverage.
+- `expectimax-d2-v2` and `expectimax-d3-v2` are the leak-free versions: at a leaf, a
+  next-reading feature is scored as the exact expectation of its own maths over the live
+  distribution the unknown block will be drawn from, which is the distribution of the board the
+  leaf sits on (RULES.md 3, 7; BUILD.md decision 4). The pinned feature modules are untouched at
+  version 1.
+- `expectimax-d2-v1` and `expectimax-d3-v1` stay registered and unchanged under `engine-draw`.
+  Their 500 recorded games each are the measurement of what the leak was worth, so deleting them
+  would destroy evidence. Both were re-verified after the code change that made their leaf mode
+  explicit: 60 recorded depth-2 games and 8 recorded depth-3 games re-chosen move for move from
+  the registered modules, zero mismatches on moves, score or final hash.
+- Two standing tests now hold both halves in place. Perturbing ONLY the engine's rng state, so
+  that every future draw changes and nothing a player can see does, must never move a v2 choice
+  and must move a v1 one. And every registered feature is scored at several `next` values, so a
+  new preview-reading feature that is not declared to the searching agents fails the suite
+  instead of quietly re-opening the leak.
+
+**What it was worth: 7.8 per cent of decisions and no measurable score.** Paired on all 500
+eval-v1 seeds. Depth 2: honest median 428,990 against leaked 427,986, ratio 1.00x, 95 per cent
+interval 0.89 to 1.09, win rate 242 of 500 with an interval of 44.0 to 52.8 per cent. Depth 3:
+honest 634,826 against leaked 643,996, ratio 0.99x, interval 0.92 to 1.07, win rate 255 of 500,
+46.6 to 55.4 per cent. Both difference intervals contain zero and the direction is not consistent
+between the two depths. The audit's decision-flip figure (7.8 per cent of depth-2 moves change
+when the leaked feature is zeroed, 60 paired train games) is reproduced in spirit by that: the
+agent really was using the peek, and it really was not buying anything. F001's magnitude survives
+untouched; its mechanism sentence did not, and F001 now carries the dated correction.
+
+The honest ladder, with the intervals audit proposal 3 asked for, is
+`runs/2026-08-05_leak-free-ladder` (`SUMMARY.md` reads it, `UNCERTAINTY.md` and `ladder.md` are
+machine-written). F003's banking rates were re-measured on the leak-free agent with the identical
+instrument and seeds (`runs/2026-08-05_behaviour-probe-d2-v2`): declines 10.9 per cent of
+available merges and banks a triple or better on 56.8 per cent of them, against 10.4 and 53.7
+leaked, so banking is not a leak artefact and the honest rates are slightly stronger.
+
+One thing the intervals changed that had nothing to do with the leak: `random-v1` and
+`stacker-v1` are not distinguishable on this exam (median ratio 1.05x, interval 0.90 to 1.17,
+median paired difference 20 points with an interval of -164 to +256, win rate interval spanning
+50 per cent). The campaign ladder's phrase "level with stacker" was right and now has a number.
+Every other rung's interval excludes zero.
+
+And one genuinely new qualification, from the fixed-horizon panel: **most of the ladder's spread
+is survival, not scoring rate.** At 256 blocks placed rather than at game over, depth 2 over flat
+is 1.23x instead of 2.10x and the champion over `heuristic-v0` is 1.66x instead of 5.56x. The
+ordering holds at every horizon from 128 to 512 blocks, so the ladder is not an artefact, but the
+size of every gap mostly says that search dies later rather than that it scores faster while
+alive. The same panel gives F004 a matched comparison for the first time: AB's 121,496 in 256
+blocks sits between the two searching agents' 256-block medians, not the flat ones. Both readings
+are drafted as candidate findings in the leak-free ladder's SUMMARY.md rather than promoted here,
+because promotion is AB's gate and this job's register authorisation was scoped to the three
+corrections its work order named.
+
+The champion knowledge file was regenerated and now names `expectimax-d3-v2`; the superseded rows
+carry a `superseded` field so a reader cannot mistake a leaked row for a result. Game v1.2 grades
+human moves against `expectimax-d2-v2` in the browser, and its score index is capped at
+`expectimax-d3-v2`'s median, 634,826, deliberately not the leaked 643,996.

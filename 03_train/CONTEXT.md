@@ -24,8 +24,8 @@ measured run in `output/runs/`.
 | `lab/runner.js` | Plays an agent on a seed set and writes the run record, serially. |
 | `lab/parallel.js` | The worker-pool fan-out over seeds (worker_threads, no engine change). Bit-identical to the serial runner by construction and by standing test; `gameIdentity()` states the definition (the stopwatch field is excluded, nothing else). |
 | `lab/train/cem.js` | Cross-entropy weight breeding: seeded, deterministic, reproducible from its recorded config. |
-| `lab/metrics.js`, `lab/seeds.js`, `lab/manifest.js`, `lab/replay.js`, `lab/determinism.js` | Aggregation, frozen-set loading, provenance, replay export, the determinism proof. |
-| `lab/cli/` | `campaign.js` (the four-agent smoke ladder), `run.js` / `run-parallel.js` (one agent, serial / pooled), `breed.js` (a CEM breed as a run folder), `throughput.js` / `throughput-parallel.js` (repeated timing, best/median/worst), `parallel-check.js` (the bit-identity proof), `probe-behaviour.js` (per-move diagnostics, train seeds only), `ladder-tables.js` (assemble ladder tables from named runs), `make-seeds.js` (run once, ever), `one-game.js`. |
+| `lab/metrics.js`, `lab/seeds.js`, `lab/manifest.js`, `lab/replay.js`, `lab/determinism.js` | Aggregation, frozen-set loading, provenance, replay export, the determinism proof. `metrics.js` also carries the percentile bootstrap (`bootstrapCI`, seeded and reproducible) that puts intervals on ladder rows and paired rungs. |
+| `lab/cli/` | `campaign.js` (the four-agent smoke ladder), `run.js` / `run-parallel.js` (one agent, serial / pooled), `breed.js` (a CEM breed as a run folder), `throughput.js` / `throughput-parallel.js` (repeated timing, best/median/worst), `parallel-check.js` (the bit-identity proof), `probe-behaviour.js` (per-move diagnostics, train seeds only), `ladder-tables.js` (assemble ladder tables from named runs), `ladder-uncertainty.js` (bootstrap intervals, paired rungs and the fixed-horizon panel, all from recorded games; plays nothing), `make-seeds.js` (run once, ever), `one-game.js`. |
 | `lab/test/lab.test.js` | The harness's own suite: `node --test 03_train/lab/test/`. |
 
 **The harness imports the engine and never reimplements it.** There is no copied, adapted or
@@ -33,6 +33,14 @@ re-implemented merge, spawn, scoring or game-over logic anywhere in this stage. 
 placement an agent considers is evaluated by calling `play()` and reading the events it returns,
 so the agent is scoring the truth rather than a model of it. If a future job finds an import
 problem tempting a copy, that is a stop-and-report, not a workaround.
+
+**One agent version is mirrored downstream, and this stage owns the test that binds it.** The
+game's post-game accuracy grade needs a judge in the browser with no network, and GitHub Pages
+serves `docs/` only, so `docs/js/grader.js` is a second implementation of `expectimax-d2-v2`
+(reasoning in `02_build/output/BUILD.md`, decision 9). `lab/test/lab.test.js` imports that file
+and fails on a single disagreed column across 270 real positions. Re-versioning a feature or
+retuning a weight therefore turns this stage's own suite red rather than leaving the browser copy
+stale, and that test is the reason the duplication is allowed to exist.
 
 Run the ladder: `node 03_train/lab/cli/campaign.js --games 500`.
 
@@ -92,6 +100,19 @@ not invented by the job.
 - An agent version pins the VERSION of every feature it weights. If a feature is re-versioned or
   retired, the agent fails loudly at construction rather than silently scoring different maths
   under an old name (`registry.js`, `bindWeights`).
+- **A searching agent's INFORMATION SET is part of its version too** (settled 2026-08-05, job
+  remediate-and-game-v1.2, after audit 0019). `ctx.next` is the honest preview at the root and a
+  draw no player could see at any deeper leaf, so `makeExpectimax` takes an explicit `leafNext`
+  of `engine-draw` (the leak) or `expectation` (leak-free, the feature integrated over the live
+  distribution), with NO default: a silent default is how the leak survived a code review. The
+  superseded `expectimax-d2-v1` and `expectimax-d3-v1` stay registered and unchanged under
+  `engine-draw` because their recorded games are the measurement of what the leak was worth;
+  `expectimax-d2-v2` and `expectimax-d3-v2` are the honest rows. Two standing tests hold both
+  halves: perturbing only the engine's rng must never move a v2 choice, and must move a v1 one.
+- **A feature that reads `ctx.next` must be declared** in `NEXT_DEPENDENT_FEATURES`
+  (`agents/expectimax.js`). The lab suite scores every registered feature at several `next`
+  values and fails if an undeclared one moves, so a new preview-reading feature cannot quietly
+  re-open the leak.
 - The manifest of every run records the agent id, the full feature list with versions and
   weights, the seed set id and checksum, the engine's git commit and sha256, and the spawn
   parameters the run used.
