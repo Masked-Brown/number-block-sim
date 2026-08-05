@@ -1,0 +1,31 @@
+# INFRASTRUCTURE.md - the front door
+
+This folder is the rulebook: what the system is and the rules it enforces. It is
+deliberately thin; depth lives in `_chronicle/traces/` (frozen) and in the loop's own code.
+Four files, four disciplines:
+
+- **INFRASTRUCTURE.md** (this file): index, plus the generated snapshot below. The snapshot
+  block is machine-written by the sweep; never hand-edit inside the markers.
+- **NORMS.md**: the enforced rules, each with its check. Grows only by promotion.
+- **CHANGELOG.md**: dated, append-only record of what changed. Never rewritten.
+- **DESIGN.md**: how and why the infrastructure works, the onboarding answer. Explicitly
+  non-authoritative; allowed to lag [D33].
+
+Where everything else is:
+
+- Operating docs, maps, views, the loop: `_orchestration/` (its CONTEXT.md carries the write
+  rules).
+- All records: `_chronicle/` (sessions, prompts, traces).
+- Assembled prime: `_prime/` (the assembler in `_prime/src/`, the generated bundle
+  `PRIME_bee.md` stamped; see the stamp on the bundle).
+- The product zone, product jobs only, the loop never touches it: the ICM stages `01_rules/`
+  (the game's rule spec), `02_build/` (the game and simulation harness), `03_train/` (agent
+  training and simulation runs; `output/runs/` raw, `output/_FINDINGS.md` the verdict register)
+  and `04_publish/` (the write-up), plus `_config/` (shared reference across stages). Each
+  stage's CONTEXT.md is its working contract; the root `CONTEXT.md` routes tasks across the
+  zone. `CLAUDE.md` is the router.
+- Is the loop alive, and is anything wrong: `_orchestration/loop/STATUS.md` (newest line).
+- Open errors right now: `_orchestration/views/open-errors.md`.
+
+<!-- snapshot:begin -->
+<!-- snapshot:end -->
