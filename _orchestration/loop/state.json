@@ -16,7 +16,7 @@
     "hash": "b602fb95",
     "lines": 56
   },
-  "deadman_last_age_seconds": null,
+  "deadman_last_age_seconds": 1597.8783495426178,
   "handoff": {
     "ask": null,
     "items": [
@@ -29,20 +29,21 @@
   },
   "human_breaches": [],
   "last_review": null,
-  "last_verdict": "clean",
+  "last_verdict": "review-warranted",
   "map_hashes": {},
   "quarantine_count": 0,
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "5b137235bd4aa871af97ca62d3f9aff3b5967d3f",
+  "trailer_audit_baseline": "b3ad656ebdab40b626e905d51486e8881a72d74b",
   "trigger_history": [
     [
-      "anomaly:6b0980afdc16"
+      "74a1adb95347"
     ],
     [
-      "74a1adb95347"
+      "613fdc78e8a2",
+      "anomaly:a59d7b41d3f1"
     ]
   ],
-  "written": "2026-08-05T09:49:58"
+  "written": "2026-08-05T10:17:20"
 }
