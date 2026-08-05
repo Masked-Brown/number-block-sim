@@ -27,24 +27,22 @@
       "new-this-run anomalies (1)"
     ]
   },
-  "human_breaches": [
-    "quarantine non-empty (1 files incl. reason files)"
-  ],
+  "human_breaches": [],
   "last_review": null,
   "last_verdict": "review-warranted",
   "map_hashes": {},
-  "quarantine_count": 1,
+  "quarantine_count": 0,
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "b7d28142efbeb4d5f058337b87dd510d62d49e6f",
+  "trailer_audit_baseline": "621975fd8d37278df3d17df617db8ecf11073433",
   "trigger_history": [
     [
-      "anomaly:c11433f91f61"
+      "anomaly:6b0980afdc16"
     ],
     [
-      "anomaly:6b0980afdc16"
+      "74a1adb95347"
     ]
   ],
-  "written": "2026-08-05T09:45:14"
+  "written": "2026-08-05T09:48:05"
 }
