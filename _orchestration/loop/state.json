@@ -16,7 +16,7 @@
     "hash": "f85597f4",
     "lines": 133
   },
-  "deadman_last_age_seconds": 261.6334035396576,
+  "deadman_last_age_seconds": 358.20659375190735,
   "handoff": {
     "ask": null,
     "items": [
@@ -34,25 +34,29 @@
       "new-this-run anomalies (1)"
     ]
   },
-  "human_breaches": [
-    "quarantine non-empty (1 files incl. reason files)"
-  ],
+  "human_breaches": [],
   "last_review": "2026-08-05T12:09:59",
   "last_verdict": "review-warranted",
   "map_hashes": {},
-  "quarantine_count": 1,
+  "quarantine_count": 0,
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "7dc9453b0ad43d3b616272a8648fb5c6a2d639b4",
+  "trailer_audit_baseline": "fb1c99f4424123e1e47b75b96fd53df195c7bdf0",
   "trigger_history": [
     [
-      "anomaly:b02aa576bce9",
-      "fadcdf4fcb7a"
+      "anomaly:2abb4dbf9f21"
     ],
     [
-      "anomaly:2abb4dbf9f21"
+      "1988a4662809",
+      "1f5e810ceed8",
+      "3272f979a85e",
+      "3db578ec64e5",
+      "bc4486a5bbdc",
+      "bdd032f8032b",
+      "cbe86c22594f",
+      "fc6495704351"
     ]
   ],
-  "written": "2026-08-05T12:41:54"
+  "written": "2026-08-05T12:43:31"
 }
