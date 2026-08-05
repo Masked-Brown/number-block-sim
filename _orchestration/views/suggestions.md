@@ -1,4 +1,4 @@
-<!-- generated: sweep.py | 2026-08-05T10:39:42 | corpus: af958b88 | oldest: 2026-08-05 | self: 4c485723 - do not hand-edit -->
+<!-- generated: sweep.py | 2026-08-05T11:06:31 | corpus: 7c98b4ea | oldest: 2026-08-05 | self: 4c485723 - do not hand-edit -->
 # suggestions.md -- fenced proposals, minus those a closure fact folds or declines by id
 
 - 21c4a6c15e12 | 2026-08-05 | Give `sweep.py --apply` and `commit_safe.py` a `--no-push` flag that records the choice in the | source: 0003_validate-icm-seeding_2026-08-05.md
