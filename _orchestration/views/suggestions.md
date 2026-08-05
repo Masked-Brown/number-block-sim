@@ -1,6 +1,7 @@
-<!-- generated: sweep.py | 2026-08-05T10:35:43 | corpus: 5b5c8826 | oldest: 2026-08-05 | self: 0a8e68c4 - do not hand-edit -->
+<!-- generated: sweep.py | 2026-08-05T10:39:42 | corpus: af958b88 | oldest: 2026-08-05 | self: 4c485723 - do not hand-edit -->
 # suggestions.md -- fenced proposals, minus those a closure fact folds or declines by id
 
 - 21c4a6c15e12 | 2026-08-05 | Give `sweep.py --apply` and `commit_safe.py` a `--no-push` flag that records the choice in the | source: 0003_validate-icm-seeding_2026-08-05.md
 - 84c1f269d82a | 2026-08-05 | Consider a one-line addition to norm B12 or to `_chronicle/prompts/CONTEXT.md` settling whether | source: 0003_validate-icm-seeding_2026-08-05.md
+- bdd032f8032b | 2026-08-05 | Retire the two inherited note strings in `sweep.py` so this venture's frozen records stop | source: 0007_loop-review-inherited-note-strings_2026-08-05.md
 - c74b9bae73f8 | 2026-08-05 | Consider porting the cross-venture sections of a sibling's ORCHESTRATOR_PROFILE.md (How AB | source: 0001_seed-icm-infrastructure_2026-08-05.md

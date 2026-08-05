@@ -16,29 +16,17 @@
     "hash": "77a203e3",
     "lines": 82
   },
-  "deadman_last_age_seconds": 943.3185884952545,
-  "handoff": {
-    "ask": null,
-    "items": [
-      "613fdc78e8a2"
-    ],
-    "listed": [
-      "348fc25403cd (human-gated)"
-    ],
-    "recorded": "2026-08-05T10:22:52",
-    "trigger": [
-      "gap-queue counted non-empty (1 review-closable; 1 listed, not counted)"
-    ]
-  },
+  "deadman_last_age_seconds": 131.08086371421814,
+  "handoff": null,
   "human_breaches": [],
-  "last_review": "2026-08-05T10:22:52",
-  "last_verdict": "review-warranted",
+  "last_review": "2026-08-05T10:39:42",
+  "last_verdict": "clean",
   "map_hashes": {},
   "quarantine_count": 0,
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "8e1c438765766ab10d992f6742867462ca942a77",
+  "trailer_audit_baseline": "46730057d2d7cdf54b4fcefe7a5205c1986c00fa",
   "trigger_history": [
     [
       "613fdc78e8a2"
@@ -48,5 +36,5 @@
       "anomaly:b02aa576bce9"
     ]
   ],
-  "written": "2026-08-05T10:35:43"
+  "written": "2026-08-05T10:39:42"
 }
