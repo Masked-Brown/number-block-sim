@@ -1,8 +1,8 @@
-<!-- generated: sweep.py | 2026-08-05T13:42:26 | corpus: 1c0eb8d5 | oldest: 2026-08-05 | oldest-listed: 2026-08-05 | self: 65f49bc0 - do not hand-edit -->
+<!-- generated: sweep.py | 2026-08-05T15:04:53 | corpus: 0c3e482c | oldest: 2026-08-05 | oldest-listed: 2026-08-05 | self: b84caab8 - do not hand-edit -->
 # gap-queue.md -- queued gap: items, minus drained; counted (review-closable) then listed-not-counted (human-gated / product-zone) [D96]
 
 counted (review-closable; these count toward the review-warranted verdict):
-- none
+- 0b7c9d5d941a | route: review-closable | target: n/a | `nbs-replay-121496.json` sits uncommitted at the repo root: a format-v2 HUMAN replay | source: 0017_orchestrated-training-campaign_2026-08-05.md
 
 listed, not counted (human-gated / product-zone; ride the handoff for visibility, and the deadman's clock runs here):
 - 1988a4662809 | route: product-zone | target: n/a | the only human reference score for rules v1.1 is BUILD.md's single live playthrough of 228, | source: 0013_train-lab-and-baselines_2026-08-05.md | reclassified review-closable -> product-zone: the item is a research-design decision for AB (commissioning deliberate human playthroughs before 04_publish quotes an AI-versus-human gap resting on one unpractised game of 228), not a fact checkable against disk; `classify_gap_route` returns product-zone for its full text and review-closable for its stored first line, so this reroute applies the class the machinery would itself have reached had routing seen the whole chunk. (0016_loop-review-gap-routing-defect_2026-08-05.md)
