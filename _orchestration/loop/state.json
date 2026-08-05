@@ -16,28 +16,45 @@
     "hash": "f9e73f1d",
     "lines": 177
   },
-  "deadman_last_age_seconds": 139.36490058898926,
-  "handoff": null,
+  "deadman_last_age_seconds": 792.0144596099854,
+  "handoff": {
+    "ask": null,
+    "items": [
+      "16420efdfb43",
+      "1d41864b4141",
+      "3db578ec64e5",
+      "508c6cbfabc4",
+      "82cd659c3289",
+      "a4eedd015f83",
+      "bdd032f8032b",
+      "c93923790a14",
+      "d470bc09b68d",
+      "fc6495704351"
+    ],
+    "listed": [
+      "1988a4662809 (product-zone)",
+      "1fb1e3204ae5 (product-zone)",
+      "2f98c89f3276 (product-zone)",
+      "348fc25403cd (human-gated)",
+      "49b8a47fb286 (product-zone)",
+      "c87be31d365e (product-zone)",
+      "db7c19040554 (product-zone)"
+    ],
+    "recorded": "2026-08-05T15:50:45",
+    "trigger": [
+      "unconsidered proposals over threshold (10, oldest 0d)"
+    ]
+  },
   "human_breaches": [],
   "last_review": "2026-08-05T15:09:55",
-  "last_verdict": "clean",
+  "last_verdict": "review-warranted",
   "map_hashes": {},
   "quarantine_count": 0,
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "41295ab2bb228f5eaf0dafbc23f6ad61241a73f3",
+  "trailer_audit_baseline": "f655d8024ffe82c0c95dddebbb38b29fd7b7a417",
   "trigger_history": [
-    [
-      "1988a4662809",
-      "3272f979a85e",
-      "3db578ec64e5",
-      "bc4486a5bbdc",
-      "bdd032f8032b",
-      "cbe86c22594f",
-      "df760cec0257",
-      "fc6495704351"
-    ],
     [
       "0b7c9d5d941a",
       "16420efdfb43",
@@ -47,7 +64,19 @@
       "b9cb78e8a0f8",
       "bdd032f8032b",
       "fc6495704351"
+    ],
+    [
+      "16420efdfb43",
+      "1d41864b4141",
+      "3db578ec64e5",
+      "508c6cbfabc4",
+      "82cd659c3289",
+      "a4eedd015f83",
+      "bdd032f8032b",
+      "c93923790a14",
+      "d470bc09b68d",
+      "fc6495704351"
     ]
   ],
-  "written": "2026-08-05T15:09:55"
+  "written": "2026-08-05T15:50:45"
 }
