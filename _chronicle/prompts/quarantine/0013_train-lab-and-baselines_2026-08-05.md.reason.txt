@@ -1,0 +1,1 @@
+invalid: frontmatter field job='NNNN' fails pattern ^\d{4}$
