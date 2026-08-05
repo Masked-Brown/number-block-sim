@@ -42,6 +42,12 @@ the job's touchdown.
 ## Do not
 - No rule values invented or hardcoded; the spec governs, and section 8 tuning loads from
   `docs/js/config.js`, never inline.
-- No agent logic here; agents belong to `03_train/`, and this stage only exposes the interface.
+- No agent logic here, with exactly one pinned exception (AB, 2026-08-05, via work order
+  publish-pack-assembly): `docs/js/grader.js` carries a faithful copy of the single agent
+  version `expectimax-d2-v2` so the game can grade a finished human game in the browser with
+  zero network, and `03_train/lab/test/lab.test.js` imports that file and fails on a single
+  disagreed column, so the copy cannot drift silently. The reasoning and the rejected
+  alternative are `02_build/output/BUILD.md` decision 9. Agents otherwise belong to
+  `03_train/`, and this stage only exposes the interface.
 - No further deployment surface beyond the existing Pages setup without AB naming it (the
   CLAUDE.md guardrail).

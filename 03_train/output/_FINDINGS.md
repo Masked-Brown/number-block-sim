@@ -29,9 +29,11 @@ or the next run design), **Disposition and dates**
 | F001 | Lookahead over the honest preview beats any weight tuning; depth is the experiment's dominant axis | strong | feeds-publish |
 | F002 | Flat heuristic play dies of tier fragmentation, and pricing it relaxes every panic weight | supported | feeds-publish |
 | F003 | Banking triples and quads is a search behaviour; no flat weight setting produces it | supported | feeds-publish |
-| F004 | A practised human plays in the same regime as measured agent play, not orders below it; the remaining gap is survival, not scoring rate | suggestive | feeds-publish |
+| F004 | A practised human plays in the same regime as measured agent play; at equal blocks the reference game scores at the searching agents' rate, and the remaining gap is survival | suggestive | feeds-publish |
 | F005 | Never burying a low tile is the binding constraint of strong play under these rules | supported | feeds-publish |
 | F006 | The spawn drift is survived, not chased; the v1.0 floor-rise question is retired | supported | feeds-publish |
+| F007 | Most of the depth ladder's advantage is survival, not scoring rate: 5.56x at game end, 1.66x at equal blocks | supported | feeds-publish |
+| F008 | At equal blocks, the practised human game scores at the searching agents' rate, between depth 2 and depth 3 | suggestive | feeds-publish |
 
 Entry route: these six entered on 2026-08-05 under work order orchestrated-training-campaign,
 whose deliverable 7 names this register with the entry discipline stated; the reading of that
@@ -46,6 +48,15 @@ reader can see what was believed and what replaced it. The summary line for F004
 one thing restated in place, because an index that contradicts its own entry is worse than
 either version. No new findings were promoted; two candidates are drafted in
 `runs/2026-08-05_leak-free-ladder/SUMMARY.md` for a later AB-gated pass.
+
+Promotion pass, 2026-08-05, work order publish-pack-assembly, whose item 1 records AB's
+approval and names both findings with their numbers: the fixed-horizon survival reading and the
+equal-blocks human comparison entered as F007 and F008. F004's summary line above is restated in
+place to sit consistently with F008, per the same order; the entry itself carries a dated
+cross-reference and nothing else in it changes. The leak-free ladder SUMMARY's other drafted
+candidate (the leak changed 7.8 per cent of decisions and no measurable score) is not promoted
+by that order; its substance already stands in F001's dated correction, which the write-up
+quotes.
 
 ## Findings
 
@@ -267,8 +278,14 @@ better comparison that this job's analysis made available.
    two locks into a full column, which is one measurement of one game and is offered as an
    example of what the human set would produce, not as a finding.
 
+**Cross-reference, 2026-08-05 (work order publish-pack-assembly).** Appended at promotion: the
+matched 256-block comparison in correction point 3 is now promoted as finding F008, and the
+survival reading in point 4 as F007. This entry keeps the regime claim and every n=1 caveat
+unchanged; the summary line above is restated to match F008, per the order.
+
 **Disposition and dates.** feeds-publish | first logged: 2026-08-05 | last updated: 2026-08-05
-(n=1 softening and the fixed-horizon comparison appended the same day)
+(n=1 softening and the fixed-horizon comparison appended the same day; F007/F008
+cross-reference added at promotion)
 
 ### F005 -- never bury a low tile
 
@@ -321,5 +338,78 @@ to.
 
 **Action.** The write-up answers the planted drift question with the defensive framing; if AB
 wants the offensive variant tested, it is one feature module and one breed away.
+
+**Disposition and dates.** feeds-publish | first logged: 2026-08-05 | last updated: 2026-08-05
+
+### F007 -- the ladder's spread is mostly survival, not scoring rate
+
+**Claim.** Most of the depth ladder's end-of-game advantage is survival, not scoring rate: the
+champion outscores the inherited flat agent 5.56x at game end (interval 5.11 to 6.28) but only
+1.66x over their first 256 blocks, and one ply of certain lookahead is worth 2.10x at game end
+(interval 1.87 to 2.27) but 1.23x at 256 blocks. The ladder's ORDERING is unchanged at every
+horizon from 128 to 512 blocks; the SIZE of every gap is what changes with the horizon.
+
+**Mechanism.** Score compounds with survival under the drifting spawn curve (RULES.md 3, 5): a
+longer game climbs to higher tiers whose merges are worth more, so each extra block survived
+multiplies the value of the skill already shown. Search's chief product is a later death, not a
+faster scoring rate while alive: at 256 blocks, 99.8 per cent of leak-free depth-2 games and
+100 per cent of depth-3 games were still alive against 76.4 per cent for heuristic-v0, and at
+512 blocks the shares are 55.6 and 80.8 against 2.8 per cent.
+
+**Confidence and falsifier.** Supported: every row is all 500 eval-v1 seeds, read at four
+horizons from recorded games, no new play. Killed by a fixed-horizon panel on a retuned spawn
+curve showing the 128- and 256-block gaps matching the end-of-game gaps, which would say
+scoring rate dominates after all; weakened if the ordering failed to hold at some horizon,
+which it currently does not.
+
+**Evidence.** Run `2026-08-05_leak-free-ladder`: the fixed-horizon panel in `UNCERTAINTY.md`
+(median score at 128, 256, 384 and 512 blocks placed for all ten named versions, with
+intervals and alive shares; a game that ended before a horizon carries its final score there,
+which is part of what is compared). Champion over heuristic-v0: 1.46x at 128 blocks, 1.66x at
+256, 2.43x at 384, 4.11x at 512, 5.56x at game end. Depth 2 over flat: 1.26x, 1.23x, 1.36x,
+1.84x, 2.10x across the same horizons. Drafted as candidate 1 in that run's SUMMARY.md;
+promoted by work order publish-pack-assembly, AB-approved 2026-08-05.
+
+**Action.** The write-up leads with this reading: search does not mainly score faster, it
+mainly dies later. Any comparison at a human-relevant length uses the 256-block column, never
+an end-of-game median; NEXT_STEPS item 1 already uses the 256-block figure as the spawn
+study's judging measure.
+
+**Disposition and dates.** feeds-publish | first logged: 2026-08-05 | last updated: 2026-08-05
+
+### F008 -- at equal blocks, the practised human scores at the searching agents' rate
+
+**Claim.** Over the blocks actually played, the practised reference game scores at the
+searching agents' rate, not the flat agents': its 121,496 in 256 blocks sits between the
+leak-free depth-2 median at that horizon (119,800) and depth-3's (133,302), inside depth 2's
+own interquartile range for the horizon (99,708 to 150,916) and above every flat agent's
+256-block median (80,418 to 97,648). What the human game did not do is survive: 99.8 per cent
+of depth-2 games were still alive at 256 blocks, and that game was over.
+
+**Mechanism.** Read with F007, the human-versus-agent gap decomposes cleanly: move quality
+over a fixed horizon is at searching-agent level, and the remaining deficit is survival,
+exactly where the ladder's own spread lives. The best current explanation of the survival
+difference is F004's: expectimax's exhaustive arithmetic protects the late board in a way a
+person at play speed cannot, and that protection pays in game length rather than scoring rate.
+
+**Confidence and falsifier.** Suggestive: one game by one player, carrying the selection
+ambiguity F004 records (a downloaded replay is plausibly the best of a session). Strengthened
+or killed by the practised-human set (audit 0019 proposal 2; NEXT_STEPS item 9), five to ten
+deliberate games with every game retained. If the placement holds over that set, the finding
+hardens to "a practised human scores at the searching agents' rate and dies at the flat
+agents' rate"; if not, it collapses back into F004's regime claim.
+
+**Evidence.** The homed reference replay `03_train/output/reference/nbs-replay-121496.json`
+(engine-verified, score 121,496, hash a613b2d4, 256 blocks) against the fixed-horizon panel in
+`2026-08-05_leak-free-ladder/UNCERTAINTY.md`. Game v1.2's leak-free judge grades the same
+replay at 46.5 per cent exact-column agreement, median 1.85 seconds a move (BUILD.md v1.2
+verification; one game's measurement, offered as context, not as support). Drafted as the
+matched-comparison reading in that run's SUMMARY.md and F004's correction point 3; promoted by
+work order publish-pack-assembly, AB-approved 2026-08-05.
+
+**Action.** The write-up pairs this with F007 as the human story: scoring rate is not what
+separates a practised human from the machine, survival is. Quote 121,496 only with its horizon
+stated, never against an end-of-game median; commission the practised-human set before any
+stronger claim.
 
 **Disposition and dates.** feeds-publish | first logged: 2026-08-05 | last updated: 2026-08-05
