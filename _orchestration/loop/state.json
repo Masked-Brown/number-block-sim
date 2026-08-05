@@ -13,10 +13,10 @@
     "td_v2.json": "5ed57b33"
   },
   "changelog_baseline": {
-    "hash": "f85597f4",
-    "lines": 133
+    "hash": "f9e73f1d",
+    "lines": 177
   },
-  "deadman_last_age_seconds": 358.20659375190735,
+  "deadman_last_age_seconds": 1602.3719005584717,
   "handoff": {
     "ask": null,
     "items": [
@@ -42,11 +42,8 @@
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "fb1c99f4424123e1e47b75b96fd53df195c7bdf0",
+  "trailer_audit_baseline": "7aaa75873879019f8bd5a2d5efa464eaf2d5195c",
   "trigger_history": [
-    [
-      "anomaly:2abb4dbf9f21"
-    ],
     [
       "1988a4662809",
       "1f5e810ceed8",
@@ -56,7 +53,17 @@
       "bdd032f8032b",
       "cbe86c22594f",
       "fc6495704351"
+    ],
+    [
+      "1988a4662809",
+      "3272f979a85e",
+      "3db578ec64e5",
+      "bc4486a5bbdc",
+      "bdd032f8032b",
+      "cbe86c22594f",
+      "df760cec0257",
+      "fc6495704351"
     ]
   ],
-  "written": "2026-08-05T12:43:31"
+  "written": "2026-08-05T13:04:15"
 }

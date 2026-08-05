@@ -1,4 +1,4 @@
-<!-- generated: sweep.py | 2026-08-05T12:43:31 | corpus: 8066ba00 | oldest: none | self: 4b255a0e - do not hand-edit -->
+<!-- generated: sweep.py | 2026-08-05T13:04:15 | corpus: a4bcd14b | oldest: none | self: 4b255a0e - do not hand-edit -->
 # map-queue.md -- valid unapplied semantic-map flags (and invalid-marked flags), minus those a later fact records applied or rejected by id
 
 none.
