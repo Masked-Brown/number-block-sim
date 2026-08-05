@@ -1,4 +1,4 @@
-<!-- generated: sweep.py | 2026-08-05T13:04:15 | corpus: a4bcd14b | oldest: 2026-08-05 | self: 161c1dfb - do not hand-edit -->
+<!-- generated: sweep.py | 2026-08-05T13:09:40 | corpus: 371ec285 | oldest: 2026-08-05 | self: 161c1dfb - do not hand-edit -->
 # suggestions.md -- fenced proposals, minus those a closure fact folds or declines by id
 
 - 3272f979a85e | 2026-08-05 | When 03b needs more simulation throughput, fan the runner out over seeds with node's | source: 0013_train-lab-and-baselines_2026-08-05.md
