@@ -3,7 +3,7 @@ schema: 2
 actor: job
 bee: nbs-[wor]-1.0-z
 slug: lock-rules-reconcile-canon
-job: 0005
+job: 0006
 date: 2026-08-05
 model: claude-sonnet-5
 effort: standard
