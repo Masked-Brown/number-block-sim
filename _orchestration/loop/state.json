@@ -16,28 +16,43 @@
     "hash": "f9e73f1d",
     "lines": 177
   },
-  "deadman_last_age_seconds": 158.46513414382935,
-  "handoff": null,
+  "deadman_last_age_seconds": 1687.282396554947,
+  "handoff": {
+    "ask": null,
+    "items": [
+      "16420efdfb43",
+      "37c7ab70822c",
+      "3db578ec64e5",
+      "88ac005c1217",
+      "baec358c7f95",
+      "bdd032f8032b",
+      "e010125e5e29",
+      "fc6495704351"
+    ],
+    "listed": [
+      "1988a4662809 (product-zone)",
+      "348fc25403cd (human-gated)",
+      "49b8a47fb286 (product-zone)",
+      "5335d8762de1 (product-zone)",
+      "7e5f6f22b457 (product-zone)",
+      "c87be31d365e (product-zone)",
+      "db7c19040554 (product-zone)"
+    ],
+    "recorded": "2026-08-05T18:05:40",
+    "trigger": [
+      "unconsidered proposals over threshold (8, oldest 0d)"
+    ]
+  },
   "human_breaches": [],
   "last_review": "2026-08-05T16:10:14",
-  "last_verdict": "clean",
+  "last_verdict": "review-warranted",
   "map_hashes": {},
   "quarantine_count": 0,
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "cc1162b5124845260f2482eb7a09f3ba8c48397d",
+  "trailer_audit_baseline": "58027087f76f2d4f2fd1fd7878495239373d03a9",
   "trigger_history": [
-    [
-      "0b7c9d5d941a",
-      "16420efdfb43",
-      "3db578ec64e5",
-      "3db6ddf8518c",
-      "7752895c42d8",
-      "b9cb78e8a0f8",
-      "bdd032f8032b",
-      "fc6495704351"
-    ],
     [
       "16420efdfb43",
       "1d41864b4141",
@@ -49,7 +64,17 @@
       "c93923790a14",
       "d470bc09b68d",
       "fc6495704351"
+    ],
+    [
+      "16420efdfb43",
+      "37c7ab70822c",
+      "3db578ec64e5",
+      "88ac005c1217",
+      "baec358c7f95",
+      "bdd032f8032b",
+      "e010125e5e29",
+      "fc6495704351"
     ]
   ],
-  "written": "2026-08-05T16:10:14"
+  "written": "2026-08-05T18:05:40"
 }
