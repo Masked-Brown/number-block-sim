@@ -1,4 +1,4 @@
-<!-- generated: sweep.py | 2026-08-05T10:22:52 | corpus: 6e23e5bd | oldest: 2026-08-05 | self: c8a68124 - do not hand-edit -->
+<!-- generated: sweep.py | 2026-08-05T10:35:43 | corpus: 5b5c8826 | oldest: 2026-08-05 | self: c8a68124 - do not hand-edit -->
 # open-errors.md -- open error entries, summary line then indented detail body, minus those a later fact resolves by id
 
 - da857d5416c4 | 2026-08-05 | validate-icm-seeding | the close contract cannot be satisfied under the no-push constraint | source: 0003_validate-icm-seeding_2026-08-05.md

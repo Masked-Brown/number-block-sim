@@ -6,3 +6,4 @@
 2026-08-05T09:49:58 | sweep | batch=1 quarantined=0 applied=0 queued=0 anomalies=0 | verdict=clean
 2026-08-05T10:17:20 | sweep | batch=1 quarantined=0 applied=0 queued=2 anomalies=1 | verdict=review-warranted
 2026-08-05T10:22:52 | sweep | batch=1 quarantined=0 applied=0 queued=2 anomalies=0 | verdict=review-warranted
+2026-08-05T10:35:43 | sweep | batch=1 quarantined=0 applied=0 queued=4 anomalies=1 | verdict=review-warranted

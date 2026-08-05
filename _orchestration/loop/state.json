@@ -2,7 +2,7 @@
   "canon_hashes": {
     "CC_OPERATIONS.md": "a3ffaaf7",
     "CC_TOUCHDOWN.md": "d87a6b86",
-    "CLAUDE.md": "513bc367",
+    "CLAUDE.md": "d07a39da",
     "HANDOVER_PROMPT.md": "9a325800",
     "LOG_PROMPT.md": "73c51644",
     "LOOP_PROMPT.md": "20fe9bc2",
@@ -13,10 +13,10 @@
     "td_v2.json": "5ed57b33"
   },
   "changelog_baseline": {
-    "hash": "b602fb95",
-    "lines": 56
+    "hash": "77a203e3",
+    "lines": 82
   },
-  "deadman_last_age_seconds": 172.85801649093628,
+  "deadman_last_age_seconds": 943.3185884952545,
   "handoff": {
     "ask": null,
     "items": [
@@ -38,15 +38,15 @@
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "9d277eddb31ced1a90af3fbefd98d44e100b94d7",
+  "trailer_audit_baseline": "8e1c438765766ab10d992f6742867462ca942a77",
   "trigger_history": [
     [
-      "613fdc78e8a2",
-      "anomaly:a59d7b41d3f1"
+      "613fdc78e8a2"
     ],
     [
-      "613fdc78e8a2"
+      "613fdc78e8a2",
+      "anomaly:b02aa576bce9"
     ]
   ],
-  "written": "2026-08-05T10:22:52"
+  "written": "2026-08-05T10:35:43"
 }
