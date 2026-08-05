@@ -1,0 +1,71 @@
+{
+  "runId": "2026-08-05_smoke-ladder",
+  "kind": "campaign",
+  "createdAt": "2026-08-05T11:30:03.059Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "agents": [
+    "random-v1",
+    "greedy-v1",
+    "stacker-v1",
+    "heuristic-v0"
+  ],
+  "supplementary": "stacker sweep, every column, spill and strict variants",
+  "seedSet": {
+    "id": "eval-v1",
+    "file": "03_train/seeds/eval-v1.json",
+    "checksum": "2924cf94a4f82b4c59e2211b6e75fcfd5eb9bb9726cb6d5095cdefa02a43961d",
+    "gamesPerAgent": 500
+  },
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "e814dfe9eb7f26fa202a7c0ebc1d1351070fd9a8db86040877b0f334aead5fd6",
+    "repoCommit": "fbc0d62e4ec5d0db7e8dae102bf60304ce4de135",
+    "workingTreeDirty": false
+  },
+  "spawn": {
+    "centreBase": 2000,
+    "centreGain": 400,
+    "centreStart": 4,
+    "ceilingMin": 5,
+    "ceilingSpread": 3,
+    "peakWeight": 1000,
+    "slope": 300,
+    "floorWeight": 40
+  },
+  "wallMs": 58469,
+  "samples": [
+    {
+      "agent": "heuristic-v0",
+      "seed": "15784950089324173270",
+      "score": 1034848,
+      "maxTile": 32768,
+      "moves": 680,
+      "file": "03_train/output/samples/heuristic-v0-best-eval-v1.replay.json"
+    },
+    {
+      "agent": "stacker-v1",
+      "seed": "2436944997737444274",
+      "score": 17328,
+      "maxTile": 1024,
+      "moves": 126,
+      "file": "03_train/output/samples/stacker-v1-best-eval-v1.replay.json"
+    }
+  ],
+  "contents": {
+    "manifest.json": "this file",
+    "SUMMARY.md": "the run summary, hand-authored, closing with candidate findings",
+    "ladder.md": "machine-written ladder tables",
+    "ladder.json": "the same tables as data",
+    "determinism.json": "the determinism proof legs and hashes",
+    "<agent-id>/": "one series per ladder agent: manifest.json, games.jsonl, summary.json",
+    "supplementary/stacker-sweep.json": "stacker by column and variant, summaries only"
+  }
+}

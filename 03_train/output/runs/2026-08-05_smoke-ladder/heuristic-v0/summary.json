@@ -1,0 +1,114 @@
+{
+  "runId": "heuristic-v0",
+  "agent": "heuristic-v0",
+  "seedSet": "eval-v1",
+  "games": 500,
+  "score": {
+    "n": 500,
+    "min": 11856,
+    "q1": 66050,
+    "median": 114210,
+    "q3": 175361,
+    "p90": 270544.4,
+    "p99": 513105.2,
+    "max": 1034848,
+    "mean": 138827.14,
+    "stdev": 108923.18,
+    "total": 69413572
+  },
+  "blocksPlaced": {
+    "n": 500,
+    "min": 136,
+    "q1": 259.75,
+    "median": 313,
+    "q3": 374.25,
+    "p90": 425.3,
+    "p99": 550.45,
+    "max": 680,
+    "mean": 321.55,
+    "stdev": 87.85,
+    "total": 160774
+  },
+  "longestChain": {
+    "n": 500,
+    "min": 3,
+    "q1": 5,
+    "median": 5,
+    "q3": 6,
+    "p90": 7,
+    "p99": 8,
+    "max": 10,
+    "mean": 5.3,
+    "stdev": 0.97,
+    "total": 2652
+  },
+  "maxTile": {
+    "n": 500,
+    "min": 512,
+    "q1": 2048,
+    "median": 4096,
+    "q3": 4096,
+    "p90": 8192,
+    "p99": 16384,
+    "max": 32768,
+    "mean": 4443.14,
+    "stdev": 3725.53,
+    "total": 2221568,
+    "histogram": [
+      {
+        "value": 512,
+        "count": 7,
+        "share": 0.014
+      },
+      {
+        "value": 1024,
+        "count": 54,
+        "share": 0.108
+      },
+      {
+        "value": 2048,
+        "count": 142,
+        "share": 0.284
+      },
+      {
+        "value": 4096,
+        "count": 183,
+        "share": 0.366
+      },
+      {
+        "value": 8192,
+        "count": 95,
+        "share": 0.19
+      },
+      {
+        "value": 16384,
+        "count": 17,
+        "share": 0.034
+      },
+      {
+        "value": 32768,
+        "count": 2,
+        "share": 0.004
+      }
+    ]
+  },
+  "mergeCounts": {
+    "2": 127745,
+    "3": 8418,
+    "4": 231
+  },
+  "bestGame": {
+    "seed": "15784950089324173270",
+    "score": 1034848,
+    "maxTile": 32768,
+    "moveCount": 680
+  },
+  "truncatedGames": 0,
+  "throughput": {
+    "wallMs": 41223,
+    "gamesPerMinute": 728,
+    "movesPerSecond": 3900,
+    "totalMoves": 160774,
+    "note": "single process, single thread, cold Node start excluded"
+  }
+}

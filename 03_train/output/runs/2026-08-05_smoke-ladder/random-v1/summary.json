@@ -1,0 +1,116 @@
+{
+  "runId": "random-v1",
+  "agent": "random-v1",
+  "seedSet": "eval-v1",
+  "games": 500,
+  "score": {
+    "n": 500,
+    "min": 104,
+    "q1": 939,
+    "median": 1700,
+    "q3": 2789,
+    "p90": 4604.4,
+    "p99": 8648.72,
+    "max": 12264,
+    "mean": 2170.07,
+    "stdev": 1815.67,
+    "total": 1085036
+  },
+  "blocksPlaced": {
+    "n": 500,
+    "min": 36,
+    "q1": 53,
+    "median": 61.5,
+    "q3": 73,
+    "p90": 82,
+    "p99": 103,
+    "max": 110,
+    "mean": 63.71,
+    "stdev": 13.92,
+    "total": 31857
+  },
+  "longestChain": {
+    "n": 500,
+    "min": 1,
+    "q1": 3,
+    "median": 4,
+    "q3": 4,
+    "p90": 5,
+    "p99": 7.01,
+    "max": 8,
+    "mean": 3.72,
+    "stdev": 1.21,
+    "total": 1862
+  },
+  "maxTile": {
+    "n": 500,
+    "min": 32,
+    "q1": 128,
+    "median": 128,
+    "q3": 256,
+    "p90": 256,
+    "p99": 512,
+    "max": 2048,
+    "mean": 181.12,
+    "stdev": 149.29,
+    "total": 90560,
+    "histogram": [
+      {
+        "value": 32,
+        "count": 8,
+        "share": 0.016
+      },
+      {
+        "value": 64,
+        "count": 99,
+        "share": 0.198
+      },
+      {
+        "value": 128,
+        "count": 216,
+        "share": 0.432
+      },
+      {
+        "value": 256,
+        "count": 144,
+        "share": 0.288
+      },
+      {
+        "value": 512,
+        "count": 30,
+        "share": 0.06
+      },
+      {
+        "value": 1024,
+        "count": 2,
+        "share": 0.004
+      },
+      {
+        "value": 2048,
+        "count": 1,
+        "share": 0.002
+      }
+    ]
+  },
+  "mergeCounts": {
+    "2": 12203,
+    "3": 1841,
+    "4": 145,
+    "5": 8,
+    "6": 1
+  },
+  "bestGame": {
+    "seed": "12419212234024946492",
+    "score": 12264,
+    "maxTile": 512,
+    "moveCount": 109
+  },
+  "truncatedGames": 0,
+  "throughput": {
+    "wallMs": 710,
+    "gamesPerMinute": 42254,
+    "movesPerSecond": 44869,
+    "totalMoves": 31857,
+    "note": "single process, single thread, cold Node start excluded"
+  }
+}

@@ -1,0 +1,3574 @@
+{
+  "version": 2,
+  "seed": "13923918990608195634",
+  "spawn": {
+    "centreBase": 2000,
+    "centreGain": 400,
+    "centreStart": 4,
+    "ceilingMin": 5,
+    "ceilingSpread": 3,
+    "peakWeight": 1000,
+    "slope": 300,
+    "floorWeight": 40
+  },
+  "moves": [
+    0,
+    0,
+    1,
+    2,
+    2,
+    2,
+    3,
+    1,
+    1,
+    0,
+    2,
+    4,
+    1,
+    0,
+    3,
+    4,
+    3,
+    1,
+    3,
+    0,
+    0,
+    4,
+    1,
+    4,
+    1,
+    1,
+    1,
+    3,
+    3,
+    4,
+    3,
+    4,
+    1,
+    4,
+    4,
+    2,
+    1,
+    4,
+    4,
+    2,
+    3,
+    3,
+    3,
+    1,
+    1,
+    4,
+    2,
+    0,
+    4,
+    3,
+    3,
+    1,
+    0,
+    0,
+    1,
+    4,
+    4,
+    4,
+    4,
+    1,
+    0,
+    0,
+    2,
+    3,
+    3,
+    0,
+    4,
+    0,
+    3,
+    3,
+    2,
+    3,
+    3,
+    4,
+    4,
+    3,
+    2,
+    3,
+    2,
+    0,
+    0,
+    0,
+    2,
+    2,
+    1,
+    3,
+    4,
+    1,
+    1,
+    3,
+    2,
+    2,
+    2,
+    4,
+    1,
+    4,
+    0,
+    1,
+    2,
+    1,
+    1,
+    3,
+    0,
+    2,
+    3,
+    3,
+    4,
+    4,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    2,
+    4,
+    2,
+    4,
+    3,
+    3,
+    1,
+    4,
+    2,
+    4,
+    3,
+    3,
+    1,
+    4,
+    0,
+    2,
+    1,
+    1,
+    1,
+    4,
+    4,
+    1,
+    1,
+    0,
+    3,
+    1,
+    3,
+    0,
+    1,
+    0,
+    3,
+    1,
+    2,
+    4,
+    4,
+    2,
+    0,
+    3,
+    4,
+    0,
+    2,
+    3,
+    0,
+    4,
+    4,
+    4,
+    4,
+    2,
+    3,
+    4,
+    4,
+    4,
+    3,
+    4,
+    4,
+    4,
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    1,
+    0,
+    3,
+    1,
+    3,
+    2,
+    2,
+    3,
+    4,
+    0,
+    3,
+    0,
+    0,
+    4,
+    1,
+    3,
+    0,
+    0,
+    2,
+    2,
+    1,
+    2,
+    0,
+    1,
+    1,
+    4,
+    4,
+    0,
+    0,
+    1,
+    1,
+    3,
+    0,
+    0,
+    4,
+    0,
+    4,
+    1,
+    3,
+    4,
+    0,
+    2,
+    2,
+    1,
+    2,
+    0,
+    3,
+    4,
+    3,
+    0,
+    2,
+    3,
+    2,
+    3,
+    2,
+    3,
+    2,
+    4,
+    3,
+    0
+  ],
+  "meta": {
+    "date": "2026-08-05T11:30:02.647Z",
+    "player": "heuristic-v0 (harness)",
+    "note": "determinism proof: the browser leg. Open in cinema mode on the live site; the verified badge means the browser engine reproduced this score and hash.",
+    "result": {
+      "score": 47856,
+      "maxTile": 1024,
+      "blocksPlaced": 236,
+      "mergeCounts": {
+        "2": 183,
+        "3": 11
+      },
+      "longestChain": 6,
+      "finalHash": "1452c7f7"
+    }
+  },
+  "reasoning": [
+    {
+      "text": "Column 0 with a 8: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.06666666666666667,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -1.1379310344827587,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.06666666666666667,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -1.293103448275862,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 2: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.13333333333333333,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.9310344827586208,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 4: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.2,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.41379310344827586,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 4: merged for 8 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 3.169925001442312,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.2,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.5689655172413793,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.2,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.9310344827586208,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 4: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.26666666666666666,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.41379310344827586,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 2: merged for 4 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 2.321928094887362,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.26666666666666666,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.7758620689655173,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 4: merged for 8 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 3.169925001442312,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.26666666666666666,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.41379310344827586,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.26666666666666666,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.303921568627451,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.26666666666666666,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.5588235294117647,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.3333333333333333,
+        "unevenness-cost": 0,
+        "strand-risk": 0,
+        "spawn-pressure": -0.303921568627451,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.3333333333333333,
+        "unevenness-cost": 0,
+        "strand-risk": 0,
+        "spawn-pressure": -0.7058823529411764,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.3333333333333333,
+        "unevenness-cost": 0,
+        "strand-risk": 0,
+        "spawn-pressure": -0.6603773584905661,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 4: merged for 8 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 3.169925001442312,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.3333333333333333,
+        "unevenness-cost": 0,
+        "strand-risk": 0,
+        "spawn-pressure": -0.5754716981132075,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 4: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.2169811320754717,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 8: merged for 272 over 3 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.092757140919852,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.26666666666666666,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.820754716981132,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.26666666666666666,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.9622641509433963,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 8: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.3333333333333333,
+        "unevenness-cost": 0,
+        "strand-risk": 0,
+        "spawn-pressure": -0.5188679245283019,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.2169811320754717,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 2: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": 0,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 4: merged for 40 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.357552004618084,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.8018867924528301,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: merged for 576 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 9.172427508645482,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.26666666666666666,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": 0,
+        "spawn-pressure": -1.0059880239520957,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.26666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -1.1407185628742516,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.3333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.7455089820359281,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: merged for 64 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.26666666666666666,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -1.0149700598802396,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 4: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.3333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.781437125748503,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.38622754491017963,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: merged for 160 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 7.330916878114617,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.3333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -1.0419161676646707,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.6467065868263473,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": 0,
+        "spawn-pressure": -0.2784431137724551,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: merged for 80 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.339850002884624,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.781437125748503,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 4: merged for 8 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 3.169925001442312,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.6467065868263473,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: merged for 320 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.326429487122303,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.3333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.8892215568862276,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.49401197604790426,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.3592814371257485,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.7275449101796407,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.3592814371257485,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: merged for 80 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.339850002884624,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.7275449101796407,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: merged for 320 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.326429487122303,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.7275449101796407,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 4: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": 0,
+        "spawn-pressure": -0.49401197604790414,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.23333333333333336,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.12574850299401197,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.23333333333333336,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.49401197604790414,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.23333333333333336,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.49401197604790414,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.30000000000000004,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.12574850299401197,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 4: merged for 8 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 3.169925001442312,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.2,
+        "strand-risk": 0,
+        "spawn-pressure": -0.6197604790419162,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.3772455089820359,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 2: merged for 4 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 2.321928094887362,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.24251497005988026,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: merged for 80 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.339850002884624,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.8,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": 0,
+        "spawn-pressure": -0.6377245508982037,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: no merge. chosen for the triple or quad it banks, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0.8,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.23333333333333336,
+        "strand-risk": 0,
+        "spawn-pressure": -0.24251497005988026,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: merged for 160 over 2 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 7.330916878114617,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": 0,
+        "spawn-pressure": -0.5119760479041917,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": 0,
+        "spawn-pressure": -0.48502994011976047,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 4: merged for 8 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 3.169925001442312,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": 0,
+        "spawn-pressure": -0.35029940119760483,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0.6400000000000001,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": 0,
+        "spawn-pressure": -0.718562874251497,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: merged for 160 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 7.330916878114617,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.718562874251497,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.35029940119760483,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.19999999999999998,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.718562874251497,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.27999999999999997,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.35029940119760483,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: merged for 272 over 3 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.092757140919852,
+        "chain-potential": 0.19999999999999998,
+        "setup-adjacency": 0.6400000000000001,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.718562874251497,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 2: no merge. chosen for the triple or quad it banks, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.19999999999999998,
+        "setup-adjacency": 0.6400000000000001,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": 0,
+        "spawn-pressure": -0.6197604790419161,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.32,
+        "setup-adjacency": 0.6400000000000001,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": 0,
+        "spawn-pressure": -1.0149700598802396,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: no merge. chosen for the triple or quad it banks, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.32,
+        "setup-adjacency": 0.6400000000000001,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.6467065868263473,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.39999999999999997,
+        "setup-adjacency": 0.8,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.907185628742515,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 32: no merge. chosen for the triple or quad it banks, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.48,
+        "setup-adjacency": 0.8,
+        "column-flexibility": 0.6,
+        "height-cost": -0.7333333333333333,
+        "unevenness-cost": -0.2,
+        "strand-risk": 0,
+        "spawn-pressure": -0.6467065868263473,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 32: merged for 1088 over 3 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 10.088788238716907,
+        "chain-potential": 0.32,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.907185628742515,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.48,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.8802395209580838,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.48,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.5119760479041917,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: merged for 544 over 3 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 9.090112419664289,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.8892215568862276,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 4: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.19999999999999998,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.655688622754491,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 4: merged for 40 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.357552004618084,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.8622754491017963,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 4: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.19999999999999998,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.6287425149700598,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.24,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.26047904191616766,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 8: merged for 80 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.339850002884624,
+        "chain-potential": 0.19999999999999998,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.7634730538922156,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 64: merged for 128 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 7.011227255423254,
+        "chain-potential": 0.24,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.8892215568862276,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.32,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -1.0239520958083834,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 4: merged for 8 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 3.169925001442312,
+        "chain-potential": 0.27999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.8892215568862276,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.27999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.8622754491017963,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.39999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.9970059880239521,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 16: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.5599999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": 0,
+        "strand-risk": 0,
+        "spawn-pressure": -0.6017964071856288,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 4: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.5599999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.7333333333333333,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.38622754491017963,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.6,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.8,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.017964071856287428,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.5599999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.8,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.38622754491017963,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 8: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.7599999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.8666666666666667,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.017964071856287428,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 8: merged for 5136 over 6 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 12.32671035834696,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.7941176470588234,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.3529411764705882,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 32: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.24,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.044117647058823525,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 64: merged for 2176 over 3 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 11.088125692188207,
+        "chain-potential": 0,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.26666666666666666,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.22058823529411764,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 4: merged for 40 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.357552004618084,
+        "chain-potential": 0,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.23333333333333336,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.7058823529411764,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: merged for 64 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.9264705882352942,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -1.2352941176470589,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 16: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.8382352941176471,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.9705882352941175,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.48,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -1.2794117647058822,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.48,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.8382352941176471,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0.48,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.5294117647058822,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0.48,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.9705882352941175,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.24,
+        "setup-adjacency": 0.48,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.5735294117647058,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: merged for 1088 over 3 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 10.088788238716907,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": 0,
+        "spawn-pressure": -0.5294117647058822,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 64: merged for 256 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.005624549193879,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": 0,
+        "spawn-pressure": -0.7058823529411764,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 4: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.5735294117647058,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.32,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.2647058823529412,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 64: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.32,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.08823529411764705,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.19999999999999998,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.5294117647058824,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 128: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.39999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.7333333333333333,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.6617647058823529,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 64: merged for 6272 over 4 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 12.614939847310735,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.7544378698224852,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 64: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.19999999999999998,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.5236686390532544,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: merged for 320 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.326429487122303,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.6568047337278107,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.26627218934911245,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.39940828402366857,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.6568047337278106,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.29289940828402367,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: merged for 320 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.326429487122303,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.8875739644970413,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 64: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.27999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.6568047337278106,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 32: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.27999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.29289940828402367,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.36,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.7333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.1597633136094675,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.36,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.7333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.5502958579881657,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 4: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.39999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.8,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.4260355029585799,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.43999999999999995,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.8666666666666667,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.03550295857988166,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 8: merged for 96 over 2 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.599912842187128,
+        "chain-potential": 0.24,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.7333333333333333,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.6479289940828403,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 128: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.24,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.8,
+        "unevenness-cost": -0.23333333333333336,
+        "strand-risk": -0.05333333333333334,
+        "spawn-pressure": -0.5502958579881657,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 64: merged for 6272 over 4 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 12.614939847310735,
+        "chain-potential": 0,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.7810650887573964,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: merged for 1152 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 10.171176797651771,
+        "chain-potential": 0.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.8786982248520709,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 16: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.48816568047337283,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 4: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.363905325443787,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 64: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.13313609467455623,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 128: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.03550295857988166,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 8: merged for 272 over 3 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.092757140919852,
+        "chain-potential": 0.08,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -1.029585798816568,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 64: merged for 640 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 9.324180546618742,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -1.1094674556213018,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 64: merged for 128 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 7.011227255423254,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.4666666666666667,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -1.2426035502958581,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 8: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.985207100591716,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.6124260355029585,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.6390532544378699,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.772189349112426,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 4: merged for 8 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 3.169925001442312,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.8964497041420119,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.16,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.5059171597633136,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 64: merged for 640 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 9.324180546618742,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.5333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": 0,
+        "spawn-pressure": -0.8165680473372781,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 64: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.6035502958579881,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 32: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.12,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.23964497041420119,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 128: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.24,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.7333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.14201183431952663,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: merged for 320 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.326429487122303,
+        "chain-potential": 0.27999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.6666666666666666,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.7366863905325444,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 64: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.43999999999999995,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.7333333333333333,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.5059171597633136,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 32: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.43999999999999995,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.8,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.013333333333333334,
+        "spawn-pressure": -0.14201183431952663,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 4: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.43999999999999995,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.8666666666666667,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.01775147928994083,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.43999999999999995,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.8666666666666667,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.38165680473372776,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 32: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.64,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.48,
+        "height-cost": -0.9333333333333333,
+        "unevenness-cost": -0.26666666666666666,
+        "strand-risk": -0.02666666666666667,
+        "spawn-pressure": -0.01775147928994083,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 2: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.48,
+        "height-cost": -1,
+        "unevenness-cost": -0.33333333333333337,
+        "strand-risk": -0.04,
+        "spawn-pressure": 0,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.48,
+        "height-cost": -1,
+        "unevenness-cost": -0.33333333333333337,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.257396449704142,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.48,
+        "height-cost": -1.0666666666666667,
+        "unevenness-cost": -0.30000000000000004,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.01775147928994083,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: merged for 80 over 2 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.339850002884624,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.48,
+        "height-cost": -1,
+        "unevenness-cost": -0.33333333333333337,
+        "strand-risk": -0.04,
+        "spawn-pressure": -0.257396449704142,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 128: merged for 256 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.005624549193879,
+        "chain-potential": 0.24,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.05333333333333334,
+        "spawn-pressure": -0.8698224852071006,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 64: merged for 128 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 7.011227255423254,
+        "chain-potential": 0.27999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.05333333333333334,
+        "spawn-pressure": -1.0029585798816567,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 32: merged for 320 over 2 passes. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.326429487122303,
+        "chain-potential": 0.36,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.9333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.05333333333333334,
+        "spawn-pressure": -1.0029585798816567,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.36,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -0.9333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.05333333333333334,
+        "spawn-pressure": -1.136094674556213,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 4: no merge. chosen for the columns it keeps open, against what it cannot answer next. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.36,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.05333333333333334,
+        "spawn-pressure": -1.0118343195266273,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 8: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.36,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.0666666666666667,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.06666666666666667,
+        "spawn-pressure": -0.7544378698224852,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.39999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.1333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.06666666666666667,
+        "spawn-pressure": -0.46153846153846156,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 4: merged for 8 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 3.169925001442312,
+        "chain-potential": 0.39999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.1333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.06666666666666667,
+        "spawn-pressure": -0.5857988165680473,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.43999999999999995,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.2,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.06666666666666667,
+        "spawn-pressure": -0.3727810650887574,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 64: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.7599999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.2666666666666666,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.08,
+        "spawn-pressure": -0.6035502958579881,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 1.44,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": 0,
+        "strand-risk": -0.09333333333333334,
+        "spawn-pressure": -0.4704142011834319,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: merged for 5184 over 4 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 12.340128273700588,
+        "chain-potential": 0.39999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.0666666666666667,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.06666666666666667,
+        "spawn-pressure": -0.4704142011834319,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 128: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.39999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.1333333333333333,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.10666666666666667,
+        "spawn-pressure": -0.3727810650887574,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 4: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.39999999999999997,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.2,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.12,
+        "spawn-pressure": -0.24852071005917162,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: merged for 320 over 2 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.326429487122303,
+        "chain-potential": 0.36,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.1333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.12,
+        "spawn-pressure": -1.0029585798816567,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.36,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.2,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.12,
+        "spawn-pressure": -0.24852071005917162,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: merged for 160 over 2 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 7.330916878114617,
+        "chain-potential": 0.48,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.1333333333333333,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.10666666666666667,
+        "spawn-pressure": -0.772189349112426,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.48,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.2,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.13333333333333333,
+        "spawn-pressure": -0.38165680473372776,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.5599999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.2666666666666666,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.13333333333333333,
+        "spawn-pressure": -0.3727810650887574,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: merged for 1088 over 3 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 10.088788238716907,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.6,
+        "height-cost": -1.1333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.13333333333333333,
+        "spawn-pressure": -0.7189349112426036,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 4: no merge. chosen for the columns it keeps open, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -1.2,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.13333333333333333,
+        "spawn-pressure": -0.6124260355029586,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.48,
+        "height-cost": -1.2666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.18666666666666668,
+        "spawn-pressure": -0.26627218934911245,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.48,
+        "height-cost": -1.2666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.18666666666666668,
+        "spawn-pressure": -0.39940828402366857,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 64: merged for 640 over 2 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 9.324180546618742,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.6,
+        "height-cost": -1.2,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.13333333333333333,
+        "spawn-pressure": -0.6923076923076923,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.48,
+        "height-cost": -1.2666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.16,
+        "spawn-pressure": -0.34615384615384615,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.48,
+        "height-cost": -1.2666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.16,
+        "spawn-pressure": -0.47928994082840237,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.48,
+        "height-cost": -1.2666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.16,
+        "spawn-pressure": -0.5059171597633136,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.21333333333333335,
+        "spawn-pressure": -0.13313609467455623,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0.6400000000000001,
+        "column-flexibility": 0.36,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.21333333333333335,
+        "spawn-pressure": -0.3905325443786982,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.52,
+        "setup-adjacency": 0.96,
+        "column-flexibility": 0.36,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.21333333333333335,
+        "spawn-pressure": -0.7544378698224851,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 8: no merge. chosen for the triple or quad it banks, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.5599999999999999,
+        "setup-adjacency": 0.96,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.25333333333333335,
+        "spawn-pressure": -0.4970414201183432,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 64: merged for 1280 over 2 passes. chosen for the merge it scores now, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 10.323054760341646,
+        "chain-potential": 0.5599999999999999,
+        "setup-adjacency": 0.6400000000000001,
+        "column-flexibility": 0.48,
+        "height-cost": -1.2666666666666666,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.2,
+        "spawn-pressure": -0.9852071005917158,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: no merge. chosen for the triple or quad it banks, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.64,
+        "setup-adjacency": 0.6400000000000001,
+        "column-flexibility": 0.36,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.22666666666666666,
+        "spawn-pressure": -0.363905325443787,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.5599999999999999,
+        "setup-adjacency": 0.6400000000000001,
+        "column-flexibility": 0.36,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.22666666666666666,
+        "spawn-pressure": -0.4970414201183432,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 32: no merge. chosen for the triple or quad it banks, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.5599999999999999,
+        "setup-adjacency": 0.6400000000000001,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.25333333333333335,
+        "spawn-pressure": -0.13313609467455623,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 2: no merge. chosen for the cascade it loads, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4666666666666666,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.25333333333333335,
+        "spawn-pressure": -0.23964497041420119,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.21333333333333335,
+        "spawn-pressure": -0.6301775147928994,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.21333333333333335,
+        "spawn-pressure": -0.9940828402366864,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.16,
+        "spawn-pressure": -0.86094674556213,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.84,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.16,
+        "spawn-pressure": -0.8875739644970413,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 4: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.84,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4666666666666666,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.17333333333333334,
+        "spawn-pressure": -0.7633136094674555,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 1,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.24,
+        "height-cost": -1.5333333333333334,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.22666666666666666,
+        "spawn-pressure": -0.3905325443786982,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 64: merged for 256 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.005624549193879,
+        "chain-potential": 1.04,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4666666666666666,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.2,
+        "spawn-pressure": -0.6035502958579881,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 32: merged for 3136 over 4 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 11.615169813843602,
+        "chain-potential": 0.64,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.48,
+        "height-cost": -1.2666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.2,
+        "spawn-pressure": -0.9674556213017751,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.64,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.48,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.2,
+        "spawn-pressure": -0.6923076923076923,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.22666666666666666,
+        "spawn-pressure": -0.32840236686390534,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 64: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.7599999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4666666666666666,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.26666666666666666,
+        "spawn-pressure": -0.09763313609467456,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 16: merged for 544 over 3 passes. chosen for the merge it scores now, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 9.090112419664289,
+        "chain-potential": 0.64,
+        "setup-adjacency": 0,
+        "column-flexibility": 0.48,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.2,
+        "spawn-pressure": -0.985207100591716,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 128: merged for 256 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 8.005624549193879,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.48,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.17333333333333334,
+        "spawn-pressure": -1.0828402366863905,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.48,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.17333333333333334,
+        "spawn-pressure": -0.9497041420118344,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.22666666666666666,
+        "spawn-pressure": -0.5857988165680473,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.22666666666666666,
+        "spawn-pressure": -0.7189349112426036,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 4: merged for 8 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 3.169925001442312,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.25333333333333335,
+        "spawn-pressure": -0.5857988165680473,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.25333333333333335,
+        "spawn-pressure": -0.8431952662721893,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4666666666666666,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.25333333333333335,
+        "spawn-pressure": -0.6035502958579881,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 8: merged for 80 over 2 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.339850002884624,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.25333333333333335,
+        "spawn-pressure": -0.4792899408284023,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 64: merged for 128 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 7.011227255423254,
+        "chain-potential": 0.7599999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.25333333333333335,
+        "spawn-pressure": -0.6124260355029585,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 128: merged for 1280 over 2 passes. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 10.323054760341646,
+        "chain-potential": 0.64,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.48,
+        "height-cost": -1.3333333333333333,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.26666666666666666,
+        "spawn-pressure": -0.7100591715976331,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 8: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.64,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.29333333333333333,
+        "spawn-pressure": -0.4704142011834319,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.64,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.29333333333333333,
+        "spawn-pressure": -0.6035502958579881,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 128: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.30666666666666664,
+        "spawn-pressure": -0.7544378698224852,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.36,
+        "height-cost": -1.4666666666666666,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.30666666666666664,
+        "spawn-pressure": -0.7810650887573964,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.24,
+        "height-cost": -1.5333333333333334,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.32,
+        "spawn-pressure": -0.48816568047337283,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.24,
+        "height-cost": -1.5333333333333334,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.32,
+        "spawn-pressure": -0.6213017751479291,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 32: no merge. chosen for the cascade it loads, against the height it adds. Best of 5 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.24,
+        "height-cost": -1.6,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.37333333333333335,
+        "spawn-pressure": -0.25739644970414205,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 2: no merge. chosen for the cascade it loads, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.6799999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.24,
+        "height-cost": -1.6666666666666667,
+        "unevenness-cost": -0.23333333333333336,
+        "strand-risk": -0.4,
+        "spawn-pressure": -0.25739644970414205,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 4: no merge. chosen for the cascade it loads, against the height it adds. Best of 3 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.12,
+        "height-cost": -1.7333333333333334,
+        "unevenness-cost": -0.2,
+        "strand-risk": -0.4266666666666667,
+        "spawn-pressure": -0.34615384615384615,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 3 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0.12,
+        "height-cost": -1.7333333333333334,
+        "unevenness-cost": -0.16666666666666669,
+        "strand-risk": -0.4,
+        "spawn-pressure": -0.8698224852071006,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 3 columns.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.7333333333333334,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.4,
+        "spawn-pressure": -0.7366863905325444,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.7333333333333334,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.4,
+        "spawn-pressure": -0.7633136094674555,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 1 with a 64: merged for 128 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 7.011227255423254,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.7333333333333334,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.4266666666666667,
+        "spawn-pressure": -0.5059171597633136,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.7333333333333334,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.4266666666666667,
+        "spawn-pressure": -0.6390532544378699,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.7333333333333334,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.4266666666666667,
+        "spawn-pressure": -0.665680473372781,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: no merge. chosen for the cascade it loads, against the height it adds. Best of 4 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.8,
+        "unevenness-cost": -0.13333333333333333,
+        "strand-risk": -0.4666666666666667,
+        "spawn-pressure": -0.29289940828402367,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 3 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.8,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.4666666666666667,
+        "spawn-pressure": -0.7899408284023668,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 8: no merge. chosen for the cascade it loads, against the height it adds. Best of 3 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.72,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.8666666666666667,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.5066666666666667,
+        "spawn-pressure": -0.5502958579881657,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 16: no merge. chosen for the cascade it loads, against the height it adds. Best of 2 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.7599999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.9333333333333333,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.52,
+        "spawn-pressure": -0.9142011834319527,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 8: merged for 16 over 1 pass. chosen for the merge it scores now, against the height it adds.",
+      "features": {
+        "immediate-merge-value": 4.087462841250339,
+        "chain-potential": 0.7599999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.9333333333333333,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.5066666666666667,
+        "spawn-pressure": -0.7278106508875739,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: merged for 160 over 2 passes. chosen for the merge it scores now, against the height it adds.",
+      "features": {
+        "immediate-merge-value": 7.330916878114617,
+        "chain-potential": 0.7599999999999999,
+        "setup-adjacency": 0.32000000000000006,
+        "column-flexibility": 0,
+        "height-cost": -1.8666666666666667,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.48,
+        "spawn-pressure": -1.0473372781065087,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 64: merged for 256 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 2 columns.",
+      "features": {
+        "immediate-merge-value": 8.005624549193879,
+        "chain-potential": 0.7999999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.8,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.44,
+        "spawn-pressure": -1.2426035502958581,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 16: no merge. chosen for the cascade it loads, against the height it adds. Best of 3 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.7999999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.8666666666666667,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.48,
+        "spawn-pressure": -0.8698224852071006,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 16: merged for 32 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 2 columns.",
+      "features": {
+        "immediate-merge-value": 5.044394119358453,
+        "chain-potential": 0.7999999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.8666666666666667,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.4666666666666667,
+        "spawn-pressure": -0.9940828402366864,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 32: merged for 64 over 1 pass. chosen for the merge it scores now, against the height it adds. Best of 2 columns.",
+      "features": {
+        "immediate-merge-value": 6.022367813028454,
+        "chain-potential": 0.7999999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.8666666666666667,
+        "unevenness-cost": -0.1,
+        "strand-risk": -0.48,
+        "spawn-pressure": -1.029585798816568,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 2 with a 32: no merge. chosen for the cascade it loads, against the height it adds. Best of 2 columns.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.84,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.9333333333333333,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.5066666666666667,
+        "spawn-pressure": -1.1449704142011834,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 4 with a 64: merged for 128 over 1 pass. chosen for the merge it scores now, against the height it adds.",
+      "features": {
+        "immediate-merge-value": 7.011227255423254,
+        "chain-potential": 0.7999999999999999,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -1.9333333333333333,
+        "unevenness-cost": -0.06666666666666667,
+        "strand-risk": -0.5333333333333333,
+        "spawn-pressure": -1.0207100591715976,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 3 with a 64: no merge. chosen for the cascade it loads, against the height it adds.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.92,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -2,
+        "unevenness-cost": 0,
+        "strand-risk": -0.5733333333333334,
+        "spawn-pressure": -1.5,
+        "game-over-risk": 0
+      }
+    },
+    {
+      "text": "Column 0 with a 32: no merge. chosen for the cascade it loads, against that it ends the game.",
+      "features": {
+        "immediate-merge-value": 0,
+        "chain-potential": 0.92,
+        "setup-adjacency": 0,
+        "column-flexibility": 0,
+        "height-cost": -2.066666666666667,
+        "unevenness-cost": -0.03333333333333333,
+        "strand-risk": -0.6,
+        "spawn-pressure": -1.5,
+        "game-over-risk": -1000
+      }
+    }
+  ]
+}

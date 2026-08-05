@@ -1,0 +1,132 @@
+{
+  "what": "Stacker sweep: every column, both variants. Summaries only; reproducible from the seed set and agent ids below, which is why there are no per-game lines here.",
+  "spill": "the registered stacker-v1: home column while it has room, else the shortest column",
+  "strict": "never steers, including into overflow; this is literally an unattended game",
+  "seedSet": {
+    "id": "eval-v1",
+    "checksum": "2924cf94a4f82b4c59e2211b6e75fcfd5eb9bb9726cb6d5095cdefa02a43961d",
+    "games": 500
+  },
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "e814dfe9eb7f26fa202a7c0ebc1d1351070fd9a8db86040877b0f334aead5fd6",
+    "repoCommit": "fbc0d62e4ec5d0db7e8dae102bf60304ce4de135",
+    "workingTreeDirty": false
+  },
+  "spawn": {
+    "centreBase": 2000,
+    "centreGain": 400,
+    "centreStart": 4,
+    "ceilingMin": 5,
+    "ceilingSpread": 3,
+    "peakWeight": 1000,
+    "slope": 300,
+    "floorWeight": 40
+  },
+  "results": [
+    {
+      "column": 0,
+      "variant": "spill",
+      "agent": "stacker-v1",
+      "median": 1584,
+      "mean": 2065.5,
+      "max": 14784,
+      "maxTile": 1024,
+      "medianBlocks": 62
+    },
+    {
+      "column": 0,
+      "variant": "strict",
+      "agent": "stacker-strict-v1",
+      "median": 24,
+      "mean": 57.7,
+      "max": 516,
+      "maxTile": 64,
+      "medianBlocks": 9
+    },
+    {
+      "column": 1,
+      "variant": "spill",
+      "agent": "stacker-v1",
+      "median": 1564,
+      "mean": 2062.3,
+      "max": 13716,
+      "maxTile": 1024,
+      "medianBlocks": 61
+    },
+    {
+      "column": 1,
+      "variant": "strict",
+      "agent": "stacker-strict-v1",
+      "median": 24,
+      "mean": 57.7,
+      "max": 516,
+      "maxTile": 64,
+      "medianBlocks": 9
+    },
+    {
+      "column": 2,
+      "variant": "spill",
+      "agent": "stacker-v1",
+      "median": 1624,
+      "mean": 2160.9,
+      "max": 17328,
+      "maxTile": 1024,
+      "medianBlocks": 62
+    },
+    {
+      "column": 2,
+      "variant": "strict",
+      "agent": "stacker-strict-v1",
+      "median": 24,
+      "mean": 57.7,
+      "max": 516,
+      "maxTile": 64,
+      "medianBlocks": 9
+    },
+    {
+      "column": 3,
+      "variant": "spill",
+      "agent": "stacker-v1",
+      "median": 1656,
+      "mean": 2374.7,
+      "max": 19660,
+      "maxTile": 2048,
+      "medianBlocks": 62
+    },
+    {
+      "column": 3,
+      "variant": "strict",
+      "agent": "stacker-strict-v1",
+      "median": 24,
+      "mean": 57.7,
+      "max": 516,
+      "maxTile": 64,
+      "medianBlocks": 9
+    },
+    {
+      "column": 4,
+      "variant": "spill",
+      "agent": "stacker-v1",
+      "median": 1612,
+      "mean": 2026.2,
+      "max": 9740,
+      "maxTile": 512,
+      "medianBlocks": 61
+    },
+    {
+      "column": 4,
+      "variant": "strict",
+      "agent": "stacker-strict-v1",
+      "median": 24,
+      "mean": 57.7,
+      "max": 516,
+      "maxTile": 64,
+      "medianBlocks": 9
+    }
+  ]
+}

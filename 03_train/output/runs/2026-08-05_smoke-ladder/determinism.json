@@ -1,0 +1,46 @@
+{
+  "agent": "heuristic-v0",
+  "seed": "13923918990608195634",
+  "legs": [
+    {
+      "leg": "node-run-1",
+      "score": 47856,
+      "finalHash": "1452c7f7",
+      "maxTile": 1024,
+      "moveCount": 236
+    },
+    {
+      "leg": "node-run-2",
+      "score": 47856,
+      "finalHash": "1452c7f7",
+      "maxTile": 1024,
+      "moveCount": 236
+    },
+    {
+      "leg": "node-separate-process",
+      "score": 47856,
+      "finalHash": "1452c7f7",
+      "maxTile": 1024,
+      "moveCount": 236
+    }
+  ],
+  "identical": true,
+  "movesIdentical": true,
+  "expected": {
+    "score": 47856,
+    "finalHash": "1452c7f7"
+  },
+  "browserLeg": {
+    "leg": "browser-cinema-live",
+    "url": "https://masked-brown.github.io/number-block-sim/cinema.html",
+    "loadedVia": "file picker, the replay file below",
+    "verifiedBadge": "verified: engine re-run matches the recorded result",
+    "score": 47856,
+    "finalHash": "1452c7f7",
+    "moveCount": 236,
+    "observed": "Stepped to move 236 of 236; the running score displayed 47,856. The green verified badge is cinema's verifyReplay verdict, which compares BOTH the recorded score and the recorded finalHash against a fresh re-run through the browser's copy of the engine, so the badge is the hash proof and the counter is the score proof.",
+    "checkedOn": "2026-08-05"
+  },
+  "replayFile": "03_train/output/samples/determinism-proof.replay.json",
+  "verdict": "Four environments, one hash: 1452c7f7 and score 47,856 in two in-process Node runs, one separate Node process, and the browser on the live site."
+}

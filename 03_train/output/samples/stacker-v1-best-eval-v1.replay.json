@@ -1,0 +1,664 @@
+{
+  "version": 2,
+  "seed": "2436944997737444274",
+  "spawn": {
+    "centreBase": 2000,
+    "centreGain": 400,
+    "centreStart": 4,
+    "ceilingMin": 5,
+    "ceilingSpread": 3,
+    "peakWeight": 1000,
+    "slope": 300,
+    "floorWeight": 40
+  },
+  "moves": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    0,
+    1,
+    3,
+    4,
+    0,
+    1,
+    0,
+    3,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    2,
+    4,
+    3,
+    2,
+    2,
+    2,
+    4,
+    3,
+    0,
+    1,
+    0,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    2,
+    1,
+    1,
+    3,
+    0,
+    1,
+    0,
+    1,
+    3,
+    0,
+    1,
+    3,
+    4,
+    0,
+    1,
+    3,
+    4,
+    3,
+    3,
+    3,
+    3,
+    3,
+    2,
+    2,
+    1,
+    3,
+    4,
+    4,
+    4,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    4,
+    3,
+    4,
+    3,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    1,
+    3,
+    4,
+    3,
+    2,
+    2,
+    2,
+    3,
+    1,
+    3,
+    0,
+    1,
+    3,
+    2,
+    2,
+    3,
+    4,
+    3,
+    2,
+    4,
+    3,
+    4,
+    3,
+    2,
+    2,
+    4,
+    3,
+    4,
+    4,
+    3,
+    2,
+    3,
+    4,
+    3,
+    3,
+    3,
+    4,
+    0
+  ],
+  "meta": {
+    "date": "2026-08-05T11:30:02.940Z",
+    "player": "stacker-v1 (harness)",
+    "note": "best of 500 games on eval-v1, run 2026-08-05_smoke-ladder",
+    "result": {
+      "score": 17328,
+      "maxTile": 1024,
+      "blocksPlaced": 126,
+      "mergeCounts": {
+        "2": 77,
+        "3": 9
+      },
+      "longestChain": 7,
+      "finalHash": "8e38b1d0"
+    }
+  },
+  "reasoning": [
+    {
+      "text": "Column 2, the home column, at height 0 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 1 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 1 of 6. This 2 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 2 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 3 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 3 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 4 of 6. This 8 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 2 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 2 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 2 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 4 of 6. This 2 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 4 of 6. This 16 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 16 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 32 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 2 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 4 of 6. This 16 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 16 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 2 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 2 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 16 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 2 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 32 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 2 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 2 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 2 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 64 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 64 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 4 of 6. This 16 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 32 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 64 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 3 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 4 of 6. This 16 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 8 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 64 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 64 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 64 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 4 of 6. This 16 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 4 of 6. This 128 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 16 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 0.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 64 spills to the shortest column, 1.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 4 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 32 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 64 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 64 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 4 of 6. This 16 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 4 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 16 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 4 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2, the home column, at height 5 of 6. This 2 goes on the pile whatever it is.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 32 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 64 spills to the shortest column, 3.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 256 spills to the shortest column, 4.",
+      "features": {}
+    },
+    {
+      "text": "Column 2 is full at 6 of 6, so this 8 spills to the shortest column, 0.",
+      "features": {}
+    }
+  ]
+}

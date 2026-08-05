@@ -1,0 +1,189 @@
+{
+  "what": "Single-process throughput, repeated to survive machine noise. The best pass is the least contended and so the closest to what the code costs; the spread is the machine.",
+  "seedSet": {
+    "id": "eval-v1",
+    "checksum": "2924cf94a4f82b4c59e2211b6e75fcfd5eb9bb9726cb6d5095cdefa02a43961d"
+  },
+  "games": 200,
+  "reps": 5,
+  "machine": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logicalCores": 12,
+    "platform": "win32 10.0.26200",
+    "node": "v20.20.2"
+  },
+  "results": [
+    {
+      "agent": "random-v1",
+      "games": 200,
+      "reps": 5,
+      "movesPerGame": 63.9,
+      "gamesPerMinute": {
+        "best": 53333,
+        "median": 48000,
+        "worst": 31414
+      },
+      "passes": [
+        {
+          "wallMs": 382,
+          "cpuMs": 875,
+          "gamesPerMinute": 31414,
+          "movesPerSecond": 33450
+        },
+        {
+          "wallMs": 270,
+          "cpuMs": 250,
+          "gamesPerMinute": 44444,
+          "movesPerSecond": 47326
+        },
+        {
+          "wallMs": 246,
+          "cpuMs": 234,
+          "gamesPerMinute": 48780,
+          "movesPerSecond": 51943
+        },
+        {
+          "wallMs": 250,
+          "cpuMs": 250,
+          "gamesPerMinute": 48000,
+          "movesPerSecond": 51112
+        },
+        {
+          "wallMs": 225,
+          "cpuMs": 235,
+          "gamesPerMinute": 53333,
+          "movesPerSecond": 56791
+        }
+      ]
+    },
+    {
+      "agent": "greedy-v1",
+      "games": 200,
+      "reps": 5,
+      "movesPerGame": 203.6,
+      "gamesPerMinute": {
+        "best": 3936,
+        "median": 3159,
+        "worst": 2426
+      },
+      "passes": [
+        {
+          "wallMs": 3049,
+          "cpuMs": 2983,
+          "gamesPerMinute": 3936,
+          "movesPerSecond": 13357
+        },
+        {
+          "wallMs": 4276,
+          "cpuMs": 4110,
+          "gamesPerMinute": 2806,
+          "movesPerSecond": 9524
+        },
+        {
+          "wallMs": 4946,
+          "cpuMs": 4656,
+          "gamesPerMinute": 2426,
+          "movesPerSecond": 8234
+        },
+        {
+          "wallMs": 3799,
+          "cpuMs": 3578,
+          "gamesPerMinute": 3159,
+          "movesPerSecond": 10720
+        },
+        {
+          "wallMs": 3690,
+          "cpuMs": 3438,
+          "gamesPerMinute": 3252,
+          "movesPerSecond": 11037
+        }
+      ]
+    },
+    {
+      "agent": "stacker-v1",
+      "games": 200,
+      "reps": 5,
+      "movesPerGame": 62.9,
+      "gamesPerMinute": {
+        "best": 25532,
+        "median": 24641,
+        "worst": 20725
+      },
+      "passes": [
+        {
+          "wallMs": 480,
+          "cpuMs": 484,
+          "gamesPerMinute": 25000,
+          "movesPerSecond": 26190
+        },
+        {
+          "wallMs": 579,
+          "cpuMs": 547,
+          "gamesPerMinute": 20725,
+          "movesPerSecond": 21712
+        },
+        {
+          "wallMs": 487,
+          "cpuMs": 485,
+          "gamesPerMinute": 24641,
+          "movesPerSecond": 25813
+        },
+        {
+          "wallMs": 506,
+          "cpuMs": 468,
+          "gamesPerMinute": 23715,
+          "movesPerSecond": 24844
+        },
+        {
+          "wallMs": 470,
+          "cpuMs": 469,
+          "gamesPerMinute": 25532,
+          "movesPerSecond": 26747
+        }
+      ]
+    },
+    {
+      "agent": "heuristic-v0",
+      "games": 200,
+      "reps": 5,
+      "movesPerGame": 323.9,
+      "gamesPerMinute": {
+        "best": 820,
+        "median": 724,
+        "worst": 698
+      },
+      "passes": [
+        {
+          "wallMs": 16673,
+          "cpuMs": 20281,
+          "gamesPerMinute": 720,
+          "movesPerSecond": 3885
+        },
+        {
+          "wallMs": 16585,
+          "cpuMs": 20016,
+          "gamesPerMinute": 724,
+          "movesPerSecond": 3905
+        },
+        {
+          "wallMs": 17184,
+          "cpuMs": 21063,
+          "gamesPerMinute": 698,
+          "movesPerSecond": 3769
+        },
+        {
+          "wallMs": 14637,
+          "cpuMs": 17359,
+          "gamesPerMinute": 820,
+          "movesPerSecond": 4425
+        },
+        {
+          "wallMs": 16030,
+          "cpuMs": 19000,
+          "gamesPerMinute": 749,
+          "movesPerSecond": 4041
+        }
+      ]
+    }
+  ]
+}

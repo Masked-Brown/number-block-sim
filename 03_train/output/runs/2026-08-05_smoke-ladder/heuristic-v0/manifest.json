@@ -1,0 +1,101 @@
+{
+  "runId": "heuristic-v0",
+  "createdAt": "2026-08-05T11:29:15.380Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "agent": {
+    "id": "heuristic-v0",
+    "name": "heuristic",
+    "version": "v0",
+    "describe": "weighted sum of nine registered features over every candidate column",
+    "features": [
+      {
+        "name": "immediate-merge-value",
+        "version": 1,
+        "weight": 1
+      },
+      {
+        "name": "chain-potential",
+        "version": 1,
+        "weight": 1.2
+      },
+      {
+        "name": "setup-adjacency",
+        "version": 1,
+        "weight": 0.8
+      },
+      {
+        "name": "column-flexibility",
+        "version": 1,
+        "weight": 0.6
+      },
+      {
+        "name": "height-cost",
+        "version": 1,
+        "weight": -2
+      },
+      {
+        "name": "unevenness-cost",
+        "version": 1,
+        "weight": -0.8
+      },
+      {
+        "name": "strand-risk",
+        "version": 1,
+        "weight": -1
+      },
+      {
+        "name": "spawn-pressure",
+        "version": 1,
+        "weight": -1.5
+      },
+      {
+        "name": "game-over-risk",
+        "version": 1,
+        "weight": -1000
+      }
+    ],
+    "weights": {
+      "immediate-merge-value": 1,
+      "chain-potential": 1.2,
+      "setup-adjacency": 0.8,
+      "column-flexibility": 0.6,
+      "height-cost": -2,
+      "unevenness-cost": -0.8,
+      "strand-risk": -1,
+      "spawn-pressure": -1.5,
+      "game-over-risk": -1000
+    }
+  },
+  "seedSet": {
+    "id": "eval-v1",
+    "file": "03_train/seeds/eval-v1.json",
+    "checksum": "2924cf94a4f82b4c59e2211b6e75fcfd5eb9bb9726cb6d5095cdefa02a43961d",
+    "available": 500,
+    "gamesPlayed": 500
+  },
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "e814dfe9eb7f26fa202a7c0ebc1d1351070fd9a8db86040877b0f334aead5fd6",
+    "repoCommit": "fbc0d62e4ec5d0db7e8dae102bf60304ce4de135",
+    "workingTreeDirty": false
+  },
+  "spawn": {
+    "centreBase": 2000,
+    "centreGain": 400,
+    "centreStart": 4,
+    "ceilingMin": 5,
+    "ceilingSpread": 3,
+    "peakWeight": 1000,
+    "slope": 300,
+    "floorWeight": 40
+  },
+  "note": "smoke campaign ladder leg, run 2026-08-05_smoke-ladder"
+}

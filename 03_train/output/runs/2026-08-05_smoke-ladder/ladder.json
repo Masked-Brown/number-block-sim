@@ -1,0 +1,448 @@
+{
+  "runId": "2026-08-05_smoke-ladder",
+  "seedSet": "eval-v1",
+  "games": 500,
+  "ladder": [
+    {
+      "agent": "random-v1",
+      "describe": "uniform choice among columns with headroom; the floor of the ladder",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 104,
+        "q1": 939,
+        "median": 1700,
+        "q3": 2789,
+        "p90": 4604.4,
+        "p99": 8648.72,
+        "max": 12264,
+        "mean": 2170.07,
+        "stdev": 1815.67,
+        "total": 1085036
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 36,
+        "q1": 53,
+        "median": 61.5,
+        "q3": 73,
+        "p90": 82,
+        "p99": 103,
+        "max": 110,
+        "mean": 63.71,
+        "stdev": 13.92,
+        "total": 31857
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 1,
+        "q1": 3,
+        "median": 4,
+        "q3": 4,
+        "p90": 5,
+        "p99": 7.01,
+        "max": 8,
+        "mean": 3.72,
+        "stdev": 1.21,
+        "total": 1862
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 32,
+        "q1": 128,
+        "median": 128,
+        "q3": 256,
+        "p90": 256,
+        "p99": 512,
+        "max": 2048,
+        "mean": 181.12,
+        "stdev": 149.29,
+        "total": 90560,
+        "histogram": [
+          {
+            "value": 32,
+            "count": 8,
+            "share": 0.016
+          },
+          {
+            "value": 64,
+            "count": 99,
+            "share": 0.198
+          },
+          {
+            "value": 128,
+            "count": 216,
+            "share": 0.432
+          },
+          {
+            "value": 256,
+            "count": 144,
+            "share": 0.288
+          },
+          {
+            "value": 512,
+            "count": 30,
+            "share": 0.06
+          },
+          {
+            "value": 1024,
+            "count": 2,
+            "share": 0.004
+          },
+          {
+            "value": 2048,
+            "count": 1,
+            "share": 0.002
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 12203,
+        "3": 1841,
+        "4": 145,
+        "5": 8,
+        "6": 1
+      },
+      "throughput": {
+        "wallMs": 710,
+        "gamesPerMinute": 42254,
+        "movesPerSecond": 44869,
+        "totalMoves": 31857,
+        "note": "single process, single thread, cold Node start excluded"
+      },
+      "bestGame": {
+        "seed": "12419212234024946492",
+        "score": 12264,
+        "maxTile": 512,
+        "moveCount": 109
+      }
+    },
+    {
+      "agent": "greedy-v1",
+      "describe": "first column that merges anything, else the shortest column",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 4324,
+        "q1": 21319,
+        "median": 35386,
+        "q3": 52026,
+        "p90": 80050.8,
+        "p99": 158541.56,
+        "max": 266452,
+        "mean": 43386.78,
+        "stdev": 32772.66,
+        "total": 21693392
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 89,
+        "q1": 165,
+        "median": 195,
+        "q3": 227.25,
+        "p90": 270.1,
+        "p99": 352.04,
+        "max": 423,
+        "mean": 201.03,
+        "stdev": 52,
+        "total": 100513
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 3,
+        "q1": 4,
+        "median": 5,
+        "q3": 5,
+        "p90": 6,
+        "p99": 7,
+        "max": 8,
+        "mean": 4.7,
+        "stdev": 0.91,
+        "total": 2348
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 256,
+        "q1": 1024,
+        "median": 1024,
+        "q3": 2048,
+        "p90": 2252.8,
+        "p99": 4136.96,
+        "max": 8192,
+        "mean": 1609.22,
+        "stdev": 1188.13,
+        "total": 804608,
+        "histogram": [
+          {
+            "value": 256,
+            "count": 7,
+            "share": 0.014
+          },
+          {
+            "value": 512,
+            "count": 82,
+            "share": 0.164
+          },
+          {
+            "value": 1024,
+            "count": 199,
+            "share": 0.398
+          },
+          {
+            "value": 2048,
+            "count": 162,
+            "share": 0.324
+          },
+          {
+            "value": 4096,
+            "count": 45,
+            "share": 0.09
+          },
+          {
+            "value": 8192,
+            "count": 5,
+            "share": 0.01
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 77190,
+        "3": 3676,
+        "4": 157
+      },
+      "throughput": {
+        "wallMs": 8313,
+        "gamesPerMinute": 3609,
+        "movesPerSecond": 12091,
+        "totalMoves": 100513,
+        "note": "single process, single thread, cold Node start excluded"
+      },
+      "bestGame": {
+        "seed": "2877837648742279757",
+        "score": 266452,
+        "maxTile": 8192,
+        "moveCount": 423
+      }
+    },
+    {
+      "agent": "stacker-v1",
+      "describe": "always column 2 while it has room, else the shortest column",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 100,
+        "q1": 987,
+        "median": 1626,
+        "q3": 2762,
+        "p90": 4214,
+        "p99": 8678,
+        "max": 17328,
+        "mean": 2160.87,
+        "stdev": 1880.94,
+        "total": 1080436
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 38,
+        "q1": 54,
+        "median": 62,
+        "q3": 71,
+        "p90": 81,
+        "p99": 103.01,
+        "max": 126,
+        "mean": 63.32,
+        "stdev": 13.41,
+        "total": 31659
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 1,
+        "q1": 3,
+        "median": 4,
+        "q3": 5,
+        "p90": 5,
+        "p99": 8,
+        "max": 9,
+        "mean": 3.86,
+        "stdev": 1.28,
+        "total": 1932
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 32,
+        "q1": 128,
+        "median": 128,
+        "q3": 256,
+        "p90": 256,
+        "p99": 512,
+        "max": 1024,
+        "mean": 177.73,
+        "stdev": 123.55,
+        "total": 88864,
+        "histogram": [
+          {
+            "value": 32,
+            "count": 5,
+            "share": 0.01
+          },
+          {
+            "value": 64,
+            "count": 94,
+            "share": 0.188
+          },
+          {
+            "value": 128,
+            "count": 222,
+            "share": 0.444
+          },
+          {
+            "value": 256,
+            "count": 152,
+            "share": 0.304
+          },
+          {
+            "value": 512,
+            "count": 24,
+            "share": 0.048
+          },
+          {
+            "value": 1024,
+            "count": 3,
+            "share": 0.006
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 11882,
+        "3": 1880,
+        "4": 163,
+        "5": 7
+      },
+      "throughput": {
+        "wallMs": 1105,
+        "gamesPerMinute": 27149,
+        "movesPerSecond": 28651,
+        "totalMoves": 31659,
+        "note": "single process, single thread, cold Node start excluded"
+      },
+      "bestGame": {
+        "seed": "2436944997737444274",
+        "score": 17328,
+        "maxTile": 1024,
+        "moveCount": 126
+      }
+    },
+    {
+      "agent": "heuristic-v0",
+      "describe": "weighted sum of nine registered features over every candidate column",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 11856,
+        "q1": 66050,
+        "median": 114210,
+        "q3": 175361,
+        "p90": 270544.4,
+        "p99": 513105.2,
+        "max": 1034848,
+        "mean": 138827.14,
+        "stdev": 108923.18,
+        "total": 69413572
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 136,
+        "q1": 259.75,
+        "median": 313,
+        "q3": 374.25,
+        "p90": 425.3,
+        "p99": 550.45,
+        "max": 680,
+        "mean": 321.55,
+        "stdev": 87.85,
+        "total": 160774
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 3,
+        "q1": 5,
+        "median": 5,
+        "q3": 6,
+        "p90": 7,
+        "p99": 8,
+        "max": 10,
+        "mean": 5.3,
+        "stdev": 0.97,
+        "total": 2652
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 512,
+        "q1": 2048,
+        "median": 4096,
+        "q3": 4096,
+        "p90": 8192,
+        "p99": 16384,
+        "max": 32768,
+        "mean": 4443.14,
+        "stdev": 3725.53,
+        "total": 2221568,
+        "histogram": [
+          {
+            "value": 512,
+            "count": 7,
+            "share": 0.014
+          },
+          {
+            "value": 1024,
+            "count": 54,
+            "share": 0.108
+          },
+          {
+            "value": 2048,
+            "count": 142,
+            "share": 0.284
+          },
+          {
+            "value": 4096,
+            "count": 183,
+            "share": 0.366
+          },
+          {
+            "value": 8192,
+            "count": 95,
+            "share": 0.19
+          },
+          {
+            "value": 16384,
+            "count": 17,
+            "share": 0.034
+          },
+          {
+            "value": 32768,
+            "count": 2,
+            "share": 0.004
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 127745,
+        "3": 8418,
+        "4": 231
+      },
+      "throughput": {
+        "wallMs": 41223,
+        "gamesPerMinute": 728,
+        "movesPerSecond": 3900,
+        "totalMoves": 160774,
+        "note": "single process, single thread, cold Node start excluded"
+      },
+      "bestGame": {
+        "seed": "15784950089324173270",
+        "score": 1034848,
+        "maxTile": 32768,
+        "moveCount": 680
+      }
+    }
+  ]
+}

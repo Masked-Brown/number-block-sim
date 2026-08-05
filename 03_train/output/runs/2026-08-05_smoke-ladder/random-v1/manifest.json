@@ -1,0 +1,45 @@
+{
+  "runId": "random-v1",
+  "createdAt": "2026-08-05T11:29:04.747Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "agent": {
+    "id": "random-v1",
+    "name": "random",
+    "version": "v1",
+    "describe": "uniform choice among columns with headroom; the floor of the ladder",
+    "features": null,
+    "weights": null
+  },
+  "seedSet": {
+    "id": "eval-v1",
+    "file": "03_train/seeds/eval-v1.json",
+    "checksum": "2924cf94a4f82b4c59e2211b6e75fcfd5eb9bb9726cb6d5095cdefa02a43961d",
+    "available": 500,
+    "gamesPlayed": 500
+  },
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "e814dfe9eb7f26fa202a7c0ebc1d1351070fd9a8db86040877b0f334aead5fd6",
+    "repoCommit": "fbc0d62e4ec5d0db7e8dae102bf60304ce4de135",
+    "workingTreeDirty": false
+  },
+  "spawn": {
+    "centreBase": 2000,
+    "centreGain": 400,
+    "centreStart": 4,
+    "ceilingMin": 5,
+    "ceilingSpread": 3,
+    "peakWeight": 1000,
+    "slope": 300,
+    "floorWeight": 40
+  },
+  "note": "smoke campaign ladder leg, run 2026-08-05_smoke-ladder"
+}
