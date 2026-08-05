@@ -1,0 +1,45 @@
+{
+  "canon_hashes": {
+    "CC_OPERATIONS.md": "a3ffaaf7",
+    "CC_TOUCHDOWN.md": "d87a6b86",
+    "CLAUDE.md": "513bc367",
+    "HANDOVER_PROMPT.md": "9a325800",
+    "LOG_PROMPT.md": "73c51644",
+    "LOOP_PROMPT.md": "20fe9bc2",
+    "NORMS.md": "714527da",
+    "OPERATIONS_BEE.md": "c6e068bf",
+    "TEST_MODE.md": "97fcea96",
+    "td_v1.json": "64f62a33",
+    "td_v2.json": "5ed57b33"
+  },
+  "changelog_baseline": {
+    "hash": "b602fb95",
+    "lines": 56
+  },
+  "deadman_last_age_seconds": null,
+  "handoff": {
+    "ask": null,
+    "items": [
+      "anomaly:c11433f91f61"
+    ],
+    "recorded": "2026-08-05T09:41:23",
+    "trigger": [
+      "new-this-run anomalies (1)"
+    ]
+  },
+  "human_breaches": [],
+  "last_review": null,
+  "last_verdict": "review-warranted",
+  "map_hashes": {},
+  "quarantine_count": 0,
+  "review_not_converging": false,
+  "schema": 1,
+  "state_file_was_missing": true,
+  "trailer_audit_baseline": "53c692e6c67fbb05c27e78a670fdc76b8bfde454",
+  "trigger_history": [
+    [
+      "anomaly:c11433f91f61"
+    ]
+  ],
+  "written": "2026-08-05T09:41:23"
+}
