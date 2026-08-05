@@ -1,0 +1,17 @@
+{
+  "what": "Bit-identity proof: serial and worker-pool records compared as serialised JSON, metrics and full move lists included. harnessMs is excluded: it is a wall-clock measurement of the harness, not of the game, and differs between any two runs, two serial ones included.",
+  "agent": "heuristic-v0",
+  "seedSet": {
+    "id": "eval-v1",
+    "checksum": "2924cf94a4f82b4c59e2211b6e75fcfd5eb9bb9726cb6d5095cdefa02a43961d"
+  },
+  "games": 100,
+  "workers": 10,
+  "identical": true,
+  "mismatches": [],
+  "wallMs": {
+    "serial": 13178,
+    "parallel": 3615
+  },
+  "note": "wall times here are one pass each and are NOT the throughput measurement; see throughput-parallel.js for repeated timing"
+}

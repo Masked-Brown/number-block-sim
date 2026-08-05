@@ -1,0 +1,85 @@
+{
+  "runId": "2026-08-05_breed-h1-features",
+  "kind": "breeding",
+  "createdAt": "2026-08-05T12:51:54.025Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "method": "cross-entropy over the weight vector; fixed features, fixed tie-break; fitness is median score over a fixed train-v1 block, common to all candidates",
+  "config": {
+    "init": "heuristic-v1",
+    "initWeights": {
+      "immediate-merge-value": 3.643384346980847,
+      "chain-potential": 2.109219312324528,
+      "setup-adjacency": -0.4689263027890613,
+      "column-flexibility": 0.5967793973043165,
+      "height-cost": -4.417581215885435,
+      "unevenness-cost": -0.27005858064800325,
+      "strand-risk": -3.44008481417164,
+      "spawn-pressure": -4.084230482319334,
+      "game-over-risk": -1000,
+      "tier-gap-cost": -0.5,
+      "next-merge-ready": 0.5
+    },
+    "pins": {
+      "immediate-merge-value": 1,
+      "chain-potential": 1,
+      "setup-adjacency": 1,
+      "column-flexibility": 1,
+      "height-cost": 1,
+      "unevenness-cost": 1,
+      "strand-risk": 1,
+      "spawn-pressure": 1,
+      "game-over-risk": 1,
+      "tier-gap-cost": 1,
+      "next-merge-ready": 1
+    },
+    "added": "tier-gap-cost=-0.5,next-merge-ready=0.5",
+    "fixed": {
+      "game-over-risk": -1000
+    },
+    "population": 24,
+    "elites": 6,
+    "generations": 14,
+    "rngSeed": 2,
+    "fitness": {
+      "seedSet": "train-v1",
+      "offset": 0,
+      "games": 150,
+      "metric": "median score"
+    },
+    "validation": {
+      "seedSet": "train-v1",
+      "offset": 1000,
+      "games": 500
+    },
+    "workers": 6
+  },
+  "seedSet": {
+    "id": "train-v1",
+    "file": "03_train/seeds/train-v1.json",
+    "checksum": "1f85ef3a6481a1aa385efd58afae383d60fd30e8a7526894bd18b36c255835ea"
+  },
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "e814dfe9eb7f26fa202a7c0ebc1d1351070fd9a8db86040877b0f334aead5fd6",
+    "repoCommit": "6dd4d0b8db3938b7ce39e73cd89eea2a06b62dc3",
+    "workingTreeDirty": false
+  },
+  "spawn": {
+    "centreBase": 2000,
+    "centreGain": 400,
+    "centreStart": 4,
+    "ceilingMin": 5,
+    "ceilingSpread": 3,
+    "peakWeight": 1000,
+    "slope": 300,
+    "floorWeight": 40
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "runId": "2026-08-05_breed-h0",
+  "wallMs": 711340,
+  "generationsRun": 7,
+  "champion": {
+    "weights": {
+      "game-over-risk": -1000,
+      "immediate-merge-value": 3.643384346980847,
+      "chain-potential": 2.109219312324528,
+      "setup-adjacency": -0.4689263027890613,
+      "column-flexibility": 0.5967793973043165,
+      "height-cost": -4.417581215885435,
+      "unevenness-cost": -0.27005858064800325,
+      "strand-risk": -3.44008481417164,
+      "spawn-pressure": -4.084230482319334
+    },
+    "fitness": 159208,
+    "generation": 3
+  },
+  "eliteMeanFinal": {
+    "game-over-risk": -1000,
+    "immediate-merge-value": 3.263340066635499,
+    "chain-potential": 3.3098358816713076,
+    "setup-adjacency": -0.843577284087329,
+    "column-flexibility": 0.21891050526139025,
+    "height-cost": -4.640801297663721,
+    "unevenness-cost": 0.24789546101444024,
+    "strand-risk": -2.8529457196118977,
+    "spawn-pressure": -4.546088624399271
+  },
+  "fitnessCurve": [
+    {
+      "generation": 0,
+      "best": 133946,
+      "median": 102735
+    },
+    {
+      "generation": 1,
+      "best": 138378,
+      "median": 111692
+    },
+    {
+      "generation": 2,
+      "best": 145198,
+      "median": 110202
+    },
+    {
+      "generation": 3,
+      "best": 159208,
+      "median": 125837
+    },
+    {
+      "generation": 4,
+      "best": 154980,
+      "median": 135928
+    },
+    {
+      "generation": 5,
+      "best": 157206,
+      "median": 136505
+    },
+    {
+      "generation": 6,
+      "best": 155202,
+      "median": 137372
+    }
+  ],
+  "validation": {
+    "games": 500,
+    "offset": 1000,
+    "championMedian": 144168,
+    "initMedian": 108700,
+    "championWinsHeadToHead": 293,
+    "upliftOnMedian": 1.326
+  }
+}

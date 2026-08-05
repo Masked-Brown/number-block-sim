@@ -7,7 +7,12 @@ not repeated here. This file is the shortest path to running something.
     node --test 03_train/lab/test/                          the harness's own suite
     node 03_train/lab/cli/campaign.js --games 500           the four-agent ladder on eval-v1
     node 03_train/lab/cli/run.js --agent heuristic-v0 --games 500 --replay-best
+    node 03_train/lab/cli/run-parallel.js --agent heuristic-v1 --workers 6 --replay-best
+    node 03_train/lab/cli/breed.js --init heuristic-v1 --workers 6
+    node 03_train/lab/cli/parallel-check.js --agent heuristic-v1 --games 100
     node 03_train/lab/cli/throughput.js --games 200 --reps 5
+    node 03_train/lab/cli/throughput-parallel.js --workers 6
+    node 03_train/lab/cli/probe-behaviour.js --agent heuristic-v1 --games 100
     node 03_train/lab/cli/one-game.js --agent greedy-v1 --seed 12345
 
 Node 18 or later, no dependencies, nothing to install. The engine comes from `docs/js/engine.js`

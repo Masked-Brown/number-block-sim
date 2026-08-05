@@ -19,11 +19,13 @@ measured run in `output/runs/`.
 |---|---|
 | `lab/engine-link.js` | The ONE place the lab reaches `docs/js/engine.js`. Re-exports only. |
 | `lab/board.js` | Read-only derived views of a board (heights, landing cells, tiers). Measurements, never decisions. |
-| `lab/agents/` | The players. `index.js` is the registry and states the agent interface. |
+| `lab/agents/` | The players. `index.js` is the registry and states the agent interface. `weighted.js` and `expectimax.js` are FACTORIES for unregistered candidates (breeding, probes); only registered named versions produce headline rows. |
 | `lab/features/` | `registry.js`, `context.js`, and `registered/` holding one module per feature. |
-| `lab/runner.js` | Plays an agent on a seed set and writes the run record. |
+| `lab/runner.js` | Plays an agent on a seed set and writes the run record, serially. |
+| `lab/parallel.js` | The worker-pool fan-out over seeds (worker_threads, no engine change). Bit-identical to the serial runner by construction and by standing test; `gameIdentity()` states the definition (the stopwatch field is excluded, nothing else). |
+| `lab/train/cem.js` | Cross-entropy weight breeding: seeded, deterministic, reproducible from its recorded config. |
 | `lab/metrics.js`, `lab/seeds.js`, `lab/manifest.js`, `lab/replay.js`, `lab/determinism.js` | Aggregation, frozen-set loading, provenance, replay export, the determinism proof. |
-| `lab/cli/` | `campaign.js` (the ladder), `run.js` (one agent), `throughput.js`, `determinism.js` via campaign, `make-seeds.js` (run once, ever), `one-game.js`. |
+| `lab/cli/` | `campaign.js` (the four-agent smoke ladder), `run.js` / `run-parallel.js` (one agent, serial / pooled), `breed.js` (a CEM breed as a run folder), `throughput.js` / `throughput-parallel.js` (repeated timing, best/median/worst), `parallel-check.js` (the bit-identity proof), `probe-behaviour.js` (per-move diagnostics, train seeds only), `ladder-tables.js` (assemble ladder tables from named runs), `make-seeds.js` (run once, ever), `one-game.js`. |
 | `lab/test/lab.test.js` | The harness's own suite: `node --test 03_train/lab/test/`. |
 
 **The harness imports the engine and never reimplements it.** There is no copied, adapted or
@@ -118,6 +120,21 @@ auto-writes the register; a finding does not earn an entry by existing.
 **No manifest, no run.** Every run folder starts with `manifest.json`, written before the first
 game rather than after the last, so a crashed run still says exactly what it was. A result whose
 provenance is unknown is not a result.
+
+**Campaign conventions (settled 2026-08-05, work order orchestrated-training-campaign).** A
+training campaign is orchestrated as a sequence of run folders, three kinds distinguished by
+the manifest's `kind`: agent series (the default), `breeding` (a CEM breed: config in the
+manifest, one JSONL line per generation, `result.json` with the champion and its held-out
+validation), and `measurement` (proofs and timings, no games recorded). The campaign's
+judgement lives in two campaign-level files beside `_FINDINGS.md`: `output/DECISION_LOG.md`,
+the dated append-only record of every campaign or feature idea tried, why, what it showed and
+what was done (written as the campaign runs, quotable by Phase 4), and
+`output/knowledge.json`, the machine-readable champion knowledge file (weights, feature list,
+provenance, learning curves). Breeding discipline: fitness on a fixed train-v1 block (common
+random numbers, median), champions validated on a held-out train-v1 block before naming;
+eval-v1 is touched only by registered named versions producing headline rows, all 500 seeds.
+Timing discipline: any quoted throughput comes from repeated passes (best, median, worst);
+this machine's noise swamps single runs, and its measured worker-pool sweet spot is 6 workers.
 
 Per-game metrics stream to `games.jsonl`, one line per game, carrying RULES.md section 7's list
 (final score, max tile, blocks placed, merge counts by group size, longest chain, final hash)

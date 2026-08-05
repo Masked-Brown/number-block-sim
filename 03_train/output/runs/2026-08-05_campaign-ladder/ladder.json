@@ -1,0 +1,847 @@
+{
+  "seedSet": "eval-v1",
+  "games": 500,
+  "rows": [
+    {
+      "agent": "expectimax-d3-v1",
+      "describe": "depth-3 expectimax, third block expected over the live distribution at coverage 0.9, heuristic-v2 weights",
+      "runId": "2026-08-05_eval-expectimax-d3-v1",
+      "seedSet": "eval-v1",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 125336,
+        "q1": 421189,
+        "median": 643996,
+        "q3": 961014,
+        "p90": 1300898.4,
+        "p99": 2167964.2,
+        "max": 2710108,
+        "mean": 739312.2,
+        "stdev": 430109.02,
+        "total": 369656100
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 274,
+        "q1": 533.75,
+        "median": 639,
+        "q3": 735,
+        "p90": 842.5,
+        "p99": 1008.01,
+        "max": 1094,
+        "mean": 640.89,
+        "stdev": 145.78,
+        "total": 320445
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 4,
+        "q1": 6,
+        "median": 6,
+        "q3": 7,
+        "p90": 7,
+        "p99": 9.01,
+        "max": 11,
+        "mean": 6.24,
+        "stdev": 0.97,
+        "total": 3118
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 2048,
+        "q1": 8192,
+        "median": 16384,
+        "q3": 32768,
+        "p90": 32768,
+        "p99": 65536,
+        "max": 65536,
+        "mean": 19111.94,
+        "stdev": 12792.01,
+        "total": 9555968,
+        "histogram": [
+          {
+            "value": 2048,
+            "count": 2,
+            "share": 0.004
+          },
+          {
+            "value": 4096,
+            "count": 30,
+            "share": 0.06
+          },
+          {
+            "value": 8192,
+            "count": 129,
+            "share": 0.258
+          },
+          {
+            "value": 16384,
+            "count": 199,
+            "share": 0.398
+          },
+          {
+            "value": 32768,
+            "count": 124,
+            "share": 0.248
+          },
+          {
+            "value": 65536,
+            "count": 16,
+            "share": 0.032
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 276622,
+        "3": 13684,
+        "4": 317,
+        "5": 1
+      },
+      "bestGame": {
+        "seed": "13616125016900865182",
+        "score": 2710108,
+        "maxTile": 65536,
+        "moveCount": 1094
+      }
+    },
+    {
+      "agent": "expectimax-d2-v1",
+      "describe": "depth-2 max-max over current block and honest preview, heuristic-v2 weights",
+      "runId": "2026-08-05_eval-expectimax-d2-v1",
+      "seedSet": "eval-v1",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 55336,
+        "q1": 285524,
+        "median": 427986,
+        "q3": 683593,
+        "p90": 1023104,
+        "p99": 2090164.84,
+        "max": 2576032,
+        "mean": 539258.13,
+        "stdev": 380295.95,
+        "total": 269629064
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 253,
+        "q1": 448.75,
+        "median": 539.5,
+        "q3": 638.25,
+        "p90": 755.1,
+        "p99": 902.03,
+        "max": 979,
+        "mean": 555.63,
+        "stdev": 139.1,
+        "total": 277815
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 3,
+        "q1": 5,
+        "median": 6,
+        "q3": 6,
+        "p90": 7,
+        "p99": 8.01,
+        "max": 10,
+        "mean": 5.93,
+        "stdev": 0.95,
+        "total": 2964
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 2048,
+        "q1": 8192,
+        "median": 8192,
+        "q3": 16384,
+        "p90": 32768,
+        "p99": 65536,
+        "max": 65536,
+        "mean": 14565.38,
+        "stdev": 11200.04,
+        "total": 7282688,
+        "histogram": [
+          {
+            "value": 2048,
+            "count": 12,
+            "share": 0.024
+          },
+          {
+            "value": 4096,
+            "count": 62,
+            "share": 0.124
+          },
+          {
+            "value": 8192,
+            "count": 179,
+            "share": 0.358
+          },
+          {
+            "value": 16384,
+            "count": 176,
+            "share": 0.352
+          },
+          {
+            "value": 32768,
+            "count": 61,
+            "share": 0.122
+          },
+          {
+            "value": 65536,
+            "count": 10,
+            "share": 0.02
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 228260,
+        "3": 16495,
+        "4": 355
+      },
+      "bestGame": {
+        "seed": "15517180824397458301",
+        "score": 2576032,
+        "maxTile": 65536,
+        "moveCount": 942
+      }
+    },
+    {
+      "agent": "heuristic-v2",
+      "describe": "bred weight vector over eleven features, tier-gap-cost and next-merge-ready included (CEM, run 2026-08-05_breed-h1-features)",
+      "runId": "2026-08-05_eval-heuristic-v2",
+      "seedSet": "eval-v1",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 18188,
+        "q1": 123872,
+        "median": 204618,
+        "q3": 314772,
+        "p90": 494041.6,
+        "p99": 709638.52,
+        "max": 1298584,
+        "mean": 246404.15,
+        "stdev": 168355.35,
+        "total": 123202076
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 168,
+        "q1": 331,
+        "median": 398,
+        "q3": 471,
+        "p90": 532,
+        "p99": 664.1,
+        "max": 769,
+        "mean": 405.57,
+        "stdev": 101.65,
+        "total": 202786
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 4,
+        "q1": 5,
+        "median": 5,
+        "q3": 6,
+        "p90": 7,
+        "p99": 8,
+        "max": 11,
+        "mean": 5.51,
+        "stdev": 0.98,
+        "total": 2755
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 512,
+        "q1": 4096,
+        "median": 8192,
+        "q3": 8192,
+        "p90": 16384,
+        "p99": 32768,
+        "max": 32768,
+        "mean": 7312.38,
+        "stdev": 5414.01,
+        "total": 3656192,
+        "histogram": [
+          {
+            "value": 512,
+            "count": 3,
+            "share": 0.006
+          },
+          {
+            "value": 1024,
+            "count": 9,
+            "share": 0.018
+          },
+          {
+            "value": 2048,
+            "count": 78,
+            "share": 0.156
+          },
+          {
+            "value": 4096,
+            "count": 159,
+            "share": 0.318
+          },
+          {
+            "value": 8192,
+            "count": 168,
+            "share": 0.336
+          },
+          {
+            "value": 16384,
+            "count": 77,
+            "share": 0.154
+          },
+          {
+            "value": 32768,
+            "count": 6,
+            "share": 0.012
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 168889,
+        "3": 8785,
+        "4": 273,
+        "5": 2
+      },
+      "bestGame": {
+        "seed": "18286188457757736738",
+        "score": 1298584,
+        "maxTile": 32768,
+        "moveCount": 742
+      }
+    },
+    {
+      "agent": "heuristic-v1",
+      "describe": "bred weight vector over the nine v0 features (CEM, run 2026-08-05_breed-h0)",
+      "runId": "2026-08-05_eval-heuristic-v1",
+      "seedSet": "eval-v1",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 9208,
+        "q1": 87337,
+        "median": 141424,
+        "q3": 225563,
+        "p90": 329262.8,
+        "p99": 571377.04,
+        "max": 730536,
+        "mean": 172032.68,
+        "stdev": 119542.95,
+        "total": 86016340
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 138,
+        "q1": 290.75,
+        "median": 342,
+        "q3": 418,
+        "p90": 484.1,
+        "p99": 600.09,
+        "max": 648,
+        "mean": 356.41,
+        "stdev": 95.03,
+        "total": 178204
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 3,
+        "q1": 5,
+        "median": 5,
+        "q3": 6,
+        "p90": 6.1,
+        "p99": 8,
+        "max": 9,
+        "mean": 5.39,
+        "stdev": 0.96,
+        "total": 2695
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 512,
+        "q1": 2048,
+        "median": 4096,
+        "q3": 8192,
+        "p90": 8192,
+        "p99": 16384,
+        "max": 32768,
+        "mean": 5116.93,
+        "stdev": 3721.85,
+        "total": 2558464,
+        "histogram": [
+          {
+            "value": 512,
+            "count": 1,
+            "share": 0.002
+          },
+          {
+            "value": 1024,
+            "count": 34,
+            "share": 0.068
+          },
+          {
+            "value": 2048,
+            "count": 124,
+            "share": 0.248
+          },
+          {
+            "value": 4096,
+            "count": 180,
+            "share": 0.36
+          },
+          {
+            "value": 8192,
+            "count": 137,
+            "share": 0.274
+          },
+          {
+            "value": 16384,
+            "count": 23,
+            "share": 0.046
+          },
+          {
+            "value": 32768,
+            "count": 1,
+            "share": 0.002
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 148033,
+        "3": 7004,
+        "4": 221
+      },
+      "bestGame": {
+        "seed": "11016375189697475517",
+        "score": 730536,
+        "maxTile": 16384,
+        "moveCount": 575
+      }
+    },
+    {
+      "agent": "heuristic-v0",
+      "describe": "weighted sum of nine registered features over every candidate column",
+      "runId": "heuristic-v0",
+      "seedSet": "eval-v1",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 11856,
+        "q1": 66050,
+        "median": 114210,
+        "q3": 175361,
+        "p90": 270544.4,
+        "p99": 513105.2,
+        "max": 1034848,
+        "mean": 138827.14,
+        "stdev": 108923.18,
+        "total": 69413572
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 136,
+        "q1": 259.75,
+        "median": 313,
+        "q3": 374.25,
+        "p90": 425.3,
+        "p99": 550.45,
+        "max": 680,
+        "mean": 321.55,
+        "stdev": 87.85,
+        "total": 160774
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 3,
+        "q1": 5,
+        "median": 5,
+        "q3": 6,
+        "p90": 7,
+        "p99": 8,
+        "max": 10,
+        "mean": 5.3,
+        "stdev": 0.97,
+        "total": 2652
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 512,
+        "q1": 2048,
+        "median": 4096,
+        "q3": 4096,
+        "p90": 8192,
+        "p99": 16384,
+        "max": 32768,
+        "mean": 4443.14,
+        "stdev": 3725.53,
+        "total": 2221568,
+        "histogram": [
+          {
+            "value": 512,
+            "count": 7,
+            "share": 0.014
+          },
+          {
+            "value": 1024,
+            "count": 54,
+            "share": 0.108
+          },
+          {
+            "value": 2048,
+            "count": 142,
+            "share": 0.284
+          },
+          {
+            "value": 4096,
+            "count": 183,
+            "share": 0.366
+          },
+          {
+            "value": 8192,
+            "count": 95,
+            "share": 0.19
+          },
+          {
+            "value": 16384,
+            "count": 17,
+            "share": 0.034
+          },
+          {
+            "value": 32768,
+            "count": 2,
+            "share": 0.004
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 127745,
+        "3": 8418,
+        "4": 231
+      },
+      "bestGame": {
+        "seed": "15784950089324173270",
+        "score": 1034848,
+        "maxTile": 32768,
+        "moveCount": 680
+      }
+    },
+    {
+      "agent": "greedy-v1",
+      "describe": "first column that merges anything, else the shortest column",
+      "runId": "greedy-v1",
+      "seedSet": "eval-v1",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 4324,
+        "q1": 21319,
+        "median": 35386,
+        "q3": 52026,
+        "p90": 80050.8,
+        "p99": 158541.56,
+        "max": 266452,
+        "mean": 43386.78,
+        "stdev": 32772.66,
+        "total": 21693392
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 89,
+        "q1": 165,
+        "median": 195,
+        "q3": 227.25,
+        "p90": 270.1,
+        "p99": 352.04,
+        "max": 423,
+        "mean": 201.03,
+        "stdev": 52,
+        "total": 100513
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 3,
+        "q1": 4,
+        "median": 5,
+        "q3": 5,
+        "p90": 6,
+        "p99": 7,
+        "max": 8,
+        "mean": 4.7,
+        "stdev": 0.91,
+        "total": 2348
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 256,
+        "q1": 1024,
+        "median": 1024,
+        "q3": 2048,
+        "p90": 2252.8,
+        "p99": 4136.96,
+        "max": 8192,
+        "mean": 1609.22,
+        "stdev": 1188.13,
+        "total": 804608,
+        "histogram": [
+          {
+            "value": 256,
+            "count": 7,
+            "share": 0.014
+          },
+          {
+            "value": 512,
+            "count": 82,
+            "share": 0.164
+          },
+          {
+            "value": 1024,
+            "count": 199,
+            "share": 0.398
+          },
+          {
+            "value": 2048,
+            "count": 162,
+            "share": 0.324
+          },
+          {
+            "value": 4096,
+            "count": 45,
+            "share": 0.09
+          },
+          {
+            "value": 8192,
+            "count": 5,
+            "share": 0.01
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 77190,
+        "3": 3676,
+        "4": 157
+      },
+      "bestGame": {
+        "seed": "2877837648742279757",
+        "score": 266452,
+        "maxTile": 8192,
+        "moveCount": 423
+      }
+    },
+    {
+      "agent": "random-v1",
+      "describe": "uniform choice among columns with headroom; the floor of the ladder",
+      "runId": "random-v1",
+      "seedSet": "eval-v1",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 104,
+        "q1": 939,
+        "median": 1700,
+        "q3": 2789,
+        "p90": 4604.4,
+        "p99": 8648.72,
+        "max": 12264,
+        "mean": 2170.07,
+        "stdev": 1815.67,
+        "total": 1085036
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 36,
+        "q1": 53,
+        "median": 61.5,
+        "q3": 73,
+        "p90": 82,
+        "p99": 103,
+        "max": 110,
+        "mean": 63.71,
+        "stdev": 13.92,
+        "total": 31857
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 1,
+        "q1": 3,
+        "median": 4,
+        "q3": 4,
+        "p90": 5,
+        "p99": 7.01,
+        "max": 8,
+        "mean": 3.72,
+        "stdev": 1.21,
+        "total": 1862
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 32,
+        "q1": 128,
+        "median": 128,
+        "q3": 256,
+        "p90": 256,
+        "p99": 512,
+        "max": 2048,
+        "mean": 181.12,
+        "stdev": 149.29,
+        "total": 90560,
+        "histogram": [
+          {
+            "value": 32,
+            "count": 8,
+            "share": 0.016
+          },
+          {
+            "value": 64,
+            "count": 99,
+            "share": 0.198
+          },
+          {
+            "value": 128,
+            "count": 216,
+            "share": 0.432
+          },
+          {
+            "value": 256,
+            "count": 144,
+            "share": 0.288
+          },
+          {
+            "value": 512,
+            "count": 30,
+            "share": 0.06
+          },
+          {
+            "value": 1024,
+            "count": 2,
+            "share": 0.004
+          },
+          {
+            "value": 2048,
+            "count": 1,
+            "share": 0.002
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 12203,
+        "3": 1841,
+        "4": 145,
+        "5": 8,
+        "6": 1
+      },
+      "bestGame": {
+        "seed": "12419212234024946492",
+        "score": 12264,
+        "maxTile": 512,
+        "moveCount": 109
+      }
+    },
+    {
+      "agent": "stacker-v1",
+      "describe": "always column 2 while it has room, else the shortest column",
+      "runId": "stacker-v1",
+      "seedSet": "eval-v1",
+      "games": 500,
+      "score": {
+        "n": 500,
+        "min": 100,
+        "q1": 987,
+        "median": 1626,
+        "q3": 2762,
+        "p90": 4214,
+        "p99": 8678,
+        "max": 17328,
+        "mean": 2160.87,
+        "stdev": 1880.94,
+        "total": 1080436
+      },
+      "blocksPlaced": {
+        "n": 500,
+        "min": 38,
+        "q1": 54,
+        "median": 62,
+        "q3": 71,
+        "p90": 81,
+        "p99": 103.01,
+        "max": 126,
+        "mean": 63.32,
+        "stdev": 13.41,
+        "total": 31659
+      },
+      "longestChain": {
+        "n": 500,
+        "min": 1,
+        "q1": 3,
+        "median": 4,
+        "q3": 5,
+        "p90": 5,
+        "p99": 8,
+        "max": 9,
+        "mean": 3.86,
+        "stdev": 1.28,
+        "total": 1932
+      },
+      "maxTile": {
+        "n": 500,
+        "min": 32,
+        "q1": 128,
+        "median": 128,
+        "q3": 256,
+        "p90": 256,
+        "p99": 512,
+        "max": 1024,
+        "mean": 177.73,
+        "stdev": 123.55,
+        "total": 88864,
+        "histogram": [
+          {
+            "value": 32,
+            "count": 5,
+            "share": 0.01
+          },
+          {
+            "value": 64,
+            "count": 94,
+            "share": 0.188
+          },
+          {
+            "value": 128,
+            "count": 222,
+            "share": 0.444
+          },
+          {
+            "value": 256,
+            "count": 152,
+            "share": 0.304
+          },
+          {
+            "value": 512,
+            "count": 24,
+            "share": 0.048
+          },
+          {
+            "value": 1024,
+            "count": 3,
+            "share": 0.006
+          }
+        ]
+      },
+      "mergeCounts": {
+        "2": 11882,
+        "3": 1880,
+        "4": 163,
+        "5": 7
+      },
+      "bestGame": {
+        "seed": "2436944997737444274",
+        "score": 17328,
+        "maxTile": 1024,
+        "moveCount": 126
+      }
+    }
+  ]
+}

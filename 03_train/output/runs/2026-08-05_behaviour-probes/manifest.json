@@ -1,0 +1,26 @@
+{
+  "runId": "2026-08-05_behaviour-probes",
+  "kind": "measurement",
+  "createdAt": "2026-08-05T13:17:10.888Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "what": "Per-move behaviour probes (probe-behaviour.js) answering the campaign strategic questions: pair discipline, strand discipline, drift chasing. Train seeds at offset 500, diagnostic only, never a headline.",
+  "probes": {
+    "probe-heuristic-v1.json": "100 games",
+    "probe-heuristic-v2.json": "100 games",
+    "probe-expectimax-d2-v1.json": "50 games"
+  },
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "e814dfe9eb7f26fa202a7c0ebc1d1351070fd9a8db86040877b0f334aead5fd6",
+    "repoCommit": "6dd4d0b8db3938b7ce39e73cd89eea2a06b62dc3",
+    "workingTreeDirty": false
+  }
+}

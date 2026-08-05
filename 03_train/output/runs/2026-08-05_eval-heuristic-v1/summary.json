@@ -1,0 +1,115 @@
+{
+  "runId": "2026-08-05_eval-heuristic-v1",
+  "agent": "heuristic-v1",
+  "seedSet": "eval-v1",
+  "games": 500,
+  "score": {
+    "n": 500,
+    "min": 9208,
+    "q1": 87337,
+    "median": 141424,
+    "q3": 225563,
+    "p90": 329262.8,
+    "p99": 571377.04,
+    "max": 730536,
+    "mean": 172032.68,
+    "stdev": 119542.95,
+    "total": 86016340
+  },
+  "blocksPlaced": {
+    "n": 500,
+    "min": 138,
+    "q1": 290.75,
+    "median": 342,
+    "q3": 418,
+    "p90": 484.1,
+    "p99": 600.09,
+    "max": 648,
+    "mean": 356.41,
+    "stdev": 95.03,
+    "total": 178204
+  },
+  "longestChain": {
+    "n": 500,
+    "min": 3,
+    "q1": 5,
+    "median": 5,
+    "q3": 6,
+    "p90": 6.1,
+    "p99": 8,
+    "max": 9,
+    "mean": 5.39,
+    "stdev": 0.96,
+    "total": 2695
+  },
+  "maxTile": {
+    "n": 500,
+    "min": 512,
+    "q1": 2048,
+    "median": 4096,
+    "q3": 8192,
+    "p90": 8192,
+    "p99": 16384,
+    "max": 32768,
+    "mean": 5116.93,
+    "stdev": 3721.85,
+    "total": 2558464,
+    "histogram": [
+      {
+        "value": 512,
+        "count": 1,
+        "share": 0.002
+      },
+      {
+        "value": 1024,
+        "count": 34,
+        "share": 0.068
+      },
+      {
+        "value": 2048,
+        "count": 124,
+        "share": 0.248
+      },
+      {
+        "value": 4096,
+        "count": 180,
+        "share": 0.36
+      },
+      {
+        "value": 8192,
+        "count": 137,
+        "share": 0.274
+      },
+      {
+        "value": 16384,
+        "count": 23,
+        "share": 0.046
+      },
+      {
+        "value": 32768,
+        "count": 1,
+        "share": 0.002
+      }
+    ]
+  },
+  "mergeCounts": {
+    "2": 148033,
+    "3": 7004,
+    "4": 221
+  },
+  "bestGame": {
+    "seed": "11016375189697475517",
+    "score": 730536,
+    "maxTile": 16384,
+    "moveCount": 575
+  },
+  "truncatedGames": 0,
+  "throughput": {
+    "wallMs": 9743,
+    "gamesPerMinute": 3079,
+    "movesPerSecond": 18290,
+    "totalMoves": 178204,
+    "note": "worker pool, 6 workers over independent seeds",
+    "workers": 6
+  }
+}

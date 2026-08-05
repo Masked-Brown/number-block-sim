@@ -1,0 +1,277 @@
+{
+  "what": "The campaign knowledge file: champion weights, feature list, search configuration, breeding provenance and learning curves, and the eval-v1 ladder. Machine-assembled by lab/cli/knowledge.js from the run records; regenerate on a new champion.",
+  "generated": "2026-08-05T13:53:17.555Z",
+  "job": "orchestrated-training-campaign",
+  "champion": {
+    "id": "expectimax-d3-v1",
+    "describe": "depth-3 expectimax, third block expected over the live distribution at coverage 0.9, heuristic-v2 weights",
+    "search": {
+      "kind": "expectimax",
+      "depth": 3,
+      "preview": 1,
+      "expectation": "third block, live distribution",
+      "coverage": 0.9
+    },
+    "weightsSharedWith": "heuristic-v2",
+    "features": [
+      {
+        "name": "immediate-merge-value",
+        "version": 1,
+        "weight": 1.6205247526845243,
+        "describe": "game score earned by this placement, log-scaled (0 when nothing merges)"
+      },
+      {
+        "name": "chain-potential",
+        "version": 1,
+        "weight": 1.5925632347250156,
+        "describe": "doubling ladders loaded on the resulting board, normalised by capacity"
+      },
+      {
+        "name": "setup-adjacency",
+        "version": 1,
+        "weight": 0.20130692737178923,
+        "describe": "banked triples and quads: equal blocks clustered around an open landing cell"
+      },
+      {
+        "name": "column-flexibility",
+        "version": 1,
+        "weight": 0.7835496418108241,
+        "describe": "share of columns with at least two free rows left"
+      },
+      {
+        "name": "height-cost",
+        "version": 1,
+        "weight": -2.309065683937778,
+        "describe": "fill ratio of the resulting board: blocks placed over board capacity"
+      },
+      {
+        "name": "unevenness-cost",
+        "version": 1,
+        "weight": -1.21208090038321,
+        "describe": "summed step height between neighbouring columns, normalised"
+      },
+      {
+        "name": "strand-risk",
+        "version": 1,
+        "weight": -4.926508042429592,
+        "describe": "depth-weighted count of low blocks buried under higher ones"
+      },
+      {
+        "name": "spawn-pressure",
+        "version": 1,
+        "weight": -4.370925782077923,
+        "describe": "live probability mass of next-draw tiers with no immediate home on the board"
+      },
+      {
+        "name": "tier-gap-cost",
+        "version": 1,
+        "weight": -1.698705892238784,
+        "describe": "summed tier gap beyond one across adjacent occupied pairs, normalised"
+      },
+      {
+        "name": "next-merge-ready",
+        "version": 1,
+        "weight": 1.123835523100817,
+        "describe": "landing cells where the previewed block could merge on arrival, as a share of columns"
+      },
+      {
+        "name": "game-over-risk",
+        "version": 1,
+        "weight": -1000,
+        "describe": "one if the engine reports this placement ended the game, else zero"
+      }
+    ]
+  },
+  "breeding": [
+    {
+      "run": "2026-08-05_breed-h0",
+      "init": "heuristic-v0",
+      "champion": "heuristic-v1",
+      "fitness": 159208,
+      "validation": {
+        "games": 500,
+        "offset": 1000,
+        "championMedian": 144168,
+        "initMedian": 108700,
+        "championWinsHeadToHead": 293,
+        "upliftOnMedian": 1.326
+      },
+      "curve": [
+        {
+          "generation": 0,
+          "best": 133946,
+          "median": 102735,
+          "worst": 96
+        },
+        {
+          "generation": 1,
+          "best": 138378,
+          "median": 111692,
+          "worst": 65626
+        },
+        {
+          "generation": 2,
+          "best": 145198,
+          "median": 110202,
+          "worst": 154
+        },
+        {
+          "generation": 3,
+          "best": 159208,
+          "median": 125837,
+          "worst": 101136
+        },
+        {
+          "generation": 4,
+          "best": 154980,
+          "median": 135928,
+          "worst": 108008
+        },
+        {
+          "generation": 5,
+          "best": 157206,
+          "median": 136505,
+          "worst": 114962
+        },
+        {
+          "generation": 6,
+          "best": 155202,
+          "median": 137372,
+          "worst": 115958
+        }
+      ]
+    },
+    {
+      "run": "2026-08-05_breed-h1-features",
+      "init": "heuristic-v1 plus tier-gap-cost and next-merge-ready",
+      "champion": "heuristic-v2",
+      "fitness": 228442,
+      "validation": {
+        "games": 500,
+        "offset": 1000,
+        "championMedian": 209102,
+        "initMedian": 144168,
+        "championWinsHeadToHead": 322,
+        "upliftOnMedian": 1.45
+      },
+      "curve": [
+        {
+          "generation": 0,
+          "best": 188338,
+          "median": 169002,
+          "worst": 109124
+        },
+        {
+          "generation": 1,
+          "best": 188104,
+          "median": 157127,
+          "worst": 109416
+        },
+        {
+          "generation": 2,
+          "best": 192308,
+          "median": 167821,
+          "worst": 2708
+        },
+        {
+          "generation": 3,
+          "best": 192858,
+          "median": 175449,
+          "worst": 148162
+        },
+        {
+          "generation": 4,
+          "best": 208166,
+          "median": 179497,
+          "worst": 144658
+        },
+        {
+          "generation": 5,
+          "best": 228442,
+          "median": 177992,
+          "worst": 248
+        },
+        {
+          "generation": 6,
+          "best": 224124,
+          "median": 188486,
+          "worst": 582
+        },
+        {
+          "generation": 7,
+          "best": 218116,
+          "median": 187440,
+          "worst": 206
+        },
+        {
+          "generation": 8,
+          "best": 220652,
+          "median": 192271,
+          "worst": 224
+        }
+      ]
+    }
+  ],
+  "evalLadder": {
+    "seedSet": "eval-v1",
+    "games": 500,
+    "medians": {
+      "random-v1": {
+        "median": 1700,
+        "q1": 939,
+        "q3": 2789,
+        "max": 12264,
+        "run": "2026-08-05_smoke-ladder"
+      },
+      "stacker-v1": {
+        "median": 1626,
+        "q1": 987,
+        "q3": 2762,
+        "max": 17328,
+        "run": "2026-08-05_smoke-ladder"
+      },
+      "greedy-v1": {
+        "median": 35386,
+        "q1": 21319,
+        "q3": 52026,
+        "max": 266452,
+        "run": "2026-08-05_smoke-ladder"
+      },
+      "heuristic-v0": {
+        "median": 114210,
+        "q1": 66050,
+        "q3": 175361,
+        "max": 1034848,
+        "run": "2026-08-05_smoke-ladder"
+      },
+      "heuristic-v1": {
+        "median": 141424,
+        "q1": 87337,
+        "q3": 225563,
+        "max": 730536,
+        "run": "2026-08-05_eval-heuristic-v1"
+      },
+      "heuristic-v2": {
+        "median": 204618,
+        "q1": 123872,
+        "q3": 314772,
+        "max": 1298584,
+        "run": "2026-08-05_eval-heuristic-v2"
+      },
+      "expectimax-d2-v1": {
+        "median": 427986,
+        "q1": 285524,
+        "q3": 683593,
+        "max": 2576032,
+        "run": "2026-08-05_eval-expectimax-d2-v1"
+      },
+      "expectimax-d3-v1": {
+        "median": 643996,
+        "q1": 421189,
+        "q3": 961014,
+        "max": 2710108,
+        "run": "2026-08-05_eval-expectimax-d3-v1"
+      }
+    }
+  }
+}

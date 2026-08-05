@@ -1,0 +1,110 @@
+{
+  "runId": "2026-08-05_eval-expectimax-d2-v1",
+  "agent": "expectimax-d2-v1",
+  "seedSet": "eval-v1",
+  "games": 500,
+  "score": {
+    "n": 500,
+    "min": 55336,
+    "q1": 285524,
+    "median": 427986,
+    "q3": 683593,
+    "p90": 1023104,
+    "p99": 2090164.84,
+    "max": 2576032,
+    "mean": 539258.13,
+    "stdev": 380295.95,
+    "total": 269629064
+  },
+  "blocksPlaced": {
+    "n": 500,
+    "min": 253,
+    "q1": 448.75,
+    "median": 539.5,
+    "q3": 638.25,
+    "p90": 755.1,
+    "p99": 902.03,
+    "max": 979,
+    "mean": 555.63,
+    "stdev": 139.1,
+    "total": 277815
+  },
+  "longestChain": {
+    "n": 500,
+    "min": 3,
+    "q1": 5,
+    "median": 6,
+    "q3": 6,
+    "p90": 7,
+    "p99": 8.01,
+    "max": 10,
+    "mean": 5.93,
+    "stdev": 0.95,
+    "total": 2964
+  },
+  "maxTile": {
+    "n": 500,
+    "min": 2048,
+    "q1": 8192,
+    "median": 8192,
+    "q3": 16384,
+    "p90": 32768,
+    "p99": 65536,
+    "max": 65536,
+    "mean": 14565.38,
+    "stdev": 11200.04,
+    "total": 7282688,
+    "histogram": [
+      {
+        "value": 2048,
+        "count": 12,
+        "share": 0.024
+      },
+      {
+        "value": 4096,
+        "count": 62,
+        "share": 0.124
+      },
+      {
+        "value": 8192,
+        "count": 179,
+        "share": 0.358
+      },
+      {
+        "value": 16384,
+        "count": 176,
+        "share": 0.352
+      },
+      {
+        "value": 32768,
+        "count": 61,
+        "share": 0.122
+      },
+      {
+        "value": 65536,
+        "count": 10,
+        "share": 0.02
+      }
+    ]
+  },
+  "mergeCounts": {
+    "2": 228260,
+    "3": 16495,
+    "4": 355
+  },
+  "bestGame": {
+    "seed": "15517180824397458301",
+    "score": 2576032,
+    "maxTile": 65536,
+    "moveCount": 942
+  },
+  "truncatedGames": 0,
+  "throughput": {
+    "wallMs": 83001,
+    "gamesPerMinute": 361,
+    "movesPerSecond": 3347,
+    "totalMoves": 277815,
+    "note": "worker pool, 6 workers over independent seeds",
+    "workers": 6
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "runId": "2026-08-05_eval-heuristic-v1",
+  "createdAt": "2026-08-05T12:41:30.689Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "agent": {
+    "id": "heuristic-v1",
+    "name": "heuristic",
+    "version": "v1",
+    "describe": "bred weight vector over the nine v0 features (CEM, run 2026-08-05_breed-h0)",
+    "features": [
+      {
+        "name": "immediate-merge-value",
+        "version": 1,
+        "weight": 3.643384346980847
+      },
+      {
+        "name": "chain-potential",
+        "version": 1,
+        "weight": 2.109219312324528
+      },
+      {
+        "name": "setup-adjacency",
+        "version": 1,
+        "weight": -0.4689263027890613
+      },
+      {
+        "name": "column-flexibility",
+        "version": 1,
+        "weight": 0.5967793973043165
+      },
+      {
+        "name": "height-cost",
+        "version": 1,
+        "weight": -4.417581215885435
+      },
+      {
+        "name": "unevenness-cost",
+        "version": 1,
+        "weight": -0.27005858064800325
+      },
+      {
+        "name": "strand-risk",
+        "version": 1,
+        "weight": -3.44008481417164
+      },
+      {
+        "name": "spawn-pressure",
+        "version": 1,
+        "weight": -4.084230482319334
+      },
+      {
+        "name": "game-over-risk",
+        "version": 1,
+        "weight": -1000
+      }
+    ],
+    "weights": {
+      "immediate-merge-value": 3.643384346980847,
+      "chain-potential": 2.109219312324528,
+      "setup-adjacency": -0.4689263027890613,
+      "column-flexibility": 0.5967793973043165,
+      "height-cost": -4.417581215885435,
+      "unevenness-cost": -0.27005858064800325,
+      "strand-risk": -3.44008481417164,
+      "spawn-pressure": -4.084230482319334,
+      "game-over-risk": -1000
+    }
+  },
+  "seedSet": {
+    "id": "eval-v1",
+    "file": "03_train/seeds/eval-v1.json",
+    "checksum": "2924cf94a4f82b4c59e2211b6e75fcfd5eb9bb9726cb6d5095cdefa02a43961d",
+    "available": 500,
+    "gamesPlayed": 500
+  },
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "e814dfe9eb7f26fa202a7c0ebc1d1351070fd9a8db86040877b0f334aead5fd6",
+    "repoCommit": "297d80d564ae935044f0ef5986418a7824d70655",
+    "workingTreeDirty": false
+  },
+  "spawn": {
+    "centreBase": 2000,
+    "centreGain": 400,
+    "centreStart": 4,
+    "ceilingMin": 5,
+    "ceilingSpread": 3,
+    "peakWeight": 1000,
+    "slope": 300,
+    "floorWeight": 40
+  },
+  "note": "first eval of the bred champion, job orchestrated-training-campaign"
+}

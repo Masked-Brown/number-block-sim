@@ -1,0 +1,111 @@
+{
+  "runId": "2026-08-05_eval-expectimax-d3-v1",
+  "agent": "expectimax-d3-v1",
+  "seedSet": "eval-v1",
+  "games": 500,
+  "score": {
+    "n": 500,
+    "min": 125336,
+    "q1": 421189,
+    "median": 643996,
+    "q3": 961014,
+    "p90": 1300898.4,
+    "p99": 2167964.2,
+    "max": 2710108,
+    "mean": 739312.2,
+    "stdev": 430109.02,
+    "total": 369656100
+  },
+  "blocksPlaced": {
+    "n": 500,
+    "min": 274,
+    "q1": 533.75,
+    "median": 639,
+    "q3": 735,
+    "p90": 842.5,
+    "p99": 1008.01,
+    "max": 1094,
+    "mean": 640.89,
+    "stdev": 145.78,
+    "total": 320445
+  },
+  "longestChain": {
+    "n": 500,
+    "min": 4,
+    "q1": 6,
+    "median": 6,
+    "q3": 7,
+    "p90": 7,
+    "p99": 9.01,
+    "max": 11,
+    "mean": 6.24,
+    "stdev": 0.97,
+    "total": 3118
+  },
+  "maxTile": {
+    "n": 500,
+    "min": 2048,
+    "q1": 8192,
+    "median": 16384,
+    "q3": 32768,
+    "p90": 32768,
+    "p99": 65536,
+    "max": 65536,
+    "mean": 19111.94,
+    "stdev": 12792.01,
+    "total": 9555968,
+    "histogram": [
+      {
+        "value": 2048,
+        "count": 2,
+        "share": 0.004
+      },
+      {
+        "value": 4096,
+        "count": 30,
+        "share": 0.06
+      },
+      {
+        "value": 8192,
+        "count": 129,
+        "share": 0.258
+      },
+      {
+        "value": 16384,
+        "count": 199,
+        "share": 0.398
+      },
+      {
+        "value": 32768,
+        "count": 124,
+        "share": 0.248
+      },
+      {
+        "value": 65536,
+        "count": 16,
+        "share": 0.032
+      }
+    ]
+  },
+  "mergeCounts": {
+    "2": 276622,
+    "3": 13684,
+    "4": 317,
+    "5": 1
+  },
+  "bestGame": {
+    "seed": "13616125016900865182",
+    "score": 2710108,
+    "maxTile": 65536,
+    "moveCount": 1094
+  },
+  "truncatedGames": 0,
+  "throughput": {
+    "wallMs": 2234721,
+    "gamesPerMinute": 13,
+    "movesPerSecond": 143,
+    "totalMoves": 320445,
+    "note": "worker pool, 6 workers over independent seeds",
+    "workers": 6
+  }
+}

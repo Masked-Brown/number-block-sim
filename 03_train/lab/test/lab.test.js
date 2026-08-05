@@ -13,6 +13,9 @@ import assert from 'node:assert/strict';
 
 import { RULES, hashState, verifyReplay, newGame, play, spawnDistribution } from '../engine-link.js';
 import { listAgents, getAgent, makeStrictStacker, makeStacker } from '../agents/index.js';
+import { makeWeightedAgent } from '../agents/weighted.js';
+import { makeExpectimax } from '../agents/expectimax.js';
+import { playSeedsParallel, gameIdentity } from '../parallel.js';
 import { listFeatures, getFeature, bindWeights, buildContext } from '../features/index.js';
 import { loadSeedSet, seedsChecksum } from '../seeds.js';
 import { playGame, MAX_MOVES } from '../runner.js';
@@ -91,9 +94,9 @@ test('every agent terminates well inside the runaway guard', () => {
 // ---------------------------------------------------------------------------
 // The feature registry
 
-test('the registry holds nine active features, each pure and finite', () => {
+test('the registry holds the eleven active features, each pure and finite', () => {
   const features = listFeatures();
-  assert.equal(features.length, 9);
+  assert.equal(features.length, 11); // nine seeded + tier-gap-cost + next-merge-ready (campaign job)
   const state = newGame(SEEDS[1]);
   const ctx = buildContext(state, 2);
   for (const feature of features) {
@@ -202,6 +205,80 @@ test('the registered stacker spills once its home column is full', () => {
   assert.ok(new Set(game.moves).size > 1, 'stacker-v1 never left its home column');
   const strict = playGame(makeStrictStacker(2).create({}), SEEDS[5]);
   assert.equal(new Set(strict.moves).size, 1, 'the strict stacker left its home column');
+});
+
+// ---------------------------------------------------------------------------
+// The parallel pool and the weighted factory
+
+test('the worker pool is bit-identical to the serial runner', async () => {
+  for (const id of ['random-v1', 'heuristic-v0']) {
+    const agent = getAgent(id);
+    const instance = agent.create({});
+    const seeds = SEEDS.slice(0, 8);
+    const serial = seeds.map((seed) => {
+      const game = playGame(instance, seed);
+      return JSON.stringify(gameIdentity({ ...game.metrics, moves: game.moves }));
+    });
+    const parallel = await playSeedsParallel({ agentSpec: { id }, seeds, workers: 3 });
+    parallel.forEach((record, i) => {
+      assert.equal(JSON.stringify(gameIdentity(record)), serial[i], `${id} differs on seed ${seeds[i]}`);
+    });
+  }
+});
+
+test('the weighted factory given v0 weights reproduces heuristic-v0 exactly', () => {
+  const v0 = getAgent('heuristic-v0');
+  const twin = makeWeightedAgent({
+    name: 'twin', version: 'v0', weights: v0.weights, pins: v0.pins,
+  });
+  for (const seed of SEEDS.slice(0, 3)) {
+    const a = playGame(v0.create({}), seed);
+    const b = playGame(twin.create({}), seed);
+    assert.equal(a.moves.join(','), b.moves.join(','), `factory twin diverges on seed ${seed}`);
+    assert.equal(a.metrics.finalHash, b.metrics.finalHash);
+  }
+});
+
+test('an ephemeral weighted spec through the pool matches its serial games', async () => {
+  const v0 = getAgent('heuristic-v0');
+  const weights = { ...v0.weights, 'height-cost': -1.5 };
+  const spec = { weighted: { name: 'candidate', version: 'test', weights, pins: v0.pins } };
+  const seeds = SEEDS.slice(0, 4);
+  const instance = makeWeightedAgent(spec.weighted).create({});
+  const serial = seeds.map((seed) => {
+    const game = playGame(instance, seed);
+    return JSON.stringify(gameIdentity({ ...game.metrics, moves: game.moves }));
+  });
+  const parallel = await playSeedsParallel({ agentSpec: spec, seeds, workers: 2 });
+  parallel.forEach((record, i) => assert.equal(JSON.stringify(gameIdentity(record)), serial[i]));
+});
+
+// ---------------------------------------------------------------------------
+// Expectimax
+
+test('expectimax depth 1 is move-for-move the flat weighted agent', () => {
+  const v0 = getAgent('heuristic-v0');
+  const flat = makeWeightedAgent({ name: 'flat', version: 'x', weights: v0.weights, pins: v0.pins });
+  const em = makeExpectimax({ name: 'em', version: 'x', weights: v0.weights, pins: v0.pins, depth: 1 });
+  for (const seed of SEEDS.slice(0, 2)) {
+    const a = playGame(flat.create({}), seed);
+    const b = playGame(em.create({}), seed);
+    assert.equal(a.moves.join(','), b.moves.join(','), `depth 1 diverges from flat on seed ${seed}`);
+    assert.equal(a.metrics.finalHash, b.metrics.finalHash);
+  }
+});
+
+test('expectimax depths 2 and 3 are deterministic and legal', () => {
+  const v0 = getAgent('heuristic-v0');
+  for (const depth of [2, 3]) {
+    const em = makeExpectimax({
+      name: 'em', version: 'x', weights: v0.weights, pins: v0.pins, depth, coverage: depth === 3 ? 0.9 : 1,
+    });
+    const a = playGame(em.create({}), SEEDS[6], { maxMoves: 60 });
+    const b = playGame(em.create({}), SEEDS[6], { maxMoves: 60 });
+    assert.equal(a.moves.join(','), b.moves.join(','), `depth ${depth} not deterministic`);
+    assert.ok(a.moves.every((c) => Number.isInteger(c) && c >= 0 && c < RULES.COLS));
+  }
 });
 
 // ---------------------------------------------------------------------------

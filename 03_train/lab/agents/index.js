@@ -32,6 +32,10 @@ import random from './random.js';
 import greedy from './greedy.js';
 import stacker, { makeStacker, makeStrictStacker, CENTRE } from './stacker.js';
 import heuristicV0 from './heuristic-v0.js';
+import heuristicV1 from './heuristic-v1.js';
+import heuristicV2 from './heuristic-v2.js';
+import expectimaxD2V1 from './expectimax-d2-v1.js';
+import expectimaxD3V1 from './expectimax-d3-v1.js';
 
 export const AGENTS = new Map();
 
@@ -47,6 +51,10 @@ register(random);
 register(greedy);
 register(stacker);
 register(heuristicV0);
+register(heuristicV1);
+register(heuristicV2);
+register(expectimaxD2V1);
+register(expectimaxD3V1);
 
 export function getAgent(ref) {
   if (AGENTS.has(ref)) return AGENTS.get(ref);

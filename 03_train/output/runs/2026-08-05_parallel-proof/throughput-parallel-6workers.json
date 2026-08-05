@@ -1,0 +1,76 @@
+{
+  "what": "Worker-pool throughput against a serial baseline, repeated to survive machine noise. Each parallel rep includes the full pool lifecycle, worker startup included, because that is what a campaign pays.",
+  "agent": "heuristic-v0",
+  "seedSet": {
+    "id": "eval-v1",
+    "checksum": "2924cf94a4f82b4c59e2211b6e75fcfd5eb9bb9726cb6d5095cdefa02a43961d"
+  },
+  "games": 200,
+  "reps": 5,
+  "workers": 6,
+  "machine": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logicalCores": 12,
+    "platform": "win32 10.0.26200",
+    "node": "v20.20.2"
+  },
+  "serial": {
+    "gamesPerMinute": {
+      "best": 1152,
+      "median": 1013,
+      "worst": 919
+    },
+    "passes": [
+      {
+        "wallMs": 10420,
+        "gamesPerMinute": 1152
+      },
+      {
+        "wallMs": 11846,
+        "gamesPerMinute": 1013
+      },
+      {
+        "wallMs": 12427,
+        "gamesPerMinute": 966
+      },
+      {
+        "wallMs": 11700,
+        "gamesPerMinute": 1026
+      },
+      {
+        "wallMs": 13054,
+        "gamesPerMinute": 919
+      }
+    ]
+  },
+  "parallel": {
+    "gamesPerMinute": {
+      "best": 3442,
+      "median": 2204,
+      "worst": 2066
+    },
+    "passes": [
+      {
+        "wallMs": 3486,
+        "gamesPerMinute": 3442
+      },
+      {
+        "wallMs": 5682,
+        "gamesPerMinute": 2112
+      },
+      {
+        "wallMs": 5809,
+        "gamesPerMinute": 2066
+      },
+      {
+        "wallMs": 5444,
+        "gamesPerMinute": 2204
+      },
+      {
+        "wallMs": 5420,
+        "gamesPerMinute": 2214
+      }
+    ]
+  },
+  "speedupBestOverBest": 2.99
+}

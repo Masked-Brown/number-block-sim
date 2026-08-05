@@ -1,0 +1,21 @@
+{
+  "runId": "2026-08-05_parallel-proof",
+  "kind": "measurement",
+  "createdAt": "2026-08-05T12:16:46.409Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "what": "Worker-pool bit-identity proof and repeated throughput measurement, job orchestrated-training-campaign. No agent series in this folder; the records are parallel-check.json and throughput-parallel.json.",
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "e814dfe9eb7f26fa202a7c0ebc1d1351070fd9a8db86040877b0f334aead5fd6",
+    "repoCommit": "297d80d564ae935044f0ef5986418a7824d70655",
+    "workingTreeDirty": false
+  }
+}

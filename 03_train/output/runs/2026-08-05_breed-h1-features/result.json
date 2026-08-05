@@ -1,0 +1,90 @@
+{
+  "runId": "2026-08-05_breed-h1-features",
+  "wallMs": 852777,
+  "generationsRun": 9,
+  "champion": {
+    "weights": {
+      "game-over-risk": -1000,
+      "immediate-merge-value": 1.6205247526845243,
+      "chain-potential": 1.5925632347250156,
+      "setup-adjacency": 0.20130692737178923,
+      "column-flexibility": 0.7835496418108241,
+      "height-cost": -2.309065683937778,
+      "unevenness-cost": -1.21208090038321,
+      "strand-risk": -4.926508042429592,
+      "spawn-pressure": -4.370925782077923,
+      "tier-gap-cost": -1.698705892238784,
+      "next-merge-ready": 1.123835523100817
+    },
+    "fitness": 228442,
+    "generation": 5
+  },
+  "eliteMeanFinal": {
+    "game-over-risk": -1000,
+    "immediate-merge-value": 1.3731409395026717,
+    "chain-potential": 1.4482048813121304,
+    "setup-adjacency": 0.015077449301087736,
+    "column-flexibility": 0.8214323199244734,
+    "height-cost": -0.5235645626268711,
+    "unevenness-cost": -0.986037632012985,
+    "strand-risk": -3.735837825028586,
+    "spawn-pressure": -2.936918289337663,
+    "tier-gap-cost": -1.743848832354109,
+    "next-merge-ready": 1.8257687340452025
+  },
+  "fitnessCurve": [
+    {
+      "generation": 0,
+      "best": 188338,
+      "median": 169002
+    },
+    {
+      "generation": 1,
+      "best": 188104,
+      "median": 157127
+    },
+    {
+      "generation": 2,
+      "best": 192308,
+      "median": 167821
+    },
+    {
+      "generation": 3,
+      "best": 192858,
+      "median": 175449
+    },
+    {
+      "generation": 4,
+      "best": 208166,
+      "median": 179497
+    },
+    {
+      "generation": 5,
+      "best": 228442,
+      "median": 177992
+    },
+    {
+      "generation": 6,
+      "best": 224124,
+      "median": 188486
+    },
+    {
+      "generation": 7,
+      "best": 218116,
+      "median": 187440
+    },
+    {
+      "generation": 8,
+      "best": 220652,
+      "median": 192271
+    }
+  ],
+  "validation": {
+    "games": 500,
+    "offset": 1000,
+    "championMedian": 209102,
+    "initMedian": 144168,
+    "championWinsHeadToHead": 322,
+    "upliftOnMedian": 1.45
+  }
+}

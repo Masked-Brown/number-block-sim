@@ -1,0 +1,80 @@
+{
+  "runId": "2026-08-05_breed-h0",
+  "kind": "breeding",
+  "createdAt": "2026-08-05T12:28:37.451Z",
+  "harness": {
+    "name": "nbs-lab",
+    "version": "1.0",
+    "node": "v20.20.2"
+  },
+  "method": "cross-entropy over the weight vector; fixed features, fixed tie-break; fitness is median score over a fixed train-v1 block, common to all candidates",
+  "config": {
+    "init": "heuristic-v0",
+    "initWeights": {
+      "immediate-merge-value": 1,
+      "chain-potential": 1.2,
+      "setup-adjacency": 0.8,
+      "column-flexibility": 0.6,
+      "height-cost": -2,
+      "unevenness-cost": -0.8,
+      "strand-risk": -1,
+      "spawn-pressure": -1.5,
+      "game-over-risk": -1000
+    },
+    "pins": {
+      "immediate-merge-value": 1,
+      "chain-potential": 1,
+      "setup-adjacency": 1,
+      "column-flexibility": 1,
+      "height-cost": 1,
+      "unevenness-cost": 1,
+      "strand-risk": 1,
+      "spawn-pressure": 1,
+      "game-over-risk": 1
+    },
+    "fixed": {
+      "game-over-risk": -1000
+    },
+    "population": 24,
+    "elites": 6,
+    "generations": 14,
+    "rngSeed": 20260805,
+    "fitness": {
+      "seedSet": "train-v1",
+      "offset": 0,
+      "games": 150,
+      "metric": "median score"
+    },
+    "validation": {
+      "seedSet": "train-v1",
+      "offset": 1000,
+      "games": 500
+    },
+    "workers": 6
+  },
+  "seedSet": {
+    "id": "train-v1",
+    "file": "03_train/seeds/train-v1.json",
+    "checksum": "1f85ef3a6481a1aa385efd58afae383d60fd30e8a7526894bd18b36c255835ea"
+  },
+  "engine": {
+    "rulesVersion": "1.1",
+    "enginePath": "docs/js/engine.js",
+    "engineCommit": "8d54737dda4ab5a3e744d87a778b74af37e0abee",
+    "engineSha256": "9d747dc790baf43fc7417fce97bd4482cb88657d5ae06541f0f476e6248a66d9",
+    "configPath": "docs/js/config.js",
+    "configSha256": "e814dfe9eb7f26fa202a7c0ebc1d1351070fd9a8db86040877b0f334aead5fd6",
+    "repoCommit": "297d80d564ae935044f0ef5986418a7824d70655",
+    "workingTreeDirty": false
+  },
+  "spawn": {
+    "centreBase": 2000,
+    "centreGain": 400,
+    "centreStart": 4,
+    "ceilingMin": 5,
+    "ceilingSpread": 3,
+    "peakWeight": 1000,
+    "slope": 300,
+    "floorWeight": 40
+  }
+}
