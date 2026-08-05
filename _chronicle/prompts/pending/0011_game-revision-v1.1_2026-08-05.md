@@ -3,7 +3,7 @@ schema: 2
 actor: job
 bee: nbs-[wor]-1.0-z
 slug: game-revision-v1.1
-job: 0009
+job: 0011
 date: 2026-08-05
 model: claude-fable-5
 effort: extended thinking
