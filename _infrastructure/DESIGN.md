@@ -466,3 +466,27 @@ the two estate promotions, migration appendices and product zones.
 
 The standing guardrail list lives in `CLAUDE.md` ("What we are NOT building yet"), not here; one
 home, no duplicate to rot.
+
+## A8. The touchdown-number placeholder fix (2026-08-05), and its estate status
+
+`commit_safe.py`'s `--pick-number` renames a touchdown's filename under the lock but, until this
+fix, left the frontmatter `job:` field at its literal `NNNN` placeholder text: CC_TOUCHDOWN.md's
+placeholder lives in both places and only the filename half was rewritten. A job that followed
+the template exactly quarantined its own touchdown on first close (schema failure `job='NNNN'`
+fails pattern `^\d{4}$`), hit twice the same day in this repo (touchdowns 0011 and 0013, both
+recovered by hand). The fix, landed in job `fix-picknumber-and-corrections`: `--pick-number` now
+also rewrites the frontmatter `job:` line to the picked number in the same held operation,
+scoped to that one line, computed and validated before any file is touched so a malformed
+touchdown refuses loudly rather than landing half-renamed. `CHANGELOG.md` 0006 is the co-edit
+record.
+
+This is estate-shared loop code (this repo's `commit_safe.py` was copied SHA-256-verified from
+domain-wisdom-agent's proven build, per A6 above), so the fix is stated here as this project's
+local fact, not folded into the shared body above section 13: it is not yet true of every
+project. A read-only check of the sibling repos the same day found domain-wisdom-agent's
+`commit_safe.py` still carrying the unpatched rename, so the trap is confirmed live there too;
+porting the fix back is a deliberate later act, left to AB, not done as a side effect of this
+job. youtube-pov carries no `commit_safe.py` and no `--pick-number` mechanism at all (its
+CC_OPERATIONS.md has the job compute and write its own touchdown number directly when authoring
+the file), so this specific two-owners-one-field trap does not apply to it in the same form,
+though the absence of a locked pick-number step there is a different, unexamined risk.

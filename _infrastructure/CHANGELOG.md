@@ -131,3 +131,47 @@ British English, no em-dashes, no exclamation marks.
 - act: job touchdown (game-revision-v1.1, bee nbs-wor-1.0-z); the rules change, the controls
   cut and the visual direction are AB's decisions (2026-08-05), carried by the worker bee's
   work order; the self-check clause records AB's ruling of the same date.
+
+## 0006 - 2026-08-05 - commit_safe.py: --pick-number now syncs the touchdown's frontmatter job: field
+- what: closed the touchdown-number placeholder trap that had quarantined two touchdowns the
+  same day (0011, 0013). CC_TOUCHDOWN.md's `NNNN` placeholder lives in two places, the
+  filename and the frontmatter `job:` field; `commit_safe.py --pick-number` renamed the
+  filename under the lock but left `job:` at its literal placeholder text, so a job that
+  followed the template exactly quarantined its own touchdown on first close (schema failure:
+  `job='NNNN'` fails pattern `^\d{4}$`). Fix (option (a) from touchdown 0013's own proposal):
+  in the same held rename operation, `--pick-number` now also rewrites the frontmatter
+  `job:` line to the picked number, scoped to that one line only (never a whole-body
+  find-and-replace), computed and validated before any file is touched so a malformed
+  touchdown refuses loudly rather than landing half-renamed. Proven by a scripted dry-run in
+  an isolated throwaway clone (not a real record): the picked number landed in both places and
+  the real sweep validated the touchdown first time, `quarantined=0`. CC_TOUCHDOWN.md itself
+  needed no change; its `<NNNN>` is already generic template notation, and the fix makes the
+  literal placeholder authors actually type resolve correctly. Estate check: `commit_safe.py`
+  in domain-wisdom-agent (the repo this one's copy was proven against) still carries the
+  unpatched rename with no frontmatter sync, so the trap is confirmed latent there; port-back
+  is a deliberate later act, not done here. youtube-pov carries no commit_safe.py / pick-number
+  mechanism at all (its job fills in the number itself when authoring the touchdown), so this
+  specific trap does not apply to it in the same form.
+- where: _orchestration/loop/commit_safe.py, _infrastructure/DESIGN.md (project appendix)
+- act: job touchdown (fix-picknumber-and-corrections, bee nbs-[wor]-1.0-z); the fix was AB's
+  approved direction (2026-08-05, carried by the worker bee's work order).
+
+## 0007 - 2026-08-05 - decision: 03a simulation-lab gate passed; the stacking observation retracted, no game retuning
+- what: AB's gate decision on the 03a job (touchdown 0013, train-lab-and-baselines): the
+  ladder is healthy (heuristic-v0 median 114,210 against the recorded human playthrough's 228;
+  determinism proven across four environments) and training proceeds on the game exactly as it
+  stands. Two findings closed the open questions the job raised. First, BUILD.md's v1.1 tuning
+  note that an unattended game reaching roughly 5,300 points showed same-column stacking to be
+  generously rewarded did not survive measurement: over the frozen 500-game eval-v1 seed set,
+  strict never-steer stacking has a median of 24 (about one seventieth of random's 1,700
+  median) and is exactly column-invariant, while the spill variant reaches median 1,626,
+  level with random and losing the head-to-head 247 to 253; the 5,300 game sits at the spill
+  distribution's 94th percentile, so it was steered, not unattended as recorded. No spawn-curve
+  retuning follows from it; BUILD.md's record stands untouched above a dated append-only
+  correction (norm B3). Second, throughput is accepted at a best-of-five 820 games/min serial
+  (this machine's run-to-run noise on identical code spans 548 to 812 games/min, which is why a
+  single-pass figure is not trusted); no parallelisation is built now, per the CLAUDE.md
+  guardrail against a training stack before a baseline agent's ceiling is measured.
+- where: 02_build/output/BUILD.md (dated correction, appended; original text untouched)
+- act: human decision (AB, 2026-08-05), carried by job touchdown
+  (fix-picknumber-and-corrections, bee nbs-[wor]-1.0-z).

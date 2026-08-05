@@ -201,3 +201,30 @@ with source `{branch: main, path: /docs}`), build type legacy, HTTPS enforced. E
 - Navigation: home reaches Play and Cinema; play, cinema and test all link back to home.
 - The in-game possibilities percentages were hand-checked against the RULES.md formula at
   two board states (empty and max-tile 32) and matched exactly.
+
+## Correction (2026-08-05): the stacking observation above did not survive measurement
+
+The line under "The v1.1 revision" reading "an unattended game ... reached roughly 5,300
+points through self-fed vertical merges, which suggests repeated same-column stacking is
+generously rewarded under the launch parameters" stands above, unedited (norm B3: this file
+is a record), and is now known to be false. It was one unsteered sample, not a measurement.
+
+The 03a job (touchdown 0013, train-lab-and-baselines) commissioned a stacker agent over the
+frozen 500-game eval-v1 seed set to quantify the claim honestly, and split it into the two
+policies "stacking" conflates. Strict never-steer stacking has a median score of 24 (best 516)
+and is exactly column-invariant across all five columns on every seed: a one-column game
+merges only vertically, and the spawn curve depends only on the max tile, so the column index
+cannot enter the score. That is roughly one seventieth of the random baseline's median of
+1,700. The spill variant (falls back to the shortest column once its home column fills) reaches
+a median of 1,626, level with random and losing the head-to-head 247 games to 253. A 5,300 game
+sits at about the 94th percentile of the spill distribution, so the original observation was
+almost certainly steered at least once, not left unattended as recorded. Evidence:
+`03_train/output/runs/2026-08-05_smoke-ladder/supplementary/stacker-sweep.json` and that run's
+`SUMMARY.md`.
+
+No retuning follows from this: the spawn-curve retune the observation had been motivating a
+case for is withdrawn along with it. The 03a gate is otherwise healthy (heuristic-v0 median
+114,210 against the recorded human playthrough's 228; throughput a best-of-five 820 games/min
+serial, this machine's run-to-run noise on identical code spanning 548 to 812), so training on
+the game as it stands, unchanged, proceeds. Decision recorded in
+`_infrastructure/CHANGELOG.md` 0006.

@@ -19,7 +19,11 @@ Command:
   (literal NNNN placeholder, or a provisional number). Under the lock the next number is
   picked per td_v2's filename_pattern as the highest well-formed touchdown filename across
   pending/ and completed/ plus one, FILE is renamed to it, and the renamed path replaces FILE
-  in the staged set. FILE must also appear in the path list.
+  in the staged set. FILE must also appear in the path list. The picked number is ALSO written
+  to FILE's frontmatter `job:` field in the same held operation (scoped to that one line only,
+  never a whole-body find-and-replace): CC_TOUCHDOWN.md's NNNN placeholder lives in both the
+  filename and this field, and a rename that fixed only the first used to quarantine the
+  touchdown on its own close (touchdowns 0011 and 0013).
 - The trailer is `Commit-Safe: yes`, appended as a proper git trailer block. The sweep's
   trailer audit raises any commit touching record paths without it.
 - Push: skipped with a loud note when the repo has no remote; a push failure is a loud error
@@ -284,6 +288,44 @@ def next_touchdown_number(name_re):
     return highest + 1
 
 
+JOB_FRONTMATTER_LINE_RE = re.compile(r"^job:\s*.*$")
+
+
+def job_field_synced_text(path, number):
+    """Return FILE's full text with ONLY the frontmatter `job:` field's value set to the
+    picked number, computed BEFORE any disk mutation so a refusal here leaves the original
+    file completely untouched. Scoped to the single job: line inside the frontmatter block
+    (between the opening and closing `---`); the rest of the frontmatter and the whole body
+    are never touched -- this is a targeted line replacement, not a find-and-replace.
+
+    Closes the placeholder trap: CC_TOUCHDOWN.md's NNNN placeholder lives in two places, the
+    filename and this field, and the rename above used to fill only the first, so a job that
+    followed the template literally quarantined its own touchdown on its first close
+    (frontmatter field job='NNNN' fails pattern ^\\d{4}$). Hit twice the same day (touchdowns
+    0011 and 0013, both recovered by hand); this is the durable fix, option (a) from 0013's
+    own proposal."""
+    with open(path, "r", encoding="utf-8-sig", newline="") as fh:
+        text = fh.read().replace("\r\n", "\n")
+    lines = text.split("\n")
+    if not lines or lines[0].strip() != "---":
+        refuse("touchdown %s has no opening frontmatter delimiter; refusing to pick its "
+               "number without being able to sync the job: field" % path.name)
+    close = None
+    for i in range(1, len(lines)):
+        if lines[i].strip() == "---":
+            close = i
+            break
+    if close is None:
+        refuse("touchdown %s has no closing frontmatter delimiter; refusing to pick its "
+               "number without being able to sync the job: field" % path.name)
+    for i in range(1, close):
+        if JOB_FRONTMATTER_LINE_RE.match(lines[i]):
+            lines[i] = "job: %04d" % number
+            return "\n".join(lines)
+    refuse("touchdown %s frontmatter has no job: field to sync to the picked number"
+           % path.name)
+
+
 # ---------------------------------------------------------------------------
 # Path validation: the broad-stage refusal, checked before any lock is taken.
 # ---------------------------------------------------------------------------
@@ -416,10 +458,14 @@ def main(argv=None):
             if new_abs.exists():
                 refuse("picked name %s already exists in pending/ (should be "
                        "impossible under the lock)" % new_name)
+            synced_text = job_field_synced_text(old_abs, n)
             os.replace(old_abs, new_abs)
+            with open(new_abs, "w", encoding="utf-8", newline="") as fh:
+                fh.write(synced_text)
             new_rel = str(new_abs.relative_to(REPO_ROOT)).replace("\\", "/")
             rels = [new_rel if r == pick_rel else r for r in rels]
-            print("commit-safe -- picked touchdown number %04d (%s)" % (n, new_name))
+            print("commit-safe -- picked touchdown number %04d (%s, frontmatter job: "
+                  "field synced)" % (n, new_name))
 
         r = git_run(["add", "--"] + rels)
         if r.returncode != 0:
