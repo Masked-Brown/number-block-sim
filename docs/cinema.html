@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cinema mode · number-block-sim</title>
+<meta name="description" content="Replay viewer for number-block-sim: verify and watch any replay, with the AI's move-by-move reasoning when present.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23a855f7'/><text x='50' y='68' font-size='52' font-weight='bold' text-anchor='middle' fill='%230b1020' font-family='sans-serif'>▶</text></svg>">
+</head>
+<body>
+
+<header class="top">
+  <h1>cinema mode</h1>
+  <span class="sub">load a replay, verify it, watch it</span>
+  <span class="links">
+    <a href="index.html">play the game</a> &nbsp;·&nbsp;
+    <a href="https://github.com/Masked-Brown/number-block-sim/blob/main/01_rules/output/RULES.md">rules</a>
+  </span>
+</header>
+
+<main class="cinema-layout">
+  <section class="cinema-board">
+    <div class="board-wrap">
+      <div id="board"></div>
+    </div>
+    <div class="transport">
+      <button id="step-back" title="step back (←)">⏮</button>
+      <button id="play-pause" class="primary" style="min-width:88px">Play</button>
+      <button id="step-fwd" title="step forward (→)">⏭</button>
+      <span class="counter" id="counter">move 0 / 0</span>
+      <button data-speed="0.5">0.5×</button>
+      <button data-speed="1">1×</button>
+      <button data-speed="2">2×</button>
+      <button data-speed="4">4×</button>
+    </div>
+  </section>
+
+  <aside class="cinema-side">
+    <div id="drop-hint" class="drop-hint">
+      <strong>Load a replay</strong><br>
+      drop a replay .json here, or<br><br>
+      <input type="file" id="file-input" accept=".json,application/json"><br><br>
+      <button id="load-last">Load my last game</button><br><br>
+      <span class="small">also loadable via <span class="mono">?replay=&lt;url&gt;</span> or <span class="mono">?last=1</span></span>
+      <div id="load-status" class="small" style="margin-top:10px"></div>
+    </div>
+
+    <div id="loaded" style="display:none">
+      <div class="card" style="margin-bottom:14px">
+        <h2>Verification</h2>
+        <span id="verify-badge" class="badge neutral">not loaded</span>
+        <div class="score-sub" style="margin-top:8px">running score <span id="running-score" style="color:var(--text);font-weight:700">0</span></div>
+      </div>
+
+      <div class="card" style="margin-bottom:14px">
+        <h2>Reasoning</h2>
+        <div id="reason-none" class="reason-empty">
+          No reasoning in this replay. Human games record only the moves;
+          when the trained agent plays, each move arrives with its
+          one-line rationale and feature scores, and they appear here.
+        </div>
+        <div id="reason-body" style="display:none">
+          <div id="reason-line" class="reason-line"></div>
+          <div id="feature-bars" class="feature-bars"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Replay</h2>
+        <div id="meta" class="metrics" style="margin:0"></div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<script type="module" src="js/cinema.js"></script>
+</body>
+</html>

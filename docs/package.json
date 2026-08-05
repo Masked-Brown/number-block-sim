@@ -1,0 +1,6 @@
+{
+  "name": "number-block-sim-game",
+  "private": true,
+  "type": "module",
+  "description": "Marks docs/ as ES modules so Node (tests, the 03_train sim harness) and the browser load the same engine file unchanged."
+}

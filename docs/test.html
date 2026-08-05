@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>determinism check · number-block-sim</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top">
+  <h1>cross-environment determinism check</h1>
+  <span class="links"><a href="index.html">back to the game</a></span>
+</header>
+
+<main style="max-width:720px;margin:0 auto;padding:20px">
+  <div class="card">
+    <h2>What this is</h2>
+    <div class="small">
+      The engine must be bit-identical in Node and the browser (RULES.md 3, 7).
+      This page runs the same scripted game as the Node test suite
+      (<span class="mono">docs/test/scripted-game.js</span>) through the same engine file and
+      compares the final state hash and score against the locked-in Node result.
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h2>Result</h2>
+    <div id="out" class="metrics" style="margin:0">running…</div>
+    <div id="verdict" style="margin-top:12px;font-size:20px;font-weight:750">…</div>
+  </div>
+</main>
+
+<script type="module">
+import { hashState, makeReplay, runReplay, resultMetrics } from './js/engine.js';
+import { SCRIPT_SEED, runScriptedGame, EXPECTED } from './test/scripted-game.js';
+import { _pcg } from './js/engine.js';
+
+const out = document.getElementById('out');
+const verdict = document.getElementById('verdict');
+const rows = [];
+const checks = [];
+
+function row(k, v) { rows.push([k, v]); }
+function check(name, ok) { checks.push([name, ok]); }
+
+try {
+  // PCG32 reference vectors, the same ones the Node suite asserts.
+  const rng = _pcg.init(42n, 54n);
+  const vec = Array.from({ length: 6 }, () => _pcg.next(rng));
+  const expectVec = [0xa15c02b7, 0x7b47f409, 0xba1d3330, 0x83d2f293, 0xbfa4784b, 0xcbed606e];
+  check('PCG32 reference vectors', JSON.stringify(vec) === JSON.stringify(expectVec));
+
+  const { state, moves } = runScriptedGame();
+  const hash = hashState(state);
+  row('Seed', SCRIPT_SEED);
+  row('Moves played', String(state.moveCount));
+  row('Final score', String(state.score));
+  row('Final hash (browser)', hash);
+  row('Final hash (Node, locked in)', EXPECTED.finalHash);
+  check('final hash matches Node', hash === EXPECTED.finalHash);
+  check('score matches Node', state.score === EXPECTED.score);
+  check('status matches Node', state.status === EXPECTED.status);
+  check('move count matches Node', state.moveCount === EXPECTED.moveCount);
+
+  // Round-trip: save the replay, re-run it, same hash again.
+  const replay = makeReplay(SCRIPT_SEED, moves, { result: resultMetrics(state) });
+  const rerun = runReplay(JSON.parse(JSON.stringify(replay)));
+  check('replay round-trip reproduces the hash', hashState(rerun) === hash);
+} catch (err) {
+  check(`threw: ${err.message}`, false);
+}
+
+out.textContent = '';
+for (const [k, v] of rows) {
+  const div = document.createElement('div');
+  const kEl = document.createElement('span'); kEl.textContent = k;
+  const vEl = document.createElement('span'); vEl.className = 'mono'; vEl.textContent = v;
+  div.append(kEl, vEl);
+  out.appendChild(div);
+}
+for (const [name, ok] of checks) {
+  const div = document.createElement('div');
+  const kEl = document.createElement('span'); kEl.textContent = name;
+  const vEl = document.createElement('span');
+  vEl.textContent = ok ? 'PASS' : 'FAIL';
+  vEl.style.color = ok ? 'var(--good)' : 'var(--bad)';
+  vEl.style.fontWeight = '750';
+  div.append(kEl, vEl);
+  out.appendChild(div);
+}
+const allOk = checks.every(([, ok]) => ok);
+verdict.textContent = allOk ? 'DETERMINISTIC: browser matches Node' : 'MISMATCH: see failures above';
+verdict.style.color = allOk ? 'var(--good)' : 'var(--bad)';
+document.title = (allOk ? 'PASS · ' : 'FAIL · ') + document.title;
+</script>
+</body>
+</html>

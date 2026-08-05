@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>number-block-sim</title>
+<meta name="description" content="A falling number-block matching game: engineer merge cascades, survive the rising floor.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%233b82f6'/><text x='50' y='68' font-size='52' font-weight='bold' text-anchor='middle' fill='%230b1020' font-family='sans-serif'>2</text></svg>">
+</head>
+<body>
+
+<header class="top">
+  <h1>number-block-sim</h1>
+  <span class="sub">merge the powers of two, engineer the cascade</span>
+  <span class="links">
+    <a href="cinema.html">cinema mode</a> &nbsp;·&nbsp;
+    <a href="https://github.com/Masked-Brown/number-block-sim/blob/main/01_rules/output/RULES.md">rules</a> &nbsp;·&nbsp;
+    <a href="https://github.com/Masked-Brown/number-block-sim">repo</a>
+  </span>
+</header>
+
+<main class="layout">
+  <div class="board-wrap">
+    <div id="board"></div>
+    <div id="banner" class="banner"></div>
+    <div id="over-overlay" class="overlay">
+      <div class="dialog">
+        <h2>Game over</h2>
+        <div id="final-score" class="final-score">0</div>
+        <div id="best-note" class="best-note"></div>
+        <div id="over-metrics" class="metrics"></div>
+        <div class="actions">
+          <button id="again" class="primary">Play again&nbsp; (Enter)</button>
+          <button id="share-card">Save score card</button>
+          <button id="download-replay">Download replay</button>
+          <a class="btn" href="cinema.html?last=1">Watch replay in cinema mode</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="panel">
+    <div class="card">
+      <h2>Score</h2>
+      <div id="score" class="score-big">0</div>
+      <div class="score-sub">personal best <span id="best">–</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Next</h2>
+      <div class="next-row">
+        <span id="next-tile" class="mini-tile">2</span>
+        <div>
+          <h2 style="margin-bottom:4px">Spawn window <span id="floor-label" style="text-transform:none;letter-spacing:0"></span></h2>
+          <div id="window-row" class="window-row"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Controls</h2>
+      <div class="keys">
+        <b>Z</b><b>X</b><b>C</b><b>V</b><b>B</b> drop into column 1–5<br>
+        <b>←</b><b>→</b> nudge &nbsp; <b>↓</b> soft drop<br>
+        <b>Space</b> hard drop &nbsp; <b>R</b> restart
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Game</h2>
+      <div class="small">blocks placed <span id="placed">0</span><br><span id="seed-label" class="mono"></span></div>
+      <div style="margin-top:10px"><button id="new-game">New game</button></div>
+    </div>
+
+    <div class="small" style="padding:0 4px">
+      Equal neighbours merge on lock: a pair doubles, a triple 4×, a quad 8×, a quint 16×.
+      Each merge scores its result times the chain index. The floor rises as your top tile
+      grows; retired tiers stop spawning but stay on the board. Overfill a column and fail
+      to merge back down, and the game ends.
+    </div>
+  </aside>
+</main>
+
+<script type="module" src="js/ui.js"></script>
+</body>
+</html>
