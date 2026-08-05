@@ -4,18 +4,18 @@ Drop falling power-of-two blocks, merge equal neighbours, engineer the cascade.
 
 ## [▶ PLAY NOW](https://masked-brown.github.io/number-block-sim/)
 
-No install, no account, no build step. Keyboard only: Z X C V B drop straight into a column,
-arrows nudge, space hard-drops.
+No install, no account, no build step. Keyboard only: arrows steer, space drops.
 
 ## What it is
 
-- A 5x7 falling-block game where every block is a power of two and equal orthogonal
+- A 5x6 falling-block game where every block is a power of two and equal orthogonal
   neighbours merge on lock: a pair doubles, a triple 4x, a quad 8x, a quintuple 16x.
 - Scoring is cascades: each merge scores its result times the chain index. Placement scores
   nothing; engineered chain reactions are the whole game.
-- The spawn floor rises as your best tile grows, and retired tiers stop spawning but stay on
-  the board. A stranded low block is permanent dead space; that is the central failure mode,
-  by design.
+- The spawn curve drifts upward as your best tile grows: low values become rare (never
+  impossible), high values arrive more often, and the game shows you every possible next
+  value with its live odds. A stranded low block with no partner left is permanent dead
+  space; that is the central failure mode, by design.
 - Deterministic to the bit: a seeded PCG32 generator, so a replay of the same seed and moves
   reproduces the identical game in any browser or in Node.
 - Every game auto-saves a replay. [Cinema mode](https://masked-brown.github.io/number-block-sim/cinema.html)

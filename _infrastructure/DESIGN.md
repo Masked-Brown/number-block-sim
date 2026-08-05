@@ -336,7 +336,10 @@ a missed close [D66].
 inspects its own work order, and if the order edits any canon file, any loop code or an operations
 doc, it confirms the order also carries its design-pack companion, its DESIGN.md co-edit and its
 CHANGELOG.md entry, raising a missing coupling as a numbered question rather than patching the
-omission silently. The check lives as a "Before you act" section of the root CLAUDE.md router,
+omission silently. The design-pack coupling is scoped to estate-level system design (the shared
+ICM machinery, its contracts and loop code); a project-local fact, such as a router guardrail
+line, carries only the two in-repo couplings (AB's ruling, 2026-08-05, in this repo, answering
+touchdown 0008's numbered question; the CLAUDE.md self-check section states the clause). The check lives as a "Before you act" section of the root CLAUDE.md router,
 which every job auto-reads; [issued] class, existing precisely for the couplings no script
 verifies, the CHANGELOG half being already caught mechanically by canon-changed (B7). Its stated
 boundary teaches the right reflex: a sweep.py change needs no LOOP_PROMPT.md edit, LOOP_PROMPT.md

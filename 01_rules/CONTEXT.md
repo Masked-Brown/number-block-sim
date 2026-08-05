@@ -3,7 +3,8 @@
 ## What this folder is
 The game's rule spec home: the single source of truth for what the game IS. Layer 2 contract for
 the stage; the spec it produces is what `02_build/` implements and `03_train/` scores against.
-The rule content is decided and locked at v1.0 in `output/RULES.md` (AB, 2026-08-05).
+The rule content is decided and locked at v1.1 in `output/RULES.md` (AB, 2026-08-05; the prior
+version is preserved as `output/rules-v1.0.md`).
 
 ## Inputs
 | Input | Layer | What it carries |
@@ -21,16 +22,18 @@ open questions as TBD lines; a job never resolves a TBD by inventing the value (
 CONTEXT.md's rule). New spec version = new file, prior versions kept.
 
 ## Outputs
-`output/RULES.md`: the rule specification. Locked at v1.0 by AB, 2026-08-05: board and flow,
-spawning, merging, the game score and the game-over condition are DECIDED, and this file is the
-single source of truth `02_build/` implements and `03_train/` scores against. A change to its
-sections 1 to 6 is a rule change: it needs AB's sign-off, a version bump there, and a CHANGELOG
-entry. Section 8 constants are tuning, not rules, and change freely in `_config/`.
+`output/RULES.md`: the rule specification. Locked at v1.1 by AB, 2026-08-05 (v1.0 locked
+earlier the same day, preserved as `output/rules-v1.0.md` per the new-version-new-file rule):
+board and flow, spawning, merging, the game score and the game-over condition are DECIDED, and
+this file is the single source of truth `02_build/` implements and `03_train/` scores against.
+A change to its sections 1 to 6 is a rule change: it needs AB's sign-off, a version bump there,
+and a CHANGELOG entry. Section 8 constants are tuning, not rules, and change freely in the
+tunables file RULES.md section 8 names.
 
 What stays open in this stage: nothing from the original open-question list remains undecided.
 The human composite performance score (accuracy vs AI, speed, and so on) is explicitly out of
 this file's scope (its section 5) and is a Phase 4 decision when that stage is reached. Anything
-RULES.md lists as "deliberately not in v1.0" (its section 9) is a deferred decision, not an open
+RULES.md lists as "deliberately not in v1.1" (its section 9) is a deferred decision, not an open
 question here.
 
 ## Do not

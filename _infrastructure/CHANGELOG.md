@@ -103,3 +103,31 @@ British English, no em-dashes, no exclamation marks.
   _infrastructure/DESIGN.md
 - act: job touchdown (build-game-engine-cinema, bee nbs-wor-1.0-z); the deployment and the
   guardrail change are AB's decision (2026-08-05), carried by the worker bee's work order.
+
+## 0005 - 2026-08-05 - rules v1.1 and the game revision; self-check clause canon edit
+
+- what: AB's playtest revision, locked as RULES.md v1.1 (v1.0 preserved beside it as
+  rules-v1.0.md per 01_rules's new-version-new-file rule): the hard four-tier spawn window
+  with floor rise replaced by a drifting probability curve over all live tiers (exact integer
+  formula in the spec; the eight parameters are section 8 config tunables), board height 7 to
+  6, controls cut to arrows plus space (direct-send and soft drop removed), the new block
+  entering where the previous one locked. Engine, tests and UI reworked to match: 28 passing
+  tests including exact-weight distribution checks, replay format v2 embedding its spawn
+  parameters (v1 replays refused with a clear message), a home screen, NEXT and SPAWN
+  POSSIBILITIES panels with live percentages, a researched dark-arcade visual treatment with
+  proportional feedback effects (research recorded in BUILD.md before the design work), and
+  cinema mode showing blocks falling at playback speed. Live at the existing Pages URL.
+  Canon edit under norm B11, this entry its CHANGELOG half and DESIGN.md section 12 the
+  co-edit: CLAUDE.md's work-order self-check gains the clause scoping the design-pack
+  coupling to estate-level system design, per AB's ruling on touchdown 0008's numbered
+  question; CLAUDE.md's two v1.0 version references updated to v1.1 in the same act as plain
+  factual fixes. Stage contracts (01_rules, 02_build) reconciled to v1.1; README's board,
+  controls and spawn lines corrected.
+- where: 01_rules/output/RULES.md, 01_rules/output/rules-v1.0.md (new), 01_rules/CONTEXT.md,
+  docs/ (play.html and js/fx.js new; index.html, cinema.html, test.html, css/style.css,
+  js/engine.js, js/config.js, js/board-render.js, js/ui.js, js/cinema.js, js/share.js,
+  test/engine.test.js, test/scripted-game.js revised), 02_build/output/BUILD.md,
+  02_build/CONTEXT.md, CLAUDE.md, README.md, _infrastructure/DESIGN.md
+- act: job touchdown (game-revision-v1.1, bee nbs-wor-1.0-z); the rules change, the controls
+  cut and the visual direction are AB's decisions (2026-08-05), carried by the worker bee's
+  work order; the self-check clause records AB's ruling of the same date.

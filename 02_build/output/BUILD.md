@@ -1,12 +1,17 @@
-# BUILD.md -- the game build record (job build-game-engine-cinema, 2026-08-05)
+# BUILD.md -- the game build record
 
-The playable game exists and is deployed. This file is the architecture record: what was built,
-the decisions taken, how to run it, and what was verified. The code itself lives in `docs/`
-(see "Where the code lives" for why); this stage's folder keeps the intent and the records.
+The playable game exists and is deployed; this file is the architecture record: what was
+built, the decisions taken, how to run it, and what was verified. The code lives in `docs/`
+(see "Where the code lives"); this stage's folder keeps the intent and the records.
+
+Two build events so far: the v1.0 build (job build-game-engine-cinema, 2026-08-05) and the
+v1.1 revision (job game-revision-v1.1, same day, AB's playtest decision). The current state
+below describes v1.1; the v1.1 section near the end records exactly what changed and why.
 
 Live URL: https://masked-brown.github.io/number-block-sim/
-Rules implemented: `01_rules/output/RULES.md` v1.0, exactly; no rule was invented or resolved
-inline. Tuning constants (RULES.md section 8) live in `docs/js/config.js`.
+Rules implemented: `01_rules/output/RULES.md` v1.1, exactly; no rule was invented or resolved
+inline. Tuning constants (RULES.md section 8, the spawn curve parameters included) live in
+`docs/js/config.js`.
 
 ## Where the code lives, and why
 
@@ -15,19 +20,24 @@ equals deploy: no build step, no bundler, no dependencies. The engine must also 
 from Node unchanged (the `03_train/` sim harness drives the same file), so the whole game is
 vanilla JS ES modules under `docs/`:
 
-- `docs/index.html` + `docs/js/ui.js` -- the browser game (renderer and input; owns time).
+- `docs/index.html` -- the home screen: Play, Cinema mode, How to play, the rules link.
+- `docs/play.html` + `docs/js/ui.js` -- the browser game (renderer and input; owns time).
 - `docs/cinema.html` + `docs/js/cinema.js` -- cinema mode, the replay viewer.
-- `docs/js/engine.js` -- THE engine: pure logic, no DOM, no timers, no Math.random. The one
-  file every consumer shares (browser game, cinema, Node tests, the later sim harness).
-- `docs/js/config.js` -- the single tunables file: every RULES.md section 8 constant (fall
-  speeds, animation timings, colours, board render geometry). No magic numbers elsewhere.
+- `docs/js/engine.js` -- THE engine: pure logic, no DOM, no timers, no rendering randomness.
+  The one file every consumer shares (browser game, cinema, Node tests, the later sim
+  harness). Imports config.js only for the default spawn parameters.
+- `docs/js/config.js` -- the single tunables file: every RULES.md section 8 constant,
+  including the eight spawn-curve parameters. Retuning difficulty is an edit here, never a
+  code edit. No magic numbers elsewhere.
 - `docs/js/board-render.js` -- the shared DOM board renderer (game and cinema).
+- `docs/js/fx.js` -- feedback effects (shake, bursts, chain popups, squash, pop), all
+  fire-and-forget and all gated behind prefers-reduced-motion.
 - `docs/js/share.js` -- the canvas score card (personal best and screenshot sharing only).
 - `docs/test/engine.test.js` -- the conformance suite (Node's built-in runner, no deps).
-- `docs/test/scripted-game.js` -- the shared determinism fixture (seed, policy, locked hash).
+- `docs/test/scripted-game.js` -- the shared determinism fixture (seed, PINNED spawn
+  parameters, policy, locked hash), immune to config retunes by design.
 - `docs/test.html` -- the browser half of the cross-environment determinism check.
-- `docs/package.json` -- `"type": "module"` only, so Node parses the same `.js` files as ES
-  modules the browser loads; nothing is installed.
+- `docs/package.json` -- `"type": "module"` only; nothing is installed.
 
 This is a declared divergence from the plain stage shape (code in `02_build/src/`), recorded
 in the root `CONTEXT.md` routing and `_infrastructure/CHANGELOG.md` 0004. One implementation,
@@ -37,35 +47,122 @@ two consumers, one home; `02_build/` holds intent and records, and git history h
 
 1. **The engine is pure and the renderer owns time.** `play(state, col)` is the entire move
    interface: board state in, column in, new state and an events list out (lock, merge passes
-   with cells and targets, gravity moves, floor rise, game over, spawn). The UI translates
-   interactive play (nudges, soft drop, hard drop) into one engine call per locked block, so
-   fall speed and input timing can never change what the engine computes from (seed, moves).
-   Timing is recorded as replay metadata only.
+   with cells and targets, gravity moves, game over, spawn). The UI translates interactive
+   play (nudges, the drop) into one engine call per locked block, so input timing can never
+   change what the engine computes from (seed, moves). Timing is replay metadata only.
 2. **PCG32, bit-identical everywhere.** The seeded generator (RULES.md 3) is PCG32 XSH RR
-   64/32 with 64-bit BigInt arithmetic, fixed stream 54, one uniform tier-offset draw per
-   block. The Node suite asserts the reference vectors (seed 42, seq 54: 0xa15c02b7, ...)
-   against an independently computed source, so the implementation is checked against the
-   PCG32 spec, not against itself.
-3. **The spawn draw binds at spawn time.** RULES.md 3 requires that no retired tier ever
-   spawns and that the preview shows the next block. The engine therefore draws each block's
-   tier OFFSET (0..3) one block ahead, and binds it to a value under the floor as it stands
-   at that block's own spawn, after any floor rise. The preview (`floor * 2^offset`) is
-   always honest and rebinds on a rise; a retired tier can never spawn. This is the one
-   design point the rules force rather than state; it is an implementation decision recorded
-   here, not a rule resolution.
-4. **Determinism is a tested property.** A scripted game (fixed seed, deterministic policy)
-   is locked into `docs/test/scripted-game.js` with its final FNV-1a state hash. The Node
-   suite asserts it; `docs/test.html` runs the identical script in the browser and compares
-   the same hash. Both environments produce `ffb7f2f9` (54 moves, score 840, game over).
-5. **Replay schema v1, versioned from day one.**
-   `{version, seed, moves[], meta{date, player, result{score, maxTile, blocksPlaced,
-   mergeCounts, longestChain, finalHash}, durationMs, moveTimestamps[]}}` plus an OPTIONAL
-   `reasoning[]` array (one entry per move: `{text, features{name: score}}`). Human replays
-   omit `reasoning[]`; the Phase 3 AI fills it. Cinema mode handles both and re-runs every
-   loaded replay through the engine before playing it, showing a verified / mismatch badge.
-6. **Game-over and clutch mechanics are engine truth.** A block may be directed into a full
-   column; it locks above row 7 and resolution runs. Rescue and game over follow RULES.md 6
-   inside the engine; the UI merely renders the overflow row.
+   64/32 with 64-bit BigInt arithmetic, fixed stream 54, one 32-bit draw per block. The Node
+   suite asserts the reference vectors (seed 42, seq 54: 0xa15c02b7, ...) against an
+   independently computed source, so the implementation is checked against the PCG32 spec,
+   not against itself.
+3. **The spawn distribution is integer maths, end to end.** The v1.1 drifting curve (RULES.md
+   3 carries the exact formula) deliberately avoids Math.exp and float weights: linear decay
+   from a milli-tier centre, integer floor division, integer weights, and a draw by
+   cumulative weight against `r mod W`. Reason: transcendental float functions are not
+   guaranteed bit-identical across JS engines, and cross-environment determinism is a tested
+   property here, not a hope. The engine exposes `spawnDistribution(state)` /
+   `distributionFor(board, params)` as pure functions: the exact numbers the UI shows are
+   the exact numbers the Phase 3 AI's lookahead will use (RULES.md 7).
+4. **Draw timing.** The next block's value is drawn at the moment the current block enters
+   play, from the board as it then stands (RULES.md 3). The preview is therefore exactly the
+   value that will spawn, always honest, and the drawn sequence is one draw per block in
+   fixed order.
+5. **Determinism is a tested property.** A scripted game (fixed seed, pinned spawn
+   parameters, deterministic policy) is locked into `docs/test/scripted-game.js` with its
+   final FNV-1a state hash. The Node suite asserts it; `docs/test.html` runs the identical
+   script in the browser and compares the same hash. Both environments produce `437281e9`
+   (46 moves, score 948, game over).
+6. **Replay schema v2, embedding its tuning.** `{version: 2, seed, spawn: {the eight curve
+   parameters}, moves[], meta{date, player, result, durationMs, moveTimestamps[]}}` plus the
+   OPTIONAL `reasoning[]` array (one entry per move; human replays omit it, the Phase 3 AI
+   fills it). A replay carries the spawn parameters it ran under and verifies against them,
+   so AB can retune config.js freely without breaking a single recorded game. Format v1
+   replays (rules v1.0) are refused with a clear message by the engine and by cinema mode;
+   replaying one wrongly would be worse than refusing.
+7. **Game-over and clutch mechanics are engine truth.** A block may be directed into a full
+   column; it locks above row 6 and resolution runs (RULES.md 6). The UI merely renders the
+   overflow row.
+8. **Effects never gate the loop.** Every feedback effect (fx.js) is a fire-and-forget
+   overlay via the Web Animations API; the game loop and cinema playback advance and render
+   regardless of whether any animation gets to play. Cinema's fall animation force-completes
+   on the next step, so fast stepping or a throttled background tab can never desynchronise
+   the board from the move counter (a real bug found and fixed in verification).
+
+## Game feel research (2026-08-05, written before the v1.1 look-and-feel work)
+
+Sources read: Jonasson and Purho's "Juice it or lose it" (Nordic Game Jam 2012, via
+gamejuice.co.uk and eolt.org's Game Feel entry), Jan Willem Nijman's "The Art of Screenshake"
+(Vlambeer; write-ups at theengineeringofconsciousexperience.com and victorweidar.wordpress.com),
+egmatic.com's game-feel guide, the Disney animation principles as applied to games (squash and
+stretch, anticipation, follow-through), Purple Pwny's visual-hierarchy guide for game
+developers, and the 2048 repository's own readability issue (gabrielecirulli/2048 issue 71).
+What they say, distilled to what binds this build:
+
+1. Feel is three layers in strict order: instant input response, readable feedback for every
+   action, then polish. Juice rides ON TOP of responsiveness; an effect that delays or blocks
+   input is a regression, not polish. All effects here are fire-and-forget overlays; input is
+   never gated on an animation finishing.
+2. Juice must echo and clarify the core gameplay, never decorate it. This game's core is the
+   cascade, so feedback escalates with merge size and chain index, exactly the quantities the
+   scoring rewards: bigger merges shake harder, later passes burst brighter, and a chain popup
+   names the multiplier the player just earned.
+3. Screenshake works when proportional and brief (Vlambeer): stacked micro-effects beat one
+   big one, and shake beyond ~150 ms or beyond a few pixels reads as damage, not impact.
+   Landing gets a 2-3 px nudge; merges add amplitude per group size and per chain pass.
+4. Squash and stretch conveys weight without cost (Disney via game-feel writing): the locked
+   block squashes on impact and recovers; a merged block pops with a small overshoot. Weight
+   is the feeling AB asked high tiers to carry, so high tiers get depth (glow, inset edge)
+   rather than brightness.
+5. The 2048 failure to avoid: from 128 upward its tiles converge on similar light golds and
+   become confusable in motion (their issue 71). The ramp here therefore keeps a distinct hue
+   step per tier all the way up, keeps dark high-contrast numerals on every tile, and marks
+   the high band by depth styling, never by washing the colour out.
+6. Visual hierarchy: one thing loud at a time. The board and falling block are the loudest;
+   NEXT is the one prominent side element (it is the only thing the player must plan with);
+   the spawn possibilities list is deliberately quiet reference material; danger state is an
+   ambient signal (edge glow, slow pulse) that cuts through precisely because everything else
+   is calm.
+7. Tension needs an ambient channel, not a modal one (the Tetris danger-zone analogue): the
+   near-full board gets a low-frequency pulse that builds dread without obscuring play.
+8. Accessibility is part of feel: prefers-reduced-motion disables shake, particles and
+   popups (colour flashes remain, they carry the information); every effect is cut if it
+   makes the board harder to read, legibility first.
+
+## The v1.1 revision (2026-08-05): what changed and why
+
+AB's playtest verdict drove five changes, carried by the work order game-revision-v1.1 and
+versioned in RULES.md v1.1 (v1.0 preserved beside it as `rules-v1.0.md`):
+
+- **Spawn model** (rules change): the hard four-tier window with floor rise and tier
+  retirement is gone. In its place, a probability distribution over every live tier with a
+  centre that drifts up as the board's max tile grows, linear decay each side, and a floor
+  weight so nothing ever hits zero: low tiers stay possible late (rare), high tiers appear
+  occasionally early. Early game is harder than v1.0 (five live tiers with real mass versus
+  four uniform) while a competent player still reaches a few hundred points; the eight curve
+  parameters are config tunables for AB's fine-tuning pass.
+- **Board** (rules change): 7 rows to 6; columns stay 5. Games are tighter and danger
+  arrives sooner.
+- **Controls** (rules change): arrows and space only. Z X C V B direct-send and soft drop
+  removed; a new block enters in the column where the previous one locked (centre for the
+  first). Fewer controls, more board reading.
+- **Interface**: a home screen (Play, Cinema mode, How to play, rules link; every page links
+  back); NEXT split out as the one prominent side box; SPAWN POSSIBILITIES as a quiet list
+  of every live value with its exact live percentage (the engine's own numbers); the words
+  "window" and "floor" removed from the UI entirely.
+- **Look and feel**: researched first (previous section), then rebuilt: near-black ground,
+  sharp 4 px tile corners, hard panel lines, a deeper muted-to-warm colour ramp with a
+  distinct hue per tier, heavy styling (glow and inset depth) from 256 up, landing squash,
+  merge bursts scaled to group size, chain popups and shake that escalate with the chain
+  index, an expanding-ring signal for large merges, an ambient red danger pulse when any
+  column reaches height 5, and prefers-reduced-motion honoured throughout. Cinema mode now
+  shows each block falling into place before it locks (duration scales with playback speed)
+  so a viewer sees movement, not appearance.
+
+One observation for AB's tuning pass, from verification: an unattended game (blocks dropping
+into one column with no steering) reached roughly 5,300 points through self-fed vertical
+merges, which suggests repeated same-column stacking is generously rewarded under the launch
+parameters. The curve parameters are config tunables precisely so this can be adjusted
+without a code edit.
 
 ## How to run locally
 
@@ -82,17 +179,25 @@ with source `{branch: main, path: /docs}`), build type legacy, HTTPS enforced. E
 `main` that touches `docs/` redeploys. No workflow file, no publishing infrastructure; the
 04_publish write-up remains its own later concern.
 
-## Verification record (2026-08-05)
+## Verification record (2026-08-05, v1.1)
 
-- Engine suite: 23 tests, 23 pass (`node --test docs/test/`), covering pair/triple/quad/quint
-  2^(n-1) merges, simultaneous disjoint groups sharing a chain index, multi-pass cascades with
-  lowest-leftmost landing, chain-index scoring, floor rise at exactly 128x with no purge and
-  repeated doubling, stranded-block merging, spawn-window membership over a long seeded game,
-  spawn binding after a rise, clutch rescue, game over with and without merges elsewhere,
-  input-state purity, replay determinism round-trip, and the PCG32 reference vectors.
-- Browser determinism: `/test.html` on the live URL reports DETERMINISTIC, hash `ffb7f2f9`
-  equal to the locked Node value, all six checks PASS.
-- Live playthrough: a full game played start to game-over on the live URL; metrics screen,
-  personal best, auto-saved replay all live. Cinema mode at `/cinema.html?last=1` loaded that
-  exact auto-saved replay, verified it against the engine, and played it back; the reasoning
-  panel was additionally exercised with a synthetic reasoning[] replay.
+- Engine suite: 28 tests, 28 pass (`node --test docs/test/`): PCG32 reference vectors; exact
+  integer spawn weights on the empty board and after drift (hand-computed expectations);
+  monotonic centre drift; no-tier-ever-zero across game stages; probabilities summing to 1
+  at every stage of a full game; preview-equals-spawn; config carrying all eight named
+  parameters; the unchanged merge suite (2^(n-1) through quintuples, simultaneous groups,
+  four-pass cascade, lowest-leftmost landing); 6-row clutch rescue and game-over edges;
+  purity and deep cloning; replay determinism round-trip; replays verifying under their own
+  embedded tuning; v1 refusal; metrics.
+- Cross-environment determinism: `/test.html` locally and on the live URL reports
+  DETERMINISTIC, hash `437281e9` equal to the locked Node value, all six checks PASS.
+- Live playthrough: a full game start to game-over on the live URL using only arrows and
+  space (28 blocks, score 228 from a mindless steering pattern: harder than v1.0, still
+  scoring); the auto-saved v2 replay carries spawn parameters and per-move timestamps.
+- Cinema: refused the genuine v1.0 replay left in the live site's localStorage from the
+  previous session with the clear v1 message; loaded the fresh v2 replay, verified it
+  against the engine, and played all 28 moves with the falling-block animation at 1x, 2x
+  and 4x (every frame advancing, no orphan tiles, final score matching).
+- Navigation: home reaches Play and Cinema; play, cinema and test all link back to home.
+- The in-game possibilities percentages were hand-checked against the RULES.md formula at
+  two board states (empty and max-tile 32) and matched exactly.

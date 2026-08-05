@@ -11,7 +11,7 @@ keeps the stage's intent (this contract), its records (`output/`), and its refer
 ## Inputs
 | Input | Layer | What it carries |
 |---|---|---|
-| `01_rules/output/RULES.md` | 4 (upstream) | The locked v1.0 rule spec this stage implements exactly. |
+| `01_rules/output/RULES.md` | 4 (upstream) | The locked rule spec (v1.1) this stage implements exactly. |
 | `docs/js/config.js` | 3 | The single tunables file: every RULES.md section 8 constant. Rule constants are not tunables; they live in the engine as locked rules. |
 | `references/` | 3 | Implementation notes, library evaluations, harness design notes. Empty so far. |
 

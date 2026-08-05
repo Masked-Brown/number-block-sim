@@ -13,7 +13,7 @@ British English, no em-dashes, no exclamation marks.
 
 A falling number-block matching game, built from scratch, plus an AI agent trained to play it
 optimally. The game mechanics (board and flow, spawning, merging, the game score, game over) are
-decided and locked at v1.0 in `01_rules/output/RULES.md`; this router does not restate them. The
+decided and locked at v1.1 in `01_rules/output/RULES.md`; this router does not restate them. The
 experiment is to find optimal play and write up the findings. This workspace holds the
 coordination infrastructure (the portable ICM operating system, two-actor form) and the four-stage
 product zone. The why behind the infrastructure is `_infrastructure/DESIGN.md`.
@@ -45,6 +45,9 @@ CC_OPERATIONS.md, OPERATIONS_BEE.md, CC_TOUCHDOWN.md, LOOP_PROMPT.md, TEST_MODE.
 prime.py) or an operations doc, inspect it BEFORE acting for its three couplings: (a) the
 design-pack (icm-final) companion, (b) the DESIGN.md co-edit, (c) the CHANGELOG.md entry. If any
 is missing, raise it as a numbered question before acting; never patch the omission silently.
+The design-pack coupling is scoped: it applies to estate-level system design (the shared ICM
+machinery, its contracts and loop code), not to project-local facts such as a guardrail line
+(AB's ruling, 2026-08-05, on touchdown 0008's numbered question).
 One stated boundary: a sweep.py change does NOT require a LOOP_PROMPT.md edit. LOOP_PROMPT.md is
 operational, not descriptive (D60); it never restates sweep internals, and it is co-edited ONLY
 when the window sequence or the desk-summary format changes.
@@ -107,7 +110,7 @@ friction patch.
 - No third actor. Two actors (the worker bee and the Claude Code job) and the loop, as routed
   above.
 - Board dimensions, spawn distribution, merge rules and the scoring equation are no longer TBD:
-  they are decided and locked in `01_rules/output/RULES.md` v1.0. Any further rule change is
+  they are decided and locked in `01_rules/output/RULES.md` v1.1. Any further rule change is
   AB's decision, versioned there, never invented inline by a job.
 
 ## Changelog
