@@ -9,8 +9,9 @@
 <body>
 
 <header class="top">
-  <h1>cross-environment determinism check</h1>
-  <span class="links"><a href="index.html">back to the game</a></span>
+  <h1><a href="index.html">Number Block Sim</a></h1>
+  <span class="sub">cross-environment determinism check</span>
+  <span class="links"><a href="index.html">home</a> &nbsp;·&nbsp; <a href="play.html">play</a></span>
 </header>
 
 <main style="max-width:720px;margin:0 auto;padding:20px">
@@ -31,9 +32,8 @@
 </main>
 
 <script type="module">
-import { hashState, makeReplay, runReplay, resultMetrics } from './js/engine.js';
-import { SCRIPT_SEED, runScriptedGame, EXPECTED } from './test/scripted-game.js';
-import { _pcg } from './js/engine.js';
+import { hashState, makeReplay, runReplay, resultMetrics, _pcg } from './js/engine.js';
+import { SCRIPT_SEED, SCRIPT_SPAWN, runScriptedGame, EXPECTED } from './test/scripted-game.js';
 
 const out = document.getElementById('out');
 const verdict = document.getElementById('verdict');
@@ -62,8 +62,9 @@ try {
   check('status matches Node', state.status === EXPECTED.status);
   check('move count matches Node', state.moveCount === EXPECTED.moveCount);
 
-  // Round-trip: save the replay, re-run it, same hash again.
-  const replay = makeReplay(SCRIPT_SEED, moves, { result: resultMetrics(state) });
+  // Round-trip: save the replay (v2, embedding its spawn parameters), re-run
+  // it, same hash again.
+  const replay = makeReplay(SCRIPT_SEED, moves, { result: resultMetrics(state) }, SCRIPT_SPAWN);
   const rerun = runReplay(JSON.parse(JSON.stringify(replay)));
   check('replay round-trip reproduces the hash', hashState(rerun) === hash);
 } catch (err) {

@@ -1,19 +1,34 @@
-// scripted-game.mjs -- the shared cross-environment determinism fixture.
+// scripted-game.js -- the shared cross-environment determinism fixture.
 //
-// One scripted game: a fixed seed and a deterministic move policy. The Node
-// test suite and the browser test page (docs/test.html) both run it through
-// the same engine and must land on the same final hash and score. EXPECTED
-// below was produced by the Node run and locked in; either environment
-// disagreeing with it is a determinism failure.
+// One scripted game: a fixed seed, PINNED spawn parameters and a deterministic
+// move policy. The Node test suite and the browser test page (docs/test.html)
+// both run it through the same engine and must land on the same final hash and
+// score. EXPECTED below was produced by the Node run and locked in; either
+// environment disagreeing with it is a determinism failure.
+//
+// The spawn parameters are pinned HERE, not read from config.js, so AB can
+// retune the live game freely without touching this fixture or its hash.
 
 import { newGame, play } from '../js/engine.js';
 
 export const SCRIPT_SEED = '20260805';
 export const SCRIPT_MOVE_CAP = 400;
 
+// Pinned copy of the v1.1 launch tuning (config.js may drift; this must not).
+export const SCRIPT_SPAWN = Object.freeze({
+  centreBase: 2000,
+  centreGain: 400,
+  centreStart: 4,
+  ceilingMin: 5,
+  ceilingSpread: 3,
+  peakWeight: 1000,
+  slope: 300,
+  floorWeight: 40,
+});
+
 // Deterministic policy, a pure function of move index and state: mostly cycle
 // the columns, every fourth move drop on the shortest column. Exercises
-// merges, cascades, floor rises and (usually) a game over within the cap.
+// merges, cascades and (usually) a game over within the cap.
 export function pickMove(i, state) {
   if (i % 4 === 3) {
     let best = 0;
@@ -27,7 +42,7 @@ export function pickMove(i, state) {
 
 // Play the scripted game; returns {state, moves}.
 export function runScriptedGame() {
-  let state = newGame(SCRIPT_SEED);
+  let state = newGame(SCRIPT_SEED, SCRIPT_SPAWN);
   const moves = [];
   for (let i = 0; i < SCRIPT_MOVE_CAP && state.status === 'playing'; i++) {
     const col = pickMove(i, state);
@@ -39,8 +54,8 @@ export function runScriptedGame() {
 
 // Locked-in expected outcome (filled from the first verified Node run).
 export const EXPECTED = {
-  finalHash: 'ffb7f2f9',
-  score: 840,
+  finalHash: '437281e9',
+  score: 948,
   status: 'over',
-  moveCount: 54,
+  moveCount: 46,
 };

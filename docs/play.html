@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>play · number-block-sim</title>
+<meta name="description" content="A falling number-block matching game: engineer merge cascades against a drifting spawn curve.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23cf4e2a'/><text x='50' y='68' font-size='52' font-weight='bold' text-anchor='middle' fill='%230a0c12' font-family='sans-serif'>2</text></svg>">
+</head>
+<body>
+
+<header class="top">
+  <h1><a href="index.html">Number Block Sim</a></h1>
+  <span class="sub">merge the powers of two, engineer the cascade</span>
+  <span class="links">
+    <a href="index.html">home</a> &nbsp;·&nbsp;
+    <a href="cinema.html">cinema mode</a> &nbsp;·&nbsp;
+    <a href="https://github.com/Masked-Brown/number-block-sim/blob/main/01_rules/output/RULES.md">rules</a>
+  </span>
+</header>
+
+<main class="layout">
+  <div class="board-wrap">
+    <div id="board"></div>
+    <div id="banner" class="banner"></div>
+    <div id="over-overlay" class="overlay">
+      <div class="dialog">
+        <h2>Game over</h2>
+        <div id="final-score" class="final-score">0</div>
+        <div id="best-note" class="best-note"></div>
+        <div id="over-metrics" class="metrics"></div>
+        <div class="actions">
+          <button id="again" class="primary">Play again&nbsp; (Enter)</button>
+          <button id="share-card">Save score card</button>
+          <button id="download-replay">Download replay</button>
+          <a class="btn" href="cinema.html?last=1">Watch replay in cinema mode</a>
+          <a class="btn" href="index.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="panel">
+    <div class="card">
+      <h2>Score</h2>
+      <div id="score" class="score-big">0</div>
+      <div class="score-sub">personal best <span id="best">–</span></div>
+    </div>
+
+    <div class="card next-card">
+      <h2>Next</h2>
+      <div class="next-row">
+        <span id="next-tile" class="next-tile-big">2</span>
+        <span class="next-note">the one block after the current drop</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Spawn possibilities</h2>
+      <div id="poss-rows" class="poss-rows"></div>
+    </div>
+
+    <div class="card">
+      <h2>Controls</h2>
+      <div class="keys">
+        <b>←</b><b>→</b> steer &nbsp; <b>Space</b> drop<br>
+        <b>R</b> restart
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Game</h2>
+      <div class="small">blocks placed <span id="placed">0</span><br><span id="seed-label" class="mono"></span></div>
+      <div style="margin-top:10px"><button id="new-game">New game</button></div>
+    </div>
+  </aside>
+</main>
+
+<script type="module" src="js/ui.js"></script>
+</body>
+</html>

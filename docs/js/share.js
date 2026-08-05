@@ -22,7 +22,7 @@ export function renderShareCard(canvas, data) {
     const size = 86;
     const x = 690 + (i % 2) * (size + 14);
     const y = 80 + Math.floor(i / 2) * (size + 14);
-    roundRect(ctx, x, y, size, size, 14);
+    roundRect(ctx, x, y, size, size, 5);
     ctx.fillStyle = tileColour(v);
     ctx.globalAlpha = 0.92;
     ctx.fill();

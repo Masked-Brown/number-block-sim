@@ -1,12 +1,15 @@
-// cinema.js -- the replay viewer. Loads a replay (file picker, ?replay=<url>,
-// or ?last=1 for the auto-saved last game), verifies it by re-running it
-// through the engine, then plays it back move by move. Handles replays with
-// and without the optional reasoning[] array (human games omit it; the
-// Phase 3 AI fills it).
+// cinema.js -- the replay viewer (rules v1.1, replay format v2). Loads a
+// replay (file picker, ?replay=<url>, or ?last=1 for the auto-saved last
+// game), verifies it by re-running it through the engine, then plays it back
+// move by move. Each move shows the block FALLING into its column before it
+// locks, so a viewer sees movement rather than blocks appearing; the fall
+// duration scales with playback speed. Handles replays with and without the
+// optional reasoning[] array. Format v1 replays (rules v1.0) are refused with
+// a clear message, never replayed wrongly.
 
-import { newGame, runReplay, verifyReplay, hashState } from './engine.js';
+import { newGame, runReplay, verifyReplay, REPLAY_VERSION, RULES } from './engine.js';
 import { CONFIG } from './config.js';
-import { createBoardView } from './board-render.js';
+import { createBoardView, makeTileEl, leftFor, topFor } from './board-render.js';
 
 const $ = (id) => document.getElementById(id);
 const boardView = createBoardView($('board'));
@@ -20,6 +23,11 @@ let index = -1; // -1 = before the first move
 let playing = false;
 let timer = null;
 let speed = 1;
+// The one in-flight fall animation, if any: {complete}. complete() is
+// idempotent and ALWAYS renders its step's final frame, so a fast next step
+// (or a throttled background tab) can never lose a frame or desync the
+// counter from the board.
+let pending = null;
 
 // ---------------------------------------------------------------------------
 // loading
@@ -30,7 +38,7 @@ async function loadFromParams() {
     try {
       const res = await fetch(params.get('replay'));
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      loadReplay(await res.json(), `from URL`);
+      loadReplay(await res.json(), 'from URL');
     } catch (err) {
       setStatus(`Could not fetch replay: ${err.message}`, 'fail');
     }
@@ -54,13 +62,22 @@ function loadLast() {
 
 function loadReplay(data, sourceLabel) {
   stop();
+  if (pending) pending.complete(); // settle any in-flight fall on the old replay
   try {
     if (!data || data.version === undefined || !data.seed || !Array.isArray(data.moves)) {
       throw new Error('not a replay file (need version, seed, moves[])');
     }
-    const verdict = verifyReplay(data); // throws on unsupported version
+    if (data.version === 1) {
+      throw new Error('this is a format v1 replay, recorded under rules v1.0. '
+        + 'The spawn model changed in rules v1.1, so v1 replays cannot be '
+        + 'replayed correctly and cinema mode will not guess at one.');
+    }
+    if (data.version !== REPLAY_VERSION) {
+      throw new Error(`unsupported replay version ${data.version} (this build plays v${REPLAY_VERSION})`);
+    }
+    const verdict = verifyReplay(data);
     replay = data;
-    initialState = newGame(replay.seed);
+    initialState = newGame(replay.seed, replay.spawn ?? CONFIG.spawn);
     timeline = [];
     runReplay(replay, (i, move, state, events) => timeline.push({ state, events }));
 
@@ -141,8 +158,6 @@ function renderFrame(withFlash) {
   renderReasoning();
 }
 
-// Where the locked block ended up (after resolution it may have merged away;
-// the outline is the lock cell, which still reads correctly as "the move").
 function lockedCellOf(events) {
   return { c: events.locked.col, r: events.locked.row };
 }
@@ -182,15 +197,55 @@ function renderReasoning() {
   }
 }
 
+// Advance one move, showing the block fall into place first. The fall is
+// presentation: the engine already computed everything in the timeline, and
+// the step's final frame renders whether or not the animation gets to play
+// (fast stepping, background-tab throttling).
 function stepForward(fromTimer) {
-  if (!timeline || index >= timeline.length - 1) { stop(); return; }
+  if (!timeline) { stop(); return; }
+  if (pending) pending.complete(); // fast-forward any in-flight fall first
+  if (index >= timeline.length - 1) { stop(); return; }
+  const stateBefore = currentState();
+  const value = stateBefore.current;
   index += 1;
-  renderFrame(true);
-  if (fromTimer && index >= timeline.length - 1) stop();
+  const events = timeline[index].events;
+  const col = events.locked.col;
+  const lockRow = events.locked.row;
+
+  // Render the pre-move board, then animate the fall on top of it.
+  boardView.render(stateBefore, {});
+  const tile = makeTileEl(value);
+  tile.classList.add('falling');
+  tile.style.left = `${leftFor(col)}px`;
+  tile.style.top = `${topFor(RULES.ROWS + 0.5)}px`;
+  boardView.el.appendChild(tile);
+
+  let done = false;
+  let fallTimer = null;
+  const complete = () => {
+    if (done) return;
+    done = true;
+    clearTimeout(fallTimer);
+    pending = null;
+    tile.remove();
+    renderFrame(true);
+    if (fromTimer && index >= timeline.length - 1) stop();
+  };
+  pending = { complete };
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) { complete(); return; }
+  const fallMs = CONFIG.animation.cinemaFallMs / speed;
+  tile.getBoundingClientRect(); // commit the start position before transitioning
+  tile.style.transition = `top ${fallMs}ms cubic-bezier(0.5, 0, 0.9, 0.6)`;
+  tile.style.top = `${topFor(lockRow)}px`;
+  fallTimer = setTimeout(complete, fallMs + 20);
 }
 
 function stepBack() {
   if (!timeline || index < 0) return;
+  if (pending) pending.complete();
+  if (index < 0) return; // completing a pending fall never moves index back
   index -= 1;
   renderFrame(false);
 }

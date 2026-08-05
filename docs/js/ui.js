@@ -1,17 +1,20 @@
-// ui.js -- the browser game. The renderer owns time; the engine owns truth.
-// Interactive play is translated into engine moves: one call to play() per
-// locked block, with the column as the move. Fall speed, nudges and drops are
-// presentation; they cannot change what the engine computes from (seed, moves).
+// ui.js -- the browser game (rules v1.1). The renderer owns time; the engine
+// owns truth. Interactive play is translated into engine moves: one call to
+// play() per locked block, with the column as the move. Nudges and the fall
+// are presentation; they cannot change what the engine computes from
+// (seed, moves). Effects are fire-and-forget overlays (fx.js) and never gate
+// input or the game loop.
 
 import {
-  newGame, play, spawnWindow, previewValue, RULES,
-  makeReplay, resultMetrics, hashState,
+  newGame, play, spawnDistribution, previewValue, RULES,
+  makeReplay, resultMetrics,
 } from './engine.js';
-import { CONFIG } from './config.js';
+import { CONFIG, tileColour } from './config.js';
 import {
-  createBoardView, makeTileEl, styleMiniTile, leftFor, topFor,
+  createBoardView, makeTileEl, styleMiniTile, leftFor, topFor, cellCentre,
 } from './board-render.js';
 import { downloadShareCard } from './share.js';
+import { shake, burst, ring, chainPop, squash, pop } from './fx.js';
 
 const LS_BEST = 'nbs.best';
 const LS_LAST_REPLAY = 'nbs.lastReplay';
@@ -19,16 +22,17 @@ const LS_LAST_REPLAY = 'nbs.lastReplay';
 const $ = (id) => document.getElementById(id);
 
 const boardView = createBoardView($('board'));
+const boardWrap = $('board').parentElement;
 
 let game; // engine state
 let phase; // 'falling' | 'resolving' | 'over'
-let fall; // {col, y, el}
-let softDrop = false;
+let fall; // {col, y, el, ghost}
 let moves = [];
 let stamps = [];
 let runStart = 0;
 let lastFrame = null;
 let lastReplay = null;
+let lastLockedCol = 2; // v1.1: the next block enters where the last one landed
 
 // ---------------------------------------------------------------------------
 // game lifecycle
@@ -45,6 +49,7 @@ function startGame() {
   moves = [];
   stamps = [];
   lastReplay = null;
+  lastLockedCol = Math.floor(RULES.COLS / 2); // first block: centre column
   runStart = performance.now();
   lastFrame = null;
   $('over-overlay').classList.remove('show');
@@ -54,14 +59,14 @@ function startGame() {
 }
 
 function spawnFallingTile() {
-  if (fall && fall.el) fall.el.remove();
-  const el = makeTileEl(game.current, game.floor);
+  if (fall && fall.el) { fall.el.remove(); fall.ghost.remove(); }
+  const el = makeTileEl(game.current);
   el.classList.add('falling');
   boardView.el.appendChild(el);
-  const ghost = makeTileEl(game.current, game.floor);
+  const ghost = makeTileEl(game.current);
   ghost.classList.add('ghost');
   boardView.el.appendChild(ghost);
-  fall = { col: 2, y: RULES.ROWS + 0.5, el, ghost };
+  fall = { col: lastLockedCol, y: RULES.ROWS + 0.5, el, ghost };
   positionFalling();
 }
 
@@ -79,8 +84,7 @@ function frame(now) {
   if (lastFrame === null) { lastFrame = now; return; }
   const dt = Math.min(now - lastFrame, 100) / 1000;
   lastFrame = now;
-  const speed = CONFIG.fallCellsPerSecond * (softDrop ? CONFIG.softDropMultiplier : 1);
-  fall.y -= speed * dt;
+  fall.y -= CONFIG.fallCellsPerSecond * dt;
   const h = game.board[fall.col].length;
   if (fall.y <= h) {
     fall.y = h;
@@ -94,6 +98,7 @@ function frame(now) {
 async function lockNow() {
   phase = 'resolving';
   const col = fall.col;
+  lastLockedCol = col;
   moves.push(col);
   stamps.push(Math.round(performance.now() - runStart));
   const { state: next, events } = play(game, col);
@@ -104,23 +109,36 @@ async function lockNow() {
   // Animate the resolution from the events, pass by pass, on a visual copy.
   let visual = game.board.map((c) => c.slice());
   visual[col] = visual[col].concat([events.locked.value]);
-  boardView.render({ board: visual, floor: game.floor }, { lastLocked: { c: col, r: events.locked.row } });
+  boardView.render({ board: visual }, { lastLocked: { c: col, r: events.locked.row } });
+  squash(boardView.tileAt(col, events.locked.row));
+  shake(boardWrap, events.passes.length ? 0 : CONFIG.fx.landShakePx);
 
   for (const pass of events.passes) {
     boardView.flashCells(pass.merges.flatMap((m) => m.cells));
+    chainPop(boardWrap, pass.chain);
     await wait(CONFIG.animation.mergeFlashMs);
     visual = applyPassVisual(visual, pass.merges);
-    boardView.render({ board: visual, floor: game.floor });
+    boardView.render({ board: visual });
+    let shakePx = 0;
+    for (const m of pass.merges) {
+      const target = boardView.tileAt(m.target.c, m.target.r);
+      pop(target);
+      const centre = cellCentre(m.target.c, m.target.r);
+      burst(boardView.el, centre.x, centre.y, tileColour(m.result), m.size);
+      if (m.result >= CONFIG.fx.bigMergeValue || m.size >= 4) {
+        ring(boardView.el, centre.x, centre.y);
+      }
+      shakePx = Math.max(shakePx,
+        CONFIG.fx.mergeShakeBase + CONFIG.fx.mergeShakePerSize * (m.size - 2)
+        + CONFIG.fx.chainShakePerPass * (pass.chain - 1));
+    }
+    shake(boardWrap, shakePx);
     await wait(CONFIG.animation.gravityMs);
   }
 
   game = next;
   boardView.render(game);
   refreshHud();
-
-  if (events.floorRose) {
-    showBanner(`Floor rise: spawn window now ${spawnWindow(game).join(' – ')}`);
-  }
 
   if (events.gameOver) {
     finishGame();
@@ -149,7 +167,7 @@ function finishGame() {
     result,
     durationMs,
     moveTimestamps: stamps,
-  });
+  }, game.spawn);
   try {
     localStorage.setItem(LS_LAST_REPLAY, JSON.stringify(lastReplay));
   } catch { /* storage full or blocked; the download button still works */ }
@@ -213,62 +231,55 @@ function refreshHud() {
   const best = readBest();
   $('best').textContent = best ? best.score.toLocaleString('en-GB') : '–';
   styleMiniTile($('next-tile'), previewValue(game));
-  const windowRow = $('window-row');
-  windowRow.textContent = '';
-  for (const v of spawnWindow(game)) {
-    const el = document.createElement('span');
-    el.className = 'mini-tile';
-    styleMiniTile(el, v);
-    windowRow.appendChild(el);
+
+  // Spawn possibilities: each live value with its current percentage, the
+  // exact numbers the engine will draw the block after next from.
+  const dist = spawnDistribution(game);
+  const rows = $('poss-rows');
+  rows.textContent = '';
+  for (const e of dist.entries) {
+    const row = document.createElement('div');
+    row.className = 'row';
+    const tile = document.createElement('span');
+    tile.className = 'mini-tile';
+    styleMiniTile(tile, e.value);
+    const barBox = document.createElement('span');
+    barBox.className = 'bar';
+    const fill = document.createElement('i');
+    fill.style.width = `${Math.max(2, Math.round(e.probability * 100))}%`;
+    barBox.appendChild(fill);
+    const pct = document.createElement('span');
+    pct.className = 'pct';
+    pct.textContent = `${(e.probability * 100).toFixed(1)}%`;
+    row.append(tile, barBox, pct);
+    rows.appendChild(row);
   }
-  $('floor-label').textContent = `floor ${game.floor}`;
+
   $('placed').textContent = String(game.blocksPlaced);
   $('seed-label').textContent = `seed ${game.seed}`;
 }
 
-let bannerTimer = null;
-function showBanner(text) {
-  const el = $('banner');
-  el.textContent = text;
-  el.classList.add('show');
-  clearTimeout(bannerTimer);
-  bannerTimer = setTimeout(() => el.classList.remove('show'), CONFIG.animation.floorRiseBannerMs);
-}
-
 // ---------------------------------------------------------------------------
-// input (RULES 2: Z X C V B direct send, arrows nudge/soft drop, space hard)
-
-const DIRECT_KEYS = { KeyZ: 0, KeyX: 1, KeyC: 2, KeyV: 3, KeyB: 4 };
+// input (RULES 2, v1.1: arrows move, space drops; nothing else)
 
 document.addEventListener('keydown', (e) => {
-  if (e.code in DIRECT_KEYS || ['ArrowLeft', 'ArrowRight', 'ArrowDown', 'Space'].includes(e.code)) {
-    e.preventDefault();
-  }
+  if (['ArrowLeft', 'ArrowRight', 'Space'].includes(e.code)) e.preventDefault();
   if (phase === 'over' && (e.code === 'Enter' || e.code === 'KeyR')) { startGame(); return; }
   if (phase !== 'falling') return;
 
-  if (e.code in DIRECT_KEYS) {
-    fall.col = DIRECT_KEYS[e.code];
-    const h = game.board[fall.col].length;
-    if (fall.y <= h) { fall.y = h; positionFalling(); lockNow(); return; }
-    positionFalling();
-  } else if (e.code === 'ArrowLeft' || e.code === 'ArrowRight') {
+  if (e.code === 'ArrowLeft' || e.code === 'ArrowRight') {
     const target = fall.col + (e.code === 'ArrowLeft' ? -1 : 1);
     if (target >= 0 && target < RULES.COLS && fall.y >= game.board[target].length) {
       fall.col = target;
       positionFalling();
     }
-  } else if (e.code === 'ArrowDown') {
-    softDrop = true;
   } else if (e.code === 'Space') {
     fall.y = game.board[fall.col].length;
     positionFalling();
     lockNow();
+  } else if (e.code === 'KeyR') {
+    startGame();
   }
-});
-
-document.addEventListener('keyup', (e) => {
-  if (e.code === 'ArrowDown') softDrop = false;
 });
 
 // ---------------------------------------------------------------------------

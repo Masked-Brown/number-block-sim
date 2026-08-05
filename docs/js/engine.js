@@ -1,20 +1,21 @@
 // engine.js -- the pure game engine for number-block-sim.
 //
-// Implements 01_rules/output/RULES.md v1.0 exactly. Pure logic module: no DOM,
+// Implements 01_rules/output/RULES.md v1.1 exactly. Pure logic module: no DOM,
 // no timers, no rendering, no Math.random. Board state in, move in, new state
 // and events out. Runs unchanged in the browser and in Node (the 03_train sim
 // harness imports this same file).
 //
-// The constants below are RULES (sections 1 to 6), locked at v1.0; changing one
-// is a rule change and is AB's decision, never tuning. Tuning constants
-// (RULES.md section 8) live in config.js and never here.
+// The constants below are RULES (sections 1 to 6), locked at v1.1; changing one
+// is a rule change and is AB's decision, never tuning. The spawn curve's
+// PARAMETERS are tuning (RULES.md section 8) and live in config.js; its FORMULA
+// is a rule and lives here. Spawn maths is integer throughout, so every JS
+// engine agrees to the bit (no Math.exp, no floats).
+
+import { CONFIG } from './config.js';
 
 export const RULES = Object.freeze({
   COLS: 5, // board width (RULES 1)
-  ROWS: 7, // legal column height; a lock above this is an overflow (RULES 1, 6)
-  WINDOW_SIZE: 4, // spawn window: 4 consecutive tiers (RULES 3)
-  FLOOR_START: 2, // the window starts at floor 2: {2,4,8,16} (RULES 3)
-  RISE_RATIO: 128, // floor doubles while max tile >= 128 x floor (RULES 3)
+  ROWS: 6, // legal column height; a lock above this is an overflow (RULES 1, 6)
   PCG_SEQ: 54n, // fixed PCG32 stream; part of the deterministic spec (RULES 3)
 });
 
@@ -46,34 +47,90 @@ function pcgInit(seed, seq) {
 export const _pcg = { init: pcgInit, next: pcgNext };
 
 // ---------------------------------------------------------------------------
+// The spawn distribution (RULES 3, v1.1)
+//
+// Tier t is the value 2^t. The curve peaks at a centre that drifts up with the
+// board's largest tile and decays linearly either side; every live tier keeps
+// the floor weight. All arithmetic is integer (RULES 3 states the formula with
+// floor division), so the distribution is bit-identical everywhere.
+
+const SPAWN_PARAM_NAMES = Object.freeze([
+  'centreBase', 'centreGain', 'centreStart', 'ceilingMin', 'ceilingSpread',
+  'peakWeight', 'slope', 'floorWeight',
+]);
+
+function checkSpawnParams(spawn) {
+  for (const name of SPAWN_PARAM_NAMES) {
+    if (!Number.isInteger(spawn[name])) {
+      throw new Error(`spawn parameter ${name} missing or not an integer`);
+    }
+  }
+  return spawn;
+}
+
+function boardMaxTier(board) {
+  let max = 0;
+  for (const col of board) for (const v of col) if (v > max) max = v;
+  return max === 0 ? 0 : Math.round(Math.log2(max));
+}
+
+// The pure distribution function (RULES 7: the Phase 3 AI's lookahead needs
+// the same numbers the UI shows). Returns the exact integer weights and the
+// derived probabilities for the NEXT draw from this state's board.
+export function spawnDistribution(state) {
+  return distributionFor(state.board, state.spawn);
+}
+
+export function distributionFor(board, spawn) {
+  const p = spawn;
+  const M = boardMaxTier(board);
+  const centreMilli = p.centreBase + p.centreGain * Math.max(0, M - p.centreStart);
+  const ceiling = Math.max(p.ceilingMin, Math.ceil(centreMilli / 1000) + p.ceilingSpread);
+  const entries = [];
+  let total = 0;
+  for (let t = 1; t <= ceiling; t++) {
+    const d = Math.abs(1000 * t - centreMilli);
+    const w = Math.max(p.peakWeight - Math.floor((p.slope * d) / 1000), p.floorWeight);
+    total += w;
+    entries.push({ tier: t, value: 2 ** t, weight: w });
+  }
+  for (const e of entries) e.probability = e.weight / total;
+  return { centreMilli, ceiling, total, entries };
+}
+
+function drawValue(state) {
+  const dist = distributionFor(state.board, state.spawn);
+  const k = pcgNext(state.rng) % dist.total;
+  let cum = 0;
+  for (const e of dist.entries) {
+    cum += e.weight;
+    if (k < cum) return e.value;
+  }
+  // Unreachable: k < total and the cumulative sum ends at total.
+  return dist.entries[dist.entries.length - 1].value;
+}
+
+// ---------------------------------------------------------------------------
 // State
 //
 // board: 5 column arrays, bottom-up; board[c][r] is the value at column c,
 // row r (row 0 is the floor of the board). Gravity is always settled between
 // moves, so a value's index in its column array IS its row.
 //
-// Spawning: one uniform tier-offset draw (0..3) per block, in fixed order, one
-// draw per block. The offset binds to a value at the block's own spawn time
-// (value = floor * 2^offset with the floor as it stands then), so a floor rise
-// during the previous resolution shifts the previewed value with it and a
-// retired tier can never spawn (RULES 3, "no new blocks of their tier will
-// spawn"). The preview is always honest: it shows floor * 2^nextOffset.
+// Draw timing (RULES 3): the next block's value is drawn at the moment the
+// current block enters play, from the board as it then stands. The preview
+// (state.nextValue) is exactly the value that will spawn next.
 
-function drawOffset(rng) {
-  // 2^32 is divisible by WINDOW_SIZE, so the modulo is exactly uniform.
-  return pcgNext(rng) % RULES.WINDOW_SIZE;
-}
-
-export function newGame(seed) {
+export function newGame(seed, spawn = CONFIG.spawn) {
   const seedBig = BigInt(seed) & MASK64;
   const rng = pcgInit(seedBig, RULES.PCG_SEQ);
   const state = {
     seed: seedBig.toString(),
     rng,
-    floor: RULES.FLOOR_START,
+    spawn: checkSpawnParams({ ...spawn }),
     board: Array.from({ length: RULES.COLS }, () => []),
     current: 0, // value of the falling block
-    nextOffset: 0, // tier offset drawn for the block after it
+    nextValue: 0, // the drawn value of the block after it (the preview)
     score: 0,
     blocksPlaced: 0,
     maxTile: 0,
@@ -82,24 +139,23 @@ export function newGame(seed) {
     moveCount: 0,
     status: 'playing',
   };
-  state.current = state.floor * 2 ** drawOffset(rng);
-  state.nextOffset = drawOffset(rng);
+  state.current = drawValue(state);
+  state.nextValue = drawValue(state);
   return state;
 }
 
 // Construct a state from an arbitrary position (test suites and the later AI's
 // search both need hypothetical positions). Overrides are optional; anything
 // not given comes from the seeded generator as in newGame.
-export function fromPosition({ seed = 1, board, floor, current, nextOffset }) {
-  const state = newGame(seed);
-  if (floor !== undefined) state.floor = floor;
+export function fromPosition({ seed = 1, board, current, nextValue, spawn }) {
+  const state = newGame(seed, spawn ?? CONFIG.spawn);
   if (board !== undefined) {
     if (board.length !== RULES.COLS) throw new Error('board must have 5 columns');
     state.board = board.map((col) => col.slice());
     state.maxTile = Math.max(0, ...state.board.flat());
   }
   if (current !== undefined) state.current = current;
-  if (nextOffset !== undefined) state.nextOffset = nextOffset;
+  if (nextValue !== undefined) state.nextValue = nextValue;
   return state;
 }
 
@@ -107,19 +163,15 @@ export function cloneState(state) {
   return {
     ...state,
     rng: { state: state.rng.state, inc: state.rng.inc },
+    spawn: { ...state.spawn },
     board: state.board.map((col) => col.slice()),
     mergeCounts: { ...state.mergeCounts },
   };
 }
 
-// The current spawn window, lowest tier first (RULES 3).
-export function spawnWindow(state) {
-  return Array.from({ length: RULES.WINDOW_SIZE }, (_, i) => state.floor * 2 ** i);
-}
-
-// The next block's value as it stands now (honest preview; rebinds on rise).
+// The next block's value as drawn (honest preview; RULES 3).
 export function previewValue(state) {
-  return state.floor * 2 ** state.nextOffset;
+  return state.nextValue;
 }
 
 // ---------------------------------------------------------------------------
@@ -199,7 +251,7 @@ function applyPass(state, groups, chain, lockedCell) {
 
 // ---------------------------------------------------------------------------
 // The move (RULES 4, 5, 6): lock the falling block in a column, resolve,
-// rise the floor, check game over, spawn the next block.
+// check game over, spawn the next block.
 
 export function play(prev, col) {
   if (prev.status !== 'playing') throw new Error('game is over');
@@ -208,7 +260,7 @@ export function play(prev, col) {
   }
   const state = cloneState(prev);
   const value = state.current;
-  const lockedRow = state.board[col].length; // may be 7: the overflow lock (RULES 6)
+  const lockedRow = state.board[col].length; // may be 6: the overflow lock (RULES 6)
   state.board[col].push(value);
   state.blocksPlaced += 1;
   state.maxTile = Math.max(state.maxTile, value);
@@ -217,7 +269,6 @@ export function play(prev, col) {
   const events = {
     locked: { col, row: lockedRow, value },
     passes: [],
-    floorRose: null,
     gameOver: false,
     spawned: null,
   };
@@ -225,7 +276,7 @@ export function play(prev, col) {
   // Resolution: lock pass at chain index 1, each cascade pass one higher; all
   // groups in a pass merge simultaneously and share its index (RULES 4, 5).
   let chain = 0;
-  let lockedCell = { c: col, r: lockedRow };
+  const lockedCell = { c: col, r: lockedRow };
   let groups = findGroups(state.board);
   while (groups.length) {
     chain += 1;
@@ -234,12 +285,6 @@ export function play(prev, col) {
   }
   state.longestChain = Math.max(state.longestChain, chain);
 
-  // Floor rise, after full resolution, no purge (RULES 3).
-  const boardMax = Math.max(0, ...state.board.flat());
-  const floorBefore = state.floor;
-  while (boardMax >= RULES.RISE_RATIO * state.floor) state.floor *= 2;
-  if (state.floor !== floorBefore) events.floorRose = { from: floorBefore, to: state.floor };
-
   // Game over: a column still above legal height after full resolution (RULES 6).
   if (state.board.some((column) => column.length > RULES.ROWS)) {
     state.status = 'over';
@@ -247,9 +292,10 @@ export function play(prev, col) {
     return { state, events };
   }
 
-  // Spawn: the queued offset binds to a value now, under the current floor.
-  state.current = state.floor * 2 ** state.nextOffset;
-  state.nextOffset = drawOffset(state.rng);
+  // Spawn (RULES 3 draw timing): the previewed value enters play, and the
+  // block after it is drawn now, from the board as it now stands.
+  state.current = state.nextValue;
+  state.nextValue = drawValue(state);
   events.spawned = { value: state.current };
   return { state, events };
 }
@@ -273,10 +319,10 @@ function canonical(state) {
     state.seed,
     state.rng.state.toString(),
     state.rng.inc.toString(),
-    state.floor,
+    SPAWN_PARAM_NAMES.map((name) => state.spawn[name]).join(','),
     state.board.map((col) => col.join(',')).join(';'),
     state.current,
-    state.nextOffset,
+    state.nextValue,
     state.score,
     state.blocksPlaced,
     state.moveCount,
@@ -285,14 +331,17 @@ function canonical(state) {
 }
 
 // ---------------------------------------------------------------------------
-// Replays. Schema v1, versioned from day one:
-//   {version: 1, seed, moves: [col, ...],
+// Replays. Schema v2 (v1 predates rules v1.1 and does not replay):
+//   {version: 2, seed, spawn: {the eight curve parameters},
+//    moves: [col, ...],
 //    meta: {date, player, result: {score, maxTile, blocksPlaced,
 //           mergeCounts, longestChain, finalHash, durationMs?, moveTimestamps?}},
 //    reasoning?: [{text, features: {name: score, ...}}, ...]}  -- one entry per
-// move; human replays omit reasoning[], the Phase 3 AI fills it.
+// move; human replays omit reasoning[], the Phase 3 AI fills it. The embedded
+// spawn parameters make a replay verify under its own tuning, whatever the
+// config says later.
 
-export const REPLAY_VERSION = 1;
+export const REPLAY_VERSION = 2;
 
 export function resultMetrics(state) {
   return {
@@ -305,17 +354,27 @@ export function resultMetrics(state) {
   };
 }
 
-export function makeReplay(seed, moves, meta = {}) {
-  return { version: REPLAY_VERSION, seed: String(seed), moves: moves.slice(), meta };
+export function makeReplay(seed, moves, meta = {}, spawn = CONFIG.spawn) {
+  return {
+    version: REPLAY_VERSION,
+    seed: String(seed),
+    spawn: { ...spawn },
+    moves: moves.slice(),
+    meta,
+  };
 }
 
 // Re-run a replay through the engine. onMove, if given, is called with
 // (index, move, state, events) after each move.
 export function runReplay(replay, onMove) {
+  if (replay.version === 1) {
+    throw new Error('this is a format v1 replay from rules v1.0; the spawn '
+      + 'model changed in v1.1 and v1 replays cannot be replayed correctly');
+  }
   if (replay.version !== REPLAY_VERSION) {
     throw new Error(`unsupported replay version ${replay.version}`);
   }
-  let state = newGame(replay.seed);
+  let state = newGame(replay.seed, replay.spawn ?? CONFIG.spawn);
   replay.moves.forEach((move, i) => {
     const out = play(state, move);
     state = out.state;

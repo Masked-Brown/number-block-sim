@@ -8,7 +8,7 @@ const T = () => CONFIG.board.tilePx;
 const G = () => CONFIG.board.gapPx;
 const PAD = 10; // inner padding of the board box, px
 
-// Visible rows: the 7 legal rows plus the overflow row a clutch lock uses.
+// Visible rows: the 6 legal rows plus the overflow row a clutch lock uses.
 const VISIBLE_ROWS = RULES.ROWS + 1;
 
 export function boardSize() {
@@ -22,6 +22,11 @@ export function leftFor(c) { return PAD + c * (T() + G()); }
 // y is a row in cell units, 0 = bottom; fractional y positions the falling block.
 export function topFor(y) { return PAD + (VISIBLE_ROWS - 1 - y) * (T() + G()); }
 
+// Pixel centre of a cell, for effect positioning.
+export function cellCentre(c, r) {
+  return { x: leftFor(c) + T() / 2, y: topFor(r) + T() / 2 };
+}
+
 export function fontSizeFor(value) {
   const digits = String(value).length;
   const base = T();
@@ -31,20 +36,25 @@ export function fontSizeFor(value) {
   return base * 0.25;
 }
 
-export function makeTileEl(value, floor) {
+export function makeTileEl(value) {
   const el = document.createElement('div');
   el.className = 'tile';
   el.textContent = String(value);
-  el.style.background = tileColour(value);
+  const colour = tileColour(value);
+  el.style.background = colour;
   el.style.fontSize = `${fontSizeFor(value)}px`;
   el.style.borderRadius = `${CONFIG.board.radiusPx}px`;
-  if (floor !== undefined && value < floor) el.classList.add('retired');
+  if (value >= CONFIG.colours.heavyValue) {
+    el.classList.add('heavy');
+    el.style.setProperty('--glow', `${colour}66`);
+  }
   return el;
 }
 
 export function styleMiniTile(el, value) {
   el.textContent = String(value);
   el.style.background = tileColour(value);
+  el.style.borderRadius = `${CONFIG.board.radiusPx}px`;
 }
 
 // A board view owns one .board element and re-renders settled tiles from a
@@ -67,7 +77,7 @@ export function createBoardView(container) {
     layer.textContent = '';
     for (let c = 0; c < RULES.COLS; c++) {
       for (let r = 0; r < state.board[c].length; r++) {
-        const el = makeTileEl(state.board[c][r], state.floor);
+        const el = makeTileEl(state.board[c][r]);
         el.classList.add('no-anim');
         el.style.left = `${leftFor(c)}px`;
         el.style.top = `${topFor(r)}px`;
@@ -78,6 +88,9 @@ export function createBoardView(container) {
         layer.appendChild(el);
       }
     }
+    // Ambient danger state: any column near full pulls the board into red.
+    const danger = state.board.some((col) => col.length >= CONFIG.fx.dangerHeight);
+    container.classList.toggle('danger', danger);
   }
 
   function flashCells(cells) {
@@ -87,5 +100,9 @@ export function createBoardView(container) {
     }
   }
 
-  return { el: container, layer, render, flashCells };
+  function tileAt(c, r) {
+    return layer.querySelector(`[data-cell="${c},${r}"]`);
+  }
+
+  return { el: container, layer, render, flashCells, tileAt };
 }
