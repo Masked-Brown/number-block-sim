@@ -1,4 +1,4 @@
-<!-- generated: sweep.py | 2026-08-05T15:50:45 | corpus: d2892aaa | oldest: 2026-08-05 | oldest-listed: 2026-08-05 | self: edce769c - do not hand-edit -->
+<!-- generated: sweep.py | 2026-08-05T16:10:14 | corpus: 14597cc5 | oldest: 2026-08-05 | oldest-listed: 2026-08-05 | self: f8a7649c - do not hand-edit -->
 # gap-queue.md -- queued gap: items, minus drained; counted (review-closable) then listed-not-counted (human-gated / product-zone) [D96]
 
 counted (review-closable; these count toward the review-warranted verdict):
@@ -10,5 +10,6 @@ listed, not counted (human-gated / product-zone; ride the handoff for visibility
 - 2f98c89f3276 | route: product-zone | target: n/a | `03_train/output/DECISION_LOG.md` (expectimax design entry) records "the peek is now | source: 0019_adversarial-audit-training_2026-08-05.md
 - 348fc25403cd | route: human-gated | target: n/a | `_chronicle/LOG_PROMPT.md` (Part 2, lines 40 to 48 and 88) instructs a journal author to | source: 0003_validate-icm-seeding_2026-08-05.md
 - 49b8a47fb286 | route: product-zone | target: n/a | _config/CONTEXT.md's working rules still state the machine-readable constants extract | source: 0008_build-game-engine-cinema_2026-08-05.md
+- 8574e31e5271 | route: product-zone | target: n/a | 03_train/ and docs/ carry four work items the adversarial audit raised as proposals, staged | source: 0020_loop-review-audit-proposals-to-product-queue_2026-08-05.md
 - c87be31d365e | route: product-zone | target: n/a | `01_rules/CONTEXT.md`'s Process section still reads "New spec version = new file, prior | source: 0006_lock-rules-reconcile-canon_2026-08-05.md
 - db7c19040554 | route: product-zone | target: n/a | `03_train/CONTEXT.md` lines 32 and 48 still describe the scoring equation as blocked on | source: 0006_lock-rules-reconcile-canon_2026-08-05.md
