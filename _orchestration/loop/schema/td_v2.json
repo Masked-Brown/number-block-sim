@@ -1,0 +1,63 @@
+{
+  "version": 2,
+  "requires_schema_field": true,
+  "introduced": "2026-07-21",
+  "note": "The v2 contract per LOOP_SPEC 1.2, authored 2026-07-20 (W2). 'introduced' is the dated-fallback cutoff: a touchdown with no schema: field dated before this date validates against td_v1; dated on or after it, it quarantines with reason schema-missing. Set to the day after the W2 build so the whole pre-existing corpus (dated up to 2026-07-20) falls back to v1, per the migration battery. The harvested field is gone: location is the state (LOOP_SPEC 1.6). Optional sections 'Verified edits' and 'Norm candidates' are the review's output surfaces (actor: review). The deliverables rule is NORMS B6: no listed deliverable path may point into _tmp/. Never edit this file; a new contract is a new version file [D5].",
+  "filename_pattern": "^(\\d{4})_(.+)_(\\d{4}-\\d{2}-\\d{2})\\.md$",
+  "frontmatter": {
+    "required": {
+      "schema": "^2$",
+      "actor": "^(job|review|bee)$",
+      "bee": "^.+$",
+      "slug": "^.+$",
+      "job": "^\\d{4}$",
+      "date": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "optional": {
+      "model": "^.+$",
+      "effort": "^.+$"
+    },
+    "allow_extra": true
+  },
+  "sections": {
+    "required": [
+      "Aim",
+      "What it was told",
+      "What it did",
+      "Deliverables",
+      "How it went",
+      "Correction passes",
+      "Any errors",
+      "Map flags",
+      "Gaps",
+      "Resolutions",
+      "Proposals",
+      "_tmp outputs"
+    ],
+    "optional": [
+      "Verified edits",
+      "Norm candidates"
+    ],
+    "allow_extra": true
+  },
+  "routing": {
+    "errors_section": "Any errors",
+    "status_marker": "-- status: (open|recovered)",
+    "flags_section": "Map flags",
+    "flag_fields": ["Map", "Op", "Old", "New", "Evidence"],
+    "gaps_section": "Gaps",
+    "gap_fact_marker": "gap-fact:",
+    "gap_marker": "gap:",
+    "resolutions_section": "Resolutions",
+    "resolve_marker": "resolves:",
+    "proposals_section": "Proposals",
+    "verified_edits_section": "Verified edits",
+    "verified_edit_marker": "Verified-edit:",
+    "norm_candidates_section": "Norm candidates",
+    "norm_candidate_fields": ["Candidate", "Check", "Red-case"]
+  },
+  "deliverables": {
+    "section": "Deliverables",
+    "forbid_prefixes": ["_tmp/"]
+  }
+}

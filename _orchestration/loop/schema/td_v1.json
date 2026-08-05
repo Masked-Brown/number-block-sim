@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "requires_schema_field": false,
+  "introduced": null,
+  "note": "Derived 2026-07-20 (W2) from the actual 15-file corpus in _coordination/touchdowns/completed/: uniform frontmatter bee/slug/job/date/harvested (model and effort present throughout but optional to the contract), the nine template sections of _canonical/CC_TOUCHDOWN.md, extra sections tolerated (0013/0014 carry '## Close: commit and push (the closing act)'). harvested accepts true and false: 0014 sits in completed/ with harvested: false by its work order's design. This version is the dated-fallback target for touchdowns predating the schema: field (cutoff: td_v2.json 'introduced'). Never edit this file; a new contract is a new version file [D5].",
+  "filename_pattern": "^(\\d{4})_(.+)_(\\d{4}-\\d{2}-\\d{2})\\.md$",
+  "frontmatter": {
+    "required": {
+      "bee": "^.+$",
+      "slug": "^.+$",
+      "job": "^\\d{4}$",
+      "date": "^\\d{4}-\\d{2}-\\d{2}$",
+      "harvested": "^(true|false)$"
+    },
+    "optional": {
+      "model": "^.+$",
+      "effort": "^.+$"
+    },
+    "allow_extra": true
+  },
+  "sections": {
+    "required": [
+      "Aim",
+      "What it was told",
+      "What it did",
+      "How it went",
+      "Correction passes",
+      "Any errors",
+      "Now update",
+      "Map flags",
+      "_tmp outputs"
+    ],
+    "allow_extra": true
+  },
+  "routing": {
+    "errors_section": "Any errors",
+    "status_marker": "-- status: (open|recovered)",
+    "flags_section": "Map flags",
+    "flag_fields": ["Map", "Op", "Old", "New", "Evidence"],
+    "legacy_now_update_section": "Now update",
+    "legacy_harvested_gate": true
+  },
+  "deliverables": null
+}
