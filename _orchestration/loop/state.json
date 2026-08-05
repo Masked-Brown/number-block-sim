@@ -16,36 +16,17 @@
     "hash": "0dc6f455",
     "lines": 105
   },
-  "deadman_last_age_seconds": 274.3675615787506,
-  "handoff": {
-    "ask": null,
-    "items": [
-      "21c4a6c15e12",
-      "3db578ec64e5",
-      "84c1f269d82a",
-      "bdd032f8032b",
-      "c74b9bae73f8"
-    ],
-    "listed": [
-      "348fc25403cd (human-gated)",
-      "49b8a47fb286 (product-zone)",
-      "c87be31d365e (product-zone)",
-      "db7c19040554 (product-zone)"
-    ],
-    "recorded": "2026-08-05T11:12:06",
-    "trigger": [
-      "unconsidered proposals over threshold (5, oldest 0d)"
-    ]
-  },
+  "deadman_last_age_seconds": 140.9695291519165,
+  "handoff": null,
   "human_breaches": [],
-  "last_review": "2026-08-05T11:12:06",
-  "last_verdict": "review-warranted",
+  "last_review": "2026-08-05T11:39:53",
+  "last_verdict": "clean",
   "map_hashes": {},
   "quarantine_count": 0,
   "review_not_converging": false,
   "schema": 1,
   "state_file_was_missing": false,
-  "trailer_audit_baseline": "73390343d1349a7f6ec164268d27e5c3537c8f45",
+  "trailer_audit_baseline": "546d2921ec85019b7a68550119acb6626394b890",
   "trigger_history": [
     [
       "61753e0b24a7",
@@ -59,5 +40,5 @@
       "c74b9bae73f8"
     ]
   ],
-  "written": "2026-08-05T11:12:06"
+  "written": "2026-08-05T11:39:53"
 }

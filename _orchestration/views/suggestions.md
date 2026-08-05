@@ -1,8 +1,5 @@
-<!-- generated: sweep.py | 2026-08-05T11:12:06 | corpus: 32920521 | oldest: 2026-08-05 | self: d496b1f1 - do not hand-edit -->
+<!-- generated: sweep.py | 2026-08-05T11:39:53 | corpus: dc273572 | oldest: 2026-08-05 | self: bb034c87 - do not hand-edit -->
 # suggestions.md -- fenced proposals, minus those a closure fact folds or declines by id
 
-- 21c4a6c15e12 | 2026-08-05 | Give `sweep.py --apply` and `commit_safe.py` a `--no-push` flag that records the choice in the | source: 0003_validate-icm-seeding_2026-08-05.md
 - 3db578ec64e5 | 2026-08-05 | Give `docs/` a zone class, then make the loop agree with it. `docs/` is now a live directory | source: 0009_loop-review-docs-zone-and-prime-stale_2026-08-05.md
-- 84c1f269d82a | 2026-08-05 | Consider a one-line addition to norm B12 or to `_chronicle/prompts/CONTEXT.md` settling whether | source: 0003_validate-icm-seeding_2026-08-05.md
 - bdd032f8032b | 2026-08-05 | Retire the two inherited note strings in `sweep.py` so this venture's frozen records stop | source: 0007_loop-review-inherited-note-strings_2026-08-05.md
-- c74b9bae73f8 | 2026-08-05 | Consider porting the cross-venture sections of a sibling's ORCHESTRATOR_PROFILE.md (How AB | source: 0001_seed-icm-infrastructure_2026-08-05.md
